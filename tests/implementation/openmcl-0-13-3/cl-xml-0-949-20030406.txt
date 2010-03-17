@@ -1,0 +1,1040 @@
+#<BROADCAST-STREAM #x53AFCE6>
+"6.4"
+"Unknown"
+"Version (Beta: Darwin) 0.13.3"
+T
+;Loading #P"/Development/Source/cl-xml-0-949/load-clhttp-instanceNames.lisp"...
+;Loading #P"/Development/Source/cl-xml-0-949/library/define-system.lisp"...
+;Loading #P"/Development/Source/cl-xml-0-949/sysdcl.lisp"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/patch/cmucl.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/library/de/setf/utility/package.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/library/de/setf/utility/string.dfsl"...
+;Compiler warnings for "/Development/Source/Library/LISP/de/setf/utility/conditions.LISP" :
+;   Unused lexical variable CONDITION, in an anonymous lambda form inside an anonymous lambda form.
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/library/de/setf/utility/conditions.dfsl"...
+;Compiler warnings for "/Development/Source/Library/LISP/de/setf/utility/test.LISP" :
+;   Unused lexical variable WINDOW-TITLE-P, in TEST-OUTPUT.
+;   Unused lexical variable WINDOW-TITLE, in TEST-OUTPUT.
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/library/de/setf/utility/test.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/base/package.dfsl"...
+;Loading #P"/Applications/ccl/library/loop.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/clifs/inference-system-classes.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/clifs/inference-units.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/atn-parameters.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/atn-classes.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/atn-macros.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/ebnf-tokenizer.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/ebnf-to-atn-translator.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/atn-macro-to-canonic-form.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/ebnf-grammar.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/atn-runtime.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/conditions.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/atn-lisp-compiler.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-parser/atn-regex.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/base/parameters.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/base/cllib.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/base/utils.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/base/parsetable.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/base/vector-stream.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/base/www-utils-ersatz.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/base/tokenizer.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/base/conditions.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/xqdm-namespaces.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/xqdm-parameters.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/xqdm-character-classes.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/xqdm-classes.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/xsd-types.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/conditions/names/conditions.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/conditions/node/conditions.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/conditions/model/conditions.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/xqdm-operators.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/xqdm-validation.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/qname-resolution.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/xqdm-graph.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/node-path-walk.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/xqdm-walk.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xquerydatamodel/xqdm-walk-accessors.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/xml-parameters.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/conditions/codec/conditions.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/xml-stream-coding.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/xml-operators.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/xml-readers.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/xml-tokenizer.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/xml-processing-instruction.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/xml-constructors.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-lib/xml-grammar.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/xml-parser.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/atn-lib/xml-grammar.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/xml-printer.dfsl"...
+;Loading #P"/Development/Source/cl-xml-0-949/bin/omclfasl/code/xparser/xml-writer.dfsl"...
+;Compiler warnings for "/Development/Source/Library/LISP/de/setf/utility/package.LISP" :
+;   Undefined function ED, in (DE.SETF.UTILITY.PACKAGE:EDIT-PACKAGE (LOGICAL-PATHNAME)) inside an anonymous lambda form.
+;Compiler warnings :
+;   Undefined function ED, in (EXECUTE-SYSTEM-OPERATIONS (CONS CONS)) inside an anonymous lambda form.
+#P"/Development/Source/cl-xml-0-949/load-clhttp-instanceNames.lisp"
+;Loading #P"/Development/Source/cl-xml-0-949/tests/xquerydatamodel/model.LISP"...
+;Loading #P"/Development/Source/cl-xml-0-949/tests/parser/bom.LISP"...WFC: External Parsed Entity signaled:
+entity identified as (SYSTEM "ent2.ent" PUBLIC NIL) does not have the form of an external parsed entity:
+WFC: Legal Character signaled:
+character name/code error: "u+FEFF"/#xFEFF (not supported).
+parser error with-state #<XML-PARSE-STATE :sources NIL :input NIL :token NIL :lexical-context |TextDecl| :source #<XML-INPUT #x5A32F26> :term |xml|:/> :non-terminal |xml|:> :stack NIL >.
+parser error with-state #<XML-PARSE-STATE :sources NIL :input #\< :token NIL :lexical-context |Content| :source #<XML-INPUT #x5A3217E> :term |xml|:/> :non-terminal |xml|:> :stack NIL >.WFC: External Parsed Entity signaled:
+entity identified as (SYSTEM "ent2x.ent" PUBLIC NIL) does not have the form of an external parsed entity:
+WFC: Legal Character signaled:
+character name/code error: "u+FEFF"/#xFEFF (not supported).
+parser error with-state #<XML-PARSE-STATE :sources NIL :input |xml|:|<?xml| :token NIL :lexical-context |TextDecl| :source #<XML-INPUT #x5A3E5BE> :term |xml|:/> :non-terminal |xml|:> :stack NIL >.
+parser error with-state #<XML-PARSE-STATE :sources NIL :input #\< :token NIL :lexical-context |Content| :source #<XML-INPUT #x5A3D806> :term |xml|:/> :non-terminal |xml|:> :stack NIL >.
+((#P"/Documents/Standards/XML/XMLConf/bomtest/doc.xml"
+  #<DOC-NODE <no uri> #x5A257DE> :UTF-8 NIL)
+ (#P"/Documents/Standards/XML/XMLConf/bomtest/docx.xml"
+  #<DOC-NODE <no uri> #x5A295F6> :UTF-8 NIL)
+ (#P"/Documents/Standards/XML/XMLConf/bomtest/ent.xml"
+  #<DOC-NODE file:///Documents/Standards/XML/XMLConf/bomtest/ent.xml #x5A2BFFE>
+  :UTF-8 :UTF-8)
+ (#P"/Documents/Standards/XML/XMLConf/bomtest/ent2.xml"
+  #<|WFC: External Parsed Entity| #x5A33436>)
+ (#P"/Documents/Standards/XML/XMLConf/bomtest/ent2x.xml"
+  #<|WFC: External Parsed Entity| #x5A3E85E>)
+ (#P"/Documents/Standards/XML/XMLConf/bomtest/entx.xml"
+  #<DOC-NODE file:///Documents/Standards/XML/XMLConf/bomtest/entx.xml #x5A3F126>
+  :UTF-8 :UTF-8))
+;Loading #P"/Development/Source/cl-xml-0-949/tests/parser/document-internal.LISP"...
+;Loading #P"/Development/Source/cl-xml-0-949/tests/parser/document-external.LISP"...#<DOC-NODE file://xml/Tests/xml/channel.xml #x5BE8FB6>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5A14276>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|Channel| 1 #x5BFC4F6>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|Channel| #x5BFC166>
+ROOT: #<ELEM-NODE ||::|Channel| 1 #x5BFC4F6>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x5BE930E>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x5BE95CE>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x5BE8F5E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x5BE9B4E>
+TYPES: #<HASH-TABLE :TEST EQL size 27/60 #x5BE9E0E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<DOC-NODE file://xml/Tests/xml/channel.xml #x5C097D6>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5A14276>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|Channel| 1 #x5C1CCAE>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|Channel| #x5C1C91E>
+ROOT: #<ELEM-NODE ||::|Channel| 1 #x5C1CCAE>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x5C09B2E>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x5C09DEE>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x5C0977E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x5C0A36E>
+TYPES: #<HASH-TABLE :TEST EQL size 27/60 #x5C0A62E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<DOC-NODE file://xml/Tests/xml/email.xml #x5C29CA6>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5A14276>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x5C2BA3E> #<ELEM-NODE ||::|mail| 1 #x5C2F666>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|mail| #x5C2F55E>
+ROOT: #<ELEM-NODE ||::|mail| 1 #x5C2F666>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x5C29FFE>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x5C2A2BE>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 7/60 #x5C29C4E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x5C2A83E>
+TYPES: #<HASH-TABLE :TEST EQL size 9/60 #x5C2AAFE>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<DOC-NODE file://xml/Tests/xml/lisp.xml #x5C331DE>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5A14276>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE |lisp as xml|::LISP 1 #x5C48BAE>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE |-//mecomnet.de//DTD Lisp (sort of)//en|::LISP #x5C48716>
+ROOT: #<ELEM-NODE |lisp as xml|::LISP 1 #x5C48BAE>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x5C33536>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x5C337F6>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x5C33186>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x5C33D76>
+TYPES: #<HASH-TABLE :TEST EQL size 43/60 #x5C34036>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<DOC-NODE file://xml/Tests/xml/real-mini-aleph-het.xml #x5C55686>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5A14276>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::DICTIONARY 1 #x5C5FEE6>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::DICTIONARY #x5C5FDC6>
+ROOT: #<ELEM-NODE ||::DICTIONARY 1 #x5C5FEE6>
+STANDALONE: NIL
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x5C559DE>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 11/60 #x5C55C9E>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x5C5562E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 2/60 #x5C5621E>
+TYPES: #<HASH-TABLE :TEST EQL size 13/60 #x5C564DE>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<DOC-NODE file://xml/standards/XML/REC-xml-20001006.xml #x569662E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682F5E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|spec| 1 #x578509E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|spec| #x5784E56>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x578509E>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x5696916>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 298/305 #x5696BC6>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 29/60 #x56965EE>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 74/90 #x5696E76>
+TYPES: #<HASH-TABLE :TEST EQL size 157/203 #x5697126>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<DOC-NODE file://xml/standards/XML/REC-xml-20001006.xml #x569ECB6>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682F5E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|spec| 1 #x57176AE>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|spec| #x5717536>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x57176AE>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x569EF9E>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 298/305 #x569EFE6>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 29/60 #x569EC76>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 74/90 #x569F02E>
+TYPES: #<HASH-TABLE :TEST EQL size 157/203 #x569F076>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<DOC-NODE file://xml/standards/XML/W3CSchema/XMLSchema.xsd #x57B242E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682F5E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x57B424E> #<COMMENT-NODE #x57B42E6>
+           #<COMMENT-NODE #x57B4366> #<COMMENT-NODE #x57B43E6>
+           #<COMMENT-NODE #x57B4466>
+           #<ELEM-NODE |http://www.w3.org/2001/XMLSchema|::|schema| 1 #x580763E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE |http://www.w3.org/2001/XMLSchema|::|schema| #x5806AB6>
+ROOT: #<ELEM-NODE |http://www.w3.org/2001/XMLSchema|::|schema| 1 #x580763E>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 2/60 #x57B2786>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 130/135 #x57B2A46>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x57B23D6>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 114/135 #x57B2FC6>
+TYPES: #<HASH-TABLE :TEST EQL size 44/60 #x57B3286>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+Symbol: |Document|
+Function
+INTERNAL in package: #<Package "XML-PARSER">
+Print name: "Document"
+Value: #<Unbound>
+Function: #<Compiled-function |Document| #x5556D2E>
+Arglist: (BNF-PARSER::INDEX)
+Plist: (:PRODUCTION "
+{1 } Document ::= Prolog Root MiscSequence?"
+        :TERMS (|MiscSequence| |Prolog| |Root|) :PARSETABLE
+        |Document-Parsetable|)
+#<DOC-NODE file://xml/standards/XML/XMLConf/xmlbench/Benchmark/Data/REC.xml #x59A1CFE>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682F5E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x59A64A6> #<PI-NODE ||::VERBATIM '"eg" ' #x59A653E>
+           #<ELEM-NODE ||::|spec| 1 #x59A670E> #<COMMENT-NODE #x5B29156>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE #:|spec| #x59A63C6>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x59A670E>
+STANDALONE: NIL
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x59A2056>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x59A2316>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 26/60 #x59A1CA6>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x59A2896>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x59A2B56>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+Symbol: |Document|
+Function
+INTERNAL in package: #<Package "XML-PARSER">
+Print name: "Document"
+Value: #<Unbound>
+Function: #<Compiled-function |Document| #x5556D2E>
+Arglist: (BNF-PARSER::INDEX)
+Plist: (:PRODUCTION "
+{1 } Document ::= Prolog Root MiscSequence?"
+        :TERMS (|MiscSequence| |Prolog| |Root|) :PARSETABLE
+        |Document-Parsetable|)
+#<DOC-NODE <no uri> #x56A3156>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x56A4876> #<COMMENT-NODE #x56A4C46>
+           #<COMMENT-NODE #x56A4C9E> #<COMMENT-NODE #x56A4CDE>
+           #<COMMENT-NODE #x56A4D4E> #<COMMENT-NODE #x56A4D8E>
+           #<PI-NODE ||::VERBATIM '"eg" ' #x56A4DB6>
+           #<ELEM-NODE ||::|spec| 1 #x56A4E76> #<COMMENT-NODE #x590DB56>)
+ENTITY-INFO: #<ENTITY-INFORMATION-NODE ||::|| #x590DBF6>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x56A4E76>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x56A343E>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x56A36EE>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x56A3116>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x56A399E>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x56A3C4E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+Symbol: |Document|
+Function
+INTERNAL in package: #<Package "XML-PARSER">
+Print name: "Document"
+Value: #<Unbound>
+Function: #<Compiled-function |Document| #x555693E>
+Arglist: (BNF-PARSER::INDEX)
+Plist: (:PRODUCTION "
+{1 } Document ::= Prolog Root MiscSequence?"
+        :TERMS (|MiscSequence| |Prolog| |Root|) :PARSETABLE
+        |Document-Parsetable|)
+#<DOC-NODE file://xml/standards/XML/XMLConf/xmlbench/Benchmark/Data/med.xml #x56A316E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x56A5F5E> #<PI-NODE ||::VERBATIM '"eg" ' #x56A5F96>
+           #<ELEM-NODE ||::|spec| 1 #x56A6066> #<COMMENT-NODE #x59FADEE>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE #:|spec| #x56A5E8E>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x56A6066>
+STANDALONE: NIL
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x56A3456>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x56A3706>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 26/60 #x56A312E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x56A39B6>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x56A3C66>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+Symbol: |Document|
+Function
+INTERNAL in package: #<Package "XML-PARSER">
+Print name: "Document"
+Value: #<Unbound>
+Function: #<Compiled-function |Document| #x555693E>
+Arglist: (BNF-PARSER::INDEX)
+Plist: (:PRODUCTION "
+{1 } Document ::= Prolog Root MiscSequence?"
+        :TERMS (|MiscSequence| |Prolog| |Root|) :PARSETABLE
+        |Document-Parsetable|)
+#<DOC-NODE <no uri> #x56A317E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x56A489E> #<COMMENT-NODE #x56A4C6E>
+           #<COMMENT-NODE #x56A4CC6> #<COMMENT-NODE #x56A4D06>
+           #<COMMENT-NODE #x56A4D76> #<COMMENT-NODE #x56A4DB6>
+           #<PI-NODE ||::VERBATIM '"eg" ' #x56A4DDE>
+           #<ELEM-NODE ||::|spec| 1 #x56A4E9E> #<COMMENT-NODE #x5AF9C6E>)
+ENTITY-INFO: #<ENTITY-INFORMATION-NODE ||::|| #x5AF9D0E>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x56A4E9E>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x56A3466>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x56A3716>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x56A313E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x56A39C6>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x56A3C76>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+Symbol: |Document|
+Function
+INTERNAL in package: #<Package "XML-PARSER">
+Print name: "Document"
+Value: #<Unbound>
+Function: #<Compiled-function |Document| #x555693E>
+Arglist: (BNF-PARSER::INDEX)
+Plist: (:PRODUCTION "
+{1 } Document ::= Prolog Root MiscSequence?"
+        :TERMS (|MiscSequence| |Prolog| |Root|) :PARSETABLE
+        |Document-Parsetable|)
+#<DOC-NODE file://xml/standards/XML/XMLConf/xmlbench/Benchmark/Data/big.xml #x56A316E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x56A5F5E> #<PI-NODE ||::VERBATIM '"eg" ' #x56A5F96>
+           #<ELEM-NODE ||::|spec| 1 #x56A6066> #<COMMENT-NODE #x63C7D7E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE #:|spec| #x56A5E8E>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x56A6066>
+STANDALONE: NIL
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x56A3456>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x56A3706>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 26/60 #x56A312E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x56A39B6>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x56A3C66>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<DOC-NODE file://xml/standards/XML/XHTML-MODULAR/examples/inventory.xml #x59AD0E6>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE |http://www.example.com/xmlns/inventory|::|shelf| 1 #x59BCCC6>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|shelf| #x59BC72E>
+ROOT: #<ELEM-NODE |http://www.example.com/xmlns/inventory|::|shelf| 1 #x59BCCC6>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x59AD43E>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x59AD6FE>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x59AD08E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 37/60 #x59ADC7E>
+TYPES: #<HASH-TABLE :TEST EQL size 5/60 #x59ADF3E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<EXT-SUBSET-NODE #x59CD6EE>
+Class: #<STANDARD-CLASS EXT-SUBSET-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER EXT-SUBSET-NODE #x5688266>
+Instance slots
+PARENT: NIL
+ENTITY-INFO: #<ENTITY-INFORMATION-NODE ||::|| #x59CD6BE>
+CHILDREN: (#<COMMENT-NODE #x59C1A16> #<COMMENT-NODE #x59C1ABE>
+           #<COMMENT-NODE #x59C2256> #<COMMENT-NODE #x59C2336>
+           #<COMMENT-NODE #x59C23AE>
+           #<DEF-EXTERNAL-PARAMETER-ENTITY ||::|xhtml-datatypes.mod| #x59C2536>
+           #<COMMENT-NODE #x59C335E> #<COMMENT-NODE #x59C3406>
+           #<COMMENT-NODE #x59C469E> #<COMMENT-NODE #x59C4786>
+           #<COMMENT-NODE #x59C480E> #<COMMENT-NODE #x59C4896>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Length.datatype| 'CDATA' #x59C495E>
+           #<COMMENT-NODE #x59C49EE>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|LinkTypes.datatype| 'NMTOKENS' #x59C4AB6>
+           #<COMMENT-NODE #x59C4B5E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|MediaDesc.datatype| 'CDATA' #x59C4C26>
+           #<COMMENT-NODE #x59C4CB6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|MultiLength.datatype| 'CDATA' #x59C4D7E>
+           #<COMMENT-NODE #x59C4E0E> ...)
+#<DOC-NODE <no uri> #x59D03CE>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::PLAY 1 #x59D21AE>)
+ENTITY-INFO: #<ENTITY-INFORMATION-NODE ||::|| #x5BCB4CE>
+ROOT: #<ELEM-NODE ||::PLAY 1 #x59D21AE>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x59D0726>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x59D09E6>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x59D0376>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x59D0F66>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x59D1226>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+(|Document| (|MiscSequence| (|Misc|))
+            (|Prolog| (|MiscSequence| (|Misc|))
+                      (|XMLDecl| (|VersionInfo| (|VersionNumCharData| "1.0"))))
+            (|Root| (|Element| ((|Content| (|CharData|
+                                            "
+"))
+                                (|Content| (|Element|
+                                            ((|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #))
+                                            (|ETag| (|QName| #1="ACT"))
+                                            (|STag| (|QName| #1#))))
+                                (|Content| (|CharData|
+                                            "
+
+"))
+                                (|Content| (|Element|
+                                            ((|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #))
+                                            (|ETag| (|QName| #1#))
+                                            (|STag| (|QName| #1#))))
+                                (|Content| (|CharData|
+                                            "
+
+"))
+                                (|Content| (|Element|
+                                            ((|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #))
+                                            (|ETag| (|QName| #1#))
+                                            (|STag| (|QName| #1#))))
+                                (|Content| (|CharData|
+                                            "
+
+"))
+                                (|Content| (|Element|
+                                            ((|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #))
+                                            (|ETag| (|QName| #1#))
+                                            (|STag| (|QName| #1#))))
+                                (|Content| (|CharData|
+                                            "
+
+"))
+                                (|Content| (|Element|
+                                            ((|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #))
+                                            (|ETag| (|QName| #1#))
+                                            (|STag| (|QName| #1#))))
+                                (|Content| (|CharData|
+                                            "
+
+"))
+                                (|Content| (|Element|
+                                            ((|Content| #))
+                                            (|ETag| (|QName| #2="PLAYSUBT"))
+                                            (|STag| (|QName| #2#))))
+                                (|Content| (|CharData|
+                                            "
+
+"))
+                                (|Content| (|Element|
+                                            ((|Content| #))
+                                            (|ETag| (|QName| #3="SCNDESCR"))
+                                            (|STag| (|QName| #3#))))
+                                (|Content| (|CharData|
+                                            "
+
+"))
+                                (|Content| (|Element|
+                                            ((|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             ...)
+                                            (|ETag| (|QName| #4="PERSONAE"))
+                                            (|STag| (|QName| #4#))))
+                                (|Content| (|CharData|
+                                            "
+
+"))
+                                (|Content| (|Element|
+                                            ((|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #)
+                                             (|Content| #))
+                                            (|ETag| (|QName| #5="FM"))
+                                            (|STag| (|QName| #5#))))
+                                (|Content| (|CharData|
+                                            "
+
+"))
+                                (|Content| (|Element|
+                                            ((|Content| #))
+                                            (|ETag| (|QName| #6="TITLE"))
+                                            (|STag| (|QName| #6#))))
+                                ...)
+                               (|ETag| (|QName| #7="PLAY"))
+                               (|STag| (|QName| #7#)))))
+Type: CONS
+Class: #<BUILT-IN-CLASS CONS>
+Normal List
+Length: 4
+0: |Document|
+1: (|MiscSequence| (|Misc|))
+2: (|Prolog| (|MiscSequence| (|Misc|))
+             (|XMLDecl| (|VersionInfo| (|VersionNumCharData| "1.0"))))
+3: (|Root| (|Element| ((|Content| (|CharData| "
+"))
+                       (|Content| (|Element| ((|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #)))
+                                             (|ETag| (|QName| #1="ACT"))
+                                             (|STag| (|QName| #1#))))
+                       (|Content| (|CharData| "
+
+"))
+                       (|Content| (|Element| ((|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #)))
+                                             (|ETag| (|QName| #1#))
+                                             (|STag| (|QName| #1#))))
+                       (|Content| (|CharData| "
+
+"))
+                       (|Content| (|Element| ((|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #)))
+                                             (|ETag| (|QName| #1#))
+                                             (|STag| (|QName| #1#))))
+                       (|Content| (|CharData| "
+
+"))
+                       (|Content| (|Element| ((|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #)))
+                                             (|ETag| (|QName| #1#))
+                                             (|STag| (|QName| #1#))))
+                       (|Content| (|CharData| "
+
+"))
+                       (|Content| (|Element| ((|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+
+"))
+                                              (|Content| (|Element| # # #)))
+                                             (|ETag| (|QName| #1#))
+                                             (|STag| (|QName| #1#))))
+                       (|Content| (|CharData| "
+
+"))
+                       (|Content| (|Element| ((|Content|
+                                               (|CharData| "MACBETH")))
+                                             (|ETag| (|QName| #2="PLAYSUBT"))
+                                             (|STag| (|QName| #2#))))
+                       (|Content| (|CharData| "
+
+"))
+                       (|Content| (|Element| ((|Content|
+                                               (|CharData|
+                                                "SCENE  Scotland: England.")))
+                                             (|ETag| (|QName| #3="SCNDESCR"))
+                                             (|STag| (|QName| #3#))))
+                       (|Content| (|CharData| "
+
+"))
+                       (|Content| (|Element| ((|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              ...)
+                                             (|ETag| (|QName| #4="PERSONAE"))
+                                             (|STag| (|QName| #4#))))
+                       (|Content| (|CharData| "
+
+"))
+                       (|Content| (|Element| ((|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content|
+                                               (|CharData|
+                                                "
+")))
+                                             (|ETag| (|QName| #5="FM"))
+                                             (|STag| (|QName| #5#))))
+                       (|Content| (|CharData| "
+
+"))
+                       (|Content| (|Element| ((|Content|
+                                               (|CharData|
+                                                "The Tragedy of Macbeth")))
+                                             (|ETag| (|QName| #6="TITLE"))
+                                             (|STag| (|QName| #6#))))
+                       ...)
+                      (|ETag| (|QName| #7="PLAY"))
+                      (|STag| (|QName| #7#))))
+;Loading #P"/Development/Source/cl-xml-0-949/tests/parser/document-specialized.LISP"...#<DOC-NODE <no uri> #x58E4906>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682B3E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|envelope| 1 #x58E6756>)
+ENTITY-INFO: #<ENTITY-INFORMATION-NODE ||::|| #x58E6DAE>
+ROOT: #<ELEM-NODE ||::|envelope| 1 #x58E6756>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x58E4C5E>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x58E4F1E>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x58E48AE>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x58E549E>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x58E575E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<DOC-NODE <no uri> #x58E992E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x5682B3E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<|envelope| #x58EC00E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE |envelope| #x58EBE0E>
+ROOT: #<|envelope| #x58EC00E>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x58E9C86>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x58E9F46>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x58E98D6>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x58EA4C6>
+TYPES: #<HASH-TABLE :TEST EQL size 1/60 #x58EA786>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+;Loading #P"/Development/Source/cl-xml-0-949/tests/parser/qnames.lisp"...Symbol: |data:,ns-a|::|newElement|
+INTERNAL in package: #<Package "data:,ns-a">
+Print name: "newElement"
+Value: #<Unbound>
+Function: #<Unbound>
+Plist: (:PREFIX NIL)
+
+#<ELEM-NODE |data:,ns-a|::|newElement| #x590505E>
+Class: #<STANDARD-CLASS ELEM-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER ELEM-NODE #x5682A1E>
+Instance slots
+DOCUMENT: NIL
+ORDINALITY: NIL
+PARENT: NIL
+DEF: NIL
+NAME: |data:,ns-a|::|newElement|
+CHILDREN: ("... or not. if the model is complete,"
+           "operations are closed and the serialized form is NS-valid." "...")
+ATTRIBUTES: (#<QNAME-ATTR-NODE |data:,ns-a|::|test| #x590502E>)
+NAMESPACES: NIL
+VALID: #<Unbound>
+
+;Loading #P"/Development/Source/cl-xml-0-949/tests/parser/validation.lisp"...
+;Loading #P"/Development/Source/cl-xml-0-949/tests/parser/namespaces.lisp"...
+;Loading #P"/Development/Source/cl-xml-0-949/tests/parser/oasis.lisp"...
+(:CASES 1812 :CONFORMANT 1739 :DISCREPANT 63 :NONCONFORMANT 10 :ERRONEOUS 0) 
+(:CASES 1812 :CONFORMANT 1739 :DISCREPANT (63 "p04pass1.xml" "p05pass1.xml" "p11pass1.xml" "p66pass1.xml" "p06fail1.xml" "p08fail1.xml" "p08fail2.xml" "p16fail3.xml" "empty.xml" "id08.xml" "id09.xml" "not-sa01.xml" "not-sa02.xml" "not-sa03.xml" "not-sa04.xml" "not-sa05.xml" "not-sa06.xml" "not-sa07.xml" "not-sa08.xml" "not-sa09.xml" "not-sa10.xml" "not-sa11.xml" "not-sa12.xml" "not-sa13.xml" "not-sa14.xml" "pe01.xml" "ext01.xml" "notation01.xml" "432gewf.xml" "ibm29i01.xml" "ibm32i01.xml" "ibm32i02.xml" "ibm32i03.xml" "ibm32i04.xml" "ibm49i01.xml" "ibm50i01.xml" "ibm51i01.xml" "ibm56i08.xml" "ibm56i10.xml" "ibm02v01.xml" "ibm54v01.xml" "ibm58v01.xml" "ibm59v01.xml" "ibm66v01.xml" "074.xml" "104.xml" "115.xml" "117.xml" "119.xml" "120.xml" "181.xml" "182.xml" "001.xml" "002.xml" "003.xml" "006.xml" "003.xml" "012.xml" "052.xml" "064.xml" "076.xml" "089.xml" "090.xml") :NONCONFORMANT (10 "ibm85v01.xml" "ibm86v01.xml" "ibm87v01.xml" "ibm88v01.xml" "ibm89v01.xml" "014.xml" "050.xml" "051.xml" "062.xml" "063.xml") :ERRONEOUS (0)) 
+(#P"/Development/Source/cl-xml-0-949/tests/xquerydatamodel/model.LISP" #P"/Development/Source/cl-xml-0-949/tests/parser/bom.LISP" #P"/Development/Source/cl-xml-0-949/tests/parser/document-internal.LISP" #P"/Development/Source/cl-xml-0-949/tests/parser/document-external.LISP" #P"/Development/Source/cl-xml-0-949/tests/parser/document-specialized.LISP" #P"/Development/Source/cl-xml-0-949/tests/parser/qnames.lisp" #P"/Development/Source/cl-xml-0-949/tests/parser/validation.lisp" #P"/Development/Source/cl-xml-0-949/tests/parser/namespaces.lisp" #P"/Development/Source/cl-xml-0-949/tests/parser/oasis.lisp")
+(:XTESTS)

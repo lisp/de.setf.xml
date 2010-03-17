@@ -1,0 +1,45 @@
+19-sep-01
+
+Stanley Knutson (knewt@alum.mit.edu)
+
+Various items remaining here:
+
+- the sax-basics file still has some unused stuff
+
+- the CDATA handling in the sax api is not tested
+[Also, the underlying CL-XML does not pass data in reasonable chunks
+yet].  Not an issue for SOAP.
+
+- There is no SOAP 'writer' yet.
+
+- I've not yet verified this with many soap files. 
+The true test will be interoperation with Apache soap
+and that requires an HTTP 1.1 server
+
+- Numerous bits of SOAP are not implemented:
+TYPES:
+arrayCoordinate
+arrays with offset
+decimal type
+times [there are several kinds: time, date etc, duration, instances]
+uri reference
+binary
+long
+short
+byte
+unsigned-x types
+
+PROTOCOL:
+ID, IDREF, Entity, Notation,
+
+The envelope and body should have distinct classes
+so the headers can be properly handled [or generated]
+
+There needs to be a 'fault' class
+
+Various bits in the Apache Java API's would make sense to be copied
+in some fashion
+
+There is no support for UTF-8, just ISO-8859-1 right now
+[this may be fixable in the lower level xml parser]
+

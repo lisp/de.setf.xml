@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<library>
+  <!-- the isbn could have been an element -->
+  <book isbn='0-312-85172-3'>
+    <title>Aristoi</title>
+    <author>Walter Jon Williams</author>
+  </book>
+  <book isbn='0-812-51349-5'>
+    <title>Enders Game</title>
+    <author>Orson Scott Card</author>
+  </book>
+</library>

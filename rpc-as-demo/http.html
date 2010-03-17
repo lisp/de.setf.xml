@@ -1,0 +1,204 @@
+<html><head><title>http.lisp</title><style type='text/css'>
+body {background-color: #f4f4f8;}
+hr { clear: left;}
+*.logo { color: rgb(57%, 9.2%, 0%); }
+div.text { margin: 1ex; width: 30%; padding: 0; float:left; clear: left; }
+div.definition {
+  width: 65%; margin-left: auto; margin-right:1em; margin-top: .5ex; margin-bottom: .5ex; padding-left: 1em;
+  border: solid; border-width: 1px;
+  border-top-color: #e0e0e0; border-left-color: #e0e0e0; border-right-color: #ffffff; border-bottom-color: #ffffff;
+  background-color: #f6f6fa;
+  }
+div.definition div.signature {
+  margin-top: .1ex; margin-bottom: 0ex; font-family: 'courier';
+  }
+span.nature { float: right; }
+div.definition div.documentation {
+  visibility: visible; margin-left: 2em; margin-top: .1ex; margin-bottom: 0ex;
+  }
+div.definition div.form {
+  visibility: hidden; height: 0;
+  margin-left: 2em; margin-top: 0ex; margin-bottom: 0ex;  white-space: pre;
+  border-color: #e0e0e0;  border: solid; border-width: 1px;
+  font-family: 'courier';
+  background-color: #ffffff;
+  }
+div.source {
+  margin-right: 1em; margin-top: 1ex; margin-bottom: 1ex;  white-space: pre;  clear:left;
+  border-color: #e0e0e0;  border: solid; border-width: 1px;
+  font-family: 'courier';
+  background-color: #ffffff;
+  }
+div.file div.DOCUMENTATION { background-color: #f8f6fa; clear:left;
+                    border: solid; border-width: 1px;
+                    border-color: #e0e0e0;}
+</style>
+<script type='text/javascript'>
+  function showElement(target) {
+    target.style.visibility='visible';
+    target.style.height='auto';
+  }
+  function hideElement(target) {
+    target.style.visibility='hidden';
+    target.style.height='0';
+  }
+  function toggleDefinitionVisibility(name) {
+    formTarget = document.getElementById(name+'_form');
+    docTarget = document.getElementById(name+'_documentation');
+    if ( formTarget != undefined) {
+      if ( formTarget.style.visibility == 'visible' )
+        hideElement(formTarget);
+      else
+        showElement(formTarget);
+    }
+    if ( docTarget != undefined) {
+      if ( docTarget.style.visibility == 'hidden' )
+        showElement(docTarget);
+      else
+        hideElement(docTarget);
+    }
+  }
+  
+</script></head>
+<body>
+
+<div class='source' >(IN-PACKAGE :DE.SETF.UTILITY.IMPLEMENTATION)</div><table border='0' cellpadding='.1ex' cellspacing='0' width='100%'><tr><td style='font-size: 16pt; font-weight: bold;' class='logo'>setf.de:</td></tr><tr><td><a href='./http.lisp' type='text/plain'>http.lisp</a></td></tr><tr><td><hr/></td></tr></table>
+<div class='definition' ID='DE.SETF.HTTP'>
+  <div class='signature' ><span>DE.SETF.HTTP</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("DE.SETF.HTTP")'>Package</a></span></div>
+  <div class='form' ID='DE.SETF.HTTP_form' onclick='javascript: toggleDefinitionVisibility("DE.SETF.HTTP")'>(DEFPACKAGE :DE.SETF.HTTP
+            (:USE)
+            (:EXPORT :GET-HTTP-REQUEST :PARSE-URL-KEYWORDS :SERVE-HTTP
+             :WRITE-HTTP-RESPONSE :OPEN-HTTP-STREAM-P))</div></div>
+<div class='source' >(USE-PACKAGE :DE.SETF.HTTP :DE.SETF.UTILITY.IMPLEMENTATION)</div>
+<div class='definition' ID='*CRLF*'>
+  <div class='signature' ><span>*CRLF*</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("*CRLF*")'>Parameter</a></span></div>
+  <div class='form' ID='*CRLF*_form' onclick='javascript: toggleDefinitionVisibility("*CRLF*")'>(DEFPARAMETER *CRLF* (MAKE-ARRAY 2 :ELEMENT-TYPE 'CHARACTER :INITIAL-CONTENTS
+                      '(#\Newline #\Linefeed)))</div></div>
+<div class='definition' ID='WRITE-HTTP-RESPONSE'>
+  <div class='signature' ><span>WRITE-HTTP-RESPONSE (STREAM CODE WRITER &OPTIONAL (MIME text/html) &AUX (CRLF 
+) (PHRASES '((200 . OK) (404 . Not Found))))</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("WRITE-HTTP-RESPONSE")'>Function</a></span></div>
+  <div class='form' ID='WRITE-HTTP-RESPONSE_form' onclick='javascript: toggleDefinitionVisibility("WRITE-HTTP-RESPONSE")'>(DEFUN WRITE-HTTP-RESPONSE (STREAM CODE WRITER &amp;OPTIONAL (MIME "text/html")
+                            &amp;AUX
+                            (CRLF "
+")
+                            (PHRASES '((200 . "OK") (404 . "Not Found"))))
+  (FORMAT STREAM
+          "HTTP/1.0 ~a ~a~aContent-Type: ~(~a~)~a~a"
+          CODE
+          (OR (REST (ASSOC CODE PHRASES :TEST #'EQL)) "Unknown")
+          CRLF
+          MIME
+          CRLF
+          CRLF)
+  (FUNCALL WRITER STREAM)
+  (WRITE-STRING CRLF STREAM)
+  (FORCE-OUTPUT STREAM))</div></div>
+<div class='definition' ID='READ-HTTP-REQUEST'>
+  <div class='signature' ><span>READ-HTTP-REQUEST (STREAM &AUX (BUFFER (MAKE-ARRAY 32 ELEMENT-TYPE 'CHARACTER FILL-POINTER 0 ADJUSTABLE T)) BYTE SPACE1 SPACE2)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("READ-HTTP-REQUEST")'>Function</a></span></div>
+  <div class='form' ID='READ-HTTP-REQUEST_form' onclick='javascript: toggleDefinitionVisibility("READ-HTTP-REQUEST")'>(DEFUN READ-HTTP-REQUEST (STREAM &amp;AUX
+                          (BUFFER
+                           (MAKE-ARRAY 32
+                                       :ELEMENT-TYPE
+                                       'CHARACTER
+                                       :FILL-POINTER
+                                       0
+                                       :ADJUSTABLE
+                                       T))
+                          BYTE SPACE1 SPACE2)
+  (LOOP (UNLESS (SETF BYTE (READ-BYTE STREAM NIL NIL)) (RETURN))
+        (WHEN (EQL BYTE 13) (READ-BYTE STREAM) (RETURN))
+        (VECTOR-PUSH-EXTEND (CODE-CHAR BYTE) BUFFER))
+  (SETF SPACE1 (POSITION #\Space BUFFER)
+        SPACE2 (POSITION #\Space BUFFER :FROM-END T))
+  (WHEN (AND SPACE1 SPACE2)
+    (VALUES (SUBSEQ BUFFER (1+ SPACE1) SPACE2) (SUBSEQ BUFFER 0 SPACE1))))</div></div>
+<div class='definition' ID='PARSE-URL-KEYWORDS'>
+  <div class='signature' ><span>PARSE-URL-KEYWORDS (STRING &AUX (NEXT-KEYWORD (POSITION ? STRING)) PLIST =POSITION)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("PARSE-URL-KEYWORDS")'>Function</a></span></div>
+  <div class='form' ID='PARSE-URL-KEYWORDS_form' onclick='javascript: toggleDefinitionVisibility("PARSE-URL-KEYWORDS")'>(DEFUN PARSE-URL-KEYWORDS (STRING &amp;AUX (NEXT-KEYWORD (POSITION #\? STRING))
+                           PLIST =POSITION)
+  (WHEN (FIND #\+ STRING) (SETF STRING (SUBSTITUTE #\Space #\+ STRING)))
+  (LOOP (UNLESS NEXT-KEYWORD (RETURN (NREVERSE PLIST)))
+        (INCF NEXT-KEYWORD)
+        (UNLESS (SETF =POSITION (POSITION #\= STRING :START NEXT-KEYWORD))
+          (ERROR "bad keywords: ~s" STRING))
+        (PUSH (INTERN (SUBSEQ STRING NEXT-KEYWORD =POSITION) "KEYWORD") PLIST)
+        (SETF NEXT-KEYWORD (POSITION #\&amp; STRING :START =POSITION))
+        (PUSH (SUBSEQ STRING (1+ =POSITION) (OR NEXT-KEYWORD (LENGTH STRING)))
+              PLIST)))</div></div>
+<div class='definition' ID='OPEN-HTTP-STREAM-P'>
+  <div class='signature' ><span>OPEN-HTTP-STREAM-P (STREAM)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("OPEN-HTTP-STREAM-P")'>Function</a></span></div>
+  <div class='form' ID='OPEN-HTTP-STREAM-P_form' onclick='javascript: toggleDefinitionVisibility("OPEN-HTTP-STREAM-P")'>(DEFUN OPEN-HTTP-STREAM-P (STREAM)
+  (WHEN (STREAMP STREAM)
+    (LET ((CONN (CCL::STREAM-IO-BUFFER STREAM NIL)))
+      (NOT (OR (NULL CONN) (CCL::OT-CONN-CLOSED-P CONN))))))</div></div>
+<div class='definition' ID='SERVE-HTTP'>
+  <div class='signature' ><span>SERVE-HTTP (&KEY PORT HANDLERS VERBOSE &AUX (HTTP-STREAM NIL) (URI NIL))</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("SERVE-HTTP")'>Function</a></span></div>
+  <div class='form' ID='SERVE-HTTP_form' onclick='javascript: toggleDefinitionVisibility("SERVE-HTTP")'>(DEFUN SERVE-HTTP (&amp;KEY PORT HANDLERS VERBOSE &amp;AUX (HTTP-STREAM NIL) (URI NIL))
+  (UNWIND-PROTECT
+      (PROGN (SETF HTTP-STREAM
+                   (CCL::OPEN-TCP-STREAM NIL PORT :ELEMENT-TYPE
+                    '(UNSIGNED-BYTE 8)))
+             (WHEN VERBOSE
+               (FORMAT *TRACE-OUTPUT* "~%http://localhost:~d/ " PORT))
+             (LOOP (HANDLER-CASE (PROGN (SETF
+                                         URI
+                                         (READ-HTTP-REQUEST HTTP-STREAM))
+                                        (WHEN
+                                         VERBOSE
+                                         (FORMAT *TRACE-OUTPUT* "~s~%" URI))
+                                        (LET
+                                         ((HANDLER
+                                           (REST
+                                            (FIND-IF
+                                             #'(LAMBDA
+                                                (PREDICATE)
+                                                (ETYPECASE
+                                                 PREDICATE
+                                                 #'(FUNCALL PREDICATE URI)
+                                                 (STRING
+                                                  (STRING-EQUAL
+                                                   URI
+                                                   PREDICATE
+                                                   :END1
+                                                   (MIN
+                                                    (LENGTH URI)
+                                                    (LENGTH PREDICATE))))))
+                                             HANDLERS))))
+                                         (IF
+                                          HANDLER
+                                          (FUNCALL HANDLER URI HTTP-STREAM)
+                                          (WRITE-HTTP-RESPONSE
+                                           HTTP-STREAM
+                                           404
+                                           #'(LAMBDA
+                                              (STREAM)
+                                              (FORMAT
+                                               STREAM
+                                               "&lt;html&gt;&lt;head/&gt;&lt;body&gt;not found: '~a'&lt;/body&gt;&lt;/html&gt;"
+                                               URI))))))
+                                 (ERROR (CONDITION)
+                                        (IF
+                                         (OPEN-HTTP-STREAM-P HTTP-STREAM)
+                                         (WRITE-HTTP-RESPONSE
+                                          HTTP-STREAM
+                                          200
+                                          #'(LAMBDA
+                                             (STREAM)
+                                             (FORMAT
+                                              STREAM
+                                              "error:~%~a"
+                                              CONDITION)))
+                                         (PROGN
+                                          (WARN
+                                           "http stream error: %~a"
+                                           CONDITION)
+                                          (RETURN-FROM SERVE-HTTP NIL)))))))
+    (WHEN (OPEN-HTTP-STREAM-P HTTP-STREAM) (CLOSE HTTP-STREAM))))</div></div><div class='source'>:EOF</div>
+<hr />
+
+<div class='file'><div class='DOCUMENTATION'><dl><dt>description</dt><dd>
+  a simplistic http server to handle xml-rpc requests.
+  </dd><dt>copyright</dt><dd>&#160;2003, james adam anderson<br/>all rights reserved. no warranty.
+  <a href='http://www.setf.de/library/ncsl.html'>[0]</a><a href='ncsl.html'>[1]</a></dd><dt>20031110</dt><dd/></dl></div></div >
+<hr /><div><span class='copyright'>&#169;</span> <span class='logo'>setf.de</span> 20031110T225046 = <a href='./http.lisp' type='text/plain'>http.lisp</a></div>
+</body></html>

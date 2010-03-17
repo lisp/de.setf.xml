@@ -1,0 +1,84 @@
+<!ELEMENT LastMod EMPTY>
+<!ATTLIST LastMod VALUE CDATA #REQUIRED>
+<!ELEMENT Title EMPTY>
+<!ATTLIST Title VALUE CDATA #REQUIRED>
+<!ELEMENT Abstract EMPTY>
+<!ATTLIST Abstract VALUE CDATA #REQUIRED>
+<!ELEMENT Author EMPTY>
+<!ATTLIST Author VALUE CDATA #REQUIRED>
+<!ELEMENT Publisher EMPTY>
+<!ATTLIST Publisher VALUE CDATA #REQUIRED>
+<!ELEMENT Copyright EMPTY>
+<!ATTLIST Copyright VALUE CDATA #REQUIRED>
+<!ELEMENT PublicationDate EMPTY>
+<!ATTLIST PublicationDate VALUE CDATA #REQUIRED>
+<!ELEMENT Keywords EMPTY>
+<!ATTLIST Keywords VALUE CDATA #REQUIRED>
+<!ELEMENT Category EMPTY>
+<!ATTLIST Category VALUE CDATA #REQUIRED>
+<!ELEMENT Rating EMPTY>
+<!ATTLIST Rating PICS-Label CDATA #REQUIRED> 
+
+<!ELEMENT Channel ( LastMod | Logo | Title | Abstract | Author | Publisher | Copyright | PublicationDate | Keywords | Category | Rating | Channel | Item | Schedule | IntroURI | Authorization | IsClonable | MinStorage | Tracking )* > 
+<!ATTLIST Channel HREF CDATA #IMPLIED>
+<!-- 20010603.jaa
+     not clear if IsClonable was intended to be an attribute or element content.
+     added to close the model, otherwise the name remains uninterned -->
+<!ATTLIST Channel IsClonable (YES | NO) "NO"> 
+<!ELEMENT IsClonable EMPTY>
+
+<!ELEMENT IntroURI EMPTY>
+<!ATTLIST IntroURI VALUE CDATA #REQUIRED>
+<!ELEMENT Authorization EMPTY>
+<!ATTLIST Authorization VALUE CDATA #REQUIRED>
+<!ELEMENT MinStorage EMPTY>
+<!ATTLIST MinStorage VALUE CDATA "0"> 
+
+<!ELEMENT Item ( LastMod | Title | Abstract | Author | Publisher | Copyright | PublicationDate | Keywords | Category | Rating | Schedule | Usage )* > 
+<!ATTLIST Item HREF CDATA #REQUIRED>
+<!ATTLIST Item MIMEType CDATA #IMPLIED>
+<!ATTLIST Item IsVisible (YES| NO) "YES">
+<!ATTLIST Item Priority (HI| NORMAL| LOW) "NORMAL">
+<!ATTLIST Item Precache (YES| NO| DEFAULT) "DEFAULT"> 
+
+<!ELEMENT Usage ANY>
+<!ATTLIST Usage VALUE CDATA #REQUIRED> 
+<!ELEMENT UserSchedule EMPTY>
+<!ATTLIST UserSchedule VALUE (DAILY| WEEKLY| HOURLY) #REQUIRED> 
+
+<!ELEMENT Schedule ( StartDate?, EndDate?, IntervalTime?, EarliestTime?, LatestTime? ) > 
+
+<!ELEMENT StartDate EMPTY>
+<!ATTLIST StartDate VALUE CDATA #REQUIRED>
+<!ELEMENT EndDate EMPTY>
+<!ATTLIST EndDate VALUE CDATA #REQUIRED>
+<!ELEMENT IntervalTime EMPTY>
+<!ATTLIST IntervalTime DAY CDATA "0">
+<!ATTLIST IntervalTime HOUR CDATA "0">
+<!ATTLIST IntervalTime MIN CDATA "0">
+<!ATTLIST IntervalTime SEC CDATA "0">
+<!ELEMENT EarliestTime EMPTY>
+<!ATTLIST EarliestTime DAY CDATA "0">
+<!ATTLIST EarliestTime HOUR CDATA "0">
+<!ATTLIST EarliestTime MIN CDATA "0">
+<!ATTLIST EarliestTime SEC CDATA "0">
+<!ELEMENT LatestTime EMPTY>
+<!ATTLIST LatestTime DAY CDATA "0">
+<!ATTLIST LatestTime HOUR CDATA "0">
+<!ATTLIST LatestTime MIN CDATA "0">
+<!ATTLIST LatestTime SEC CDATA "0"> 
+
+<!ELEMENT Logo EMPTY>
+<!ATTLIST Logo HREF CDATA #REQUIRED>
+<!ATTLIST Logo TYPE (BIG | WIDE | SMALL | REGULAR) "REGULAR"> 
+
+<!ELEMENT Tracking (PostURL?)>
+<!ELEMENT PostURL EMPTY>
+<!ATTLIST PostURL HREF CDATA #REQUIRED> 
+
+
+
+
+
+
+

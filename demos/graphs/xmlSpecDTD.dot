@@ -1,0 +1,2418 @@
+
+
+digraph spec {
+
+  "spec" ;
+
+  "header" ;
+
+  "title" ;
+
+  "header" -> "title" ;
+
+  "subtitle" ;
+
+  "header" -> "subtitle" ;
+
+  "version" ;
+
+  "header" -> "version" ;
+
+  "w3c-designation" ;
+
+  "header" -> "w3c-designation" ;
+
+  "w3c-doctype" ;
+
+  "header" -> "w3c-doctype" ;
+
+  "pubdate" ;
+
+  "day" ;
+
+  "pubdate" -> "day" ;
+
+  "month" ;
+
+  "pubdate" -> "month" ;
+
+  "year" ;
+
+  "pubdate" -> "year" ;
+
+  "header" -> "pubdate" ;
+
+  "notice" ;
+
+  "p" ;
+
+  "example" ;
+
+  "head" ;
+
+  "ednote" ;
+
+  "name" ;
+
+  "ednote" -> "name" ;
+
+  "date" ;
+
+  "ednote" -> "date" ;
+
+  "edtext" ;
+
+  "edtext" -> "ednote" ;
+
+  "loc" ;
+
+  "edtext" -> "loc" ;
+
+  "attval" ;
+
+  "attval" -> "ednote" ;
+
+  "attval" -> "loc" ;
+
+  "edtext" -> "attval" ;
+
+  "att" ;
+
+  "att" -> "ednote" ;
+
+  "att" -> "loc" ;
+
+  "edtext" -> "att" ;
+
+  "el" ;
+
+  "el" -> "ednote" ;
+
+  "el" -> "loc" ;
+
+  "edtext" -> "el" ;
+
+  "var" ;
+
+  "var" -> "ednote" ;
+
+  "var" -> "loc" ;
+
+  "edtext" -> "var" ;
+
+  "function" ;
+
+  "function" -> "ednote" ;
+
+  "function" -> "loc" ;
+
+  "edtext" -> "function" ;
+
+  "code" ;
+
+  "code" -> "ednote" ;
+
+  "code" -> "loc" ;
+
+  "edtext" -> "code" ;
+
+  "xnt" ;
+
+  "edtext" -> "xnt" ;
+
+  "nt" ;
+
+  "edtext" -> "nt" ;
+
+  "kw" ;
+
+  "kw" -> "ednote" ;
+
+  "kw" -> "loc" ;
+
+  "edtext" -> "kw" ;
+
+  "xtermref" ;
+
+  "edtext" -> "xtermref" ;
+
+  "xspecref" ;
+
+  "edtext" -> "xspecref" ;
+
+  "titleref" ;
+
+  "edtext" -> "titleref" ;
+
+  "termref" ;
+
+  "edtext" -> "termref" ;
+
+  "specref" ;
+
+  "edtext" -> "specref" ;
+
+  "bibref" ;
+
+  "edtext" -> "bibref" ;
+
+  "sup" ;
+
+  "edtext" -> "sup" ;
+
+  "sub" ;
+
+  "edtext" -> "sub" ;
+
+  "quote" ;
+
+  "quote" -> "ednote" ;
+
+  "quote" -> "loc" ;
+
+  "quote" -> "attval" ;
+
+  "quote" -> "att" ;
+
+  "quote" -> "el" ;
+
+  "quote" -> "var" ;
+
+  "quote" -> "function" ;
+
+  "quote" -> "code" ;
+
+  "quote" -> "xnt" ;
+
+  "quote" -> "nt" ;
+
+  "quote" -> "kw" ;
+
+  "quote" -> "xtermref" ;
+
+  "quote" -> "xspecref" ;
+
+  "quote" -> "titleref" ;
+
+  "quote" -> "termref" ;
+
+  "quote" -> "specref" ;
+
+  "quote" -> "bibref" ;
+
+  "quote" -> "sup" ;
+
+  "quote" -> "sub" ;
+
+  "quote" -> "quote" ;
+
+  "phrase" ;
+
+  "phrase" -> "ednote" ;
+
+  "phrase" -> "loc" ;
+
+  "phrase" -> "attval" ;
+
+  "phrase" -> "att" ;
+
+  "phrase" -> "el" ;
+
+  "phrase" -> "var" ;
+
+  "phrase" -> "function" ;
+
+  "phrase" -> "code" ;
+
+  "phrase" -> "xnt" ;
+
+  "phrase" -> "nt" ;
+
+  "phrase" -> "kw" ;
+
+  "phrase" -> "xtermref" ;
+
+  "phrase" -> "xspecref" ;
+
+  "phrase" -> "titleref" ;
+
+  "phrase" -> "termref" ;
+
+  "phrase" -> "specref" ;
+
+  "phrase" -> "bibref" ;
+
+  "phrase" -> "sup" ;
+
+  "phrase" -> "sub" ;
+
+  "phrase" -> "quote" ;
+
+  "phrase" -> "phrase" ;
+
+  "emph" ;
+
+  "emph" -> "ednote" ;
+
+  "emph" -> "loc" ;
+
+  "emph" -> "attval" ;
+
+  "emph" -> "att" ;
+
+  "emph" -> "el" ;
+
+  "emph" -> "var" ;
+
+  "emph" -> "function" ;
+
+  "emph" -> "code" ;
+
+  "emph" -> "xnt" ;
+
+  "emph" -> "nt" ;
+
+  "emph" -> "kw" ;
+
+  "emph" -> "xtermref" ;
+
+  "emph" -> "xspecref" ;
+
+  "emph" -> "titleref" ;
+
+  "emph" -> "termref" ;
+
+  "emph" -> "specref" ;
+
+  "emph" -> "bibref" ;
+
+  "emph" -> "sup" ;
+
+  "emph" -> "sub" ;
+
+  "emph" -> "quote" ;
+
+  "emph" -> "phrase" ;
+
+  "emph" -> "emph" ;
+
+  "term" ;
+
+  "emph" -> "term" ;
+
+  "termdef" ;
+
+  "termdef" -> "example" ;
+
+  "proto" ;
+
+  "arg" ;
+
+  "proto" -> "arg" ;
+
+  "termdef" -> "proto" ;
+
+  "definitions" ;
+
+  "definitions" -> "p" ;
+
+  "note" ;
+
+  "note" -> "p" ;
+
+  "ulist" ;
+
+  "item" ;
+
+  "item" -> "p" ;
+
+  "item" -> "ulist" ;
+
+  "olist" ;
+
+  "olist" -> "item" ;
+
+  "item" -> "olist" ;
+
+  "slist" ;
+
+  "sitem" ;
+
+  "sitem" -> "ednote" ;
+
+  "sitem" -> "loc" ;
+
+  "sitem" -> "attval" ;
+
+  "sitem" -> "att" ;
+
+  "sitem" -> "el" ;
+
+  "sitem" -> "var" ;
+
+  "sitem" -> "function" ;
+
+  "sitem" -> "code" ;
+
+  "sitem" -> "xnt" ;
+
+  "sitem" -> "nt" ;
+
+  "sitem" -> "kw" ;
+
+  "sitem" -> "xtermref" ;
+
+  "sitem" -> "xspecref" ;
+
+  "sitem" -> "titleref" ;
+
+  "sitem" -> "termref" ;
+
+  "sitem" -> "specref" ;
+
+  "sitem" -> "bibref" ;
+
+  "sitem" -> "sup" ;
+
+  "sitem" -> "sub" ;
+
+  "sitem" -> "quote" ;
+
+  "sitem" -> "phrase" ;
+
+  "sitem" -> "emph" ;
+
+  "sitem" -> "term" ;
+
+  "sitem" -> "termdef" ;
+
+  "footnote" ;
+
+  "footnote" -> "p" ;
+
+  "footnote" -> "ulist" ;
+
+  "footnote" -> "olist" ;
+
+  "footnote" -> "slist" ;
+
+  "glist" ;
+
+  "gitem" ;
+
+  "label" ;
+
+  "label" -> "ednote" ;
+
+  "label" -> "loc" ;
+
+  "label" -> "attval" ;
+
+  "label" -> "att" ;
+
+  "label" -> "el" ;
+
+  "label" -> "var" ;
+
+  "label" -> "function" ;
+
+  "label" -> "code" ;
+
+  "label" -> "xnt" ;
+
+  "label" -> "nt" ;
+
+  "label" -> "kw" ;
+
+  "label" -> "sup" ;
+
+  "label" -> "sub" ;
+
+  "label" -> "quote" ;
+
+  "label" -> "phrase" ;
+
+  "label" -> "emph" ;
+
+  "label" -> "term" ;
+
+  "label" -> "termdef" ;
+
+  "label" -> "footnote" ;
+
+  "gitem" -> "label" ;
+
+  "def" ;
+
+  "def" -> "p" ;
+
+  "def" -> "ulist" ;
+
+  "def" -> "olist" ;
+
+  "def" -> "slist" ;
+
+  "def" -> "glist" ;
+
+  "orglist" ;
+
+  "member" ;
+
+  "member" -> "name" ;
+
+  "affiliation" ;
+
+  "member" -> "affiliation" ;
+
+  "role" ;
+
+  "member" -> "role" ;
+
+  "orglist" -> "member" ;
+
+  "def" -> "orglist" ;
+
+  "blist" ;
+
+  "bibl" ;
+
+  "bibl" -> "ednote" ;
+
+  "bibl" -> "loc" ;
+
+  "bibl" -> "xtermref" ;
+
+  "bibl" -> "xspecref" ;
+
+  "bibl" -> "titleref" ;
+
+  "bibl" -> "termref" ;
+
+  "bibl" -> "specref" ;
+
+  "bibl" -> "bibref" ;
+
+  "bibl" -> "sup" ;
+
+  "bibl" -> "sub" ;
+
+  "bibl" -> "quote" ;
+
+  "bibl" -> "phrase" ;
+
+  "bibl" -> "emph" ;
+
+  "blist" -> "bibl" ;
+
+  "def" -> "blist" ;
+
+  "def" -> "note" ;
+
+  "issue" ;
+
+  "issue" -> "head" ;
+
+  "source" ;
+
+  "source" -> "ednote" ;
+
+  "source" -> "loc" ;
+
+  "source" -> "attval" ;
+
+  "source" -> "att" ;
+
+  "source" -> "el" ;
+
+  "source" -> "var" ;
+
+  "source" -> "function" ;
+
+  "source" -> "code" ;
+
+  "source" -> "xnt" ;
+
+  "source" -> "nt" ;
+
+  "source" -> "kw" ;
+
+  "source" -> "xtermref" ;
+
+  "source" -> "xspecref" ;
+
+  "source" -> "titleref" ;
+
+  "source" -> "termref" ;
+
+  "source" -> "specref" ;
+
+  "source" -> "bibref" ;
+
+  "source" -> "sup" ;
+
+  "source" -> "sub" ;
+
+  "source" -> "quote" ;
+
+  "source" -> "phrase" ;
+
+  "source" -> "emph" ;
+
+  "source" -> "term" ;
+
+  "source" -> "termdef" ;
+
+  "source" -> "footnote" ;
+
+  "issue" -> "source" ;
+
+  "issue" -> "p" ;
+
+  "issue" -> "ulist" ;
+
+  "issue" -> "olist" ;
+
+  "issue" -> "slist" ;
+
+  "issue" -> "glist" ;
+
+  "issue" -> "orglist" ;
+
+  "issue" -> "blist" ;
+
+  "issue" -> "note" ;
+
+  "issue" -> "issue" ;
+
+  "wfcnote" ;
+
+  "wfcnote" -> "head" ;
+
+  "wfcnote" -> "p" ;
+
+  "wfcnote" -> "ulist" ;
+
+  "wfcnote" -> "olist" ;
+
+  "wfcnote" -> "slist" ;
+
+  "wfcnote" -> "glist" ;
+
+  "wfcnote" -> "orglist" ;
+
+  "wfcnote" -> "blist" ;
+
+  "wfcnote" -> "note" ;
+
+  "wfcnote" -> "issue" ;
+
+  "wfcnote" -> "wfcnote" ;
+
+  "vcnote" ;
+
+  "vcnote" -> "head" ;
+
+  "vcnote" -> "p" ;
+
+  "vcnote" -> "ulist" ;
+
+  "vcnote" -> "olist" ;
+
+  "vcnote" -> "slist" ;
+
+  "vcnote" -> "glist" ;
+
+  "vcnote" -> "orglist" ;
+
+  "vcnote" -> "blist" ;
+
+  "vcnote" -> "note" ;
+
+  "vcnote" -> "issue" ;
+
+  "vcnote" -> "wfcnote" ;
+
+  "vcnote" -> "vcnote" ;
+
+  "constraintnote" ;
+
+  "constraintnote" -> "head" ;
+
+  "constraintnote" -> "p" ;
+
+  "constraintnote" -> "ulist" ;
+
+  "constraintnote" -> "olist" ;
+
+  "constraintnote" -> "slist" ;
+
+  "constraintnote" -> "glist" ;
+
+  "constraintnote" -> "orglist" ;
+
+  "constraintnote" -> "blist" ;
+
+  "constraintnote" -> "note" ;
+
+  "constraintnote" -> "issue" ;
+
+  "constraintnote" -> "wfcnote" ;
+
+  "constraintnote" -> "vcnote" ;
+
+  "constraintnote" -> "constraintnote" ;
+
+  "eg" ;
+
+  "constraint" ;
+
+  "eg" -> "constraint" ;
+
+  "eg" -> "ednote" ;
+
+  "eg" -> "loc" ;
+
+  "eg" -> "sup" ;
+
+  "eg" -> "sub" ;
+
+  "eg" -> "quote" ;
+
+  "eg" -> "phrase" ;
+
+  "eg" -> "emph" ;
+
+  "eg" -> "footnote" ;
+
+  "constraintnote" -> "eg" ;
+
+  "graphic" ;
+
+  "constraintnote" -> "graphic" ;
+
+  "scrap" ;
+
+  "scrap" -> "head" ;
+
+  "prodgroup" ;
+
+  "prod" ;
+
+  "lhs" ;
+
+  "prod" -> "lhs" ;
+
+  "rhs" ;
+
+  "com" ;
+
+  "com" -> "bibref" ;
+
+  "com" -> "loc" ;
+
+  "rhs" -> "com" ;
+
+  "rhs" -> "xnt" ;
+
+  "rhs" -> "nt" ;
+
+  "prod" -> "rhs" ;
+
+  "prod" -> "com" ;
+
+  "wfc" ;
+
+  "prod" -> "wfc" ;
+
+  "vc" ;
+
+  "prod" -> "vc" ;
+
+  "prod" -> "constraint" ;
+
+  "prodgroup" -> "prod" ;
+
+  "scrap" -> "prodgroup" ;
+
+  "scrap" -> "prod" ;
+
+  "bnf" ;
+
+  "bnf" -> "constraint" ;
+
+  "bnf" -> "ednote" ;
+
+  "bnf" -> "loc" ;
+
+  "bnf" -> "sup" ;
+
+  "bnf" -> "sub" ;
+
+  "bnf" -> "quote" ;
+
+  "bnf" -> "phrase" ;
+
+  "bnf" -> "emph" ;
+
+  "bnf" -> "footnote" ;
+
+  "scrap" -> "bnf" ;
+
+  "prodrecap" ;
+
+  "scrap" -> "prodrecap" ;
+
+  "constraintnote" -> "scrap" ;
+
+  "table" ;
+
+  "caption" ;
+
+  "caption" -> "ednote" ;
+
+  "caption" -> "loc" ;
+
+  "caption" -> "attval" ;
+
+  "caption" -> "att" ;
+
+  "caption" -> "el" ;
+
+  "caption" -> "var" ;
+
+  "caption" -> "function" ;
+
+  "caption" -> "code" ;
+
+  "caption" -> "xnt" ;
+
+  "caption" -> "nt" ;
+
+  "caption" -> "kw" ;
+
+  "caption" -> "xtermref" ;
+
+  "caption" -> "xspecref" ;
+
+  "caption" -> "titleref" ;
+
+  "caption" -> "termref" ;
+
+  "caption" -> "specref" ;
+
+  "caption" -> "bibref" ;
+
+  "caption" -> "sup" ;
+
+  "caption" -> "sub" ;
+
+  "caption" -> "quote" ;
+
+  "caption" -> "phrase" ;
+
+  "caption" -> "emph" ;
+
+  "caption" -> "term" ;
+
+  "caption" -> "termdef" ;
+
+  "caption" -> "footnote" ;
+
+  "table" -> "caption" ;
+
+  "col" ;
+
+  "table" -> "col" ;
+
+  "colgroup" ;
+
+  "colgroup" -> "col" ;
+
+  "table" -> "colgroup" ;
+
+  "thead" ;
+
+  "tr" ;
+
+  "th" ;
+
+  "th" -> "example" ;
+
+  "th" -> "proto" ;
+
+  "th" -> "definitions" ;
+
+  "th" -> "table" ;
+
+  "th" -> "scrap" ;
+
+  "th" -> "graphic" ;
+
+  "th" -> "eg" ;
+
+  "th" -> "constraintnote" ;
+
+  "th" -> "vcnote" ;
+
+  "th" -> "wfcnote" ;
+
+  "th" -> "issue" ;
+
+  "th" -> "note" ;
+
+  "th" -> "blist" ;
+
+  "th" -> "orglist" ;
+
+  "th" -> "glist" ;
+
+  "th" -> "slist" ;
+
+  "th" -> "olist" ;
+
+  "th" -> "ulist" ;
+
+  "th" -> "ednote" ;
+
+  "th" -> "loc" ;
+
+  "th" -> "attval" ;
+
+  "th" -> "att" ;
+
+  "th" -> "el" ;
+
+  "th" -> "var" ;
+
+  "th" -> "function" ;
+
+  "th" -> "code" ;
+
+  "th" -> "xnt" ;
+
+  "th" -> "nt" ;
+
+  "th" -> "kw" ;
+
+  "th" -> "xtermref" ;
+
+  "th" -> "xspecref" ;
+
+  "th" -> "titleref" ;
+
+  "th" -> "termref" ;
+
+  "th" -> "specref" ;
+
+  "th" -> "bibref" ;
+
+  "th" -> "sup" ;
+
+  "th" -> "sub" ;
+
+  "th" -> "quote" ;
+
+  "th" -> "phrase" ;
+
+  "th" -> "emph" ;
+
+  "th" -> "term" ;
+
+  "th" -> "termdef" ;
+
+  "th" -> "footnote" ;
+
+  "tr" -> "th" ;
+
+  "td" ;
+
+  "td" -> "example" ;
+
+  "td" -> "proto" ;
+
+  "td" -> "definitions" ;
+
+  "td" -> "table" ;
+
+  "td" -> "scrap" ;
+
+  "td" -> "graphic" ;
+
+  "td" -> "eg" ;
+
+  "td" -> "constraintnote" ;
+
+  "td" -> "vcnote" ;
+
+  "td" -> "wfcnote" ;
+
+  "td" -> "issue" ;
+
+  "td" -> "note" ;
+
+  "td" -> "blist" ;
+
+  "td" -> "orglist" ;
+
+  "td" -> "glist" ;
+
+  "td" -> "slist" ;
+
+  "td" -> "olist" ;
+
+  "td" -> "ulist" ;
+
+  "td" -> "ednote" ;
+
+  "td" -> "loc" ;
+
+  "td" -> "attval" ;
+
+  "td" -> "att" ;
+
+  "td" -> "el" ;
+
+  "td" -> "var" ;
+
+  "td" -> "function" ;
+
+  "td" -> "code" ;
+
+  "td" -> "xnt" ;
+
+  "td" -> "nt" ;
+
+  "td" -> "kw" ;
+
+  "td" -> "xtermref" ;
+
+  "td" -> "xspecref" ;
+
+  "td" -> "titleref" ;
+
+  "td" -> "termref" ;
+
+  "td" -> "specref" ;
+
+  "td" -> "bibref" ;
+
+  "td" -> "sup" ;
+
+  "td" -> "sub" ;
+
+  "td" -> "quote" ;
+
+  "td" -> "phrase" ;
+
+  "td" -> "emph" ;
+
+  "td" -> "term" ;
+
+  "td" -> "termdef" ;
+
+  "td" -> "footnote" ;
+
+  "tr" -> "td" ;
+
+  "thead" -> "tr" ;
+
+  "table" -> "thead" ;
+
+  "tfoot" ;
+
+  "tfoot" -> "tr" ;
+
+  "table" -> "tfoot" ;
+
+  "tbody" ;
+
+  "tbody" -> "tr" ;
+
+  "table" -> "tbody" ;
+
+  "constraintnote" -> "table" ;
+
+  "constraintnote" -> "definitions" ;
+
+  "constraintnote" -> "proto" ;
+
+  "constraintnote" -> "example" ;
+
+  "constraintnote" -> "ednote" ;
+
+  "vcnote" -> "constraintnote" ;
+
+  "vcnote" -> "eg" ;
+
+  "vcnote" -> "graphic" ;
+
+  "vcnote" -> "scrap" ;
+
+  "vcnote" -> "table" ;
+
+  "vcnote" -> "definitions" ;
+
+  "vcnote" -> "proto" ;
+
+  "vcnote" -> "example" ;
+
+  "vcnote" -> "ednote" ;
+
+  "wfcnote" -> "vcnote" ;
+
+  "wfcnote" -> "constraintnote" ;
+
+  "wfcnote" -> "eg" ;
+
+  "wfcnote" -> "graphic" ;
+
+  "wfcnote" -> "scrap" ;
+
+  "wfcnote" -> "table" ;
+
+  "wfcnote" -> "definitions" ;
+
+  "wfcnote" -> "proto" ;
+
+  "wfcnote" -> "example" ;
+
+  "wfcnote" -> "ednote" ;
+
+  "issue" -> "wfcnote" ;
+
+  "issue" -> "vcnote" ;
+
+  "issue" -> "constraintnote" ;
+
+  "issue" -> "eg" ;
+
+  "issue" -> "graphic" ;
+
+  "issue" -> "scrap" ;
+
+  "issue" -> "table" ;
+
+  "issue" -> "definitions" ;
+
+  "issue" -> "proto" ;
+
+  "issue" -> "example" ;
+
+  "issue" -> "ednote" ;
+
+  "resolution" ;
+
+  "resolution" -> "p" ;
+
+  "resolution" -> "ulist" ;
+
+  "resolution" -> "olist" ;
+
+  "resolution" -> "slist" ;
+
+  "resolution" -> "glist" ;
+
+  "resolution" -> "orglist" ;
+
+  "resolution" -> "blist" ;
+
+  "resolution" -> "note" ;
+
+  "resolution" -> "issue" ;
+
+  "resolution" -> "wfcnote" ;
+
+  "resolution" -> "vcnote" ;
+
+  "resolution" -> "constraintnote" ;
+
+  "resolution" -> "eg" ;
+
+  "resolution" -> "graphic" ;
+
+  "resolution" -> "scrap" ;
+
+  "resolution" -> "table" ;
+
+  "resolution" -> "definitions" ;
+
+  "resolution" -> "proto" ;
+
+  "resolution" -> "example" ;
+
+  "resolution" -> "ednote" ;
+
+  "issue" -> "resolution" ;
+
+  "def" -> "issue" ;
+
+  "def" -> "wfcnote" ;
+
+  "def" -> "vcnote" ;
+
+  "def" -> "constraintnote" ;
+
+  "def" -> "eg" ;
+
+  "def" -> "graphic" ;
+
+  "def" -> "scrap" ;
+
+  "def" -> "table" ;
+
+  "def" -> "definitions" ;
+
+  "def" -> "proto" ;
+
+  "def" -> "example" ;
+
+  "def" -> "ednote" ;
+
+  "gitem" -> "def" ;
+
+  "glist" -> "gitem" ;
+
+  "footnote" -> "glist" ;
+
+  "footnote" -> "orglist" ;
+
+  "footnote" -> "blist" ;
+
+  "footnote" -> "note" ;
+
+  "footnote" -> "issue" ;
+
+  "footnote" -> "wfcnote" ;
+
+  "footnote" -> "vcnote" ;
+
+  "footnote" -> "constraintnote" ;
+
+  "footnote" -> "eg" ;
+
+  "footnote" -> "graphic" ;
+
+  "footnote" -> "scrap" ;
+
+  "footnote" -> "table" ;
+
+  "footnote" -> "definitions" ;
+
+  "footnote" -> "proto" ;
+
+  "footnote" -> "example" ;
+
+  "footnote" -> "ednote" ;
+
+  "sitem" -> "footnote" ;
+
+  "slist" -> "sitem" ;
+
+  "item" -> "slist" ;
+
+  "item" -> "glist" ;
+
+  "item" -> "orglist" ;
+
+  "item" -> "blist" ;
+
+  "item" -> "note" ;
+
+  "item" -> "issue" ;
+
+  "item" -> "wfcnote" ;
+
+  "item" -> "vcnote" ;
+
+  "item" -> "constraintnote" ;
+
+  "item" -> "eg" ;
+
+  "item" -> "graphic" ;
+
+  "item" -> "scrap" ;
+
+  "item" -> "table" ;
+
+  "item" -> "definitions" ;
+
+  "item" -> "proto" ;
+
+  "item" -> "example" ;
+
+  "item" -> "ednote" ;
+
+  "ulist" -> "item" ;
+
+  "note" -> "ulist" ;
+
+  "note" -> "olist" ;
+
+  "note" -> "slist" ;
+
+  "note" -> "glist" ;
+
+  "note" -> "orglist" ;
+
+  "note" -> "blist" ;
+
+  "note" -> "note" ;
+
+  "note" -> "issue" ;
+
+  "note" -> "wfcnote" ;
+
+  "note" -> "vcnote" ;
+
+  "note" -> "constraintnote" ;
+
+  "note" -> "eg" ;
+
+  "note" -> "graphic" ;
+
+  "note" -> "scrap" ;
+
+  "note" -> "table" ;
+
+  "note" -> "definitions" ;
+
+  "note" -> "proto" ;
+
+  "note" -> "example" ;
+
+  "note" -> "ednote" ;
+
+  "definitions" -> "note" ;
+
+  "typedef" ;
+
+  "descr" ;
+
+  "descr" -> "p" ;
+
+  "descr" -> "ulist" ;
+
+  "descr" -> "olist" ;
+
+  "descr" -> "slist" ;
+
+  "descr" -> "glist" ;
+
+  "descr" -> "orglist" ;
+
+  "descr" -> "blist" ;
+
+  "descr" -> "note" ;
+
+  "descr" -> "issue" ;
+
+  "descr" -> "wfcnote" ;
+
+  "descr" -> "vcnote" ;
+
+  "descr" -> "constraintnote" ;
+
+  "descr" -> "eg" ;
+
+  "descr" -> "graphic" ;
+
+  "descr" -> "scrap" ;
+
+  "descr" -> "table" ;
+
+  "descr" -> "definitions" ;
+
+  "descr" -> "proto" ;
+
+  "descr" -> "example" ;
+
+  "descr" -> "ednote" ;
+
+  "typedef" -> "descr" ;
+
+  "struct" ;
+
+  "struct" -> "descr" ;
+
+  "component" ;
+
+  "component" -> "struct" ;
+
+  "enum" ;
+
+  "enum" -> "descr" ;
+
+  "enumerator" ;
+
+  "enumerator" -> "descr" ;
+
+  "enum" -> "enumerator" ;
+
+  "component" -> "enum" ;
+
+  "sequence" ;
+
+  "sequence" -> "sequence" ;
+
+  "component" -> "sequence" ;
+
+  "union" ;
+
+  "union" -> "descr" ;
+
+  "case" ;
+
+  "case" -> "descr" ;
+
+  "case" -> "struct" ;
+
+  "case" -> "enum" ;
+
+  "case" -> "sequence" ;
+
+  "case" -> "union" ;
+
+  "typename" ;
+
+  "case" -> "typename" ;
+
+  "union" -> "case" ;
+
+  "component" -> "union" ;
+
+  "component" -> "typename" ;
+
+  "struct" -> "component" ;
+
+  "typedef" -> "struct" ;
+
+  "typedef" -> "enum" ;
+
+  "typedef" -> "sequence" ;
+
+  "typedef" -> "union" ;
+
+  "typedef" -> "typename" ;
+
+  "definitions" -> "typedef" ;
+
+  "constant" ;
+
+  "constant" -> "descr" ;
+
+  "definitions" -> "constant" ;
+
+  "exception" ;
+
+  "exception" -> "descr" ;
+
+  "exception" -> "component" ;
+
+  "definitions" -> "exception" ;
+
+  "reference" ;
+
+  "definitions" -> "reference" ;
+
+  "group" ;
+
+  "group" -> "descr" ;
+
+  "group" -> "p" ;
+
+  "group" -> "note" ;
+
+  "group" -> "typedef" ;
+
+  "group" -> "constant" ;
+
+  "group" -> "exception" ;
+
+  "group" -> "reference" ;
+
+  "group" -> "group" ;
+
+  "module" ;
+
+  "module" -> "descr" ;
+
+  "module" -> "p" ;
+
+  "module" -> "note" ;
+
+  "module" -> "typedef" ;
+
+  "module" -> "constant" ;
+
+  "module" -> "exception" ;
+
+  "module" -> "reference" ;
+
+  "module" -> "group" ;
+
+  "module" -> "module" ;
+
+  "interface" ;
+
+  "interface" -> "descr" ;
+
+  "interface" -> "p" ;
+
+  "interface" -> "note" ;
+
+  "interface" -> "typedef" ;
+
+  "interface" -> "constant" ;
+
+  "interface" -> "exception" ;
+
+  "interface" -> "reference" ;
+
+  "interface" -> "group" ;
+
+  "method" ;
+
+  "method" -> "descr" ;
+
+  "parameters" ;
+
+  "param" ;
+
+  "param" -> "descr" ;
+
+  "parameters" -> "param" ;
+
+  "method" -> "parameters" ;
+
+  "returns" ;
+
+  "returns" -> "descr" ;
+
+  "method" -> "returns" ;
+
+  "raises" ;
+
+  "raises" -> "exception" ;
+
+  "method" -> "raises" ;
+
+  "interface" -> "method" ;
+
+  "attribute" ;
+
+  "attribute" -> "descr" ;
+
+  "interface" -> "attribute" ;
+
+  "module" -> "interface" ;
+
+  "group" -> "module" ;
+
+  "group" -> "interface" ;
+
+  "group" -> "struct" ;
+
+  "group" -> "enum" ;
+
+  "group" -> "sequence" ;
+
+  "group" -> "union" ;
+
+  "group" -> "typename" ;
+
+  "group" -> "method" ;
+
+  "group" -> "attribute" ;
+
+  "definitions" -> "group" ;
+
+  "definitions" -> "module" ;
+
+  "definitions" -> "interface" ;
+
+  "termdef" -> "definitions" ;
+
+  "termdef" -> "table" ;
+
+  "termdef" -> "scrap" ;
+
+  "termdef" -> "graphic" ;
+
+  "termdef" -> "eg" ;
+
+  "termdef" -> "constraintnote" ;
+
+  "termdef" -> "vcnote" ;
+
+  "termdef" -> "wfcnote" ;
+
+  "termdef" -> "issue" ;
+
+  "termdef" -> "note" ;
+
+  "termdef" -> "ednote" ;
+
+  "termdef" -> "loc" ;
+
+  "termdef" -> "attval" ;
+
+  "termdef" -> "att" ;
+
+  "termdef" -> "el" ;
+
+  "termdef" -> "var" ;
+
+  "termdef" -> "function" ;
+
+  "termdef" -> "code" ;
+
+  "termdef" -> "xnt" ;
+
+  "termdef" -> "nt" ;
+
+  "termdef" -> "kw" ;
+
+  "termdef" -> "xtermref" ;
+
+  "termdef" -> "xspecref" ;
+
+  "termdef" -> "titleref" ;
+
+  "termdef" -> "termref" ;
+
+  "termdef" -> "specref" ;
+
+  "termdef" -> "bibref" ;
+
+  "termdef" -> "sup" ;
+
+  "termdef" -> "sub" ;
+
+  "termdef" -> "quote" ;
+
+  "termdef" -> "phrase" ;
+
+  "termdef" -> "emph" ;
+
+  "termdef" -> "term" ;
+
+  "emph" -> "termdef" ;
+
+  "emph" -> "footnote" ;
+
+  "phrase" -> "emph" ;
+
+  "phrase" -> "term" ;
+
+  "phrase" -> "termdef" ;
+
+  "phrase" -> "footnote" ;
+
+  "quote" -> "phrase" ;
+
+  "quote" -> "emph" ;
+
+  "quote" -> "term" ;
+
+  "quote" -> "termdef" ;
+
+  "quote" -> "footnote" ;
+
+  "edtext" -> "quote" ;
+
+  "edtext" -> "phrase" ;
+
+  "edtext" -> "emph" ;
+
+  "edtext" -> "term" ;
+
+  "edtext" -> "termdef" ;
+
+  "edtext" -> "footnote" ;
+
+  "ednote" -> "edtext" ;
+
+  "head" -> "ednote" ;
+
+  "head" -> "loc" ;
+
+  "head" -> "attval" ;
+
+  "head" -> "att" ;
+
+  "head" -> "el" ;
+
+  "head" -> "var" ;
+
+  "head" -> "function" ;
+
+  "head" -> "code" ;
+
+  "head" -> "xnt" ;
+
+  "head" -> "nt" ;
+
+  "head" -> "kw" ;
+
+  "head" -> "sup" ;
+
+  "head" -> "sub" ;
+
+  "head" -> "quote" ;
+
+  "head" -> "phrase" ;
+
+  "head" -> "emph" ;
+
+  "head" -> "footnote" ;
+
+  "example" -> "head" ;
+
+  "example" -> "p" ;
+
+  "example" -> "ulist" ;
+
+  "example" -> "olist" ;
+
+  "example" -> "slist" ;
+
+  "example" -> "glist" ;
+
+  "example" -> "orglist" ;
+
+  "example" -> "blist" ;
+
+  "example" -> "note" ;
+
+  "example" -> "issue" ;
+
+  "example" -> "wfcnote" ;
+
+  "example" -> "vcnote" ;
+
+  "example" -> "constraintnote" ;
+
+  "example" -> "eg" ;
+
+  "example" -> "graphic" ;
+
+  "example" -> "scrap" ;
+
+  "example" -> "table" ;
+
+  "example" -> "definitions" ;
+
+  "example" -> "proto" ;
+
+  "example" -> "example" ;
+
+  "example" -> "ednote" ;
+
+  "p" -> "example" ;
+
+  "p" -> "proto" ;
+
+  "p" -> "definitions" ;
+
+  "p" -> "table" ;
+
+  "p" -> "scrap" ;
+
+  "p" -> "graphic" ;
+
+  "p" -> "eg" ;
+
+  "p" -> "constraintnote" ;
+
+  "p" -> "vcnote" ;
+
+  "p" -> "wfcnote" ;
+
+  "p" -> "issue" ;
+
+  "p" -> "note" ;
+
+  "p" -> "blist" ;
+
+  "p" -> "orglist" ;
+
+  "p" -> "glist" ;
+
+  "p" -> "slist" ;
+
+  "p" -> "olist" ;
+
+  "p" -> "ulist" ;
+
+  "p" -> "ednote" ;
+
+  "p" -> "loc" ;
+
+  "p" -> "attval" ;
+
+  "p" -> "att" ;
+
+  "p" -> "el" ;
+
+  "p" -> "var" ;
+
+  "p" -> "function" ;
+
+  "p" -> "code" ;
+
+  "p" -> "xnt" ;
+
+  "p" -> "nt" ;
+
+  "p" -> "kw" ;
+
+  "p" -> "xtermref" ;
+
+  "p" -> "xspecref" ;
+
+  "p" -> "titleref" ;
+
+  "p" -> "termref" ;
+
+  "p" -> "specref" ;
+
+  "p" -> "bibref" ;
+
+  "p" -> "sup" ;
+
+  "p" -> "sub" ;
+
+  "p" -> "quote" ;
+
+  "p" -> "phrase" ;
+
+  "p" -> "emph" ;
+
+  "p" -> "term" ;
+
+  "p" -> "termdef" ;
+
+  "p" -> "footnote" ;
+
+  "notice" -> "p" ;
+
+  "notice" -> "ulist" ;
+
+  "notice" -> "olist" ;
+
+  "notice" -> "slist" ;
+
+  "notice" -> "glist" ;
+
+  "notice" -> "ednote" ;
+
+  "header" -> "notice" ;
+
+  "publoc" ;
+
+  "publoc" -> "ednote" ;
+
+  "publoc" -> "loc" ;
+
+  "publoc" -> "attval" ;
+
+  "publoc" -> "att" ;
+
+  "publoc" -> "el" ;
+
+  "publoc" -> "var" ;
+
+  "publoc" -> "function" ;
+
+  "publoc" -> "code" ;
+
+  "publoc" -> "xnt" ;
+
+  "publoc" -> "nt" ;
+
+  "publoc" -> "kw" ;
+
+  "publoc" -> "xtermref" ;
+
+  "publoc" -> "xspecref" ;
+
+  "publoc" -> "titleref" ;
+
+  "publoc" -> "termref" ;
+
+  "publoc" -> "specref" ;
+
+  "publoc" -> "bibref" ;
+
+  "publoc" -> "sup" ;
+
+  "publoc" -> "sub" ;
+
+  "publoc" -> "quote" ;
+
+  "publoc" -> "phrase" ;
+
+  "publoc" -> "emph" ;
+
+  "publoc" -> "term" ;
+
+  "publoc" -> "termdef" ;
+
+  "publoc" -> "footnote" ;
+
+  "header" -> "publoc" ;
+
+  "prevlocs" ;
+
+  "prevlocs" -> "ednote" ;
+
+  "prevlocs" -> "loc" ;
+
+  "prevlocs" -> "attval" ;
+
+  "prevlocs" -> "att" ;
+
+  "prevlocs" -> "el" ;
+
+  "prevlocs" -> "var" ;
+
+  "prevlocs" -> "function" ;
+
+  "prevlocs" -> "code" ;
+
+  "prevlocs" -> "xnt" ;
+
+  "prevlocs" -> "nt" ;
+
+  "prevlocs" -> "kw" ;
+
+  "prevlocs" -> "xtermref" ;
+
+  "prevlocs" -> "xspecref" ;
+
+  "prevlocs" -> "titleref" ;
+
+  "prevlocs" -> "termref" ;
+
+  "prevlocs" -> "specref" ;
+
+  "prevlocs" -> "bibref" ;
+
+  "prevlocs" -> "sup" ;
+
+  "prevlocs" -> "sub" ;
+
+  "prevlocs" -> "quote" ;
+
+  "prevlocs" -> "phrase" ;
+
+  "prevlocs" -> "emph" ;
+
+  "prevlocs" -> "term" ;
+
+  "prevlocs" -> "termdef" ;
+
+  "prevlocs" -> "footnote" ;
+
+  "header" -> "prevlocs" ;
+
+  "latestloc" ;
+
+  "latestloc" -> "ednote" ;
+
+  "latestloc" -> "loc" ;
+
+  "latestloc" -> "attval" ;
+
+  "latestloc" -> "att" ;
+
+  "latestloc" -> "el" ;
+
+  "latestloc" -> "var" ;
+
+  "latestloc" -> "function" ;
+
+  "latestloc" -> "code" ;
+
+  "latestloc" -> "xnt" ;
+
+  "latestloc" -> "nt" ;
+
+  "latestloc" -> "kw" ;
+
+  "latestloc" -> "xtermref" ;
+
+  "latestloc" -> "xspecref" ;
+
+  "latestloc" -> "titleref" ;
+
+  "latestloc" -> "termref" ;
+
+  "latestloc" -> "specref" ;
+
+  "latestloc" -> "bibref" ;
+
+  "latestloc" -> "sup" ;
+
+  "latestloc" -> "sub" ;
+
+  "latestloc" -> "quote" ;
+
+  "latestloc" -> "phrase" ;
+
+  "latestloc" -> "emph" ;
+
+  "latestloc" -> "term" ;
+
+  "latestloc" -> "termdef" ;
+
+  "latestloc" -> "footnote" ;
+
+  "header" -> "latestloc" ;
+
+  "authlist" ;
+
+  "author" ;
+
+  "author" -> "name" ;
+
+  "author" -> "affiliation" ;
+
+  "email" ;
+
+  "author" -> "email" ;
+
+  "authlist" -> "author" ;
+
+  "header" -> "authlist" ;
+
+  "copyright" ;
+
+  "copyright" -> "p" ;
+
+  "copyright" -> "ulist" ;
+
+  "copyright" -> "olist" ;
+
+  "copyright" -> "slist" ;
+
+  "copyright" -> "glist" ;
+
+  "copyright" -> "ednote" ;
+
+  "header" -> "copyright" ;
+
+  "status" ;
+
+  "status" -> "p" ;
+
+  "status" -> "ulist" ;
+
+  "status" -> "olist" ;
+
+  "status" -> "slist" ;
+
+  "status" -> "glist" ;
+
+  "status" -> "orglist" ;
+
+  "status" -> "blist" ;
+
+  "status" -> "note" ;
+
+  "status" -> "issue" ;
+
+  "status" -> "wfcnote" ;
+
+  "status" -> "vcnote" ;
+
+  "status" -> "constraintnote" ;
+
+  "status" -> "eg" ;
+
+  "status" -> "graphic" ;
+
+  "status" -> "scrap" ;
+
+  "status" -> "table" ;
+
+  "status" -> "definitions" ;
+
+  "status" -> "proto" ;
+
+  "status" -> "example" ;
+
+  "status" -> "ednote" ;
+
+  "header" -> "status" ;
+
+  "abstract" ;
+
+  "abstract" -> "p" ;
+
+  "abstract" -> "ulist" ;
+
+  "abstract" -> "olist" ;
+
+  "abstract" -> "slist" ;
+
+  "abstract" -> "glist" ;
+
+  "abstract" -> "ednote" ;
+
+  "header" -> "abstract" ;
+
+  "pubstmt" ;
+
+  "pubstmt" -> "p" ;
+
+  "pubstmt" -> "ulist" ;
+
+  "pubstmt" -> "olist" ;
+
+  "pubstmt" -> "slist" ;
+
+  "pubstmt" -> "glist" ;
+
+  "pubstmt" -> "ednote" ;
+
+  "header" -> "pubstmt" ;
+
+  "sourcedesc" ;
+
+  "sourcedesc" -> "p" ;
+
+  "sourcedesc" -> "ulist" ;
+
+  "sourcedesc" -> "olist" ;
+
+  "sourcedesc" -> "slist" ;
+
+  "sourcedesc" -> "glist" ;
+
+  "sourcedesc" -> "ednote" ;
+
+  "header" -> "sourcedesc" ;
+
+  "langusage" ;
+
+  "language" ;
+
+  "langusage" -> "language" ;
+
+  "header" -> "langusage" ;
+
+  "revisiondesc" ;
+
+  "revisiondesc" -> "p" ;
+
+  "revisiondesc" -> "ulist" ;
+
+  "revisiondesc" -> "olist" ;
+
+  "revisiondesc" -> "slist" ;
+
+  "revisiondesc" -> "glist" ;
+
+  "revisiondesc" -> "ednote" ;
+
+  "header" -> "revisiondesc" ;
+
+  "spec" -> "header" ;
+
+  "front" ;
+
+  "div1" ;
+
+  "div1" -> "head" ;
+
+  "div1" -> "p" ;
+
+  "div1" -> "ulist" ;
+
+  "div1" -> "olist" ;
+
+  "div1" -> "slist" ;
+
+  "div1" -> "glist" ;
+
+  "div1" -> "orglist" ;
+
+  "div1" -> "blist" ;
+
+  "div1" -> "note" ;
+
+  "div1" -> "issue" ;
+
+  "div1" -> "wfcnote" ;
+
+  "div1" -> "vcnote" ;
+
+  "div1" -> "constraintnote" ;
+
+  "div1" -> "eg" ;
+
+  "div1" -> "graphic" ;
+
+  "div1" -> "scrap" ;
+
+  "div1" -> "table" ;
+
+  "div1" -> "definitions" ;
+
+  "div1" -> "proto" ;
+
+  "div1" -> "example" ;
+
+  "div1" -> "ednote" ;
+
+  "div2" ;
+
+  "div2" -> "head" ;
+
+  "div2" -> "p" ;
+
+  "div2" -> "ulist" ;
+
+  "div2" -> "olist" ;
+
+  "div2" -> "slist" ;
+
+  "div2" -> "glist" ;
+
+  "div2" -> "orglist" ;
+
+  "div2" -> "blist" ;
+
+  "div2" -> "note" ;
+
+  "div2" -> "issue" ;
+
+  "div2" -> "wfcnote" ;
+
+  "div2" -> "vcnote" ;
+
+  "div2" -> "constraintnote" ;
+
+  "div2" -> "eg" ;
+
+  "div2" -> "graphic" ;
+
+  "div2" -> "scrap" ;
+
+  "div2" -> "table" ;
+
+  "div2" -> "definitions" ;
+
+  "div2" -> "proto" ;
+
+  "div2" -> "example" ;
+
+  "div2" -> "ednote" ;
+
+  "div3" ;
+
+  "div3" -> "head" ;
+
+  "div3" -> "p" ;
+
+  "div3" -> "ulist" ;
+
+  "div3" -> "olist" ;
+
+  "div3" -> "slist" ;
+
+  "div3" -> "glist" ;
+
+  "div3" -> "orglist" ;
+
+  "div3" -> "blist" ;
+
+  "div3" -> "note" ;
+
+  "div3" -> "issue" ;
+
+  "div3" -> "wfcnote" ;
+
+  "div3" -> "vcnote" ;
+
+  "div3" -> "constraintnote" ;
+
+  "div3" -> "eg" ;
+
+  "div3" -> "graphic" ;
+
+  "div3" -> "scrap" ;
+
+  "div3" -> "table" ;
+
+  "div3" -> "definitions" ;
+
+  "div3" -> "proto" ;
+
+  "div3" -> "example" ;
+
+  "div3" -> "ednote" ;
+
+  "div4" ;
+
+  "div4" -> "head" ;
+
+  "div4" -> "p" ;
+
+  "div4" -> "ulist" ;
+
+  "div4" -> "olist" ;
+
+  "div4" -> "slist" ;
+
+  "div4" -> "glist" ;
+
+  "div4" -> "orglist" ;
+
+  "div4" -> "blist" ;
+
+  "div4" -> "note" ;
+
+  "div4" -> "issue" ;
+
+  "div4" -> "wfcnote" ;
+
+  "div4" -> "vcnote" ;
+
+  "div4" -> "constraintnote" ;
+
+  "div4" -> "eg" ;
+
+  "div4" -> "graphic" ;
+
+  "div4" -> "scrap" ;
+
+  "div4" -> "table" ;
+
+  "div4" -> "definitions" ;
+
+  "div4" -> "proto" ;
+
+  "div4" -> "example" ;
+
+  "div4" -> "ednote" ;
+
+  "div5" ;
+
+  "div5" -> "head" ;
+
+  "div5" -> "p" ;
+
+  "div5" -> "ulist" ;
+
+  "div5" -> "olist" ;
+
+  "div5" -> "slist" ;
+
+  "div5" -> "glist" ;
+
+  "div5" -> "orglist" ;
+
+  "div5" -> "blist" ;
+
+  "div5" -> "note" ;
+
+  "div5" -> "issue" ;
+
+  "div5" -> "wfcnote" ;
+
+  "div5" -> "vcnote" ;
+
+  "div5" -> "constraintnote" ;
+
+  "div5" -> "eg" ;
+
+  "div5" -> "graphic" ;
+
+  "div5" -> "scrap" ;
+
+  "div5" -> "table" ;
+
+  "div5" -> "definitions" ;
+
+  "div5" -> "proto" ;
+
+  "div5" -> "example" ;
+
+  "div5" -> "ednote" ;
+
+  "div4" -> "div5" ;
+
+  "div3" -> "div4" ;
+
+  "div2" -> "div3" ;
+
+  "div1" -> "div2" ;
+
+  "front" -> "div1" ;
+
+  "spec" -> "front" ;
+
+  "body" ;
+
+  "body" -> "div1" ;
+
+  "spec" -> "body" ;
+
+  "back" ;
+
+  "back" -> "div1" ;
+
+  "inform-div1" ;
+
+  "inform-div1" -> "head" ;
+
+  "inform-div1" -> "p" ;
+
+  "inform-div1" -> "ulist" ;
+
+  "inform-div1" -> "olist" ;
+
+  "inform-div1" -> "slist" ;
+
+  "inform-div1" -> "glist" ;
+
+  "inform-div1" -> "orglist" ;
+
+  "inform-div1" -> "blist" ;
+
+  "inform-div1" -> "note" ;
+
+  "inform-div1" -> "issue" ;
+
+  "inform-div1" -> "wfcnote" ;
+
+  "inform-div1" -> "vcnote" ;
+
+  "inform-div1" -> "constraintnote" ;
+
+  "inform-div1" -> "eg" ;
+
+  "inform-div1" -> "graphic" ;
+
+  "inform-div1" -> "scrap" ;
+
+  "inform-div1" -> "table" ;
+
+  "inform-div1" -> "definitions" ;
+
+  "inform-div1" -> "proto" ;
+
+  "inform-div1" -> "example" ;
+
+  "inform-div1" -> "ednote" ;
+
+  "inform-div1" -> "div2" ;
+
+  "back" -> "inform-div1" ;
+
+  "spec" -> "back" ;
+
+ }
+

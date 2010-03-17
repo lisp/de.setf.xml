@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+<!--
+<DOCUMENTATION>
+ <CHRONOLOGY>
+  <DELTA DATE='19971115'>
+   <A HREF="mailto:jaa%mecom-gmbh@mixx.de">jaa </A>:
+   this document was composed to accompany the prototype distribution.
+   covers background, program structure, and file organization.
+   </DELTA>
+  <DELTA DATE='19971210'>
+   jaa:
+   additions for model compiler and element matcher
+   </DELTA>
+  <DELTA DATE='19980102'>
+   jaa: relation to other lisp serialization / representation efforts
+   <DELTA>
+  <DELTA DATE='20010620'>added counter</DELTA>
+  </CHRONOLOGY>
+ </DOCUMENTATION>
+-->
+
+	<META NAME="GENERATOR" Content="Symantec Visual Page 1.0.3">
+	<TITLE>Common Lisp - XML (0.949)</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" BGCOLOR="#E8E8E8">
+
+<H2>CL-XML:<BR>
+Common Lisp support for the 'Extensible Markup Language'</H2>
+<P><A HREF="mailto:James.Anderson@setf.de">james anderson</A>, 
+<HR>
+</P>
+<P>CL-XML is a collection of Common LISP modules for data stream parsing and serialization
+according to the &quot;Extensible Markup Language&quot; and anscilliary standards.
+The modules perform parsing and serialization between XML, XML Query, and XML Path
+expressions and DOM-compatible CLOS instances. The XML processor includes a conformant,
+validating, namespace-aware model-based parser. It supports, in particular, namespace-aware
+DTD-based validation. The XPATH module comprises LISP bindings for the XML Path library,
+an S-expression-based namespace-aware path model, and a macro-based path model compiler
+which implements an XPATH-algebra. The XQUERY module comprises LISP bindings for
+the XML Query library, an S-expression-based query model which incorporates the XPATH
+facilities, and a macro-based query compiler. The base CLOS model implements the
+XML Query Data Model in a class hierarchy which presents an Infoset compatible programming
+interface.</P>
+<P>A description is available <A HREF="documentation/index.html">here</A>.</P>
+<P>Look <A HREF="documentation/howto/index.html">here</A> for some hints on how to load cl-xml,
+work with XML documents, and even implement simple rpc.</P>
+<P>
+<HR>
+</P>
+<H3>Availability</H3>
+<H4>In-Progress</H4>
+<P>20040101: There has been some progress on method combinationd for clisp, which
+means thatI'm now a step closer to porting to that implementation. For information
+on porting to other common-lisp environments <A HREF="documentation/cl-xml.html#porting">here</A>
+is a list of known issues.</P>
+<H4>Releases</H4>
+<P>Source archives are available for the MCL, Lispworks, Allegro, CMUCL, OpenMCL,
+and Scieneer implementations of Common Lisp. A separate <A HREF="documentation/releases.html">document</A>
+provides the download paths and details on the implementation status.</P>
+<H4></H4>
+<H4>BNF</H4>
+<P>The respective BNF descriptions of the respective <A HREF="bnf/xml-grammar.bnf">XML</A>,
+<A HREF="bnf/xpath-grammar.bnf">XPath</A>, and <A HREF="bnf/xql-grammar.bnf">XQuery</A>
+syntax used to generate the parsers are available individually. In some cases, they
+have been normalized and otherwise edited to expedite parsing. I'd be interested
+to hear if any of the modifications would appear to affect conformance.</P>
+<P>An additional BNF is included for <A HREF="bnf/html-grammar.bnf">HTML</A>. This
+includes additional productions for unterminated empty tags. (see <A HREF="code/xparser/html-parser.lisp">xml:code;xparser;html-parser.lisp</A>)</P>
+<H4></H4>
+<H4>Examples</H4>
+
+<DL>
+	<DT><B>graphs</B></DT>
+	<DD>I was curious about how an automatic layout package would fare with DTD and DOM
+	graphs. A <A HREF="Graphs/xqdm-graph.lisp">naive generator</A> for <A HREF="http://www.graphviz.org/">GraphViz</A>'s
+	&quot;dot&quot; format is a straight-forward graph walk. The <A HREF="Graphs/test-xqdm-graph.lisp">results</A>
+	are adequate for smaller examples, but larger instances will need a more refined
+	approach. The larger files failed to load with the current GraphViz 1.7.6 beta for
+	Windows. As I'm rather Linux/C imparied, I was fortunate and grateful, that someone
+	was curious and ran them through the Linux version. Thus the two SVGs below, which
+	I was able to view with Adobe's <A HREF="http://www.adobe.com/svg/
+  anyzone:ID    CDATA  #IMPLIED">SVG</A>
+	plugin.
+	<P>email (from &quot;xml:tests:xml:email.xml&quot;) : <A HREF="Graphs/email.dot">DOM</A>,
+	<A HREF="Graphs/emailD.dot">DTD</A><BR>
+	channel (from &quot;xml:tests:xml:channel.xml&quot;): <A HREF="Graphs/channel.dot">DOM</A>,
+	<A HREF="Graphs/channelD.dot">DTD</A><BR>
+	REC-xml-20001006.xml: DTD as <A HREF="Graphs/xmlSpec.dot">DOT</A>, as <A HREF="Graphs/xmlSpec.svg"
+	type="image/svg+xml">SVG</A>(768K)<BR>
+	REC-xhtml1-20000126.html: DTD as <A HREF="Graphs/xhtmlHtml.dot">DOT</A>, as <A HREF="Graphs/xhtmlHtml.svg"
+	type="image/svg+xml">SVG</A>(444K)</P>
+	<P>Anyone curious about DOCBOOK?</P>
+	<DT><B>xquery / use case NS issues</B></DT>
+	<DD>Use-case NS of <A HREF="http://www.w3.org/TR/2001/WD-xmlquery-use-cases-20010608">WD-xmlquery-use-cases-20010608</A>
+	reserved the publication of a DTD until schemas were available. It is not clear that
+	this delay is necessary. The documents below were processed, validated, and serialized
+	with 0.908+
+	<P><A HREF="./1-7-NS/AuctionWatchList.xml">AuctionWatchList.xml</A><BR>
+	<A HREF="./1-7-NS/AuctionWatchList.dtd">AuctionWatchList.dtd</A><BR>
+	<A HREF="./1-7-NS/record.dtd">record.dtd</A><BR>
+	<A HREF="./1-7-NS/AuctionWatchListOut.xml">AuctionWatchListOut.xml</A>
+</DL>
+
+<P>
+<HR>
+</P>
+
+<P>&#169; setf.de 2004 [20040106]<BR>
+<SCRIPT TYPE="text/javascript" LANGUAGE="javascript">
+
+<A HREF="http://www.digitool.com/"><IMG
+SRC="mcl.gif" WIDTH="64" HEIGHT="35" ALIGN="BOTTOM" BORDER="2"></SCRIPT>
+
+
+</BODY>
+
+</HTML>

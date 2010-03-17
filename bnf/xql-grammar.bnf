@@ -1,0 +1,226 @@
+//
+// this is adapted from the bnf from the WD as of 20010607.
+//
+//  ------------------------------------------------------------------
+/*
+<DOCUMENTATION>
+ <DESCRIPTION>
+  <p>
+  this is the BNF for XML-QUERY.
+  it is derived from <a href='http://www.w3.org/TR/2001/WD-xquery-20010607'>WD-xquery-20010607</a>.
+  it is the input bnf for <a href='file://xml/code/xquery/xql-parser.lisp'>xql-parser.lisp</a>.
+  </p>
+  <p>
+  nb. the production numbers correspond to those present in the recommendation.
+  this formulation differs from the literal text of the recommendation in numerous regards.
+  none of these differences is believed to affect the conformance of the resulting parser.
+  <ul>
+  <li>some phrases have been reformulated in order to permit the parser to
+      disambiguate constituent terms.</li>
+  </ul></p>
+  </DESCRIPTION>
+ <COPYRIGHT YEAR='2001' AUTHOR='james adam anderson' MARK='&copy'
+            href='file://xml/sysdcl.lisp' />
+ <COPYRIGHT YEAR='2001' AUTHOR='w3c' MARK='&copy'
+            smtp='site-policy@w3.org'
+            href='file://xml/W3C-copyrightsoft-19980720.html'>
+  Copyright &copy; 2001 <a href='http://www.w3.org/'>World Wide Web Consortium</a>,
+   (<a href='http://www.lcs.mit.edu/'>Massachusetts Institute of Technology</a>,
+    <a href='http://www.inria.fr/'>Institut National de Recherche en Informatique et en Automatique</a>,
+    <a href='http://www.keio.ac.jp/'>Keio University</a>).
+   All Rights Reserved. http://www.w3.org/Consortium/Legal/
+  </COPYRIGHT>
+ <CHRONOLOGY>
+  <DELTA DATE='20010913'>changed the name test production to make it unambiguous - more like
+   the previous spec version. otherwise the sequence NCName ':*' parses to an initial QName w/o
+   prefix and fails on the colon.</DELTA>
+  <CHRONOLOGY>
+ </DOCUMENTATION>
+*/
+
+[[01]]  QueryModuleList    ::= QueryModule ( ';' QueryModule)*
+[[02]]  QueryModule        ::= ContextDecl* FunctionDefn* ExprSequence?
+[[03]]  ContextDecl        ::= NamespaceDecl | SchemaDecl
+        NamespaceDecl      ::= ('namespace' NCName '=' StringLiteral)
+                             | ('default' 'namespace' '=' StringLiteral)
+        SchemaDecl         ::= 'schema' SchemaName StringLiteral
+        SchemaName         ::= StringLiteral
+[[04]]  FunctionDefn       ::= 'define' 'function' QName '(' ParamList? ')'
+                               ('returns' Datatype)? EnclosedExpr
+[[05]]  ParamList          ::= Param (',' Param)*
+[[06]]  Param              ::= Datatype? Variable
+[[07]]  Expr               ::= SortExpr
+                             | OrExpr
+                             | AndExpr
+                             | BeforeAfterExpr
+                             | FlwrExpr
+                             | IfExpr
+                             | SomeExpr
+                             | EveryExpr
+                             | TypeSwitchExpr
+                             | EqualityExpr
+                             | RelationalExpr
+                             | InstanceofExpr
+                             | RangeExpr
+                             | AdditiveExpr
+                             | MultiplicativeExpr
+                             | UnaryExpr
+                             | UnionExpr
+                             | IntersectExceptExpr
+                             | PathExpr
+[[08]]  SortExpr           ::= Expr 'sortby' '(' SortSpecList ')'
+[[09]]  SortSpecList       ::= SortSpec (',' SortSpec)*
+        SortSpec           ::= Expr SortOrder?
+        SortOrder          ::= 'ascending' | 'descending'
+[[10]]  OrExpr             ::= Expr 'or' ExprArg2
+        ExprArg2           ::= Expr
+[[11]]  AndExpr            ::= Expr 'and' ExprArg2
+[[12]]  BeforeAfterExpr    ::= Expr BeforeAfterOp ExprArg2
+        BeforeAfterOp      ::= 'before' | 'after'
+[[13]]  FlwrExpr           ::= FlwrExprForLet+ WhereClause? ReturnClause
+        FlwrExprForLet     ::= ForClause | LetClause
+[[14]]  ForClause          ::= 'for' FlwrForBinding (',' FlwrForBinding)*
+        FlwrForBinding     ::= Variable 'in' Expr 
+[[15]]  LetClause          ::= 'let' FlwrLetBinding (',' FlwrLetBinding)*
+        FlwrLetBinding     ::= Variable ':=' Expr
+[[16]]  WhereClause        ::= 'where' Expr
+        ReturnClause       ::= 'return' Expr
+[[17]]  IfExpr             ::= 'if' '(' Expr ')' 'then' IfThenExpr 'else' IfElseExpr
+        IfThenExpr         ::= Expr
+        IfElseExpr         ::= Expr
+[[18]]  SomeExpr           ::= 'some' Variable 'in' Expr 'satisfies' ExprTest
+[[19]]  EveryExpr          ::= 'every' Variable 'in' Expr 'satisfies' ExprTest
+        ExprTest           ::= Expr
+[[20]]  TypeSwitchExpr     ::= 'typeswitch' '(' Expr ')' ('as' Variable)?
+                                CaseClause+ 'default' 'return' DefaultExpr
+        DefaultExpr        ::= Expr
+[[21]]  CaseClause         ::= 'case' Datatype 'return' Expr
+[[22]]  EqualityExpr       ::= Expr EqualityOp ExprArg2
+        EqualityOp         ::= '=' | '!=' | '==' | '!=='
+[[23]]  RelationalExpr     ::= Expr RelationalOp ExprArg2
+        RelationalOp       ::= '<' | '<=' | '>' | '>='
+[[24]]  InstanceofExpr     ::= Expr 'instanceof' OnlyOp? Datatype
+        OnlyOp             ::= 'only'
+[[25]]  RangeExpr          ::= Expr 'to' ExprArg2
+[[26]]  AdditiveExpr       ::= Expr AdditiveOp ExprArg2
+        AdditiveOp         ::= '+' | '-'
+[[27]]  MultiplicativeExpr ::= Expr MultiplicativeOp ExprArg2
+        MultiplicativeOp   ::= '*' | 'div' | 'mod'
+[[28]]  UnaryExpr          ::= UnaryOp Expr
+        UnaryOp            ::= '+' | '-'
+[[29]]  UnionExpr          ::= Expr UnionOrOp ExprArg2
+        UnionOrOp          ::= 'union' | '|'
+[[30]]  IntersectExceptExpr ::= Expr IntersectExceptOp ExprArg2
+        IntersectExceptOp ::= IntersectOp | ExceptOp
+        IntersectOp        ::= 'intersect'
+        ExceptOp           ::= 'except'
+[[31]]  PathExpr           ::= RelativePathExpr
+                             | (SingleSlash RelativePathExpr?)
+                             | (DoubleSlash RelativePathExpr?)
+        SingleSlash        ::= '/'
+        DoubleSlash        ::= '//'
+[[32]]  RelativePathExpr   ::= StepExpr RelatedStep*
+        RelatedStep        ::= (SingleSlash | DoubleSlash) StepExpr
+[[33]]  StepExpr           ::= AxisStepExpr | OtherStepExpr
+[[34]]  AxisStepExpr       ::= Axis NodeTest StepQualifier*
+[[35]]  OtherStepExpr      ::= PrimaryExpr StepQualifier*
+[[36]]  StepQualifier      ::= PredicateExpr | TargetExpr
+        PredicateExpr      ::= '[' Expr ']'
+        TargetExpr         ::= '=>' NameTest
+[[37]]  Axis               ::= (NCName '::') | AtOp
+        AtOp               ::= '@'
+[[38]]  PrimaryExpr        ::= Dot
+                             | DotDot
+                            // | NodeTest
+                             | KindTest
+                             | Variable
+                             | Literal
+                             | FunctionCall
+                             | NameTest
+                             | ParenthesizedExpr
+                             | CastExpr
+                             | ElementConstructor
+                             | CommentConstructor
+                             | PIConstructor
+        Dot                ::= '.'
+        DotDot             ::= '..'
+[[39]]  Literal            ::= NumericLiteral | StringLiteral
+[[40]]  NodeTest           ::= NameTest | KindTest
+// [[41]]  NameTest           ::= QName | Wildcard
+[[41]]  NameTest           ::= NameTestPrefix? ( NCName | WildName )
+        NameTestPrefix     ::= ( NCName | WildName ) ':'
+        WildName           ::= '*'
+[[42]]  KindTest           ::= PITest | CommentTest | TextTest | AnyKindTest
+[[43]]  PITest             ::= 'processing-instruction' '(' StringLiteral? ')'
+[[44]]  CommentTest        ::= 'comment' '(' ')'
+[[45]]  TextTest           ::= 'text' '(' ')'
+[[46]]  AnyKindTest        ::= 'node' '(' ')'
+[[47]]  ParenthesizedExpr  ::= '(' ExprSequence? ')' 
+[[48]]  ExprSequence       ::= Expr (',' Expr)*
+[[49]]  FunctionCall       ::= QName '(' (Expr (',' Expr)*)? ')'
+[[50]]  CastExpr           ::= ((CastOp 'as') | (TreatOp 'as')) Datatype '(' Expr ')'
+        CastOp             ::= 'CAST'
+        TreatOp            ::= 'TREAT'
+[[51]]  Datatype           ::= QName
+[[52]]  ElementConstructor ::= ( '<' StartTag ) ( '/>' | ( '>' ElementContent* EndTag ) )
+        StartTag           ::= NameSpec AttributeList? S*
+        EndTag             ::= '</' (QName S?)? '>'
+[[53]]  NameSpec           ::= QName | ( '{' Expr '}' )
+[[54]]  AttributeList      ::= Attribute+
+        Attribute          ::= S+ NameSpec S? '=' S? (AttributeValue | EnclosedExpr)
+[[55]]  AttributeValue     ::= ( '"' AttributeValueContent* '"' )
+                             | ( '\'' AttributeValueContent* '\'' )
+[[56]]  ElementContent     ::= CharData
+                             | ElementConstructor
+                             | EnclosedExpr
+                             | CDataSection
+                             | CharRef
+                             | PredefinedEntityRef
+                             | CommentConstructor
+                             | PIConstructor
+[[57]]  AttributeValueContent ::=   CharData
+                                | CharRef
+                                | EnclosedExpr
+                                | PredefinedEntityRef
+[[58]]  CDataSection       ::= '<![CDATA[' CDataCharData ']]>'
+[[59]]  EnclosedExpr       ::= '{' ExprSequence '}'
+
+// extra's noted in WD, but not present in BNF
+        CommentConstructor ::= '<!--' CharData '-->'
+        PIConstructor      ::= '<?' NCName S? CharData '?>'
+
+//    Precedence order of expressions, from highest precedence to lowest precedence
+//    (within each precedence level, operators are applied from left to right):
+//
+// PathExpr
+// IntersectExceptExpr
+// UnionExpr
+// UnaryExpr
+// MultiplicativeExpr
+// AdditiveExpr
+// RangeExpr
+// RelationalExpr, InstanceofExpr
+// EqualityExpr
+// FLWRExpr, IfExpr, SomeExpr, EveryExpr, TypeswitchExpr
+// BeforeAfterExpr
+// AndExpr
+// OrExpr
+// SortExpr
+//
+//    Lexical structure
+//
+[[60]]  StringLiteral     ::= ('"' StringLiteralData '"') | ('\'' StringLiteralData '\'')
+// [[61]]  NumericLiteral    ::= (("." [0-9]+) | ([0-9]+ ("." [0-9]+?)?)) ([eE] [+-]? [0-9]+)?
+[[62]]  Wildcard          ::= '*' | ( NamePrefix ':*' ) | ( '*:' NCName )
+        NamePrefix        ::= NCName
+[[63]]  Variable          ::= '$' QName
+[[64]]  PredefinedEntityRef    ::=  '&' EntityOp ';'
+        EntityOp          ::= 'lt' | 'gt' | 'amp' | 'quot' | 'apos'
+[[65]]  CharRef           ::= '&#' CharRefData ';'
+//      CharRef           ::= '&#' ([0-9]+ | ('x' [0-9a-fA-F]+)) ';'
+
+// additional terms
+
+QName               ::= QNamePrefix? NCName
+QNamePrefix         ::= NCName ':'
+

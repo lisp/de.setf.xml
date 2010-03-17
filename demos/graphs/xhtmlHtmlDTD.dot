@@ -1,0 +1,3760 @@
+
+
+digraph html {
+
+  "html" ;
+
+  "head" ;
+
+  "script" ;
+
+  "head" -> "script" ;
+
+  "style" ;
+
+  "head" -> "style" ;
+
+  "meta" ;
+
+  "head" -> "meta" ;
+
+  "link" ;
+
+  "head" -> "link" ;
+
+  "object" ;
+
+  "noscript" ;
+
+  "p" ;
+
+  "p" -> "noscript" ;
+
+  "p" -> "script" ;
+
+  "del" ;
+
+  "del" -> "noscript" ;
+
+  "del" -> "script" ;
+
+  "del" -> "del" ;
+
+  "ins" ;
+
+  "ins" -> "noscript" ;
+
+  "ins" -> "script" ;
+
+  "ins" -> "del" ;
+
+  "ins" -> "ins" ;
+
+  "button" ;
+
+  "button" -> "noscript" ;
+
+  "button" -> "script" ;
+
+  "button" -> "del" ;
+
+  "button" -> "ins" ;
+
+  "acronym" ;
+
+  "acronym" -> "noscript" ;
+
+  "acronym" -> "script" ;
+
+  "acronym" -> "del" ;
+
+  "acronym" -> "ins" ;
+
+  "acronym" -> "button" ;
+
+  "label" ;
+
+  "label" -> "noscript" ;
+
+  "label" -> "script" ;
+
+  "label" -> "del" ;
+
+  "label" -> "ins" ;
+
+  "label" -> "button" ;
+
+  "label" -> "label" ;
+
+  "textarea" ;
+
+  "label" -> "textarea" ;
+
+  "select" ;
+
+  "optgroup" ;
+
+  "option" ;
+
+  "optgroup" -> "option" ;
+
+  "select" -> "optgroup" ;
+
+  "select" -> "option" ;
+
+  "label" -> "select" ;
+
+  "input" ;
+
+  "label" -> "input" ;
+
+  "label" -> "acronym" ;
+
+  "abbr" ;
+
+  "abbr" -> "noscript" ;
+
+  "abbr" -> "script" ;
+
+  "abbr" -> "del" ;
+
+  "abbr" -> "ins" ;
+
+  "abbr" -> "button" ;
+
+  "abbr" -> "label" ;
+
+  "abbr" -> "textarea" ;
+
+  "abbr" -> "select" ;
+
+  "abbr" -> "input" ;
+
+  "abbr" -> "acronym" ;
+
+  "abbr" -> "abbr" ;
+
+  "cite" ;
+
+  "cite" -> "noscript" ;
+
+  "cite" -> "script" ;
+
+  "cite" -> "del" ;
+
+  "cite" -> "ins" ;
+
+  "cite" -> "button" ;
+
+  "cite" -> "label" ;
+
+  "cite" -> "textarea" ;
+
+  "cite" -> "select" ;
+
+  "cite" -> "input" ;
+
+  "cite" -> "acronym" ;
+
+  "cite" -> "abbr" ;
+
+  "cite" -> "cite" ;
+
+  "var" ;
+
+  "var" -> "noscript" ;
+
+  "var" -> "script" ;
+
+  "var" -> "del" ;
+
+  "var" -> "ins" ;
+
+  "var" -> "button" ;
+
+  "var" -> "label" ;
+
+  "var" -> "textarea" ;
+
+  "var" -> "select" ;
+
+  "var" -> "input" ;
+
+  "var" -> "acronym" ;
+
+  "var" -> "abbr" ;
+
+  "var" -> "cite" ;
+
+  "var" -> "var" ;
+
+  "kbd" ;
+
+  "kbd" -> "noscript" ;
+
+  "kbd" -> "script" ;
+
+  "kbd" -> "del" ;
+
+  "kbd" -> "ins" ;
+
+  "kbd" -> "button" ;
+
+  "kbd" -> "label" ;
+
+  "kbd" -> "textarea" ;
+
+  "kbd" -> "select" ;
+
+  "kbd" -> "input" ;
+
+  "kbd" -> "acronym" ;
+
+  "kbd" -> "abbr" ;
+
+  "kbd" -> "cite" ;
+
+  "kbd" -> "var" ;
+
+  "kbd" -> "kbd" ;
+
+  "samp" ;
+
+  "samp" -> "noscript" ;
+
+  "samp" -> "script" ;
+
+  "samp" -> "del" ;
+
+  "samp" -> "ins" ;
+
+  "samp" -> "button" ;
+
+  "samp" -> "label" ;
+
+  "samp" -> "textarea" ;
+
+  "samp" -> "select" ;
+
+  "samp" -> "input" ;
+
+  "samp" -> "acronym" ;
+
+  "samp" -> "abbr" ;
+
+  "samp" -> "cite" ;
+
+  "samp" -> "var" ;
+
+  "samp" -> "kbd" ;
+
+  "samp" -> "samp" ;
+
+  "sup" ;
+
+  "sup" -> "noscript" ;
+
+  "sup" -> "script" ;
+
+  "sup" -> "del" ;
+
+  "sup" -> "ins" ;
+
+  "sup" -> "button" ;
+
+  "sup" -> "label" ;
+
+  "sup" -> "textarea" ;
+
+  "sup" -> "select" ;
+
+  "sup" -> "input" ;
+
+  "sup" -> "acronym" ;
+
+  "sup" -> "abbr" ;
+
+  "sup" -> "cite" ;
+
+  "sup" -> "var" ;
+
+  "sup" -> "kbd" ;
+
+  "sup" -> "samp" ;
+
+  "sup" -> "sup" ;
+
+  "sub" ;
+
+  "sub" -> "noscript" ;
+
+  "sub" -> "script" ;
+
+  "sub" -> "del" ;
+
+  "sub" -> "ins" ;
+
+  "sub" -> "button" ;
+
+  "sub" -> "label" ;
+
+  "sub" -> "textarea" ;
+
+  "sub" -> "select" ;
+
+  "sub" -> "input" ;
+
+  "sub" -> "acronym" ;
+
+  "sub" -> "abbr" ;
+
+  "sub" -> "cite" ;
+
+  "sub" -> "var" ;
+
+  "sub" -> "kbd" ;
+
+  "sub" -> "samp" ;
+
+  "sub" -> "sup" ;
+
+  "sub" -> "sub" ;
+
+  "q" ;
+
+  "q" -> "noscript" ;
+
+  "q" -> "script" ;
+
+  "q" -> "del" ;
+
+  "q" -> "ins" ;
+
+  "q" -> "button" ;
+
+  "q" -> "label" ;
+
+  "q" -> "textarea" ;
+
+  "q" -> "select" ;
+
+  "q" -> "input" ;
+
+  "q" -> "acronym" ;
+
+  "q" -> "abbr" ;
+
+  "q" -> "cite" ;
+
+  "q" -> "var" ;
+
+  "q" -> "kbd" ;
+
+  "q" -> "samp" ;
+
+  "q" -> "sup" ;
+
+  "q" -> "sub" ;
+
+  "q" -> "q" ;
+
+  "code" ;
+
+  "code" -> "noscript" ;
+
+  "code" -> "script" ;
+
+  "code" -> "del" ;
+
+  "code" -> "ins" ;
+
+  "code" -> "button" ;
+
+  "code" -> "label" ;
+
+  "code" -> "textarea" ;
+
+  "code" -> "select" ;
+
+  "code" -> "input" ;
+
+  "code" -> "acronym" ;
+
+  "code" -> "abbr" ;
+
+  "code" -> "cite" ;
+
+  "code" -> "var" ;
+
+  "code" -> "kbd" ;
+
+  "code" -> "samp" ;
+
+  "code" -> "sup" ;
+
+  "code" -> "sub" ;
+
+  "code" -> "q" ;
+
+  "code" -> "code" ;
+
+  "dfn" ;
+
+  "dfn" -> "noscript" ;
+
+  "dfn" -> "script" ;
+
+  "dfn" -> "del" ;
+
+  "dfn" -> "ins" ;
+
+  "dfn" -> "button" ;
+
+  "dfn" -> "label" ;
+
+  "dfn" -> "textarea" ;
+
+  "dfn" -> "select" ;
+
+  "dfn" -> "input" ;
+
+  "dfn" -> "acronym" ;
+
+  "dfn" -> "abbr" ;
+
+  "dfn" -> "cite" ;
+
+  "dfn" -> "var" ;
+
+  "dfn" -> "kbd" ;
+
+  "dfn" -> "samp" ;
+
+  "dfn" -> "sup" ;
+
+  "dfn" -> "sub" ;
+
+  "dfn" -> "q" ;
+
+  "dfn" -> "code" ;
+
+  "dfn" -> "dfn" ;
+
+  "strong" ;
+
+  "strong" -> "noscript" ;
+
+  "strong" -> "script" ;
+
+  "strong" -> "del" ;
+
+  "strong" -> "ins" ;
+
+  "strong" -> "button" ;
+
+  "strong" -> "label" ;
+
+  "strong" -> "textarea" ;
+
+  "strong" -> "select" ;
+
+  "strong" -> "input" ;
+
+  "strong" -> "acronym" ;
+
+  "strong" -> "abbr" ;
+
+  "strong" -> "cite" ;
+
+  "strong" -> "var" ;
+
+  "strong" -> "kbd" ;
+
+  "strong" -> "samp" ;
+
+  "strong" -> "sup" ;
+
+  "strong" -> "sub" ;
+
+  "strong" -> "q" ;
+
+  "strong" -> "code" ;
+
+  "strong" -> "dfn" ;
+
+  "strong" -> "strong" ;
+
+  "em" ;
+
+  "em" -> "noscript" ;
+
+  "em" -> "script" ;
+
+  "em" -> "del" ;
+
+  "em" -> "ins" ;
+
+  "em" -> "button" ;
+
+  "em" -> "label" ;
+
+  "em" -> "textarea" ;
+
+  "em" -> "select" ;
+
+  "em" -> "input" ;
+
+  "em" -> "acronym" ;
+
+  "em" -> "abbr" ;
+
+  "em" -> "cite" ;
+
+  "em" -> "var" ;
+
+  "em" -> "kbd" ;
+
+  "em" -> "samp" ;
+
+  "em" -> "sup" ;
+
+  "em" -> "sub" ;
+
+  "em" -> "q" ;
+
+  "em" -> "code" ;
+
+  "em" -> "dfn" ;
+
+  "em" -> "strong" ;
+
+  "em" -> "em" ;
+
+  "small" ;
+
+  "small" -> "noscript" ;
+
+  "small" -> "script" ;
+
+  "small" -> "del" ;
+
+  "small" -> "ins" ;
+
+  "small" -> "button" ;
+
+  "small" -> "label" ;
+
+  "small" -> "textarea" ;
+
+  "small" -> "select" ;
+
+  "small" -> "input" ;
+
+  "small" -> "acronym" ;
+
+  "small" -> "abbr" ;
+
+  "small" -> "cite" ;
+
+  "small" -> "var" ;
+
+  "small" -> "kbd" ;
+
+  "small" -> "samp" ;
+
+  "small" -> "sup" ;
+
+  "small" -> "sub" ;
+
+  "small" -> "q" ;
+
+  "small" -> "code" ;
+
+  "small" -> "dfn" ;
+
+  "small" -> "strong" ;
+
+  "small" -> "em" ;
+
+  "small" -> "small" ;
+
+  "big" ;
+
+  "big" -> "noscript" ;
+
+  "big" -> "script" ;
+
+  "big" -> "del" ;
+
+  "big" -> "ins" ;
+
+  "big" -> "button" ;
+
+  "big" -> "label" ;
+
+  "big" -> "textarea" ;
+
+  "big" -> "select" ;
+
+  "big" -> "input" ;
+
+  "big" -> "acronym" ;
+
+  "big" -> "abbr" ;
+
+  "big" -> "cite" ;
+
+  "big" -> "var" ;
+
+  "big" -> "kbd" ;
+
+  "big" -> "samp" ;
+
+  "big" -> "sup" ;
+
+  "big" -> "sub" ;
+
+  "big" -> "q" ;
+
+  "big" -> "code" ;
+
+  "big" -> "dfn" ;
+
+  "big" -> "strong" ;
+
+  "big" -> "em" ;
+
+  "big" -> "small" ;
+
+  "big" -> "big" ;
+
+  "b" ;
+
+  "b" -> "noscript" ;
+
+  "b" -> "script" ;
+
+  "b" -> "del" ;
+
+  "b" -> "ins" ;
+
+  "b" -> "button" ;
+
+  "b" -> "label" ;
+
+  "b" -> "textarea" ;
+
+  "b" -> "select" ;
+
+  "b" -> "input" ;
+
+  "b" -> "acronym" ;
+
+  "b" -> "abbr" ;
+
+  "b" -> "cite" ;
+
+  "b" -> "var" ;
+
+  "b" -> "kbd" ;
+
+  "b" -> "samp" ;
+
+  "b" -> "sup" ;
+
+  "b" -> "sub" ;
+
+  "b" -> "q" ;
+
+  "b" -> "code" ;
+
+  "b" -> "dfn" ;
+
+  "b" -> "strong" ;
+
+  "b" -> "em" ;
+
+  "b" -> "small" ;
+
+  "b" -> "big" ;
+
+  "b" -> "b" ;
+
+  "i" ;
+
+  "i" -> "noscript" ;
+
+  "i" -> "script" ;
+
+  "i" -> "del" ;
+
+  "i" -> "ins" ;
+
+  "i" -> "button" ;
+
+  "i" -> "label" ;
+
+  "i" -> "textarea" ;
+
+  "i" -> "select" ;
+
+  "i" -> "input" ;
+
+  "i" -> "acronym" ;
+
+  "i" -> "abbr" ;
+
+  "i" -> "cite" ;
+
+  "i" -> "var" ;
+
+  "i" -> "kbd" ;
+
+  "i" -> "samp" ;
+
+  "i" -> "sup" ;
+
+  "i" -> "sub" ;
+
+  "i" -> "q" ;
+
+  "i" -> "code" ;
+
+  "i" -> "dfn" ;
+
+  "i" -> "strong" ;
+
+  "i" -> "em" ;
+
+  "i" -> "small" ;
+
+  "i" -> "big" ;
+
+  "i" -> "b" ;
+
+  "i" -> "i" ;
+
+  "tt" ;
+
+  "tt" -> "noscript" ;
+
+  "tt" -> "script" ;
+
+  "tt" -> "del" ;
+
+  "tt" -> "ins" ;
+
+  "tt" -> "button" ;
+
+  "tt" -> "label" ;
+
+  "tt" -> "textarea" ;
+
+  "tt" -> "select" ;
+
+  "tt" -> "input" ;
+
+  "tt" -> "acronym" ;
+
+  "tt" -> "abbr" ;
+
+  "tt" -> "cite" ;
+
+  "tt" -> "var" ;
+
+  "tt" -> "kbd" ;
+
+  "tt" -> "samp" ;
+
+  "tt" -> "sup" ;
+
+  "tt" -> "sub" ;
+
+  "tt" -> "q" ;
+
+  "tt" -> "code" ;
+
+  "tt" -> "dfn" ;
+
+  "tt" -> "strong" ;
+
+  "tt" -> "em" ;
+
+  "tt" -> "small" ;
+
+  "tt" -> "big" ;
+
+  "tt" -> "b" ;
+
+  "tt" -> "i" ;
+
+  "tt" -> "tt" ;
+
+  "map" ;
+
+  "map" -> "p" ;
+
+  "h1" ;
+
+  "h1" -> "noscript" ;
+
+  "h1" -> "script" ;
+
+  "h1" -> "del" ;
+
+  "h1" -> "ins" ;
+
+  "h1" -> "button" ;
+
+  "h1" -> "label" ;
+
+  "h1" -> "textarea" ;
+
+  "h1" -> "select" ;
+
+  "h1" -> "input" ;
+
+  "h1" -> "acronym" ;
+
+  "h1" -> "abbr" ;
+
+  "h1" -> "cite" ;
+
+  "h1" -> "var" ;
+
+  "h1" -> "kbd" ;
+
+  "h1" -> "samp" ;
+
+  "h1" -> "sup" ;
+
+  "h1" -> "sub" ;
+
+  "h1" -> "q" ;
+
+  "h1" -> "code" ;
+
+  "h1" -> "dfn" ;
+
+  "h1" -> "strong" ;
+
+  "h1" -> "em" ;
+
+  "h1" -> "small" ;
+
+  "h1" -> "big" ;
+
+  "h1" -> "b" ;
+
+  "h1" -> "i" ;
+
+  "h1" -> "tt" ;
+
+  "h1" -> "map" ;
+
+  "img" ;
+
+  "h1" -> "img" ;
+
+  "h1" -> "object" ;
+
+  "bdo" ;
+
+  "bdo" -> "noscript" ;
+
+  "bdo" -> "script" ;
+
+  "bdo" -> "del" ;
+
+  "bdo" -> "ins" ;
+
+  "bdo" -> "button" ;
+
+  "bdo" -> "label" ;
+
+  "bdo" -> "textarea" ;
+
+  "bdo" -> "select" ;
+
+  "bdo" -> "input" ;
+
+  "bdo" -> "acronym" ;
+
+  "bdo" -> "abbr" ;
+
+  "bdo" -> "cite" ;
+
+  "bdo" -> "var" ;
+
+  "bdo" -> "kbd" ;
+
+  "bdo" -> "samp" ;
+
+  "bdo" -> "sup" ;
+
+  "bdo" -> "sub" ;
+
+  "bdo" -> "q" ;
+
+  "bdo" -> "code" ;
+
+  "bdo" -> "dfn" ;
+
+  "bdo" -> "strong" ;
+
+  "bdo" -> "em" ;
+
+  "bdo" -> "small" ;
+
+  "bdo" -> "big" ;
+
+  "bdo" -> "b" ;
+
+  "bdo" -> "i" ;
+
+  "bdo" -> "tt" ;
+
+  "bdo" -> "map" ;
+
+  "bdo" -> "img" ;
+
+  "bdo" -> "object" ;
+
+  "bdo" -> "bdo" ;
+
+  "span" ;
+
+  "span" -> "noscript" ;
+
+  "span" -> "script" ;
+
+  "span" -> "del" ;
+
+  "span" -> "ins" ;
+
+  "span" -> "button" ;
+
+  "span" -> "label" ;
+
+  "span" -> "textarea" ;
+
+  "span" -> "select" ;
+
+  "span" -> "input" ;
+
+  "span" -> "acronym" ;
+
+  "span" -> "abbr" ;
+
+  "span" -> "cite" ;
+
+  "span" -> "var" ;
+
+  "span" -> "kbd" ;
+
+  "span" -> "samp" ;
+
+  "span" -> "sup" ;
+
+  "span" -> "sub" ;
+
+  "span" -> "q" ;
+
+  "span" -> "code" ;
+
+  "span" -> "dfn" ;
+
+  "span" -> "strong" ;
+
+  "span" -> "em" ;
+
+  "span" -> "small" ;
+
+  "span" -> "big" ;
+
+  "span" -> "b" ;
+
+  "span" -> "i" ;
+
+  "span" -> "tt" ;
+
+  "span" -> "map" ;
+
+  "span" -> "img" ;
+
+  "span" -> "object" ;
+
+  "span" -> "bdo" ;
+
+  "span" -> "span" ;
+
+  "br" ;
+
+  "span" -> "br" ;
+
+  "a" ;
+
+  "a" -> "noscript" ;
+
+  "a" -> "script" ;
+
+  "a" -> "del" ;
+
+  "a" -> "ins" ;
+
+  "a" -> "button" ;
+
+  "a" -> "label" ;
+
+  "a" -> "textarea" ;
+
+  "a" -> "select" ;
+
+  "a" -> "input" ;
+
+  "a" -> "acronym" ;
+
+  "a" -> "abbr" ;
+
+  "a" -> "cite" ;
+
+  "a" -> "var" ;
+
+  "a" -> "kbd" ;
+
+  "a" -> "samp" ;
+
+  "a" -> "sup" ;
+
+  "a" -> "sub" ;
+
+  "a" -> "q" ;
+
+  "a" -> "code" ;
+
+  "a" -> "dfn" ;
+
+  "a" -> "strong" ;
+
+  "a" -> "em" ;
+
+  "a" -> "small" ;
+
+  "a" -> "big" ;
+
+  "a" -> "b" ;
+
+  "a" -> "i" ;
+
+  "a" -> "tt" ;
+
+  "a" -> "map" ;
+
+  "a" -> "img" ;
+
+  "a" -> "object" ;
+
+  "a" -> "bdo" ;
+
+  "a" -> "span" ;
+
+  "a" -> "br" ;
+
+  "span" -> "a" ;
+
+  "bdo" -> "span" ;
+
+  "bdo" -> "br" ;
+
+  "bdo" -> "a" ;
+
+  "h1" -> "bdo" ;
+
+  "h1" -> "span" ;
+
+  "h1" -> "br" ;
+
+  "h1" -> "a" ;
+
+  "map" -> "h1" ;
+
+  "h2" ;
+
+  "h2" -> "noscript" ;
+
+  "h2" -> "script" ;
+
+  "h2" -> "del" ;
+
+  "h2" -> "ins" ;
+
+  "h2" -> "button" ;
+
+  "h2" -> "label" ;
+
+  "h2" -> "textarea" ;
+
+  "h2" -> "select" ;
+
+  "h2" -> "input" ;
+
+  "h2" -> "acronym" ;
+
+  "h2" -> "abbr" ;
+
+  "h2" -> "cite" ;
+
+  "h2" -> "var" ;
+
+  "h2" -> "kbd" ;
+
+  "h2" -> "samp" ;
+
+  "h2" -> "sup" ;
+
+  "h2" -> "sub" ;
+
+  "h2" -> "q" ;
+
+  "h2" -> "code" ;
+
+  "h2" -> "dfn" ;
+
+  "h2" -> "strong" ;
+
+  "h2" -> "em" ;
+
+  "h2" -> "small" ;
+
+  "h2" -> "big" ;
+
+  "h2" -> "b" ;
+
+  "h2" -> "i" ;
+
+  "h2" -> "tt" ;
+
+  "h2" -> "map" ;
+
+  "h2" -> "img" ;
+
+  "h2" -> "object" ;
+
+  "h2" -> "bdo" ;
+
+  "h2" -> "span" ;
+
+  "h2" -> "br" ;
+
+  "h2" -> "a" ;
+
+  "map" -> "h2" ;
+
+  "h3" ;
+
+  "h3" -> "noscript" ;
+
+  "h3" -> "script" ;
+
+  "h3" -> "del" ;
+
+  "h3" -> "ins" ;
+
+  "h3" -> "button" ;
+
+  "h3" -> "label" ;
+
+  "h3" -> "textarea" ;
+
+  "h3" -> "select" ;
+
+  "h3" -> "input" ;
+
+  "h3" -> "acronym" ;
+
+  "h3" -> "abbr" ;
+
+  "h3" -> "cite" ;
+
+  "h3" -> "var" ;
+
+  "h3" -> "kbd" ;
+
+  "h3" -> "samp" ;
+
+  "h3" -> "sup" ;
+
+  "h3" -> "sub" ;
+
+  "h3" -> "q" ;
+
+  "h3" -> "code" ;
+
+  "h3" -> "dfn" ;
+
+  "h3" -> "strong" ;
+
+  "h3" -> "em" ;
+
+  "h3" -> "small" ;
+
+  "h3" -> "big" ;
+
+  "h3" -> "b" ;
+
+  "h3" -> "i" ;
+
+  "h3" -> "tt" ;
+
+  "h3" -> "map" ;
+
+  "h3" -> "img" ;
+
+  "h3" -> "object" ;
+
+  "h3" -> "bdo" ;
+
+  "h3" -> "span" ;
+
+  "h3" -> "br" ;
+
+  "h3" -> "a" ;
+
+  "map" -> "h3" ;
+
+  "h4" ;
+
+  "h4" -> "noscript" ;
+
+  "h4" -> "script" ;
+
+  "h4" -> "del" ;
+
+  "h4" -> "ins" ;
+
+  "h4" -> "button" ;
+
+  "h4" -> "label" ;
+
+  "h4" -> "textarea" ;
+
+  "h4" -> "select" ;
+
+  "h4" -> "input" ;
+
+  "h4" -> "acronym" ;
+
+  "h4" -> "abbr" ;
+
+  "h4" -> "cite" ;
+
+  "h4" -> "var" ;
+
+  "h4" -> "kbd" ;
+
+  "h4" -> "samp" ;
+
+  "h4" -> "sup" ;
+
+  "h4" -> "sub" ;
+
+  "h4" -> "q" ;
+
+  "h4" -> "code" ;
+
+  "h4" -> "dfn" ;
+
+  "h4" -> "strong" ;
+
+  "h4" -> "em" ;
+
+  "h4" -> "small" ;
+
+  "h4" -> "big" ;
+
+  "h4" -> "b" ;
+
+  "h4" -> "i" ;
+
+  "h4" -> "tt" ;
+
+  "h4" -> "map" ;
+
+  "h4" -> "img" ;
+
+  "h4" -> "object" ;
+
+  "h4" -> "bdo" ;
+
+  "h4" -> "span" ;
+
+  "h4" -> "br" ;
+
+  "h4" -> "a" ;
+
+  "map" -> "h4" ;
+
+  "h5" ;
+
+  "h5" -> "noscript" ;
+
+  "h5" -> "script" ;
+
+  "h5" -> "del" ;
+
+  "h5" -> "ins" ;
+
+  "h5" -> "button" ;
+
+  "h5" -> "label" ;
+
+  "h5" -> "textarea" ;
+
+  "h5" -> "select" ;
+
+  "h5" -> "input" ;
+
+  "h5" -> "acronym" ;
+
+  "h5" -> "abbr" ;
+
+  "h5" -> "cite" ;
+
+  "h5" -> "var" ;
+
+  "h5" -> "kbd" ;
+
+  "h5" -> "samp" ;
+
+  "h5" -> "sup" ;
+
+  "h5" -> "sub" ;
+
+  "h5" -> "q" ;
+
+  "h5" -> "code" ;
+
+  "h5" -> "dfn" ;
+
+  "h5" -> "strong" ;
+
+  "h5" -> "em" ;
+
+  "h5" -> "small" ;
+
+  "h5" -> "big" ;
+
+  "h5" -> "b" ;
+
+  "h5" -> "i" ;
+
+  "h5" -> "tt" ;
+
+  "h5" -> "map" ;
+
+  "h5" -> "img" ;
+
+  "h5" -> "object" ;
+
+  "h5" -> "bdo" ;
+
+  "h5" -> "span" ;
+
+  "h5" -> "br" ;
+
+  "h5" -> "a" ;
+
+  "map" -> "h5" ;
+
+  "h6" ;
+
+  "h6" -> "noscript" ;
+
+  "h6" -> "script" ;
+
+  "h6" -> "del" ;
+
+  "h6" -> "ins" ;
+
+  "h6" -> "button" ;
+
+  "h6" -> "label" ;
+
+  "h6" -> "textarea" ;
+
+  "h6" -> "select" ;
+
+  "h6" -> "input" ;
+
+  "h6" -> "acronym" ;
+
+  "h6" -> "abbr" ;
+
+  "h6" -> "cite" ;
+
+  "h6" -> "var" ;
+
+  "h6" -> "kbd" ;
+
+  "h6" -> "samp" ;
+
+  "h6" -> "sup" ;
+
+  "h6" -> "sub" ;
+
+  "h6" -> "q" ;
+
+  "h6" -> "code" ;
+
+  "h6" -> "dfn" ;
+
+  "h6" -> "strong" ;
+
+  "h6" -> "em" ;
+
+  "h6" -> "small" ;
+
+  "h6" -> "big" ;
+
+  "h6" -> "b" ;
+
+  "h6" -> "i" ;
+
+  "h6" -> "tt" ;
+
+  "h6" -> "map" ;
+
+  "h6" -> "img" ;
+
+  "h6" -> "object" ;
+
+  "h6" -> "bdo" ;
+
+  "h6" -> "span" ;
+
+  "h6" -> "br" ;
+
+  "h6" -> "a" ;
+
+  "map" -> "h6" ;
+
+  "div" ;
+
+  "div" -> "noscript" ;
+
+  "div" -> "script" ;
+
+  "div" -> "del" ;
+
+  "div" -> "ins" ;
+
+  "div" -> "button" ;
+
+  "div" -> "label" ;
+
+  "div" -> "textarea" ;
+
+  "div" -> "select" ;
+
+  "div" -> "input" ;
+
+  "div" -> "acronym" ;
+
+  "div" -> "abbr" ;
+
+  "div" -> "cite" ;
+
+  "div" -> "var" ;
+
+  "div" -> "kbd" ;
+
+  "div" -> "samp" ;
+
+  "div" -> "sup" ;
+
+  "div" -> "sub" ;
+
+  "div" -> "q" ;
+
+  "div" -> "code" ;
+
+  "div" -> "dfn" ;
+
+  "div" -> "strong" ;
+
+  "div" -> "em" ;
+
+  "div" -> "small" ;
+
+  "div" -> "big" ;
+
+  "div" -> "b" ;
+
+  "div" -> "i" ;
+
+  "div" -> "tt" ;
+
+  "div" -> "map" ;
+
+  "div" -> "img" ;
+
+  "div" -> "object" ;
+
+  "div" -> "bdo" ;
+
+  "div" -> "span" ;
+
+  "div" -> "br" ;
+
+  "div" -> "a" ;
+
+  "form" ;
+
+  "form" -> "p" ;
+
+  "form" -> "h1" ;
+
+  "form" -> "h2" ;
+
+  "form" -> "h3" ;
+
+  "form" -> "h4" ;
+
+  "form" -> "h5" ;
+
+  "form" -> "h6" ;
+
+  "form" -> "div" ;
+
+  "ul" ;
+
+  "li" ;
+
+  "li" -> "noscript" ;
+
+  "li" -> "script" ;
+
+  "li" -> "del" ;
+
+  "li" -> "ins" ;
+
+  "li" -> "button" ;
+
+  "li" -> "label" ;
+
+  "li" -> "textarea" ;
+
+  "li" -> "select" ;
+
+  "li" -> "input" ;
+
+  "li" -> "acronym" ;
+
+  "li" -> "abbr" ;
+
+  "li" -> "cite" ;
+
+  "li" -> "var" ;
+
+  "li" -> "kbd" ;
+
+  "li" -> "samp" ;
+
+  "li" -> "sup" ;
+
+  "li" -> "sub" ;
+
+  "li" -> "q" ;
+
+  "li" -> "code" ;
+
+  "li" -> "dfn" ;
+
+  "li" -> "strong" ;
+
+  "li" -> "em" ;
+
+  "li" -> "small" ;
+
+  "li" -> "big" ;
+
+  "li" -> "b" ;
+
+  "li" -> "i" ;
+
+  "li" -> "tt" ;
+
+  "li" -> "map" ;
+
+  "li" -> "img" ;
+
+  "li" -> "object" ;
+
+  "li" -> "bdo" ;
+
+  "li" -> "span" ;
+
+  "li" -> "br" ;
+
+  "li" -> "a" ;
+
+  "li" -> "form" ;
+
+  "table" ;
+
+  "caption" ;
+
+  "caption" -> "noscript" ;
+
+  "caption" -> "script" ;
+
+  "caption" -> "del" ;
+
+  "caption" -> "ins" ;
+
+  "caption" -> "button" ;
+
+  "caption" -> "label" ;
+
+  "caption" -> "textarea" ;
+
+  "caption" -> "select" ;
+
+  "caption" -> "input" ;
+
+  "caption" -> "acronym" ;
+
+  "caption" -> "abbr" ;
+
+  "caption" -> "cite" ;
+
+  "caption" -> "var" ;
+
+  "caption" -> "kbd" ;
+
+  "caption" -> "samp" ;
+
+  "caption" -> "sup" ;
+
+  "caption" -> "sub" ;
+
+  "caption" -> "q" ;
+
+  "caption" -> "code" ;
+
+  "caption" -> "dfn" ;
+
+  "caption" -> "strong" ;
+
+  "caption" -> "em" ;
+
+  "caption" -> "small" ;
+
+  "caption" -> "big" ;
+
+  "caption" -> "b" ;
+
+  "caption" -> "i" ;
+
+  "caption" -> "tt" ;
+
+  "caption" -> "map" ;
+
+  "caption" -> "img" ;
+
+  "caption" -> "object" ;
+
+  "caption" -> "bdo" ;
+
+  "caption" -> "span" ;
+
+  "caption" -> "br" ;
+
+  "caption" -> "a" ;
+
+  "table" -> "caption" ;
+
+  "col" ;
+
+  "table" -> "col" ;
+
+  "colgroup" ;
+
+  "colgroup" -> "col" ;
+
+  "table" -> "colgroup" ;
+
+  "thead" ;
+
+  "tr" ;
+
+  "th" ;
+
+  "th" -> "noscript" ;
+
+  "th" -> "script" ;
+
+  "th" -> "del" ;
+
+  "th" -> "ins" ;
+
+  "th" -> "button" ;
+
+  "th" -> "label" ;
+
+  "th" -> "textarea" ;
+
+  "th" -> "select" ;
+
+  "th" -> "input" ;
+
+  "th" -> "acronym" ;
+
+  "th" -> "abbr" ;
+
+  "th" -> "cite" ;
+
+  "th" -> "var" ;
+
+  "th" -> "kbd" ;
+
+  "th" -> "samp" ;
+
+  "th" -> "sup" ;
+
+  "th" -> "sub" ;
+
+  "th" -> "q" ;
+
+  "th" -> "code" ;
+
+  "th" -> "dfn" ;
+
+  "th" -> "strong" ;
+
+  "th" -> "em" ;
+
+  "th" -> "small" ;
+
+  "th" -> "big" ;
+
+  "th" -> "b" ;
+
+  "th" -> "i" ;
+
+  "th" -> "tt" ;
+
+  "th" -> "map" ;
+
+  "th" -> "img" ;
+
+  "th" -> "object" ;
+
+  "th" -> "bdo" ;
+
+  "th" -> "span" ;
+
+  "th" -> "br" ;
+
+  "th" -> "a" ;
+
+  "th" -> "form" ;
+
+  "th" -> "table" ;
+
+  "fieldset" ;
+
+  "fieldset" -> "noscript" ;
+
+  "fieldset" -> "script" ;
+
+  "fieldset" -> "del" ;
+
+  "fieldset" -> "ins" ;
+
+  "fieldset" -> "button" ;
+
+  "fieldset" -> "label" ;
+
+  "fieldset" -> "textarea" ;
+
+  "fieldset" -> "select" ;
+
+  "fieldset" -> "input" ;
+
+  "fieldset" -> "acronym" ;
+
+  "fieldset" -> "abbr" ;
+
+  "fieldset" -> "cite" ;
+
+  "fieldset" -> "var" ;
+
+  "fieldset" -> "kbd" ;
+
+  "fieldset" -> "samp" ;
+
+  "fieldset" -> "sup" ;
+
+  "fieldset" -> "sub" ;
+
+  "fieldset" -> "q" ;
+
+  "fieldset" -> "code" ;
+
+  "fieldset" -> "dfn" ;
+
+  "fieldset" -> "strong" ;
+
+  "fieldset" -> "em" ;
+
+  "fieldset" -> "small" ;
+
+  "fieldset" -> "big" ;
+
+  "fieldset" -> "b" ;
+
+  "fieldset" -> "i" ;
+
+  "fieldset" -> "tt" ;
+
+  "fieldset" -> "map" ;
+
+  "fieldset" -> "img" ;
+
+  "fieldset" -> "object" ;
+
+  "fieldset" -> "bdo" ;
+
+  "fieldset" -> "span" ;
+
+  "fieldset" -> "br" ;
+
+  "fieldset" -> "a" ;
+
+  "fieldset" -> "form" ;
+
+  "fieldset" -> "table" ;
+
+  "fieldset" -> "fieldset" ;
+
+  "address" ;
+
+  "address" -> "noscript" ;
+
+  "address" -> "script" ;
+
+  "address" -> "del" ;
+
+  "address" -> "ins" ;
+
+  "address" -> "button" ;
+
+  "address" -> "label" ;
+
+  "address" -> "textarea" ;
+
+  "address" -> "select" ;
+
+  "address" -> "input" ;
+
+  "address" -> "acronym" ;
+
+  "address" -> "abbr" ;
+
+  "address" -> "cite" ;
+
+  "address" -> "var" ;
+
+  "address" -> "kbd" ;
+
+  "address" -> "samp" ;
+
+  "address" -> "sup" ;
+
+  "address" -> "sub" ;
+
+  "address" -> "q" ;
+
+  "address" -> "code" ;
+
+  "address" -> "dfn" ;
+
+  "address" -> "strong" ;
+
+  "address" -> "em" ;
+
+  "address" -> "small" ;
+
+  "address" -> "big" ;
+
+  "address" -> "b" ;
+
+  "address" -> "i" ;
+
+  "address" -> "tt" ;
+
+  "address" -> "map" ;
+
+  "address" -> "img" ;
+
+  "address" -> "object" ;
+
+  "address" -> "bdo" ;
+
+  "address" -> "span" ;
+
+  "address" -> "br" ;
+
+  "address" -> "a" ;
+
+  "fieldset" -> "address" ;
+
+  "blockquote" ;
+
+  "blockquote" -> "p" ;
+
+  "blockquote" -> "h1" ;
+
+  "blockquote" -> "h2" ;
+
+  "blockquote" -> "h3" ;
+
+  "blockquote" -> "h4" ;
+
+  "blockquote" -> "h5" ;
+
+  "blockquote" -> "h6" ;
+
+  "blockquote" -> "div" ;
+
+  "blockquote" -> "ul" ;
+
+  "ol" ;
+
+  "ol" -> "li" ;
+
+  "blockquote" -> "ol" ;
+
+  "dl" ;
+
+  "dt" ;
+
+  "dt" -> "noscript" ;
+
+  "dt" -> "script" ;
+
+  "dt" -> "del" ;
+
+  "dt" -> "ins" ;
+
+  "dt" -> "button" ;
+
+  "dt" -> "label" ;
+
+  "dt" -> "textarea" ;
+
+  "dt" -> "select" ;
+
+  "dt" -> "input" ;
+
+  "dt" -> "acronym" ;
+
+  "dt" -> "abbr" ;
+
+  "dt" -> "cite" ;
+
+  "dt" -> "var" ;
+
+  "dt" -> "kbd" ;
+
+  "dt" -> "samp" ;
+
+  "dt" -> "sup" ;
+
+  "dt" -> "sub" ;
+
+  "dt" -> "q" ;
+
+  "dt" -> "code" ;
+
+  "dt" -> "dfn" ;
+
+  "dt" -> "strong" ;
+
+  "dt" -> "em" ;
+
+  "dt" -> "small" ;
+
+  "dt" -> "big" ;
+
+  "dt" -> "b" ;
+
+  "dt" -> "i" ;
+
+  "dt" -> "tt" ;
+
+  "dt" -> "map" ;
+
+  "dt" -> "img" ;
+
+  "dt" -> "object" ;
+
+  "dt" -> "bdo" ;
+
+  "dt" -> "span" ;
+
+  "dt" -> "br" ;
+
+  "dt" -> "a" ;
+
+  "dl" -> "dt" ;
+
+  "dd" ;
+
+  "dd" -> "noscript" ;
+
+  "dd" -> "script" ;
+
+  "dd" -> "del" ;
+
+  "dd" -> "ins" ;
+
+  "dd" -> "button" ;
+
+  "dd" -> "label" ;
+
+  "dd" -> "textarea" ;
+
+  "dd" -> "select" ;
+
+  "dd" -> "input" ;
+
+  "dd" -> "acronym" ;
+
+  "dd" -> "abbr" ;
+
+  "dd" -> "cite" ;
+
+  "dd" -> "var" ;
+
+  "dd" -> "kbd" ;
+
+  "dd" -> "samp" ;
+
+  "dd" -> "sup" ;
+
+  "dd" -> "sub" ;
+
+  "dd" -> "q" ;
+
+  "dd" -> "code" ;
+
+  "dd" -> "dfn" ;
+
+  "dd" -> "strong" ;
+
+  "dd" -> "em" ;
+
+  "dd" -> "small" ;
+
+  "dd" -> "big" ;
+
+  "dd" -> "b" ;
+
+  "dd" -> "i" ;
+
+  "dd" -> "tt" ;
+
+  "dd" -> "map" ;
+
+  "dd" -> "img" ;
+
+  "dd" -> "object" ;
+
+  "dd" -> "bdo" ;
+
+  "dd" -> "span" ;
+
+  "dd" -> "br" ;
+
+  "dd" -> "a" ;
+
+  "dd" -> "form" ;
+
+  "dd" -> "table" ;
+
+  "dd" -> "fieldset" ;
+
+  "dd" -> "address" ;
+
+  "dd" -> "blockquote" ;
+
+  "hr" ;
+
+  "dd" -> "hr" ;
+
+  "pre" ;
+
+  "pre" -> "button" ;
+
+  "pre" -> "label" ;
+
+  "pre" -> "textarea" ;
+
+  "pre" -> "select" ;
+
+  "pre" -> "input" ;
+
+  "pre" -> "acronym" ;
+
+  "pre" -> "abbr" ;
+
+  "pre" -> "cite" ;
+
+  "pre" -> "var" ;
+
+  "pre" -> "kbd" ;
+
+  "pre" -> "samp" ;
+
+  "pre" -> "sup" ;
+
+  "pre" -> "sub" ;
+
+  "pre" -> "q" ;
+
+  "pre" -> "code" ;
+
+  "pre" -> "dfn" ;
+
+  "pre" -> "strong" ;
+
+  "pre" -> "em" ;
+
+  "pre" -> "b" ;
+
+  "pre" -> "i" ;
+
+  "pre" -> "tt" ;
+
+  "pre" -> "map" ;
+
+  "pre" -> "bdo" ;
+
+  "pre" -> "span" ;
+
+  "pre" -> "br" ;
+
+  "pre" -> "a" ;
+
+  "dd" -> "pre" ;
+
+  "dd" -> "dl" ;
+
+  "dd" -> "ol" ;
+
+  "dd" -> "ul" ;
+
+  "dd" -> "div" ;
+
+  "dd" -> "h6" ;
+
+  "dd" -> "h5" ;
+
+  "dd" -> "h4" ;
+
+  "dd" -> "h3" ;
+
+  "dd" -> "h2" ;
+
+  "dd" -> "h1" ;
+
+  "dd" -> "p" ;
+
+  "dl" -> "dd" ;
+
+  "blockquote" -> "dl" ;
+
+  "blockquote" -> "pre" ;
+
+  "blockquote" -> "hr" ;
+
+  "blockquote" -> "blockquote" ;
+
+  "blockquote" -> "address" ;
+
+  "blockquote" -> "fieldset" ;
+
+  "blockquote" -> "table" ;
+
+  "blockquote" -> "form" ;
+
+  "blockquote" -> "ins" ;
+
+  "blockquote" -> "del" ;
+
+  "blockquote" -> "script" ;
+
+  "blockquote" -> "noscript" ;
+
+  "fieldset" -> "blockquote" ;
+
+  "fieldset" -> "hr" ;
+
+  "fieldset" -> "pre" ;
+
+  "fieldset" -> "dl" ;
+
+  "fieldset" -> "ol" ;
+
+  "fieldset" -> "ul" ;
+
+  "fieldset" -> "div" ;
+
+  "fieldset" -> "h6" ;
+
+  "fieldset" -> "h5" ;
+
+  "fieldset" -> "h4" ;
+
+  "fieldset" -> "h3" ;
+
+  "fieldset" -> "h2" ;
+
+  "fieldset" -> "h1" ;
+
+  "fieldset" -> "p" ;
+
+  "legend" ;
+
+  "legend" -> "noscript" ;
+
+  "legend" -> "script" ;
+
+  "legend" -> "del" ;
+
+  "legend" -> "ins" ;
+
+  "legend" -> "button" ;
+
+  "legend" -> "label" ;
+
+  "legend" -> "textarea" ;
+
+  "legend" -> "select" ;
+
+  "legend" -> "input" ;
+
+  "legend" -> "acronym" ;
+
+  "legend" -> "abbr" ;
+
+  "legend" -> "cite" ;
+
+  "legend" -> "var" ;
+
+  "legend" -> "kbd" ;
+
+  "legend" -> "samp" ;
+
+  "legend" -> "sup" ;
+
+  "legend" -> "sub" ;
+
+  "legend" -> "q" ;
+
+  "legend" -> "code" ;
+
+  "legend" -> "dfn" ;
+
+  "legend" -> "strong" ;
+
+  "legend" -> "em" ;
+
+  "legend" -> "small" ;
+
+  "legend" -> "big" ;
+
+  "legend" -> "b" ;
+
+  "legend" -> "i" ;
+
+  "legend" -> "tt" ;
+
+  "legend" -> "map" ;
+
+  "legend" -> "img" ;
+
+  "legend" -> "object" ;
+
+  "legend" -> "bdo" ;
+
+  "legend" -> "span" ;
+
+  "legend" -> "br" ;
+
+  "legend" -> "a" ;
+
+  "fieldset" -> "legend" ;
+
+  "th" -> "fieldset" ;
+
+  "th" -> "address" ;
+
+  "th" -> "blockquote" ;
+
+  "th" -> "hr" ;
+
+  "th" -> "pre" ;
+
+  "th" -> "dl" ;
+
+  "th" -> "ol" ;
+
+  "th" -> "ul" ;
+
+  "th" -> "div" ;
+
+  "th" -> "h6" ;
+
+  "th" -> "h5" ;
+
+  "th" -> "h4" ;
+
+  "th" -> "h3" ;
+
+  "th" -> "h2" ;
+
+  "th" -> "h1" ;
+
+  "th" -> "p" ;
+
+  "tr" -> "th" ;
+
+  "td" ;
+
+  "td" -> "noscript" ;
+
+  "td" -> "script" ;
+
+  "td" -> "del" ;
+
+  "td" -> "ins" ;
+
+  "td" -> "button" ;
+
+  "td" -> "label" ;
+
+  "td" -> "textarea" ;
+
+  "td" -> "select" ;
+
+  "td" -> "input" ;
+
+  "td" -> "acronym" ;
+
+  "td" -> "abbr" ;
+
+  "td" -> "cite" ;
+
+  "td" -> "var" ;
+
+  "td" -> "kbd" ;
+
+  "td" -> "samp" ;
+
+  "td" -> "sup" ;
+
+  "td" -> "sub" ;
+
+  "td" -> "q" ;
+
+  "td" -> "code" ;
+
+  "td" -> "dfn" ;
+
+  "td" -> "strong" ;
+
+  "td" -> "em" ;
+
+  "td" -> "small" ;
+
+  "td" -> "big" ;
+
+  "td" -> "b" ;
+
+  "td" -> "i" ;
+
+  "td" -> "tt" ;
+
+  "td" -> "map" ;
+
+  "td" -> "img" ;
+
+  "td" -> "object" ;
+
+  "td" -> "bdo" ;
+
+  "td" -> "span" ;
+
+  "td" -> "br" ;
+
+  "td" -> "a" ;
+
+  "td" -> "form" ;
+
+  "td" -> "table" ;
+
+  "td" -> "fieldset" ;
+
+  "td" -> "address" ;
+
+  "td" -> "blockquote" ;
+
+  "td" -> "hr" ;
+
+  "td" -> "pre" ;
+
+  "td" -> "dl" ;
+
+  "td" -> "ol" ;
+
+  "td" -> "ul" ;
+
+  "td" -> "div" ;
+
+  "td" -> "h6" ;
+
+  "td" -> "h5" ;
+
+  "td" -> "h4" ;
+
+  "td" -> "h3" ;
+
+  "td" -> "h2" ;
+
+  "td" -> "h1" ;
+
+  "td" -> "p" ;
+
+  "tr" -> "td" ;
+
+  "thead" -> "tr" ;
+
+  "table" -> "thead" ;
+
+  "tfoot" ;
+
+  "tfoot" -> "tr" ;
+
+  "table" -> "tfoot" ;
+
+  "tbody" ;
+
+  "tbody" -> "tr" ;
+
+  "table" -> "tbody" ;
+
+  "table" -> "tr" ;
+
+  "li" -> "table" ;
+
+  "li" -> "fieldset" ;
+
+  "li" -> "address" ;
+
+  "li" -> "blockquote" ;
+
+  "li" -> "hr" ;
+
+  "li" -> "pre" ;
+
+  "li" -> "dl" ;
+
+  "li" -> "ol" ;
+
+  "li" -> "ul" ;
+
+  "li" -> "div" ;
+
+  "li" -> "h6" ;
+
+  "li" -> "h5" ;
+
+  "li" -> "h4" ;
+
+  "li" -> "h3" ;
+
+  "li" -> "h2" ;
+
+  "li" -> "h1" ;
+
+  "li" -> "p" ;
+
+  "ul" -> "li" ;
+
+  "form" -> "ul" ;
+
+  "form" -> "ol" ;
+
+  "form" -> "dl" ;
+
+  "form" -> "pre" ;
+
+  "form" -> "hr" ;
+
+  "form" -> "blockquote" ;
+
+  "form" -> "address" ;
+
+  "form" -> "fieldset" ;
+
+  "form" -> "table" ;
+
+  "form" -> "ins" ;
+
+  "form" -> "del" ;
+
+  "form" -> "script" ;
+
+  "form" -> "noscript" ;
+
+  "div" -> "form" ;
+
+  "div" -> "table" ;
+
+  "div" -> "fieldset" ;
+
+  "div" -> "address" ;
+
+  "div" -> "blockquote" ;
+
+  "div" -> "hr" ;
+
+  "div" -> "pre" ;
+
+  "div" -> "dl" ;
+
+  "div" -> "ol" ;
+
+  "div" -> "ul" ;
+
+  "div" -> "div" ;
+
+  "div" -> "h6" ;
+
+  "div" -> "h5" ;
+
+  "div" -> "h4" ;
+
+  "div" -> "h3" ;
+
+  "div" -> "h2" ;
+
+  "div" -> "h1" ;
+
+  "div" -> "p" ;
+
+  "map" -> "div" ;
+
+  "map" -> "ul" ;
+
+  "map" -> "ol" ;
+
+  "map" -> "dl" ;
+
+  "map" -> "pre" ;
+
+  "map" -> "hr" ;
+
+  "map" -> "blockquote" ;
+
+  "map" -> "address" ;
+
+  "map" -> "fieldset" ;
+
+  "map" -> "table" ;
+
+  "map" -> "form" ;
+
+  "map" -> "ins" ;
+
+  "map" -> "del" ;
+
+  "map" -> "script" ;
+
+  "map" -> "noscript" ;
+
+  "area" ;
+
+  "map" -> "area" ;
+
+  "tt" -> "map" ;
+
+  "tt" -> "img" ;
+
+  "tt" -> "object" ;
+
+  "tt" -> "bdo" ;
+
+  "tt" -> "span" ;
+
+  "tt" -> "br" ;
+
+  "tt" -> "a" ;
+
+  "i" -> "tt" ;
+
+  "i" -> "map" ;
+
+  "i" -> "img" ;
+
+  "i" -> "object" ;
+
+  "i" -> "bdo" ;
+
+  "i" -> "span" ;
+
+  "i" -> "br" ;
+
+  "i" -> "a" ;
+
+  "b" -> "i" ;
+
+  "b" -> "tt" ;
+
+  "b" -> "map" ;
+
+  "b" -> "img" ;
+
+  "b" -> "object" ;
+
+  "b" -> "bdo" ;
+
+  "b" -> "span" ;
+
+  "b" -> "br" ;
+
+  "b" -> "a" ;
+
+  "big" -> "b" ;
+
+  "big" -> "i" ;
+
+  "big" -> "tt" ;
+
+  "big" -> "map" ;
+
+  "big" -> "img" ;
+
+  "big" -> "object" ;
+
+  "big" -> "bdo" ;
+
+  "big" -> "span" ;
+
+  "big" -> "br" ;
+
+  "big" -> "a" ;
+
+  "small" -> "big" ;
+
+  "small" -> "b" ;
+
+  "small" -> "i" ;
+
+  "small" -> "tt" ;
+
+  "small" -> "map" ;
+
+  "small" -> "img" ;
+
+  "small" -> "object" ;
+
+  "small" -> "bdo" ;
+
+  "small" -> "span" ;
+
+  "small" -> "br" ;
+
+  "small" -> "a" ;
+
+  "em" -> "small" ;
+
+  "em" -> "big" ;
+
+  "em" -> "b" ;
+
+  "em" -> "i" ;
+
+  "em" -> "tt" ;
+
+  "em" -> "map" ;
+
+  "em" -> "img" ;
+
+  "em" -> "object" ;
+
+  "em" -> "bdo" ;
+
+  "em" -> "span" ;
+
+  "em" -> "br" ;
+
+  "em" -> "a" ;
+
+  "strong" -> "em" ;
+
+  "strong" -> "small" ;
+
+  "strong" -> "big" ;
+
+  "strong" -> "b" ;
+
+  "strong" -> "i" ;
+
+  "strong" -> "tt" ;
+
+  "strong" -> "map" ;
+
+  "strong" -> "img" ;
+
+  "strong" -> "object" ;
+
+  "strong" -> "bdo" ;
+
+  "strong" -> "span" ;
+
+  "strong" -> "br" ;
+
+  "strong" -> "a" ;
+
+  "dfn" -> "strong" ;
+
+  "dfn" -> "em" ;
+
+  "dfn" -> "small" ;
+
+  "dfn" -> "big" ;
+
+  "dfn" -> "b" ;
+
+  "dfn" -> "i" ;
+
+  "dfn" -> "tt" ;
+
+  "dfn" -> "map" ;
+
+  "dfn" -> "img" ;
+
+  "dfn" -> "object" ;
+
+  "dfn" -> "bdo" ;
+
+  "dfn" -> "span" ;
+
+  "dfn" -> "br" ;
+
+  "dfn" -> "a" ;
+
+  "code" -> "dfn" ;
+
+  "code" -> "strong" ;
+
+  "code" -> "em" ;
+
+  "code" -> "small" ;
+
+  "code" -> "big" ;
+
+  "code" -> "b" ;
+
+  "code" -> "i" ;
+
+  "code" -> "tt" ;
+
+  "code" -> "map" ;
+
+  "code" -> "img" ;
+
+  "code" -> "object" ;
+
+  "code" -> "bdo" ;
+
+  "code" -> "span" ;
+
+  "code" -> "br" ;
+
+  "code" -> "a" ;
+
+  "q" -> "code" ;
+
+  "q" -> "dfn" ;
+
+  "q" -> "strong" ;
+
+  "q" -> "em" ;
+
+  "q" -> "small" ;
+
+  "q" -> "big" ;
+
+  "q" -> "b" ;
+
+  "q" -> "i" ;
+
+  "q" -> "tt" ;
+
+  "q" -> "map" ;
+
+  "q" -> "img" ;
+
+  "q" -> "object" ;
+
+  "q" -> "bdo" ;
+
+  "q" -> "span" ;
+
+  "q" -> "br" ;
+
+  "q" -> "a" ;
+
+  "sub" -> "q" ;
+
+  "sub" -> "code" ;
+
+  "sub" -> "dfn" ;
+
+  "sub" -> "strong" ;
+
+  "sub" -> "em" ;
+
+  "sub" -> "small" ;
+
+  "sub" -> "big" ;
+
+  "sub" -> "b" ;
+
+  "sub" -> "i" ;
+
+  "sub" -> "tt" ;
+
+  "sub" -> "map" ;
+
+  "sub" -> "img" ;
+
+  "sub" -> "object" ;
+
+  "sub" -> "bdo" ;
+
+  "sub" -> "span" ;
+
+  "sub" -> "br" ;
+
+  "sub" -> "a" ;
+
+  "sup" -> "sub" ;
+
+  "sup" -> "q" ;
+
+  "sup" -> "code" ;
+
+  "sup" -> "dfn" ;
+
+  "sup" -> "strong" ;
+
+  "sup" -> "em" ;
+
+  "sup" -> "small" ;
+
+  "sup" -> "big" ;
+
+  "sup" -> "b" ;
+
+  "sup" -> "i" ;
+
+  "sup" -> "tt" ;
+
+  "sup" -> "map" ;
+
+  "sup" -> "img" ;
+
+  "sup" -> "object" ;
+
+  "sup" -> "bdo" ;
+
+  "sup" -> "span" ;
+
+  "sup" -> "br" ;
+
+  "sup" -> "a" ;
+
+  "samp" -> "sup" ;
+
+  "samp" -> "sub" ;
+
+  "samp" -> "q" ;
+
+  "samp" -> "code" ;
+
+  "samp" -> "dfn" ;
+
+  "samp" -> "strong" ;
+
+  "samp" -> "em" ;
+
+  "samp" -> "small" ;
+
+  "samp" -> "big" ;
+
+  "samp" -> "b" ;
+
+  "samp" -> "i" ;
+
+  "samp" -> "tt" ;
+
+  "samp" -> "map" ;
+
+  "samp" -> "img" ;
+
+  "samp" -> "object" ;
+
+  "samp" -> "bdo" ;
+
+  "samp" -> "span" ;
+
+  "samp" -> "br" ;
+
+  "samp" -> "a" ;
+
+  "kbd" -> "samp" ;
+
+  "kbd" -> "sup" ;
+
+  "kbd" -> "sub" ;
+
+  "kbd" -> "q" ;
+
+  "kbd" -> "code" ;
+
+  "kbd" -> "dfn" ;
+
+  "kbd" -> "strong" ;
+
+  "kbd" -> "em" ;
+
+  "kbd" -> "small" ;
+
+  "kbd" -> "big" ;
+
+  "kbd" -> "b" ;
+
+  "kbd" -> "i" ;
+
+  "kbd" -> "tt" ;
+
+  "kbd" -> "map" ;
+
+  "kbd" -> "img" ;
+
+  "kbd" -> "object" ;
+
+  "kbd" -> "bdo" ;
+
+  "kbd" -> "span" ;
+
+  "kbd" -> "br" ;
+
+  "kbd" -> "a" ;
+
+  "var" -> "kbd" ;
+
+  "var" -> "samp" ;
+
+  "var" -> "sup" ;
+
+  "var" -> "sub" ;
+
+  "var" -> "q" ;
+
+  "var" -> "code" ;
+
+  "var" -> "dfn" ;
+
+  "var" -> "strong" ;
+
+  "var" -> "em" ;
+
+  "var" -> "small" ;
+
+  "var" -> "big" ;
+
+  "var" -> "b" ;
+
+  "var" -> "i" ;
+
+  "var" -> "tt" ;
+
+  "var" -> "map" ;
+
+  "var" -> "img" ;
+
+  "var" -> "object" ;
+
+  "var" -> "bdo" ;
+
+  "var" -> "span" ;
+
+  "var" -> "br" ;
+
+  "var" -> "a" ;
+
+  "cite" -> "var" ;
+
+  "cite" -> "kbd" ;
+
+  "cite" -> "samp" ;
+
+  "cite" -> "sup" ;
+
+  "cite" -> "sub" ;
+
+  "cite" -> "q" ;
+
+  "cite" -> "code" ;
+
+  "cite" -> "dfn" ;
+
+  "cite" -> "strong" ;
+
+  "cite" -> "em" ;
+
+  "cite" -> "small" ;
+
+  "cite" -> "big" ;
+
+  "cite" -> "b" ;
+
+  "cite" -> "i" ;
+
+  "cite" -> "tt" ;
+
+  "cite" -> "map" ;
+
+  "cite" -> "img" ;
+
+  "cite" -> "object" ;
+
+  "cite" -> "bdo" ;
+
+  "cite" -> "span" ;
+
+  "cite" -> "br" ;
+
+  "cite" -> "a" ;
+
+  "abbr" -> "cite" ;
+
+  "abbr" -> "var" ;
+
+  "abbr" -> "kbd" ;
+
+  "abbr" -> "samp" ;
+
+  "abbr" -> "sup" ;
+
+  "abbr" -> "sub" ;
+
+  "abbr" -> "q" ;
+
+  "abbr" -> "code" ;
+
+  "abbr" -> "dfn" ;
+
+  "abbr" -> "strong" ;
+
+  "abbr" -> "em" ;
+
+  "abbr" -> "small" ;
+
+  "abbr" -> "big" ;
+
+  "abbr" -> "b" ;
+
+  "abbr" -> "i" ;
+
+  "abbr" -> "tt" ;
+
+  "abbr" -> "map" ;
+
+  "abbr" -> "img" ;
+
+  "abbr" -> "object" ;
+
+  "abbr" -> "bdo" ;
+
+  "abbr" -> "span" ;
+
+  "abbr" -> "br" ;
+
+  "abbr" -> "a" ;
+
+  "label" -> "abbr" ;
+
+  "label" -> "cite" ;
+
+  "label" -> "var" ;
+
+  "label" -> "kbd" ;
+
+  "label" -> "samp" ;
+
+  "label" -> "sup" ;
+
+  "label" -> "sub" ;
+
+  "label" -> "q" ;
+
+  "label" -> "code" ;
+
+  "label" -> "dfn" ;
+
+  "label" -> "strong" ;
+
+  "label" -> "em" ;
+
+  "label" -> "small" ;
+
+  "label" -> "big" ;
+
+  "label" -> "b" ;
+
+  "label" -> "i" ;
+
+  "label" -> "tt" ;
+
+  "label" -> "map" ;
+
+  "label" -> "img" ;
+
+  "label" -> "object" ;
+
+  "label" -> "bdo" ;
+
+  "label" -> "span" ;
+
+  "label" -> "br" ;
+
+  "label" -> "a" ;
+
+  "acronym" -> "label" ;
+
+  "acronym" -> "textarea" ;
+
+  "acronym" -> "select" ;
+
+  "acronym" -> "input" ;
+
+  "acronym" -> "acronym" ;
+
+  "acronym" -> "abbr" ;
+
+  "acronym" -> "cite" ;
+
+  "acronym" -> "var" ;
+
+  "acronym" -> "kbd" ;
+
+  "acronym" -> "samp" ;
+
+  "acronym" -> "sup" ;
+
+  "acronym" -> "sub" ;
+
+  "acronym" -> "q" ;
+
+  "acronym" -> "code" ;
+
+  "acronym" -> "dfn" ;
+
+  "acronym" -> "strong" ;
+
+  "acronym" -> "em" ;
+
+  "acronym" -> "small" ;
+
+  "acronym" -> "big" ;
+
+  "acronym" -> "b" ;
+
+  "acronym" -> "i" ;
+
+  "acronym" -> "tt" ;
+
+  "acronym" -> "map" ;
+
+  "acronym" -> "img" ;
+
+  "acronym" -> "object" ;
+
+  "acronym" -> "bdo" ;
+
+  "acronym" -> "span" ;
+
+  "acronym" -> "br" ;
+
+  "acronym" -> "a" ;
+
+  "button" -> "acronym" ;
+
+  "button" -> "abbr" ;
+
+  "button" -> "cite" ;
+
+  "button" -> "var" ;
+
+  "button" -> "kbd" ;
+
+  "button" -> "samp" ;
+
+  "button" -> "sup" ;
+
+  "button" -> "sub" ;
+
+  "button" -> "q" ;
+
+  "button" -> "code" ;
+
+  "button" -> "dfn" ;
+
+  "button" -> "strong" ;
+
+  "button" -> "em" ;
+
+  "button" -> "small" ;
+
+  "button" -> "big" ;
+
+  "button" -> "b" ;
+
+  "button" -> "i" ;
+
+  "button" -> "tt" ;
+
+  "button" -> "map" ;
+
+  "button" -> "img" ;
+
+  "button" -> "object" ;
+
+  "button" -> "bdo" ;
+
+  "button" -> "span" ;
+
+  "button" -> "br" ;
+
+  "button" -> "table" ;
+
+  "button" -> "address" ;
+
+  "button" -> "blockquote" ;
+
+  "button" -> "hr" ;
+
+  "button" -> "pre" ;
+
+  "button" -> "dl" ;
+
+  "button" -> "ol" ;
+
+  "button" -> "ul" ;
+
+  "button" -> "div" ;
+
+  "button" -> "h6" ;
+
+  "button" -> "h5" ;
+
+  "button" -> "h4" ;
+
+  "button" -> "h3" ;
+
+  "button" -> "h2" ;
+
+  "button" -> "h1" ;
+
+  "button" -> "p" ;
+
+  "ins" -> "button" ;
+
+  "ins" -> "label" ;
+
+  "ins" -> "textarea" ;
+
+  "ins" -> "select" ;
+
+  "ins" -> "input" ;
+
+  "ins" -> "acronym" ;
+
+  "ins" -> "abbr" ;
+
+  "ins" -> "cite" ;
+
+  "ins" -> "var" ;
+
+  "ins" -> "kbd" ;
+
+  "ins" -> "samp" ;
+
+  "ins" -> "sup" ;
+
+  "ins" -> "sub" ;
+
+  "ins" -> "q" ;
+
+  "ins" -> "code" ;
+
+  "ins" -> "dfn" ;
+
+  "ins" -> "strong" ;
+
+  "ins" -> "em" ;
+
+  "ins" -> "small" ;
+
+  "ins" -> "big" ;
+
+  "ins" -> "b" ;
+
+  "ins" -> "i" ;
+
+  "ins" -> "tt" ;
+
+  "ins" -> "map" ;
+
+  "ins" -> "img" ;
+
+  "ins" -> "object" ;
+
+  "ins" -> "bdo" ;
+
+  "ins" -> "span" ;
+
+  "ins" -> "br" ;
+
+  "ins" -> "a" ;
+
+  "ins" -> "form" ;
+
+  "ins" -> "table" ;
+
+  "ins" -> "fieldset" ;
+
+  "ins" -> "address" ;
+
+  "ins" -> "blockquote" ;
+
+  "ins" -> "hr" ;
+
+  "ins" -> "pre" ;
+
+  "ins" -> "dl" ;
+
+  "ins" -> "ol" ;
+
+  "ins" -> "ul" ;
+
+  "ins" -> "div" ;
+
+  "ins" -> "h6" ;
+
+  "ins" -> "h5" ;
+
+  "ins" -> "h4" ;
+
+  "ins" -> "h3" ;
+
+  "ins" -> "h2" ;
+
+  "ins" -> "h1" ;
+
+  "ins" -> "p" ;
+
+  "del" -> "ins" ;
+
+  "del" -> "button" ;
+
+  "del" -> "label" ;
+
+  "del" -> "textarea" ;
+
+  "del" -> "select" ;
+
+  "del" -> "input" ;
+
+  "del" -> "acronym" ;
+
+  "del" -> "abbr" ;
+
+  "del" -> "cite" ;
+
+  "del" -> "var" ;
+
+  "del" -> "kbd" ;
+
+  "del" -> "samp" ;
+
+  "del" -> "sup" ;
+
+  "del" -> "sub" ;
+
+  "del" -> "q" ;
+
+  "del" -> "code" ;
+
+  "del" -> "dfn" ;
+
+  "del" -> "strong" ;
+
+  "del" -> "em" ;
+
+  "del" -> "small" ;
+
+  "del" -> "big" ;
+
+  "del" -> "b" ;
+
+  "del" -> "i" ;
+
+  "del" -> "tt" ;
+
+  "del" -> "map" ;
+
+  "del" -> "img" ;
+
+  "del" -> "object" ;
+
+  "del" -> "bdo" ;
+
+  "del" -> "span" ;
+
+  "del" -> "br" ;
+
+  "del" -> "a" ;
+
+  "del" -> "form" ;
+
+  "del" -> "table" ;
+
+  "del" -> "fieldset" ;
+
+  "del" -> "address" ;
+
+  "del" -> "blockquote" ;
+
+  "del" -> "hr" ;
+
+  "del" -> "pre" ;
+
+  "del" -> "dl" ;
+
+  "del" -> "ol" ;
+
+  "del" -> "ul" ;
+
+  "del" -> "div" ;
+
+  "del" -> "h6" ;
+
+  "del" -> "h5" ;
+
+  "del" -> "h4" ;
+
+  "del" -> "h3" ;
+
+  "del" -> "h2" ;
+
+  "del" -> "h1" ;
+
+  "del" -> "p" ;
+
+  "p" -> "del" ;
+
+  "p" -> "ins" ;
+
+  "p" -> "button" ;
+
+  "p" -> "label" ;
+
+  "p" -> "textarea" ;
+
+  "p" -> "select" ;
+
+  "p" -> "input" ;
+
+  "p" -> "acronym" ;
+
+  "p" -> "abbr" ;
+
+  "p" -> "cite" ;
+
+  "p" -> "var" ;
+
+  "p" -> "kbd" ;
+
+  "p" -> "samp" ;
+
+  "p" -> "sup" ;
+
+  "p" -> "sub" ;
+
+  "p" -> "q" ;
+
+  "p" -> "code" ;
+
+  "p" -> "dfn" ;
+
+  "p" -> "strong" ;
+
+  "p" -> "em" ;
+
+  "p" -> "small" ;
+
+  "p" -> "big" ;
+
+  "p" -> "b" ;
+
+  "p" -> "i" ;
+
+  "p" -> "tt" ;
+
+  "p" -> "map" ;
+
+  "p" -> "img" ;
+
+  "p" -> "object" ;
+
+  "p" -> "bdo" ;
+
+  "p" -> "span" ;
+
+  "p" -> "br" ;
+
+  "p" -> "a" ;
+
+  "noscript" -> "p" ;
+
+  "noscript" -> "h1" ;
+
+  "noscript" -> "h2" ;
+
+  "noscript" -> "h3" ;
+
+  "noscript" -> "h4" ;
+
+  "noscript" -> "h5" ;
+
+  "noscript" -> "h6" ;
+
+  "noscript" -> "div" ;
+
+  "noscript" -> "ul" ;
+
+  "noscript" -> "ol" ;
+
+  "noscript" -> "dl" ;
+
+  "noscript" -> "pre" ;
+
+  "noscript" -> "hr" ;
+
+  "noscript" -> "blockquote" ;
+
+  "noscript" -> "address" ;
+
+  "noscript" -> "fieldset" ;
+
+  "noscript" -> "table" ;
+
+  "noscript" -> "form" ;
+
+  "noscript" -> "ins" ;
+
+  "noscript" -> "del" ;
+
+  "noscript" -> "script" ;
+
+  "noscript" -> "noscript" ;
+
+  "object" -> "noscript" ;
+
+  "object" -> "script" ;
+
+  "object" -> "del" ;
+
+  "object" -> "ins" ;
+
+  "object" -> "button" ;
+
+  "object" -> "label" ;
+
+  "object" -> "textarea" ;
+
+  "object" -> "select" ;
+
+  "object" -> "input" ;
+
+  "object" -> "acronym" ;
+
+  "object" -> "abbr" ;
+
+  "object" -> "cite" ;
+
+  "object" -> "var" ;
+
+  "object" -> "kbd" ;
+
+  "object" -> "samp" ;
+
+  "object" -> "sup" ;
+
+  "object" -> "sub" ;
+
+  "object" -> "q" ;
+
+  "object" -> "code" ;
+
+  "object" -> "dfn" ;
+
+  "object" -> "strong" ;
+
+  "object" -> "em" ;
+
+  "object" -> "small" ;
+
+  "object" -> "big" ;
+
+  "object" -> "b" ;
+
+  "object" -> "i" ;
+
+  "object" -> "tt" ;
+
+  "object" -> "map" ;
+
+  "object" -> "img" ;
+
+  "object" -> "object" ;
+
+  "object" -> "bdo" ;
+
+  "object" -> "span" ;
+
+  "object" -> "br" ;
+
+  "object" -> "a" ;
+
+  "object" -> "form" ;
+
+  "object" -> "table" ;
+
+  "object" -> "fieldset" ;
+
+  "object" -> "address" ;
+
+  "object" -> "blockquote" ;
+
+  "object" -> "hr" ;
+
+  "object" -> "pre" ;
+
+  "object" -> "dl" ;
+
+  "object" -> "ol" ;
+
+  "object" -> "ul" ;
+
+  "object" -> "div" ;
+
+  "object" -> "h6" ;
+
+  "object" -> "h5" ;
+
+  "object" -> "h4" ;
+
+  "object" -> "h3" ;
+
+  "object" -> "h2" ;
+
+  "object" -> "h1" ;
+
+  "object" -> "p" ;
+
+  "param" ;
+
+  "object" -> "param" ;
+
+  "head" -> "object" ;
+
+  "title" ;
+
+  "head" -> "title" ;
+
+  "base" ;
+
+  "head" -> "base" ;
+
+  "html" -> "head" ;
+
+  "body" ;
+
+  "body" -> "p" ;
+
+  "body" -> "h1" ;
+
+  "body" -> "h2" ;
+
+  "body" -> "h3" ;
+
+  "body" -> "h4" ;
+
+  "body" -> "h5" ;
+
+  "body" -> "h6" ;
+
+  "body" -> "div" ;
+
+  "body" -> "ul" ;
+
+  "body" -> "ol" ;
+
+  "body" -> "dl" ;
+
+  "body" -> "pre" ;
+
+  "body" -> "hr" ;
+
+  "body" -> "blockquote" ;
+
+  "body" -> "address" ;
+
+  "body" -> "fieldset" ;
+
+  "body" -> "table" ;
+
+  "body" -> "form" ;
+
+  "body" -> "ins" ;
+
+  "body" -> "del" ;
+
+  "body" -> "script" ;
+
+  "body" -> "noscript" ;
+
+  "html" -> "body" ;
+
+ }
+

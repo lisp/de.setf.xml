@@ -1,0 +1,93 @@
+<!-- a dtd for xsl patterns
+     excerpted from 19970807 draft xsl proposal (http://www.w3.org/TR/NOTE-XSL.html)
+     and edited for xml, and to define the action and style entities
+ -->
+
+<!-- This DTD is for exegesis only.  It assumes that the
+action parameter entity has been defined as an or-group
+of flow object elements. The style parameter entity is
+used to represent an or-group of the apply element
+and styles defined with define-style. -->
+
+<!ENTITY % pattern "(root | (target-element | element | any)*)">
+<!ENTITY % action "(SCRIPT |
+                   PRE  |
+                   HTML  |
+                   TITLE  |
+                   META |
+                   BASE  |
+                   BODY  |
+                   DIV  |
+                   BR  |
+                   SPAN |
+                   TABLE  |
+                   CAPTION  |
+                   COL  |
+                   COLGROUP  |
+                   THEAD  |
+                   TBODY  |
+                   TFOOT |
+                   TR  |
+                   TD |
+                   A  |
+                   FORM  |
+                   INPUT  |
+                   SELECT |
+                   TEXTAREA  |
+                   HR  |
+                   IMG  |
+                   MAP |
+                   AREA  |
+                   OBJECT  |
+                   PARAM |
+                   FRAMESET)" > <!-- dsssl flow objects -->
+
+<!ENTITY % style "apply" >
+
+<!ELEMENT rule (%pattern;, %action;) >
+
+<!ELEMENT style-rule (%pattern;, %style;)>
+
+<!ELEMENT root  EMPTY>
+
+<!ATTLIST rule
+        priority   NUMBER     #IMPLIED
+        importance NUMBER     #IMPLIED
+        mode       NAME       #IMPLIED>
+
+<!ATTLIST style-rule
+        priority   NUMBER     #IMPLIED
+        importance NUMBER     #IMPLIED
+        mode       NAME       #IMPLIED>
+
+<!ELEMENT target-element
+        (attribute*, (element+ | any)?) >
+
+<!ELEMENT element
+        (attribute*, (target-element | element | any)?) >
+
+<!ELEMENT any  EMPTY >
+
+<!ATTLIST element
+        type      NAME        #IMPLIED
+        id        NAME        #IMPLIED
+        class     NAME        #IMPLIED
+        only    (of-type|of-any)  #IMPLIED
+        position  (first-of-type|last-of-type|first-of-any|last-of-any)  #IMPLIED
+        >
+
+<!ATTLIST target-element
+        type      NAME        #IMPLIED
+        id        NAME        #IMPLIED
+        class     NAME        #IMPLIED
+        only    (of-type|of-any)  #IMPLIED
+        position  (first-of-type|last-of-type|first-of-any|last-of-any)  #IMPLIED
+        >
+
+<!ELEMENT attribute EMPTY >
+
+<!ATTLIST attribute
+        name     NAME        #REQUIRED
+        value   CDATA      #IMPLIED
+        has-value (yes|no)    'yes'
+        >

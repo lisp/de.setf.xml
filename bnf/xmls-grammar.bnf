@@ -1,0 +1,39 @@
+/*
+<DOCUMENTATION>
+ <DESCRIPTION>
+  <p>
+  this is the BNF for XML -> reduced for xmls
+</p>
+  </DESCRIPTION>
+ <COPYRIGHT YEAR='2003' AUTHOR='james adam anderson' MARK='&copy'
+            href='file://xml/sysdcl.lisp' />
+ <CHRONOLOGY>
+  <DELTA DATE='20030607'>just curious</DELTA>
+  </CHRONOLOGY>
+ </DOCUMENTATION>
+*/
+
+[[1]]  Document ::= MiscSequence? Element 
+       QName ::= QNameCharData
+[[6]]  Names ::= NCName (S Names)?
+[[10]] AttValue ::= ('"' AttChildSequence? '"' ) | ('\'' AttChildSequence? '\'')
+       AttChildSequence ::= AttCharData AttChildSequence?
+[[15]] Comment ::= '<!--' CommentCharData? '-->'
+[[16]] Pi ::= '<?' PiTarget (S PiCharData? )? '?>'
+[[18]] CDSect ::= CDStart CDataCharData? CDEnd
+[[19]] CDStart ::= '<![CDATA['
+//     [[20]] CData ::= (Char* - (Char* ']]>' Char*)
+[[21]] CDEnd ::= ']]>'
+[[25]] Eq ::= S* '=' S*
+       MiscSequence ::= Misc MiscSequence?
+[[27]] Misc ::= Comment | Pi | S+
+[[39]] Element ::= STag ( '/>' | ( '>' Content* ETag ) )
+[[40]] STag ::= '<' QName AttributeSequence? S*
+       AttributeSequence ::= Attribute AttributeSequence?
+[[41]] Attribute ::= S+ QName Eq AttValue
+[[42]] ETag ::= '</' QName S* '>'
+[[43]] Content ::= CharData | Element | Comment | Pi | CDSect 
+// these aren't allowed as of 0.1, but really should be
+// [[66]] CharRef ::= ('&#' Number ';') | ( '&#x' HexNumber ';' )
+// [[67]] Reference ::= EntityRef | CharRef
+// [[68]] EntityRef ::= '&' NCName ';'

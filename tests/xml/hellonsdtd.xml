@@ -1,0 +1,6 @@
+<!DOCTYPE doc [
+  <!ELEMENT a:hello ANY >
+  <!ATTLIST a:hello xmlns CDATA 'ns' xmlns:a CDATA 'ns'>
+  ]>
+<a:hello a:attr='1234'>world</a:hello>
+

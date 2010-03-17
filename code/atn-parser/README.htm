@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<META NAME="GENERATOR" Content="Symantec Visual Page 1.0.3">
+	<TITLE>untitled</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+<H3>ATN - BNF compiler</H3>
+<P>the BNFP module implements an ATN-based parser generator. the generator accepts
+EBNF syntax specifications and generates either lisp or java source for the specified
+language.</P>
+<P>
+<HR>
+</P>
+<H4>loading</H4>
+<P>The file <B><CODE>defSystem.lisp</CODE></B> loads the module.</P>
+
+<P>The java generator is included, and will be loaded only if the feature <B><CODE>BNFP-JAVA</CODE></B>
+is defined.</P>
+
+<P>
+<HR>
+</P>
+<H4>usage</H4>
+<P>The module is defined in the package &quot;BNF-PARSER&quot; (&quot;BNFP&quot;)&quot;.
+all interface functions are defined in and exported from this package. it has two
+mode of usage: <B>generation</B> and <B>production</B>. in either mode, a grammar
+source file serves as the basis for processing. it comprises the BNF text description
+and effects the translation.</P>
+
+<DL>
+	<DL>
+		<DT>generation</DT>
+		<DD>In order to develop a parser for an application, the complete BNFP package must
+		be loaded so as to include the atn-&gt;lisp translator. the function <B><CODE>COMPILE-ATN-SYSTEM</CODE></B>
+		translates a BNF description into an ATN instance and translates that ATN into a
+		definition for lisp function. if the atn compiler is invoked with the setting <B><CODE>:EXECUTE
+		t</CODE></B> this function definition is evaluated in the active runtime environment.
+		if the atn compiler is invoked with the setting <B><CODE>:COMPILE t</CODE></B><CODE>,</CODE>
+		then the definition is stored in an external file and compiled from there. this file
+		is specified with the <B><CODE>:PATHNAME</CODE></B> argument to the compiler. by
+		default, a file named after the grammar is created in the relative directory <B><CODE>ATN-LIB</CODE></B>.<BR>
+		the first time a grammar is compiled, the several additional files are copied into
+		the destination directory and compiled. the generated parser source includes steps
+		to load these into the eventual runtime environment.
+		<P>
+		<DT>production</DT>
+		<DD>In order to use a parser within an application, load the file emitted during
+		the generation step and the runtime support file.
+	</DL>
+</DL>
+
+<P>An application could be coded as follows. this assumes a logical host definition
+(<I><CODE>host</CODE></I><B>:</B>) which includes a designation for the location
+of the atn parser (<I><CODE>host</CODE></I><B>:</B><I><CODE>ATN</CODE></I><B>;</B>)</P>
+
+
+<BLOCKQUOTE>
+	<PRE><TT>(defparameter *phrase-bnf*
+  &quot;phrase ::= (term | (term and phrase) | (term or phrase) | ' ')*
+   term ::= text+
+   comma ::= ','
+   or ::= '|' | '+'
+   and ::= '&amp;' | '*'
+   text ::= [#x30-#x39] | [#x61-#x7a] | [#x41-#x5a]&quot;
+  &quot;the bnf for subject text&quot;)</TT></PRE>
+	<PRE><TT>;; this convenience function is used to transform string input to a vector
+(defun phrase-tokenizer (s) (concatenate 'vector s))
+
+#-ATN-COMPILER
+(eval-when (:compile-toplevel :execute)
+  ;; make sure the grammar compiler is present.
+  (load &quot;<I>host</I>:<I>ATN</I>;defSystem.lisp&quot;)
+  (use-package &quot;BNFP&quot;))</TT></PRE>
+	<PRE><TT>(eval-when (:compile-toplevel :execute)
+  (compile-atn-system *phrase-bnf* :compile t
+                     :pathname &quot;host:ATN-LIB;phrase-grammar.lisp&quot;))
+
+(eval-when (:load-toplevel)
+  (load &quot;host:ATN-LIB;phrase-grammar&quot;))
+
+(eval-when (:execute)
+ (compile-atn-system *phrase-bnf* :execute t))</TT></PRE>
+
+</BLOCKQUOTE>
+
+<P>
+<P>once loaded or executed the parser would be used as follows</P>
+
+
+<BLOCKQUOTE>
+	<P><CODE>(phrase-parser &quot;s&amp;a&quot; :atn-trace t)</CODE>
+
+</BLOCKQUOTE>
+
+<P>
+<HR>
+</P>
+<H4>credits</H4>
+<P>The parser derives from work with benno biewer together at mecom gmbh on an ATN-based
+parser for java.</P>
+
+<P></P>
+<H4>
+<HR>
+</H4>
+
+<H4>license</H4>
+<P>This library is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free Software
+Foundation; either version 2.1 of the License, or (at your option) any later version.<BR>
+</P>
+
+<P>This library is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+PURPOSE.  See the GNU Lesser General Public License for more details.<BR>
+<BR>
+You should have received a <A HREF="LGPL.txt">copy</A> of the GNU Lesser General
+Public License along with this library; if not, write to the <A HREF="http://www.gnu.org">Free
+Software Foundation</A>, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307
+ USA<BR>
+
+<HR>
+</P>
+
+<P>&#169;setf.de 2001
+
+
+</BODY>
+
+</HTML>

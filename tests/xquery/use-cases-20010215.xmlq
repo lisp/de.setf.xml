@@ -1,0 +1,815 @@
+
+
+-- 1.1
+-- 1.1.9.1
+              <bib>
+                 FOR $b IN document("http://www.bn.com")/bib/book
+                 WHERE $b/publisher = "Addison-Wesley" AND $b/@year > 1991
+                 RETURN 
+                    <book year = $b/@year>
+                       $b/title
+                    </book>
+              </bib>
+
+-- 1.1.9.2
+              <results>
+                 FOR $b IN document("http://www.bn.com")/bib/book,
+                     $t IN $b/title,
+                     $a IN $b/author
+                 RETURN
+                    <result>
+                       $t,
+                       $a
+                    </result>
+              </results>
+
+-- 1.1.9.3
+              <results>
+                 FOR $b IN document("http://www.bn.com")/bib/book
+                 RETURN
+                    <result>
+                       $b/title,
+                       FOR $a IN $b/author
+                       RETURN $a  
+                    </result>
+              </results>
+
+-- 1.1.9.4
+              <results>
+                 FOR $a IN distinct(document("http://www.bn.com")//author)
+                 RETURN
+                    <result>
+                       $a,
+                       FOR $b IN document("http://www.bn.com")/bib/book
+                                   [author = $a]
+                       RETURN $b/title 
+                    </result>
+              </results>
+
+-- 1.1.9.5
+              <books-with-prices>
+                 FOR $b IN document("www.bn.com/bib.xml")//book,
+                     $a IN document("www.amazon.com/reviews.xml")//entry
+                 WHERE $b/title = $a/title
+                 RETURN
+                    <book-with-prices>
+                       $b/title,
+                       <price-amazon> $a/price/text() </price-amazon>,
+                       <price-bn> $b/price/text() </price-bn>
+                    </book-with-prices>
+              </books-with-prices>
+
+-- 1.1.9.6
+              <bib>
+                 FOR $b IN document("www.bn.com/bib.xml")//book
+                 WHERE count($b/author) > 0
+                 RETURN
+                    <book>
+                       $b/title,
+                       FOR $a IN $b/author[RANGE 1 TO 2] RETURN $a,
+                       IF count($b/author) > 2 THEN <et-al/> ELSE [ ] 
+                    </book>
+              </bib>
+
+-- 1.1.9.7 ambiguous
+              <bib>
+                 FOR $b IN document("www.bn.com/bib.xml")//book
+                    [publisher = "Addison-Wesley" AND @year > "1991"] 
+                 RETURN
+                    <book>
+                       $b/@year,
+                       $b/title
+                    </book> SORTBY (title)
+              </bib>
+
+-- 1.1.9.8
+              FOR $b IN document("www.bn.com/bib.xml")//book,
+                  $e IN $b/*[contains(string(.), "Suciu")]
+              WHERE ends_with(name($e), "or")
+              RETURN
+                 <book>
+                    $b/title,
+                    $e
+                 </book>
+
+-- 1.1.9.9
+              <results>
+                 FOR $t IN document("books.xml")//chapter/title
+                           UNION document("books.xml")//section/title
+                 WHERE contains($t/text(), "XML")
+                 RETURN $t
+              </results>
+
+-- 1.1.9.10
+              <results>
+                 LET $doc := document("prices.xml")
+                 FOR $t IN distinct($doc/book/title)
+                 LET $p := $doc/book[title = $t]/price
+                 RETURN 
+                    <minprice title = $t/text()>
+                       min($p)
+                    </minprice>
+              </results>
+
+-- 1.1.9.11
+              <bib>
+                 FOR $b IN document("www.bn.com/bib.xml")//book[author]
+                 RETURN
+                    <book>
+                       $b/title,
+                       $b/author
+                    </book>,
+                 FOR $b IN document("www.bn.com/bib.xml")//book[editor]
+                 RETURN
+                    <reference>
+                       $b/title,
+                       <org> $b/editor/affiliation/text() </org>
+                    </reference>
+              </bib>
+
+-- 1.1.9.12
+              <bib>
+                 FOR $book1 IN document("www.bn.com/bib.xml")//book,
+                     $book2 IN document("www.bn.com/bib.xml")//book
+                 WHERE $book1/title/text() > $book2/title/text()
+                 AND unordered($book1/author) = unordered($book2/author)
+                 RETURN
+                    <book-pair>
+                       $book1/title,
+                       $book2/title
+                    </book-pair>
+              </bib>
+
+
+-- 1.2
+-- 1.2.4.1
+              <toc> 
+                 LET $b := document("book1.xml")
+                 RETURN filter($b, 
+                     $b//section | $b//section/title | $b//section/title/text())
+              </toc>
+
+-- 1.2.4.2
+              <figlist>
+                 FOR $f IN document("book1.xml")//figure
+                 RETURN 
+                    <figure>
+                       $f/@*,
+                       $f/title
+                    </figure>
+              </figlist>
+
+-- 1.2.4.3 ??
+              [
+                <section_count> 
+                   count(document("book1.xml")//section) 
+                </section_count> ,
+                <figure_count> 
+                   count(document("book1.xml")//figure) 
+                </figure_count>
+              ]
+
+-- 1.2.4.4
+              <top_section_count> 
+                 count(document("book1.xml")/book/section)
+              </top_section_count>
+
+-- 1.2.4.5
+              <section_list>
+                 FOR $s IN document("book1.xml")//section
+                 LET $f := $s/figure
+                 RETURN 
+                    <section title = $s/title/text() figcount = count($f)> </section>
+              </section_list>
+
+-- 1.2.4.6
+               FUNCTION section_summary(element $s) RETURNS element
+                {
+                  <section>
+                     $s/@*,
+                     $s/title,
+                     <figcount> count($s/figure) </figcount>,
+                     FOR $ss IN $s/section
+                     RETURN section_summary($ss)
+                  </section>
+                }
+
+              <toc>
+                 FOR $s IN document("book1.xml"/section)
+                 RETURN section_summary($s)
+              </toc> 
+
+-- 1.3
+-- 1.3.4.1
+              FOR $s IN document("report1.xml")//section[section.title = "Procedure"]
+              RETURN ($s//incision)[2]/instrument
+
+-- 1.3.4.2
+              FOR $s IN document("report1.xml")//section[section.title = "Procedure"]
+              RETURN ($s//instrument)[RANGE 1 TO 2]
+
+-- 1.3.4.3
+              LET $i2 := (document("report1.xml")//incision)[2]
+              FOR $a IN (document("report1.xml")//action AFTER $i2)[RANGE 1 TO 2]
+              RETURN $a//instrument
+
+-- 1.3.4.4
+              FOR $proc IN document("report1")//section[section.title="Procedure"]
+              WHERE EVERY $a IN $proc//anesthesia SATISFIES $a AFTER $proc//incision[1]
+              RETURN $proc
+
+-- 1.3.4.5
+              FOR $proc IN document("report1.xml")//section[section.title="Procedure"],
+                  $bet  IN $proc//* AFTER ($proc//incision)[1] BEFORE ($proc//incision)[2]
+              RETURN $bet
+
+-- 1.4
+-- 1.4.4.1
+
+              <result>
+                 FOR   $i IN document("items.xml")//item_tuple
+                 WHERE $i/start_date <= date()
+                   AND $i/end_date >= date()
+                   AND contains($i/description, "Bicycle")
+                 RETURN
+                    <item_tuple>
+                       $i/itemno,
+                       $i/description
+                    </item_tuple> SORTBY (itemno)
+              </result>
+
+-- 1.4.4.2
+              <result>
+                 FOR $i IN document("items.xml")//item_tuple
+                 LET $b := document("bids.xml")//bid_tuple[itemno = $i/itemno]
+                 WHERE contains($i/description, "Bicycle")
+                 RETURN
+                    <item_tuple>
+                       $i/itemno ,
+                       $i/description ,
+                       <high_bid> max($b/bid) </high_bid>
+                    </item_tuple> SORTBY (itemno)
+              </result>
+
+-- 1.4.4.3
+              <result>
+                 FOR $u IN document("users.xml")//user_tuple,
+                     $i IN document("items.xml")//item_tuple
+                 WHERE $u/rating > "C"
+                   AND $i/reserve_price > 1000
+                   AND $i/offered_by = $u/userid
+                 RETURN
+                    <warning>
+                       $u/name ,
+                       $u/rating , 
+                       $i/description , 
+                       $i/reserve_price
+                    </warning>
+              </result>
+
+-- 1.4.4.4
+              <result>
+                 FOR $i IN document("items.xml")//item_tuple
+                 WHERE NOT
+                    SOME $b IN document("bids.xml")//bid_tuple
+                       SATISFIES $b/itemno = $i/itemno
+                 RETURN
+                    <no_bid_item>
+                       $i/itemno ,
+                       $i/description
+                    </no_bid_item>
+              </result>
+
+-- 1.4.4.5
+              <result>
+                 FOR $seller  IN document("users.xml")//user_tuple,
+                     $buyer   IN document("users.xml")//user_tuple,
+                     $item    IN document("items.xml")//item_tuple,
+                     $highbid IN document("bids.xml")//bid_tuple
+                 WHERE $seller/name = "Tom Jones"
+                   AND $seller/userid = $item/offered_by
+                   AND contains($item/description, "Bicycle")
+                   AND $item/itemno = $highbid/itemno
+                   AND $highbid/userid = $buyer/userid
+                   AND $highbid/bid =
+                         max(document("bids.xml")//bid_tuple
+                                          [itemno = $item/itemno]/bid)
+                 RETURN
+                    <jones_bike>
+                       $item/itemno ,
+                       $item/description ,
+                       <high_bid> $highbid/bid </high_bid> ,
+                       <high_bidder> $buyer/name </high_bidder>
+                    </jones_bike> SORTBY (itemno)
+              </result>
+
+-- 1.4.4.6
+              <result>
+                 FOR $item IN document("items.xml")//item_tuple
+                 LET $b := document("bids.xml")//bid_tuple
+                                 [itemno = $item/itemno]
+                 WHERE $item/reserve_price < 2 * max($b/bid)
+                 RETURN
+                    <successful_item>
+                       $item/itemno ,
+                       $item/description ,
+                       $item/reserve_price,
+                       <high_bid> max($b/bid) </high_bid>
+                    </successful_item>
+              </result>
+
+-- 1.4.4.7
+              LET $allbikes := document("items.xml")//item_tuple
+                                 [ contains(description, "Bicycle")
+                                   OR contains(description, "Tricycle") ],
+                  $bikebids := document("bids.xml")//bid_tuple
+                                 [ itemno = $allbikes/itemno ]
+              RETURN
+                <high_bid>
+                   max($bikebids/bid)
+                </high_bid>
+
+-- 1.4.4.8
+              LET $item := document("items.xml")//item_tuple
+                     [end_date >= date("1999-03-01") 
+                      AND end_date <= date("1999-03-31")]
+              RETURN
+                 <item_count>
+                    count($item)
+                 </item_count>
+
+-- 1.4.4.9
+
+              <result>
+                 LET $end_dates := document("items.xml")//item_tuple/end_date
+                    FOR $m IN distinct( month($end_dates) )
+                    LET $item := document("items.xml")
+                           //item_tuple[year(end_date) = 1999 AND month(end_date) = $m]
+                    RETURN
+                       <monthly_result>
+                          <month> $m </month> ,
+                          <item_count> count($item) </item_count>
+                       </monthly_result> SORTBY (month)
+              </result>
+
+-- 1.4.4.10
+              <result>
+                 FOR $highbid IN document("bids.xml")//bid_tuple,
+                     $user IN document("users.xml")//user_tuple
+                 WHERE $user/userid = $highbid/userid
+                   AND $highbid/bid =
+                          max(document("bids.xml")//bid_tuple
+                                 [itemno = $highbid/itemno]/bid)
+                 RETURN
+                   <high_bid>
+                      $highbid/itemno ,
+                      $highbid/bid ,
+                      <bidder> $user/name/text() </bidder>
+                   </high_bid> SORTBY (itemno)
+              </result>
+
+-- 1.4.4.11
+              LET $highbid := max(document("bids.xml")//bid_tuple/bid)
+              RETURN
+              <result>
+                 FOR $item IN document("items.xml")//item_tuple,
+                     $b IN document("bids.xml")//bid_tuple[itemno = $item/itemno]
+                 WHERE $b/bid = $highbid
+                 RETURN
+                    <expensive_item>
+                       $item/itemno ,
+                       $item/description ,
+                       <high_bid> $highbid </high_bid>
+                    </expensive_item>
+              </result>
+
+-- 1.4.4.12
+               FUNCTION bid_summary() RETURNS LIST(element)
+                 {
+                 FOR $i IN distinct( document("bids.xml")//itemno )
+                 LET $b := document("bids.xml")//bid_tuple[itemno = $i]
+                 RETURN
+                    <bid_count>
+                       $i ,
+                       <nbids> count($b) </nbids>
+                    </bid_count>
+                 }
+
+              <result>
+                 FOR $item IN document("items.xml")//item_tuple,
+                     $bc   IN bid_summary()/bid_count[itemno = $item/itemno]
+                 WHERE $bc/nbids = max(bid_summary()//nbids)
+                 RETURN
+                    <popular_item>
+                       $item/itemno ,
+                       $item/description ,
+                       <bid_count> $bc/nbids/text() </bid_count>
+                    </popular_item>
+              </result>
+
+-- 1.4.4.13 ambiguous parse (SORTBY)
+              <result>
+                 FOR $uid IN distinct( document("bids.xml")//userid ),
+                     $u IN document("users.xml")//user_tuple[userid = $uid]
+                 LET $b := document("bids.xml")//bid_tuple[userid = $uid]
+                 RETURN
+                    <bidder>
+                       $u/userid ,
+                       $u/name ,
+                       <bidcount> count($b) </bidcount> ,
+                       <avgbid> avg($b/bid) </avgbid>
+                    </bidder> SORTBY (userid)
+              </result>
+
+-- 1.4.4.14 ambiguous parse (SORTBY)
+              <result>
+                 FOR $i IN distinct( document("bids.xml")//itemno )
+                 LET $b := document("bids.xml")//bid_tuple[itemno = $i]
+                 WHERE count($b) >= 3
+                 RETURN
+                    <popular_item>
+                       $i ,
+                       <avgbid> avg($b/bid) </avgbid>
+                    </popular_item> SORTBY (avgbid DESCENDING)
+              </result>
+
+-- 1.4.4.15
+              <result>
+                 FOR $u IN document("users.xml")//user_tuple
+                 LET $b := document("bids.xml")//bid_tuple
+                              [userid = $u/userid AND bid >= 100]
+                 WHERE count($b) > 1
+                 RETURN <big_spender> $u/name/text() </big_spender>
+              </result>
+
+-- 1.4.4.16
+              <result>
+                 FOR $u IN document("users.xml")//user_tuple
+                 LET $b := document("bids.xml")//bid_tuple[userid = $u/userid]
+                 RETURN
+                    <user>
+                       $u/userid,
+                       $u/name,
+                       IF empty($b) THEN <status> "inactive" </status>
+                       ELSE <status> "active" </status>
+                    </user> SORTBY (userid)
+              </result>
+
+-- 1.4.4.17
+              <frequent_bidder>
+                 FOR $u IN document("users.xml")//user_tuple
+                 WHERE 
+                    EVERY $item IN document("items.xml")//item_tuple SATISFIES
+                       SOME $b IN document("bids.xml")//bid_tuple SATISFIES
+                          ($item/itemno = $b/itemno AND $u/userid = $b/userid)
+                 RETURN
+                    $u/name
+              </frequent_bidder>
+
+-- 1.4.4.18 ambiguous parse (SORTBY)
+              <result>
+                 FOR $u IN document("users.xml")//user_tuple
+                 RETURN
+                    <user>
+                       $u/name,
+                       FOR $b IN document("bids.xml")//bid_tuple[userid = $u/userid],
+                           $i IN document("items.xml")//item_tuple[itemno = $b/itemno]
+                       RETURN 
+                          <bid_on_item>
+                             $i/description/text()
+                          </bid_on_item> SORTBY (.)
+                    </user> SORTBY (name)
+              </result>
+
+-- 1.5.4.1
+              <result>
+                 //report//para
+              </result>
+
+-- 1.5.4.2
+              <result>
+                 //intro/para
+              </result>
+
+-- 1.5.4.3 ambiguous parse (PATH)
+              <result>
+                 FOR $c IN //chapter
+                 WHERE empty($c/intro)
+                 RETURN $c/section/intro/para
+              </result>
+
+-- 1.5.4.4
+              <result>
+                 (((//chapter)[2]//section)[3]//para)[2]
+              </result>
+
+-- 1.4.5.4
+              <result>
+                 //para[@security = "c"]
+              </result>
+
+-- 1.5.4.6
+              <result>
+                 FOR $s IN //section/@shorttitle
+                 RETURN <stitle> $s </stitle>
+              </result>
+
+-- 1.5.4.7
+              <result>
+                 FOR $i IN //intro/para[1]
+                 RETURN 
+                    <first_letter>
+                       substring(string($i),1,1)
+                    </first_letter>
+              </result>
+
+-- 1.5.4.8
+              <result>
+                 //section[contains(string(.//title), "is SGML")] 
+              </result>
+
+-- 1.5.4.9
+              <result>
+                 //section[contains(.//title/text(), "is SGML")] 
+              </result>
+
+-- 1.5.4.10
+              <result>
+                 FOR $id IN document("input.xml")//xref/@xrefid
+                 RETURN //topic[@topicid = $id]
+              </result>
+
+-- 1.5.4.11 ambiguous
+              <result>
+                 LET $x := //xref[@xrefid = "top4"],
+                     $t := //title BEFORE $x
+                 RETURN $t[last()]
+              </result>
+
+-- 1.6
+-- 1.6.4.1
+              //news_item/title[contains(./text(), "Foobar Corporation")]
+
+-- 1.6.4.2
+              LET $foobar_partners := //company[name = "Foobar Corporation"]//partner
+              FOR $item IN //news_item
+              WHERE 
+                 SOME $t IN $item//title SATISFIES 
+                    (contains($t/text(), "Foobar Corporation")
+                     AND SOME $partner IN $foobar_partners SATISFIES 
+                           contains($t/text(), $partner/text())
+                    )
+                 OR SOME $par IN $item//par SATISFIES
+                    (contains($par/text(), "Foobar Corporation")
+                     AND SOME $partner IN $foobar_partners SATISFIES
+                           contains($par/text(), $partner/text())
+                    )
+              RETURN
+                 <news_item>
+                    $item/title,
+                    $item/date
+                 </news_item>
+
+-- 1.6.4.3
+              LET $foobar_partners := //company[name = "Foobar Corporation"]//partner,
+                  $foobar_competitors := //company[name = "Foobar Corporation"]//competitor
+              FOR $item IN //news_item
+              WHERE SOME $partner IN $foobar_partners SATISFIES
+                 contains_in_same_sentence(string($item/content),
+                    "Foobar Corporation", $partner/text())
+              AND NOT SOME $competitor IN $foobar_competitors SATISFIES
+                 contains( string($item/content), $competitor/text() ) 
+              RETURN $item/title
+
+-- 1.6.4.4
+              FOR $item IN //news_item,
+                  $c IN //company
+              LET $partners := $c//partner
+              WHERE contains( string($item), $c/name/text() )
+                AND SOME $p IN $partners SATISFIES contains( string($item), $p/text() )
+                AND $item/news_agent != $c/name
+              RETURN $item
+
+-- 1.6.4.5
+              FOR $item IN //news_item
+              WHERE contains( string($item/content), "Gorilla Corporation" )
+              RETURN
+                 <item_summary>
+                    $item/title/text(),
+                    ".",
+                    $item/date/text(),
+                    ".",
+                    string( ($item//par)[1] )
+                 </item_summary>
+
+-- 1.6.4.6 ambiguous parse
+              LET $companies := distinct( //company/name/text() 
+                                    UNION //company//partner/text()
+                                    UNION //company//competitor/text() )
+              FOR $item IN //news_item,
+                  $item_title IN $item/title,
+                  $item_para IN $item//para,
+                  $c1 IN $companies,
+                  $c2 IN $companies
+              WHERE $c1 != $c2
+                AND contains_stems_in_same_sentence($item_title/text(), $c1, $c2, "acquire")
+                 OR contains_stems_in_same_sentence($item_para/text(), $c1, $c2, "acquire") 
+              RETURN distinct($item)
+
+-- 1.7
+-- 1.7.4.1
+              <Q1> 
+                 FOR $n IN distinct(namespace_uri(//*))
+                 RETURN $n + newline()
+              </Q1>
+
+-- 1.7.4.2
+              NAMESPACE music = "http://www.musicdatabase.org/music/records"
+              <Q2>
+                 //music:title
+              </Q2>
+
+-- 1.7.4.3
+              NAMESPACE dt = "http://www.w3.org/1999/XMLSchema-datatypes"
+              <Q3>
+                 //* [@dt:*]
+              </Q3>
+
+-- 1.7.4.4
+              NAMESPACE xlink = "http://www.w3.org/1999/xlink"
+              <Q4>
+                 FOR $hr IN //@xlink:href
+                 RETURN $hr + newline()
+              </Q4>
+
+-- 1.7.4.5
+              NAMESPACE music = "http://www.musicdatabase.org/music/records"
+              <Q5>
+                 //music:record[music:remark/xml:lang = "de"]
+              </Q5>
+
+-- 1.7.4.6
+              NAMESPACE ma = "http://www.AuctionMediatorCompany.com/AuctionWatch"
+              NAMESPACE anyzone="http://www.AuctionMediatorCompany.com/auctioneers#anyzone"
+              <Q6>
+                 //ma:Auction[@anyzone:ID]/ma:Schedule/ma:Close
+              </Q6>
+
+-- 1.7.4.7
+              NAMESPACE ma = "http://www.AuctionMediatorCompany.com/AuctionWatch"
+              <Q7>
+                 FOR $a IN //ma:Auction
+                 LET $seller_id := $a/ma:Trading_Partners/ma:Seller/*:ID,
+                     $buyer_id  := $a/ma:Trading_Partners/ma:High_Bidder/*:ID
+                 WHERE namespace_uri($seller_id) = namespace_uri($buyer_id)
+                 RETURN $a/ma:AuctionHomepage
+              </Q7>
+
+-- 1.7.4.8
+              NAMESPACE ma = "http://www.AuctionMediatorCompany.com/AuctionWatch"
+              <Q8>
+                 FOR $s IN //ma:Trading_Partners/ma:Seller
+                 WHERE $s/*:NegativeComments = 0
+                 RETURN $s
+              UNION
+                 FOR $b IN //ma:Trading_Partners/ma:High_Bidder
+                 WHERE $b/*:NegativeComments = 0
+                 RETURN $b
+              </Q8>
+
+-- 1.8
+-- 1.8.4.1
+              FUNCTION one_level(element $p) RETURNS element
+                 {
+                 <part>
+                    $p/@partid,
+                    $p/@name,
+                    FOR $s IN /part[@partid = $p/@partof]
+                    RETURN one_level($s)
+                 </part>
+                 }
+
+              <parttree>
+                 FOR $p IN /part[NOT @partof]
+                 RETURN one_level($p)
+              </parttree>
+
+-- 1.9
+-- 1.9.4.1
+              <result>
+                 FOR $m IN document("census.xml")//person[name="Martha"]
+                 RETURN shallow($m/@spouse -> person)
+              </result>
+
+-- 1.9.4.2
+              FUNCTION children(element $p) RETURNS LIST(element)
+                 {
+                 shallow($p/person) UNION shallow($p/@spouse -> person/person)
+                 }
+
+              <result>
+                 FOR $j IN document("census.xml")//person[name = "Joe"]
+                 RETURN children($j)
+              </result>
+
+-- 1.9.4.3
+              <result>
+                 FOR $p IN document("census.xml")//person,
+                     $s IN $p/@spouse -> person
+                 WHERE $p/person/job = "Athlete"
+                    OR $s/person/job = "Athlete"
+                 RETURN shallow($p)
+              </result>
+
+-- 1.9.4.4
+              <result>
+                 FOR $p IN document("census.xml")//person,
+                     $c IN $p/person
+                 WHERE $p/job = $c/job
+                    OR $p/@spouse -> person/job = $c/job
+                 RETURN shallow($c)
+              </result>
+
+-- 1.9.4.5
+              <result>
+                 FOR  $p IN document("census.xml")//person,
+                      $c IN $p/person[job = $p/job]
+                 RETURN <match
+                           parent = $p/name  
+                           child = $c/name
+                           job = $c/job
+                        /> ,
+                 FOR  $p IN document("census.xml")//person,
+                      $c IN $p/@spouse -> person/person[job = $p/job]
+                 RETURN <match
+                           parent = $p/name
+                           child = $c/name
+                           job = $c/job
+                        />
+              </result>
+
+-- 1.9.4.6
+              <result>
+                 FOR $b IN document("census.xml")//person[name = "Bill"] ,
+                     $c IN $b/person | $b/@spouse -> person/person ,
+                     $g IN $c/person | $c/@spouse -> person/person
+                 RETURN
+                     shallow($g)
+              </result>
+
+-- 1.9.4.7
+              <result>
+                 FOR $b IN document("census.xml")//person ,
+                     $c IN $b/person | $b/@spouse -> person/person ,
+                     $g IN $c/person | $c/@spouse -> person/person
+                 RETURN
+                     <grandparent
+                        name = $b/name
+                        grandchild = $g/name
+                     />
+              </result>
+
+-- 1.9.4.8
+              <result>
+                 FOR $s IN document("census.xml")//person[name = "Dave"]/@spouse -> person,
+                     $sp IN $s/.. | $s/../@spouse -> person
+                 RETURN shallow($sp)
+              </result>
+
+-- 1.9.4.9
+              <result>
+                 FOR $p IN document("census.xml")//person
+                 WHERE empty(children($p))
+                 RETURN shallow($p)
+              </result>
+
+-- 1.9.4.10
+              <result>
+                 FOR $p IN document("census.xml")//person[person]
+                 WHERE empty($p/@spouse -> person)
+                 RETURN shallow($p)
+              </result>
+
+-- 1.9.4.11 ambiguous
+              FUNCTION descrip(element $e) RETURNS element
+                 {
+                 LET $kids := $e/* UNION $e/@spouse -> person/* ,
+                     $mstatus := IF $e[@spouse] THEN "Yes" ELSE "No"
+                 RETURN
+                    <person married = $mstatus nkids = count($kids)>
+                       $e/@name/text()
+                    </person>
+                 }
+
+              FUNCTION descendants(element $e) RETURNS LIST(element)
+                 {
+                 IF empty($e/* UNION $e/@spouse -> person/*)
+                 THEN $e
+                 ELSE $e UNION descendants($e/* UNION $e/@spouse -> person/*)
+                 }
+
+              descrip(descendants(//person[name = "Joe"]))
+                 SORTBY (@nkids DESCENDING, .)
+
+-- EOF
+

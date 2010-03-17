@@ -1,0 +1,191 @@
+//
+// this is adapted from the bnf from the WD as of 20010215.
+// 20010530 nb. the parser is generated with Query as the default start symbol.
+// 20010530 XQueryUnit itself would appear to have documentary value only.
+// 20010530 a parse should be targeted at FunctionLIbrary or Query explicitly.
+// 20010607 superceded by WD-xquery-20010607
+//
+//  ------------------------------------------------------------------
+
+XQueryUnit          ::= FunctionLibrary | Query
+FunctionLibrary     ::= ContextDecl*  FunctionDefn+
+
+Query               ::= ContextDecl*  FunctionDefn*  Expr
+
+// ContextDecl         ::= 'NAMESPACE' Identifier '=' Literal
+//                     | 'NAMESPACE' 'DEFAULT' '=' Literal
+
+ContextDecl         ::= 'NAMESPACE' ( Identifier | 'DEFAULT' ) '=' Literal
+
+FunctionDefn        ::= 
+  'FUNCTION' QName '(' ParameterList? ')' 'RETURNS' Datatype '{' Expr '}'
+
+ParameterList       ::= Parameter ( ',' Parameter )*
+
+Parameter           ::= Datatype Variable
+
+Datatype            ::= SimpleDatatype
+                      | ( ListOp '(' SimpleDatatype ')' )
+ListOp              ::= 'LIST'
+
+SimpleDatatype      ::= QName | ( AtOp QName )  | 'ELEMENT' 
+AtOp                  ::= '@' 
+
+// PathExpr had to be promoted
+Expr                ::= ExprSortby | ExprUnary | ExprBinary
+                      | Variable | Literal | ExprDot | ExprFuncall | ElementConstructor
+                      | ExprGroup | ExprListConstructor | PathExpr | ExprPredicate
+                      | FlwrExpr | ExprIf | ExprQuantify | ExprCast | ExprInstanceOf
+
+ExprSortby          ::= ExprWoSortby 'SORTBY' '(' SortSpecList ')' 
+ExprWoSortby        ::= ExprUnary | ExprBinary
+                      | Variable | Literal | ExprDot | ExprFuncall | ElementConstructor
+                      | ExprGroup | ExprListConstructor | PathExpr | ExprPredicate 
+                      | FlwrExpr | ExprIf | ExprQuantify | ExprCast | ExprInstanceOf
+ExprUnary           ::= UnaryOp Expr
+ExprBinary          ::= ExprWoBinary BinaryOp Expr
+ExprWoBinary        ::= ExprSortby | ExprUnary 
+                      | Variable | Literal | ExprDot | ExprFuncall | ElementConstructor
+                      | ExprGroup | ExprListConstructor | PathExpr | ExprPredicate 
+                      | FlwrExpr | ExprIf | ExprQuantify | ExprCast | ExprInstanceOf
+ExprDot             ::= '.'                          
+ExprFuncall         ::= FunctionName '(' ExprList? ')' 
+ExprGroup           ::= '(' Expr ')'
+ExprListConstructor ::= '[' ExprList? ']'
+ExprPredicate       ::= ExprWoPredicate Predicate
+ExprWoPredicate     ::= ExprSortby | ExprUnary | ExprBinary
+                      | Variable | Literal | ExprDot | ExprFuncall | ElementConstructor
+                      | ExprGroup | ExprListConstructor | PathExpr 
+                      | FlwrExpr | ExprIf | ExprQuantify | ExprCast
+                      | ExprInstanceOf
+ExprIf              ::= 'IF' Expr 'THEN' ExprIfThen 'ELSE' ExprIfElse
+ExprIfThen          ::= Expr
+ExprIfElse          ::= Expr
+ExprQuantify        ::= ( SomeOp | EveryOp) Variable 'IN' Expr 'SATISFIES' ExprTest
+SomeOp              ::= 'SOME'
+EveryOp             ::= 'EVERY'
+ExprTest            ::= Expr
+ExprCast            ::= ( CastOp | TreatOp) 'AS' Datatype '(' Expr ')'
+CastOp              ::= 'CAST'
+TreatOp             ::= 'TREAT'
+ExprInstanceOf      ::= ExprWoInstanceOf 'INSTANCEOF' Datatype
+ExprWoInstanceOf    ::= ExprSortby | ExprUnary | ExprBinary
+                      | Variable | Literal | ExprDot | ExprFuncall | ElementConstructor
+                      | ExprGroup | ExprListConstructor | PathExpr | ExprPredicate 
+                      | FlwrExpr | ExprIf | ExprQuantify | ExprCast
+
+ElementConstructor  ::= ( '<' StartTag ) ( '/>' | ( '>' ExprContentList? EndTag ) )
+StartTag            ::= TagName AttributeList? 
+TagName             ::= QName | Variable
+AttributeName       ::= QName | Variable
+EndTag              ::= '</' TagName '>'
+AttributeList       ::= Attribute+
+Attribute           ::= AttributeName '=' ExprValue
+// must exclude comparitors from attribute values ( '>' ) and from content ( '<' )
+// other forms must appear in a group expression
+ExprValue           ::= ExprUnary
+                      | Variable | Literal | ExprDot | ExprFuncall
+                      | ExprGroup | ExprListConstructor | PathExpr | ExprPredicate
+                      | FlwrExpr | ExprIf | ExprQuantify | ExprCast | ExprInstanceOf
+ExprContent         ::= ExprSortby | ExprUnary
+                      | Variable | Literal | ExprDot | ExprFuncall | ElementConstructor
+                      | ExprGroup | ExprListConstructor | PathExpr | ExprPredicate
+                      | FlwrExpr | ExprIf | ExprQuantify | ExprCast | ExprInstanceOf
+ExprContentList     ::= ExprContent ( ',' ExprContent )*
+
+Predicate           ::= '[' ( ( 'RANGE' ExprPredicateLower 'TO' ExprPredicateUpper ) | Expr ) ']'
+ExprPredicateLower  ::= Expr
+ExprPredicateUpper  ::= Expr
+ExprList            ::= Expr ( ',' Expr )*
+
+SortSpecList        ::= SortSpec (',' SortSpec)*
+SortSpec            ::= PathExpr SortOrder?
+SortOrder           ::= 'ASCENDING' | 'DESCENDING'
+
+FlwrExpr            ::= FlwrExprForLet+  WhereClause? ReturnClause
+FlwrExprForLet      ::= ForClause | LetClause
+ForClause           ::= 'FOR' FlwrForBinding ( ',' FlwrForBinding )*
+FlwrForBinding      ::= Variable 'IN' Expr 
+LetClause           ::= 'LET' FlwrLetBinding ( ',' FlwrLetBinding )*
+FlwrLetBinding      ::= Variable ':=' Expr
+WhereClause         ::= 'WHERE' Expr
+ReturnClause        ::= 'RETURN' Expr
+
+PathExpr            ::= ContextRelativePath | AppliedPath | Path
+ContextRelativePath ::= ( SingleSlash | DoubleSlash ) Path
+AppliedPath         ::= ExprWoPath ( SingleSlash | DoubleSlash ) Path
+ExprWoPath          ::= ExprSortby | ExprUnary | ExprBinary
+                      | Variable | Literal | ExprDot | ExprFuncall | ElementConstructor
+                      | ExprGroup | ExprListConstructor | ExprPredicate 
+                      | FlwrExpr | ExprIf | ExprQuantify | ExprCast | ExprInstanceOf
+SingleSlash         ::= '/'
+DoubleSlash         ::= '//'
+Path                ::= Step RelatedStep*
+RelatedStep         ::= ( SingleSlash | DoubleSlash ) Step
+Step                ::= NodeGenerator Predicate*
+NodeGenerator       ::= NameTest
+                      |  ( NodeType '(' ')' )
+                      |  ( AtOp NameTest ( '->' NameTarget )? )
+                      |  DotDot
+DotDot              ::= '..'
+NameTarget          ::= NameTestPrefix? NameTestLocalName
+NameTest            ::= NameTestPrefix? NameTestLocalName
+NameTestPrefix      ::= ( WildName | NamePrefix ) ':'
+NameTestLocalName   ::= ( WildName | LocalName )
+WildName            ::= '*'
+NodeType            ::= 'NODE'
+                      | 'TEXT'
+                      | 'COMMENT'
+                      | 'PROCESSING-INSTRUCTION'
+FunctionName        ::= QName
+
+QName               ::= QNamePrefix? LocalName
+QNamePrefix         ::= NamePrefix ':'
+NamePrefix          ::= Identifier
+LocalName           ::= Identifier
+
+BinaryOp            ::= LogicalOp | CompareOp | ArithOp
+LogicalOp           ::= 'AND' | 'OR' | 'UNION' | 'INTERSECT'
+                     |  'EXCEPT' | 'BEFORE' | 'AFTER' | '|'
+CompareOp           ::= '=' | '<' | '<=' | '>' | '>=' | '!='
+ArithOp             ::= '+' | '-' | '*' | 'DIV' | 'MOD'
+UnaryOp             ::= 'NOT' | '+' | '-'
+
+//  
+//  The terminal symbols of this grammar are as follows:
+//  
+//  Variable       Example: $x
+//  
+//  Literal        Examples: "x", 5, 5.72E-3, TRUE
+//  
+//  Identifier     Examples: x, 'FOR'
+//  
+//  ------------------------------------------------------------------
+//  
+//  The operator precedence of this grammar is as follows:
+//  
+//  1. Path operators: /, // , ->, predicates
+//  
+//  2. Unary +, -
+//  
+//  3. *, DIV, MOD
+//  
+//  4. Binary +, -
+//  
+//  5. =, <, <=, >, >=, !=, INSTANCEOF
+//  
+//  6. FLWR, IF..THEN..ELSE, Quantifiers
+//  
+//  7. BEFORE, AFTER
+//  
+//  8. NOT
+//  
+//  9. INTERSECT, AND
+//  
+//  10. UNION, |, EXCEPT, OR
+//  
+//  11. SORTBY
+// 
+//  ------------------------------------------------------------------
+//  ------------------------------------------------------------------
+

@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<META NAME="GENERATOR" Content="Symantec Visual Page 1.0.3">
+	<TITLE>abstract syntax</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+<P>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>p</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE> in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>Prefix</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>NCName</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>l</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>LocalPart</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>NCName</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>nsn</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>NamespaceName</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>Character+</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%">
+			<PRE>dci</PRE>
+		</TD>
+		<TD WIDTH="4%">
+			<PRE>in</PRE>
+		</TD>
+		<TD WIDTH="26%">
+			<PRE><CODE>DeclarationContextId</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%">
+			<PRE>::=</PRE>
+		</TD>
+		<TD WIDTH="60%">
+			<PRE>Character+</PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>qn</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>QualifiedName</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>(:qn (Prefix + null) X LocalPart X
+     DeclarationContextId)</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>un</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>UniversalName</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>(:un (Namespace + null) X LocalPart )</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>n</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>Name</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>( UniversalName + QualifiedName )</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>nsb</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>NamespaceBinding</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>(:nsb . ((LocalPart X NamespaceName) +
+         (null X (NamespaceName + null))) )</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>a</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>Attribute</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>(:a Name )</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>e</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>Element</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>(:e Name X NamespaceBinding* X Attribute* X
+    Element* )</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>ed</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>ElementDeclaration</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>(:ed Name X (Name* + '<B>ANY</B>' +'<B>EMPTY</B>') )</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%">ep</TD>
+		<TD WIDTH="4%">in</TD>
+		<TD WIDTH="26%">ElementProperty</TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="60%"><CODE>NamespaceBinding + Attribute</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>ad</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>AttributeDeclaration</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>(:ad Name X ElementProperty )</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%">
+			<PRE>md</PRE>
+		</TD>
+		<TD WIDTH="4%">
+			<PRE>in</PRE>
+		</TD>
+		<TD WIDTH="26%">
+			<PRE><CODE>MarkupDeclaration</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%">
+			<PRE>::=</PRE>
+		</TD>
+		<TD WIDTH="60%">
+			<PRE>ElementDeclaration + AttributeDeclaration</PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>dcx</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>DeclarationContext</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>(:dcx DeclarationContextId X
+      DeclarationComponent*)</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>dcl</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>DeclarationComponent</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>MarkupDeclaration + DeclarationContext</CODE></PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%">
+			<PRE>s</PRE>
+		</TD>
+		<TD WIDTH="4%">
+			<PRE>in</PRE>
+		</TD>
+		<TD WIDTH="26%">
+			<PRE>Schema</PRE>
+		</TD>
+		<TD WIDTH="5%">
+			<PRE>::=</PRE>
+		</TD>
+		<TD WIDTH="60%">
+			<PRE>(:s ElementDeclaration*)</PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>doc</CODE></PRE>
+		</TD>
+		<TD WIDTH="4%" VALIGN="TOP">
+			<PRE><CODE>in</CODE></PRE>
+		</TD>
+		<TD WIDTH="26%" VALIGN="TOP">
+			<PRE><CODE>Document</CODE></PRE>
+		</TD>
+		<TD WIDTH="5%" VALIGN="TOP">
+			<PRE><CODE>::=</CODE></PRE>
+		</TD>
+		<TD WIDTH="60%" VALIGN="TOP">
+			<PRE><CODE>(:doc Name DeclarationContext X Element )</CODE></PRE>
+		</TD>
+	</TR>
+</TABLE>
+
+
+
+</BODY>
+
+</HTML>

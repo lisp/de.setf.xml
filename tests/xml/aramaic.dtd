@@ -1,0 +1,38 @@
+<!-- xml dtd for aramaic dictionary -->
+<!-- the optional fields are hebrew forms, alternate forms,
+cross-references, and notes -->
+    <!ENTITY % OPTIONAL-FIELDS 'HB?, ALT?, TRF*, XRF?, NT*'>
+    <!ENTITY % STATUS 'st CDATA #IMPLIED'>
+         <!-- a dictionary is entry* -->
+         <!-- an entry is root and subentry+ or citation form and words,
+and note* -->
+    <!ELEMENT  DICTIONARY (EN*) >
+    <!ELEMENT  EN (((RT,SB+) | (CF,W*)),NT*) >
+    <!ATTLIST EN hw ID #REQUIRED md NMTOKEN #REQUIRED>
+         <!-- a subentry is an optional grammar, gloss, and citation form,
+word*, and note* -->
+    <!ELEMENT  SB (GR?,GL?,CF?,W*,NT*) >
+    <!ATTLIST SB p (y|n) 'y'>
+         <!-- a citation form is only obligatory word of a subentry -->
+         <!-- a citation form has a gloss, grammatical info, and optional
+fields -->
+         <!-- cf and w form derived from id number -->
+    <!ELEMENT  CF (GR,GL?,%OPTIONAL-FIELDS;) >
+    <!ATTLIST CF id ID #REQUIRED >
+         <!-- a word has grammatical info, maybe a gloss, and optional
+fields -->
+    <!ELEMENT W (GR,GL?,%OPTIONAL-FIELDS;) >
+    <!ATTLIST W id ID #REQUIRED >
+         <!-- root form content derived from entry hw number -->
+         <!-- root has gloss and may have grammatical info -->
+    <!ELEMENT RT (GR?,GL,%OPTIONAL-FIELDS;) >
+    <!ELEMENT GL (#PCDATA) >
+    <!ATTLIST GL %STATUS; >
+    <!ELEMENT GR (#PCDATA) >
+    <!ATTLIST GR %STATUS; >
+    <!ELEMENT HB (#PCDATA) >
+    <!ELEMENT ALT (#PCDATA) >
+        <!-- text reference -->
+    <!ELEMENT TRF (#PCDATA) >
+    <!ELEMENT XRF (#PCDATA) >
+    <!ELEMENT NT (#PCDATA) >

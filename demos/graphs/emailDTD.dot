@@ -1,0 +1,36 @@
+
+
+digraph Email {
+
+  "Email" ;
+
+  "Recipient" ;
+
+  "Email" -> "Recipient" ;
+
+  "Sender" ;
+
+  "Email" -> "Sender" ;
+
+  "Date" ;
+
+  "Email" -> "Date" ;
+
+  "Subject" ;
+
+  "Email" -> "Subject" ;
+
+  "TextBody" ;
+
+  "p" ;
+
+  "Name" ;
+
+  "p" -> "Name" ;
+
+  "TextBody" -> "p" ;
+
+  "Email" -> "TextBody" ;
+
+ }
+

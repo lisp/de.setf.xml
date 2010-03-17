@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='ISO-8859-1' standalone='no'?>
+<!DOCTYPE DICTIONARY SYSTEM 'aramaic.dtd'>
+<DICTIONARY>
+<EN hw="h432" md="310898">
+<CF id="w552"><GR>cn</GR><GL>flute</GL></CF></EN>
+<EN hw="h153" md="310898"><RT><GR>vb</GR><GL>wish, want</GL><HB>ý·”</HB></RT>
+<SB>
+<W id="w2033"><GR>3sf pre</GR></W></SB></EN>
+<EN hw="h627" md="310898"><RT><GR>vb</GR><GL>mourn</GL></RT>
+<SB>
+<CF id="w3498"><GR>3sm suf P I</GR></CF></SB>
+<SB><W id="w3597"><GR st='?'>1s Q</GR><TRF>g37:35 strange syntax in
+general, and is this an instance of abs pro suffix?</TRF></W>
+</SB><NT>+ ÚÃÏ</NT></EN>
+<EN hw="h1280" md="310898">
+<CF id="w4337"><GR>cn sa</GR><GL>mourning</GL></CF>
+<W id="w4336"><GR>sd</GR></W>
+<W id="w2636"><GR>3sm</GR><NT>odd context</NT></W></EN>
+</DICTIONARY>

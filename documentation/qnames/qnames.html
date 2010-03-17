@@ -1,0 +1,652 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<META NAME="GENERATOR" Content="Symantec Visual Page 1.0.3">
+	<TITLE>QName Semantics</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF">
+
+<H2>On DTD-Encoded Schemas.</H2>
+<P>
+<TABLE BORDER="0" WIDTH="100%">
+	<TR>
+		<TD WIDTH="45%" VALIGN="TOP">james anderson<BR>
+			<CODE>&lt;james.anderson@setf.de&gt;</CODE></TD>
+		<TD WIDTH="55%">An interpretation sematics for XML-1.0+names document type definitions is demonstrated
+			which is adquate to qualifiy such encodings as minimally-schema conformant.<BR>
+<BR>
+This note <A HREF="#TheDTDParadox">introduces</A> the interpretive problems associated
+			with <A HREF="DTDConcreteSyntax">DTD-encoded</A> schemas, defines an abstract document
+			model to support their interpretation, describes the interpretations semantics, and
+			illustrates its use for typical</TD>
+	</TR>
+</TABLE>
+
+<H3>
+<HR>
+<A NAME="TheDTDParadox"></A>The DTD Paradox</H3>
+<P>The expressions which appear in an XML document type definition (DTD) are intended
+to be interpreted by a XML processor so as &quot;to determine whether the mark-up
+for an individual document is correct and also to supply the mark-up that is missing
+because it can be inferred unambiguously from other mark-up present&quot;. [<A HREF="#ISOSGML">iso-sgml</A>]
+One issue central to this interpretation is that of the identity of names: when do
+two lexical names strings encode the same name taken from the domain in whcih correctness
+is judged and completion is inferred. Prior to the <A HREF="#RECNames">recommendation
+on namespaces</A>, literal name strings were directly used to assess correctness
+and to effect defaults, as the names were understood to be globally unique. Names
+were identified according to literal, lexical equality. Were a namestring to appear
+more than in more than one element declaration as an element's generic identifier,
+the instance document was categorized as not well-formed, which precluded a correctness
+assessment. Were a namestring to appear as an attribute name in more than one attribute
+declaration for a given element, the second and subsequent declarations were ignored.
+In order to avoid such spurious conflicts among combined document type definitions,
+it was recognized that names were not necessarily globally unique and <A HREF="#ISOEnablingArchitectural">methods</A>
+were developed to rewrite namestrings in component definitions so as to avoid conflicts
+for a given combination of definitions.</P>
+
+<P>As of the ratification of the namespace recommendation, the presumption of universal
+uniqueness among literal names no longer applies when interpreting XML documents.
+Literal name strings are no longer the basis for identity among names. Which means
+that a DTD, where interpreted literally, can no longer serve its intended purpose.
+The consequences are several. On approach has been to <A HREF="#WDModularHTML">described</A>
+encoding conventions which employ rules for declaration and appearance of parameter
+entities as a means to effect aspects of the name-rewriting from enabling architectures.
+Another approach has been to develop alternative schema languages which use XML element
+syntax to express document definitions. This approach offers the lattitude to interpret
+qualified namestrings in declarations in a manner consistent with the namespace recommendation,
+either by direct <A HREF="#NOTESRelaxAndSchematron">application</A> of the specified
+scoping rules, or according to schema-specific <A HREF="#RECSchemas">rules</A>.</P>
+
+<P>These developments constitute a remarkable paradox. On the one hand, they manifest
+the assertion that it is possible to transcend the incompatibility between DTD-encoded
+document definitions and universal names only by replacing DTDs with schemas which
+themselves constitute incompatible encodings and interpretation algorithms. On the
+other hand, they ignore evidence that a much less severe algorithmic break would
+make it possible to interpret universal names within a DTD without ambiguity, and,
+as a consequence, to perform namespace-aware validation and default inference. The
+core of this progressive approach, is to simply apply to a DTD-encoded document type
+definition the same interpretation rules which the namespaces recommendation specifies
+for the document entity.</P>
+
+<P>This note demonstrates the consequences of this alternative approach for the use
+of namespace-aware DTDs. In particular it demonstrates that the approach itself follows
+from a interpretation of both the DTD and document entity on the basis a s single
+consistent abstract model, that the approach is adequate to unambiguously interpret
+names in the presence of synonomy and homography, and that the approach is sufficient
+to generate a post validation information set which comprises those of the constraints
+and inferences specified by the schemas recommentation which can be encoded in a
+DTD. Which, according to the provisions for alternative encodings, establishes DTD-syntax
+as permissible encoding for schemas.</P>
+
+<P>The remainder of the note is divided into three sections. The next section describes
+and illustrates the interpretation process with reference to the concrete DTD syntax
+and an abstract document model. It includes a sematics which specifies how the model
+is generated from a concrete document instance as well as examples of the interpretation.
+The succeeding section describes those aspects of the schema component model which
+can be encoded in a DTD, It includes the RDF expression for examples of this schema
+subset. The final section describes the validation process and illustrates generation
+of the PSVI for the example documents.</P>
+
+<P>
+<H3>Namespace-aware DTD interpretation</H3>
+<P>This section presents an interpretation semantics for namespace-aware XML-1.0
+documents, which, given a namespace-conformant document, yields instances of a document
+model which is expressed entirely in terms of universal names. As the first step,
+a simplified concrete syntax for document type definitions is introduced, which is
+restricted to those expressions which are related to names. From this an abstract
+syntax is</P>
+<H4><A NAME="DTDConcreteSyntax"></A>DTD Concrete Syntax</H4>
+<P>The syntax of element and attribute declarations in a DTD expresses various relations
+among element names for generic identifiers, names in content models, attribute names,
+and attribute types. The concrete expression of these relations is governed by the
+BNF for XML. The following simplified excerpt from the <A HREF="#RECXml">XML 1.0
+recommendation</A> comprises the relevant syntactic forms.</P>
+<PRE><A NAME="ConcreteSyntax"></A>
+[[1]]  Document ::= <CODE>DoctypeDecl?</CODE> Element
+[[10]] AttValue ::= '<B>&quot;</B>' [^<B>&lt;&amp;&quot;</B>]* '<B>&quot;</B>' | &quot;<B>'</B>&quot; [^<B>&lt;&amp;'</B>]* &quot;<B>'</B>&quot;
+<CODE>[[28]] DoctypeDecl ::= '<B>&lt;!DOCTYPE</B>' S+ QName S* ('<B>[</B>' MarkupDecl* '<B>]</B>' S* )? '<B>&gt;</B>'
+[[29]] MarkupDecl ::= ElementDecl | AttlistDecl
+</CODE>[[39]] Element ::= STag ( '<B>/&gt;</B>' | ( '<B>&gt;</B>' Content* ETag ) )
+[[40]] STag ::= '<B>&lt;</B>' QName AttributeSequence? S*
+       AttributeSequence ::= Attribute AttributeSequence?
+[[41]] Attribute ::= S+ QName Eq AttValue
+[[42]] ETag ::= '<B>&lt;/</B>' QName S* '<B>&gt;</B>'
+<CODE>[[45]] ElementDecl ::= <B>'&lt;!ELEMENT</B>' S+ QName S+ ContentSpec S* '<B>&gt;</B>'
+[[46]] ContentSpec ::= '<B>EMPTY</B>' | '<B>ANY</B>' | Mixed | Children
+[[47]] Children ::= ChoiceOrSeq Cardinality?
+[[48]] Cp ::= ( QName | ChoiceOrSeq ) Cardinality?
+       ChoiceOrSeq ::= '<B>(</B>' S* Cp ( Choice | Seq )? S* '<B>)</B>'
+[[49]] Choice ::= ( S* '<B>|</B>' S* Cp )+
+[[50]] Seq ::= ( S* '<B>,</B>' S* Cp )+
+[[51]] Mixed ::= ( '<B>(</B>' S* '#<B>PCDATA</B>' ( S* '<B>|</B>' S* QName )* S* '<B>)</B>'
+                   MixedCardinality )
+               | ( '<B>(</B>' S* '<B>#PCDATA</B>' S* '<B>)</B>' )
+       Cardinality ::= '<B>?</B>' | '<B>+</B>' | '<B>*</B>'
+       MixedCardinality ::= '<B>*</B>'
+[[52]] AttlistDecl ::= '<B>&lt;!ATTLIST</B>' S+ QName AttDefSequence? S* '<B>&gt;</B>'
+       AttDefSequence ::= AttDef AttDefSequence?
+[[53]] AttDef ::= S+ QName S+ AttType S+ DefaultDecl
+[[54]] AttType ::= StringType | TokenizedType | EnumeratedType
+[[55]] StringType ::= '<B>CDATA</B>'
+[[56]] TokenizedType ::= '<B>ID</B>' | '<B>IDREF</B>' | '<B>IDREFS</B>' | '<B>ENTITY</B>'
+                       | '<B>ENTITIES</B>' | '<B>NMTOKEN</B>' | '<B>NMTOKENS</B>'
+[[57]] EnumeratedType ::= NotationType | Enumeration
+[[58]] NotationType ::= '<B>NOTATION</B>' S+ '<B>(</B>' S* NotationTypeSequence S* '<B>)</B>' 
+       NotationTypeSequence ::= NCName (S* '<B>|</B>' S* NotationTypeSequence )?
+[[59]] Enumeration ::= '<B>(</B>' EnumerationSequence S* '<B>)</B>'
+       EnumerationSequence ::= S* Nmtoken ( S* '<B>|</B>' EnumerationSequence )?
+[[60]] DefaultDecl ::= '<B>#REQUIRED</B>' | '<B>#IMPLIED</B>'
+                     | (( <B>'#FIXED</B>' S)? DefaultAttValue)
+       QName ::= Prefix? LocalPart
+       Prefix ::= NCName '<B>:</B>'
+       LocalPart ::= NCName</CODE></PRE>
+<P>As this note will limit itself to the interpretation of names, one may restrict
+the syntax to those terms which concern generic identifiers in start tags and end
+tags, attribute names in start tags, and the analogous identifiers in the respective
+declarations, the syntax can be simplfied to the following phrases:</P>
+<PRE><A NAME="ConcreteSyntaxSimplified"></A>
+[[1]]  Document    ::= <CODE>DoctypeDecl?</CODE> Element
+[[10]] AttValue ::= '<B>&quot;</B>' [^<B>&lt;&amp;&quot;</B>]* '<B>&quot;</B>' | &quot;<B>'</B>&quot; [^<B>&lt;&amp;'</B>]* &quot;<B>'</B>&quot;
+<CODE>[[28]] DoctypeDecl ::= '<B>&lt;!DOCTYPE</B>' QName MarkupDecl* '<B>&gt;</B>'
+[[29]] MarkupDecl  ::= ElementDecl | AttlistDecl
+</CODE>[[39]] Element ::= STag ( '<B>/&gt;</B>' | ( '<B>&gt;</B>' Content* ETag ) )
+[[40]] STag ::= '<B>&lt;</B>' QName AttributeSequence? 
+       AttributeSequence ::= Attribute AttributeSequence?
+[[41]] Attribute ::=  QName AttValue
+[[42]] ETag ::= '<B>&lt;/</B>' QName  '<B>&gt;</B>'
+<CODE>[[45]] ElementDecl ::= <B>'&lt;!ELEMENT</B>' QName Qname* '<B>&gt;</B>'
+[[52]] AttlistDecl ::= '<B>&lt;!ATTLIST</B>' QName AttDef '<B>&gt;</B>'
+[[53]] AttDef ::= QName AttValue
+       QName ::= Prefix? LocalPart
+       Prefix ::= NCName '<B>:</B>'
+       LocalPart ::= NCName</CODE></PRE>
+<P>In keeping this simplified description of an XML document, examples can be expressed
+in an equivalent abstract syntax will serve is ,ore readily generated and parsed
+in the <A HREF="http://www.cl-xml.org">testing environment</A>.</P>
+<PRE><A NAME="AbstractSyntax"></A></PRE>
+<P>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>p</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE> in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>Prefix</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>NCName</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>l</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>LocalPart</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>NCName</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>nsn</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>&#160;</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>NamespaceName</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>Character+</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>qn</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>QualifiedName</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>(:qn (Prefix + null) X LocalPart )</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>un</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>UniversalName</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>(:un (Namespace + null) X LocalPart )</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>n</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>Name</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>( UniversalName + QualifiedName )</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>nsb</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>NamespaceBinding</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>(:nsb . ((LocalPart X NamespaceName) + (null X (NamespaceName + null))) )</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>a</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>Attribute</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>(:a Name )</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>e</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>Element</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>(:e Name X NamespaceBinding* X Attribute* X Element* )</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>ed</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>ElementDeclaration</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>(:ed Name X (Name* + '<B>ANY</B>' +'<B>EMPTY</B>') )</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>ad</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>AttributeDeclaration</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>(:ad Name X NamespaceBinding* X Attribute* )</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>dcl</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>DeclarationContext</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>(:dcl (ElementDeclaration + AttributeDeclaration + DeclarationContext)* )</CODE></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="5%" VALIGN="TOP"><CODE>doc</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>in</CODE></TD>
+		<TD WIDTH="26%" VALIGN="TOP"><CODE>Document</CODE></TD>
+		<TD WIDTH="4%" VALIGN="TOP"><CODE>::=</CODE></TD>
+		<TD WIDTH="61%" VALIGN="TOP"><CODE>(:doc Name DeclarationContext X Element )</CODE></TD>
+	</TR>
+</TABLE>
+</P>
+
+<P>Note that this abstract syntax constitutes a superset of the concrete syntax,
+in that it incorporates forms for for expressions which do not appear in the concrete
+syntax. Forms for universal names (<CODE>un</CODE>) and collections of declarations
+(<CODE>dcl</CODE>) serve to express elements of domains present in the abstract interpretation
+models.</P>
+
+<P></P>
+<H4>Abstract Document Model</H4>
+<P>The namespaces recommendation specifies the essential properties and interpretation
+methods for qualified and universal names. Within the document entity  stipulations
+suffice to identify the denoted universal name for each qualified name. The recommendation
+describes rules for combining element containment relations with element attribute
+relations (scoping rules) so as to interpret relations between prefixes and namespace
+bindings within the document entity unambiguously and thereby to determine the URI
+associated with a given prefix:</P>
+
+
+<BLOCKQUOTE>
+	<P>The namespace declaration is considered to apply to the element where it is specified
+	and to all elements within the content of that element, unless overridden by another
+	namespace declaration....</P>
+
+</BLOCKQUOTE>
+
+<P>On  this basis the universal denotation of each qualified name is then derived.
+The recommendation also describes a conformance standard which derives from the identity
+of universal attribute names within the document entity:</P>
+
+
+<BLOCKQUOTE>
+	<P>In XML documents conforming to this specification, no tag may contain two attributes
+	which:
+
+	<OL>
+	<LI>have identical names, or
+	<LI>have qualified names with the same local part and with prefixes which have been
+	bound to namespace names that are identical.
+	</OL>
+
+
+</BLOCKQUOTE>
+
+<P>The recommendation neglects to specify means to determine either attribute or
+element name identity  between the document entity and the document type definition.
+It also neglects to specify means to determine attribute or element name identity
+within the document type definition itself. The effect has been to impair XML processors'
+ability to validate namespace-aware documents. The accepted response to this difficulty
+has be to abandon DTD-encoded schemas as a means to express documents which express
+universal names.</P>
+
+<P>There is no logical reason for this failure. If one examines item (2) above more
+closely, it establishes a principle which serves as the basis the core of an effective
+approach. The key insight is, the principle is to be applied to the entire document
+instead of to the root element only. Although it is expressed in lexical terms apprent
+in the concrete syntax, the rule describes a comparison which no longer takes place
+in the lexical domain: it stipulates a comparison between universal names</P>
+
+<P>This is the approach followed by all namespace aware schemas. The XML schema formal
+description, for example, describes validation with respect to matching attribute
+names in terms of either <A HREF="#WDSchemaFormalDescriptions">normalized universal
+names</A>. RELAX NG, for example, also expresses validation directly in terms of
+universal names. It describes the central judgement of element validation in terms
+of the expression</P>
+
+
+<BLOCKQUOTE>
+	<P>E; ns |- a; m =~ p =&gt; k; kr</P>
+
+</BLOCKQUOTE>
+
+<P>in which the atttribute and element components - a and m respetively, denote domains
+which comprise universal names. Which suggests, that one might well assume a simillar
+approach for DTD-encoded schemas. That is, define an abstract model in which the
+schema is described in terms of universal names together with a mechanism which interprets
+a DTD-encoded schema in terms of this abstract model. If the approach is to succeed,
+the interpretation must yield a model consistent with an equivalent xml-schema-encoded
+document definition.<BR>
+</P>
+
+<P>One such model for universal documents comprises the following semantic domains:</P>
+
+<P><A NAME="AbstractModel"></A>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+	<TR>
+		<TD WIDTH="7%"><I>ncn</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>NameCharacterName</I></TD>
+		<TD WIDTH="5%">&#160;</TD>
+		<TD WIDTH="59%">&#160;</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>null</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>NullName</I></TD>
+		<TD WIDTH="5%">&#160;</TD>
+		<TD WIDTH="59%">&#160;</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>p</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>Prefix</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%"><I>NameCharacterName</I> + <I>NullName</I></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>wn</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>WildName</I></TD>
+		<TD WIDTH="5%">&#160;</TD>
+		<TD WIDTH="59%">&#160;</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>l</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>LocalPart</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%"><I>NameCharacterName</I> + <I>NullName</I></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>uri</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>UniformResourceIdentifier</I></TD>
+		<TD WIDTH="5%">&#160;</TD>
+		<TD WIDTH="59%">&#160;</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>nsn</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>NamespaceName</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%"><I>UniformResourceIdentifier</I> + <I>NullName</I></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>qn</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>QualifiedName</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>Prefix</I> X <I>LocalPart</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>un</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>UniversalName</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>Namespace</I> X <I>LocalPart</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>ns</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>Namespace</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>NamespaceName</I> X ( <I>LocalPart</I> =&gt; <I>UniversalName</I> ) )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>n</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>Name</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>UniversalName</I> + <I>QualifiedName</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>nsb</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>NamespaceBinding</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>Prefix</I> X <I>Namespace</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>nse</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>NamespaceEnvironment</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%"><I>Prefix</I> =&gt; <I>Namespace</I></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>a</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>Attribute</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%"><I>Name</I></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>e</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>Element</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>Name</I> X <I>NamespaceBinding</I>* X <I>Attribute</I>* X <I>Element</I>* )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>ed</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>ElementDeclaration</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>Name</I> X ( <I>Name</I>* + <I>WildName</I> ) )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>ad</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>AttributeDeclaration</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>Name</I> X <I>Name</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>md</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>MarkupDeclaration</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>ElementDeclaration</I> + <I>AttributeDeclaration</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>dcl</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>DeclarationContext</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>MarkupDeclaration</I> + <I>DeclarationContext</I> )*</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%"><I>doc</I></TD>
+		<TD WIDTH="5%">in</TD>
+		<TD WIDTH="24%"><I>Document</I></TD>
+		<TD WIDTH="5%">::=</TD>
+		<TD WIDTH="59%">( <I>Name</I> X <I>DeclarationContext</I> X <I>Element</I> )</TD>
+	</TR>
+</TABLE>
+</P>
+
+<P>On the basis of the <A HREF="#AbstractSyntax">abstract syntax</A> and this abstract
+model, a <A HREF="qnames-valuation.html">collection of valuation functions</A> describe
+how to interpret an instance document as a document model.</P>
+
+<P>can be formulated to generate a <I>Document</I> for which all encoded qualified
+names are interpreted as universal names for all documents which conform to the namespaces
+recommendation. this set of documents includes a significant subset of those which
+exhibit synonomy and/or homography artifacts. Once a generated <I>Document</I> model
+contains no qualified names, it is possible to produce a pre-validation infoset which
+conforms to the requirements for xml schemas. The succeeding sections describe these
+valuation </P>
+
+<P><BR>
+<BR>
+<BR>
+<BR>
+[[<B>&lt;!ATTLIST</B> (<I>p</I><SUB>i</SUB> <I>l</I><SUB>i</SUB> <I>v</I><SUB>i</SUB>),
+(<B>xmlns</B>, <I>p</I><SUB>j</SUB>), u)<B>&gt;</B> (<B>ED</B>, (pi, li, u) EU)]]
+==&gt; EU' = (EU, (pi, u)) in (TEu (I[[(pi, li)]], EU') (TAu, (I[[(pi, li)]], EU'),
+(I[[(xmlns, li, u)]], EU') )</P>
+
+<P>nse0 = ( (xmlns {xmlns}), (xml {}), (|| {}) )</P>
+
+<P>intern DTD : ID == ( DoctypeDecl NamespaceEnvironment ) ==&gt; Schema</P>
+
+<P>initial reduction<BR>
+
+<TABLE BORDER="1" WIDTH="100%">
+	<TR>
+		<TD COLSPAN="2">ID[[ ( &lt;!DOCTYPE q <CODE>MarkupDecl</CODE>* &gt;, (# &#248;), nse )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20" VALIGN="TOP">==&gt;</TD>
+		<TD WIDTH="50%">(mdSet nse') := IMD[[ MarkupDecl* (# &#248;) nse ]]<BR>
+			in<BR>
+			(IQ[[ q nse' ]] . mdSet)</TD>
+	</TR>
+</TABLE>
+</P>
+
+<P>terminal reduction<BR>
+
+<TABLE BORDER="1" WIDTH="100%">
+	<TR>
+		<TD COLSPAN="2">IMD[[ () <I>sc</I><SUB>0</SUB> <I>nse</I><SUB>0</SUB> ]]</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20" VALIGN="TOP">==&gt;</TD>
+		<TD WIDTH="50%"><I>sc</I><SUB>0</SUB> <I>nse</I><SUB>0</SUB></TD>
+	</TR>
+</TABLE>
+</P>
+
+<P>multiple element declarations are an error 
+<TABLE BORDER="1" WIDTH="100%">
+	<TR>
+		<TD COLSPAN="2">qName<SUB>a</SUB> == qName<SUB>i<BR>
+			|-<BR>
+			</SUB><B>IMD</B>[[ ( <B>&lt;!ELEMENT </B>qName<SUB>a</SUB> qName* &gt;, MarkupDecl*,
+			<B>&lt;!ELEMENT </B>qName<SUB>i</SUB> qName* &gt;, MarkupDecl*) <I>sc</I> <I>nse</I>
+			]]</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20" VALIGN="TOP">==&gt;</TD>
+		<TD WIDTH="50%">error</TD>
+	</TR>
+</TABLE>
+</P>
+
+<P>augment an existing element declaration based on an element declaration form or
+introduce a new one:<BR>
+
+<TABLE BORDER="1" WIDTH="100%">
+	<TR>
+		<TD COLSPAN="2"><I>u</I><SUB>0</SUB> ==<SUB>modns</SUB> IN[[ qName<SUB>i</SUB> ]]<BR>
+			|-<BR>
+			IMD[[ <B>&lt;!ELEMENT </B>qName<SUB>i</SUB> (qName<SUB>j</SUB> . qName*) <B>&gt;</B>
+			MarkupDecl* ]] (sc, ( (ed <I>u</I><SUB>0</SUB> <I>u</I>* <I>ad</I>* <I>nse</I><SUB>1</SUB>)
+			. <I>md</I>* ) ) <I>nse</I><SUB>0</SUB></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20" VALIGN="TOP">==&gt;</TD>
+		<TD WIDTH="50%">IMD [[ MarkupDecl* <B>&lt;!ELEMENT </B>qName<SUB>i</SUB> qName* &gt; ]] (sc ( (ed
+			u<SUB>0</SUB> ( NewU[[ qName<SUB>j</SUB> ]] . u* ) ) <I>ad</I>* <I>nse</I><SUB>1</SUB>
+			) . <I>md</I>* ) <I>nse</I><SUB>0</SUB></TD>
+	</TR>
+</TABLE>
+
+<TABLE BORDER="1" WIDTH="100%">
+	<TR>
+		<TD COLSPAN="2">IMD[[ ( <B>&lt;!ELEMENT </B>qName<SUB>i</SUB> QName* <B>&gt;</B> . MarkupDecl* )
+			(sc <I>md*</I>) <I>nse</I><SUB>0 </SUB>]]</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20" VALIGN="TOP">==&gt;</TD>
+		<TD WIDTH="50%">IMD[[ ( <B>&lt;!ELEMENT </B>qName<SUB>i</SUB> QName* <B>&gt;</B> . MarkupDecl* )
+			(sc, ( NewEd[[ qName<SUB>i</SUB> <I>nse</I><SUB>0</SUB>]] . md* ) ) <I>nse</I><SUB>0
+			</SUB>]]</TD>
+	</TR>
+</TABLE>
+</P>
+
+<P><BR>
+augment an existing element declaration based on an attribute declaration form or
+introduce a new one:<BR>
+
+<TABLE BORDER="1" WIDTH="100%">
+	<TR>
+		<TD COLSPAN="2">IMD[[ <B>&lt;!ATTLIST </B>ncName<SUB>i</SUB> : ncName<SUB>j</SUB> ncName<SUB>k</SUB>
+			: ncName<SUB>l</SUB> attValue<SUB>m</SUB> &gt; MarkupDecl* ]] (sc md*) <I>nse</I><SUB>0</SUB></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="20" VALIGN="TOP">==&gt;</TD>
+		<TD WIDTH="50%">let sc' := ( sc ( NewEd[[ ncName : naNamej ]] . md* ) )<BR>
+			in IMD[[ <B>&lt;!ATTLIST </B>ncName<SUB>i</SUB> : ncName<SUB>j</SUB> ncName<SUB>k</SUB>
+			: ncName<SUB>l</SUB> attValue<SUB>m</SUB> &gt; MarkupDecl* ]] sc' nse</TD>
+	</TR>
+</TABLE>
+</P>
+
+<P>
+<HR>
+</P>
+<H4>Examples</H4>
+<P>A collection of examlpes was drawn up to demonstrate the interaction of various
+expressions and arrangements with the interpretation of names.</P>
+<P>The examples are divided into three sections. one each for <A HREF="qnames-examples.html#literalIdentity">literal
+identity</A>, <A HREF="qnames-examples.html#synonomy">synonomy</A>, and <A HREF="qnames-examples.html#homography">homography</A>.</P>
+<P>
+<HR>
+</P>
+<H4>Alternative Algebras</H4>
+<H5>Beech, Malhotra, Rys (1999)</H5>
+<P>&quot;A Formal Data Model and Algebra for XML&quot; proposes an abstract graph
+model for XML documents in which the generic identifiers and qualified attribute
+names</P>
+
+
+<BLOCKQUOTE>
+	<P><I>&quot;</I>encode the namespace information by representing the name as a tuple
+	consisting of the namespace definition edge and the generic identifier. In the case
+	of qualified elements and attributes, the namespace definition edge is the edge of
+	the attribute that defines the namespace.&quot;[p3]</P>
+
+</BLOCKQUOTE>
+
+<P>according to which all universal names comprise a reference to the lexical binding
+of the respective namespace prefix to the namespace name. the model would suggest
+such operations as uniform mutation of the namespace containment of exactly those
+names within the scope of a given binding. such operations are, however, absent from
+the algebra and the model form was not perpetuated in later version of the query
+algebra.</P>
+
+<P>
+<HR>
+
+
+
+</BODY>
+
+</HTML>

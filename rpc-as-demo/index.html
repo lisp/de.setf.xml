@@ -1,0 +1,490 @@
+<html><head><title>index.lisp</title><style type='text/css'>
+body {background-color: #f4f4f8;}
+hr { clear: left;}
+ *.logo { color: rgb(50%, 9%, 5%);}
+ *.header {
+  background-color: #f0f0f0;
+  margin-bottom: 1ex;
+  border: 1px solid;
+  border-bottom-color: #d8d8d8; border-right-color: #d8d8d8;
+  border-top-color: #ffffff; border-left-color: #ffffff;
+  }
+ *.footer {
+  background-color: #f0f0f0;
+  margin-top: 1ex;
+  border: 1px solid;
+  border-top-color: #d8d8d8; border-left-color: #d8d8d8;
+  border-bottom-color: #ffffff; border-right-color: #ffffff;
+  }
+
+div.text { margin: 1ex; width: 30%; padding: 0; float:left; clear: left; }
+div.definition {
+  width: 65%; margin-left: auto; margin-right:1em; margin-top: .5ex; margin-bottom: .5ex; padding-left: 1em;
+  border: solid; border-width: 1px;
+  border-top-color: #e0e0e0; border-left-color: #e0e0e0; border-right-color: #ffffff; border-bottom-color: #ffffff;
+  background-color: #f6f6fa;
+  }
+div.definition div.signature {
+  margin-top: .1ex; margin-bottom: 0ex; font-family: 'courier';
+  }
+span.nature { float: right; }
+div.definition div.documentation {
+  visibility: visible; margin-left: 2em; margin-top: .1ex; margin-bottom: 0ex;
+  }
+div.definition div.form {
+  visibility: hidden; height: 0;
+  margin-left: 2em; margin-top: 0ex; margin-bottom: 0ex;  white-space: pre;
+  border-color: #e0e0e0;  border: solid; border-width: 1px;
+  font-family: 'courier';
+  background-color: #ffffff;
+  }
+div.source {
+  width: 65%; margin-top: 1ex; margin-bottom: 1ex;  white-space: pre;  clear:left;
+  border-color: #e0e0e0;  border: solid; border-width: 1px;
+  font-family: 'courier';
+  background-color: #ffffff;
+  }
+div.file div.DOCUMENTATION { background-color: #f8f6fa; clear:left;
+                    border: solid; border-width: 1px;
+                    border-color: #e0e0e0;}
+</style>
+<script type='text/javascript'>
+  function showElement(target) {
+    target.style.visibility='visible';
+    target.style.height='auto';
+  }
+  function hideElement(target) {
+    target.style.visibility='hidden';
+    target.style.height='0';
+  }
+  function toggleDefinitionVisibility(name) {
+    formTarget = document.getElementById(name+'_form');
+    docTarget = document.getElementById(name+'_documentation');
+    if ( formTarget != undefined) {
+      if ( formTarget.style.visibility == 'visible' )
+        hideElement(formTarget);
+      else
+        showElement(formTarget);
+    }
+    if ( docTarget != undefined) {
+      if ( docTarget.style.visibility == 'hidden' )
+        showElement(docTarget);
+      else
+        hideElement(docTarget);
+    }
+  }
+  
+</script></head>
+<body>
+
+<div class='source' >(IN-PACKAGE :DE.SETF.XML.XML-RPC)</div><table border='0' cellpadding='0' cellspacing='0' width='100%' class='header'>
+  <tr>
+   <td> <h2>CL-XML: How To: XML-RPC</h2>
+<p>20031024  <a href='mailto:James.Anderson@setf.de'>james anderson</a>,<br/>
+ all rights reserved. no warranty.
+  <a href='http://www.setf.de/library/ncsl.html'>[0]</a>
+  <a href='ncsl.html'>[1]</a>
+ 
+ </p>
+   </td></tr>
+  <tr>
+   <td align='center'>
+    <p align='center'>[<a href='#Goal'>the goal</a>]
+                      [<a href='#Interfaces'>program interface</a>]
+                      [<a href='#Examples'>examples</a>]<a name='TOP'/></p>
+		</td>
+	</tr>
+  </table>
+<div class='definition' ID='def_1'>
+  <div class='signature' ><span>/RPC2</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_1")'>Package</a></span></div>
+  <div class='form' ID='def_1_form' onclick='javascript: toggleDefinitionVisibility("def_1")'>(DEFPACKAGE "/RPC2"
+            (:USE)
+            (:EXPORT :|system.listMethods| :|system.listMethodSignature|))</div></div>
+<div class='definition' ID='def_2'>
+  <div class='signature' ><span>*XML-RPC-PACKAGE*</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_2")'>Parameter</a></span></div>
+  <div class='form' ID='def_2_form' onclick='javascript: toggleDefinitionVisibility("def_2")'>(DEFPARAMETER *XML-RPC-PACKAGE* (LIST (FIND-PACKAGE "/RPC2")))</div></div>
+<div class='definition' ID='def_3'>
+  <div class='signature' ><span>*EXPORTED-PACKAGES*</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_3")'>Parameter</a></span></div>
+  <div class='form' ID='def_3_form' onclick='javascript: toggleDefinitionVisibility("def_3")'>(DEFPARAMETER *EXPORTED-PACKAGES* (LIST *XML-RPC-PACKAGE*))</div></div><a class='text' name='Goal'><hr/></a><h2 class='text'>the goal</h2><p class='text'>
+<a href='http://www.xmlrpc.com/'>xml-rpc</a> was designed to be as simple as possible, while allowing complex data structures to be transmitted, processed and returned." if allows for the contradiction in terms which inhers in its basis, at least the intent appeals to principles shared by lisp developers. one wonders well an implementation in lisp can achieve that goal, despite the circumstances.</p><p class='text'>
+this note describes a step-by-step xml-rpc implementation. it starts by proposing a simple paradigm for xml-rpc use, discusses the building blocks contribute to that, describes who on can find them and/or fabricate them, and concludes with definitions which integrate the components into an xml-based rpc utility. the implementation is based on the <a href='http://www.cl-xml.org'>cl-xml</a> xml parser and document model libraries, and the <a href='www.ai.mit.edu/cl-http'>cl-http</a> http substrate, but could as well be accomplished with other libraries.</p><hr class='text'/><h2 class='text'>how might the goal be manifest in lisp</h2><p class='text'>
+first, in the ideal case, in order to export an a function as an rpc method, it should suffice to define the function. perhaps not literally with <code>defun</code>, for reasons which become apparent later, but at least with a single form, such as<br/>
+<code>(DEFLOCALMETHOD |validator.countTheEntities| ((DATUM STRING)))
+</code><br/>
+and likewise to invoke the method as directly as<br/>
+<code>(|validator.countTheEntities| "<<<?'?>>>")
+</code><br/></p><hr class='text'/><h2 class='text'>concrete requirements</h2><p class='text'>
+if one considers that an expression for an xml-rpc method call  is nothing more that a structured designator for the function and its arguments, while the response has the analogous relation to the result value, one would think that, given lisp's introspective capabilities, the goal should be easy to achieve. one must accomplish just the following
+<ul>
+<li>implement a one-to-one relation between lisp function designators and the string value of the <code>methodName</code> element in the request message.</li>
+<li>implement a many-to-one relation between lisp data types and the type designators encoded in the <code>value</code> and <code>fault</code> elements in request.</li>
+<li>implement a one-to-one relation between type designators and lisp data types for returned data.</li>
+<li>provide a mechanism to solicit and decode the request message stream into a function designator and an argument list</li>
+<li>provide a means to apply the function, and to collect the result.</li>
+<li>provide a means to encode the result as a response message and furnish it to the client.</li>
+<li>provide a means to define the client and server aspects of the methods, at least for convenience</li>
+</ul>
+it's really not much.</p><hr class='text'/><h2 class='text'>interpreting function designators</h2><p class='text'>
+xml-rpc encodes the function designator as a string. this is evidently a <em>name</em>, implicitly a <em>universal name</em>, and should be suitable for translation into a function designator. lisp provides mechanisms, in the form of <code>intern</code> to for map from strings to symbols, and <code>fdefinition</code>, to interpret a symbol as a function designator. it remains only to determine which package to use as the second argument to <code>/intern</code>. that is, without adding anything to the request message. there are several options.
+<dl>
+<dt>use qualified names</dt><dd>define a relation between expanded names and symbols by identifying package names and/or nicknames with namespace names. </dd>
+<dt>use the request url</dt><dd>in a similar fashion, traet the request iri as a namespace name. perhaps as the default namespace.</dd>
+</dl>
+actually, there is no reason not to use both.</p>
+<div class='definition' ID='def_4'>
+  <div class='signature' ><span>INTERN-FUNCTION (NAMESTRING)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_4")'>Function</a></span></div>
+  <div class='form' ID='def_4_form' onclick='javascript: toggleDefinitionVisibility("def_4")'>(DEFUN INTERN-FUNCTION (NAMESTRING)
+  (LET* ((NAME (MAKE-UNAME NAMESTRING)))
+    (MULTIPLE-VALUE-BIND (FUNCTION-NAME VISIBILITY)
+        (FIND-SYMBOL (LOCAL-PART NAME) (NAMESPACE-NAME NAME))
+      (IF (AND FUNCTION-NAME
+               (EQ VISIBILITY :EXTERNAL)
+               (FIND (SYMBOL-PACKAGE FUNCTION-NAME) *EXPORTED-PACKAGES*))
+          (VALUES (SYMBOL-FUNCTION FUNCTION-NAME) FUNCTION-NAME)
+          (ERROR 'UNDEFINED-FUNCTION :NAME (INTERN-NAME NAME ""))))))</div></div><hr class='text'/><h2 class='text'>interpreting and and encoding data values and type designators</h2><p class='text'>
+request and response messages contain encoded data values. a request contains a sequence of them, a response contains one, either as a result or as a fault structure. the type designators which are either present explicitly as wrappers for a value string, or implicit, in the case of literal string values, stand in a relation to lisp types similar to that of <code>methodName</code> values to function designators. the difference is that the specified designators have no literal counterparts in lisp, and there would be no advantage to allowing for that. a single decoding function together with an association list suffices.</p>
+<div class='definition' ID='def_5'>
+  <div class='signature' ><span>*XML-RPC-TO-LISP-TYPE-ALIST*</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_5")'>Parameter</a></span></div>
+  <div class='documentation' ID='def_5_documentation'>defines the mapping from xml-rpc type names to lisp type designators</div>
+  <div class='form' ID='def_5_form' onclick='javascript: toggleDefinitionVisibility("def_5")'>(DEFPARAMETER *XML-RPC-TO-LISP-TYPE-ALIST* (QUOTE
+                                            (("i4" . INTEGER)
+                                             ("int" . INTEGER)
+                                             ("double" . DOUBLE)
+                                             ("string" . STRING)
+                                             ("dateTime.iso8601"
+                                              . UNIVERSAL-TIME)
+                                             ("base64" . BASE64)
+                                             ("struct" . CONS)
+                                             ("array" . VECTOR)))
+  "defines the mapping from xml-rpc type names to lisp type designators")</div></div>
+<div class='definition' ID='def_6'>
+  <div class='signature' ><span>XML-RPC-DECODE-VALUE (ARGUMENT-EXPRESSION)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_6")'>Function</a></span></div>
+  <div class='form' ID='def_6_form' onclick='javascript: toggleDefinitionVisibility("def_6")'>(DEFUN XML-RPC-DECODE-VALUE (ARGUMENT-EXPRESSION)
+  (DESTRUCTURE-ELEMENT ((GI) ENCODED-VALUE) ARGUMENT-EXPRESSION
+   (VALIDATE-GI GI '||::|value|)
+   (IF (STRINGP ENCODED-VALUE)
+       ENCODED-VALUE
+       (DESTRUCTURE-ELEMENT ((TYPE-NAME) &amp;REST CONTENT) ENCODED-VALUE
+        (XML-RPC-DECODE-VALUE-STRING
+         (OR (REST (ASSOC TYPE-NAME
+                          *XML-RPC-TO-LISP-TYPE-ALIST*
+                          :TEST
+                          #'STRING=))
+             (ERROR "not an xml-rpc data type: ~s." TYPE-NAME))
+         CONTENT)))))</div></div>
+<div class='definition' ID='def_7'>
+  <div class='signature' ><span>STRING-TRIM-WHITESPACE (S)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_7")'>Function</a></span></div>
+  <div class='form' ID='def_7_form' onclick='javascript: toggleDefinitionVisibility("def_7")'>(DEFUN STRING-TRIM-WHITESPACE (S)
+  (STRING-TRIM #(#\Space #\Tab #\Newline #\Linefeed) X))</div></div>
+<div class='definition' ID='def_8'>
+  <div class='signature' ><span>XML-RPC-DECODE-VALUE-STRING (TYPE-NAME CONTENT)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_8")'>Function</a></span></div>
+  <div class='form' ID='def_8_form' onclick='javascript: toggleDefinitionVisibility("def_8")'>(DEFGENERIC XML-RPC-DECODE-VALUE-STRING
+            (TYPE-NAME CONTENT)
+            (:METHOD ((TYPE-NAME (EQL 'INTEGER)) CONTENT)
+             (PARSE-INTEGER (STRING-TRIM-WHITESPACE (FIRST CONTENT))))
+            (:METHOD ((TYPE-NAME (EQL 'DOUBLE)) CONTENT)
+             (PARSE-DOUBLE (STRING-TRIM-WHITESPACE (FIRST CONTENT))))
+            (:METHOD ((TYPE-NAME (EQL 'STRING)) CONTENT) (FIRST CONTENT))
+            (:METHOD ((TYPE-NAME (EQL 'UNIVERSAL-TIME)) CONTENT)
+             (|yyyyMMddTHH:mm:ss| (FIRST CONTENT)))
+            (:METHOD ((TYPE-NAME (EQL 'BASE64)) CONTENT)
+             (PARSE-BASE64 (FIRST CONTENT)))
+            (:METHOD ((TYPE-NAME (EQL 'CONS)) CONTENT)
+             (MAPCAR #'(LAMBDA (CHILD)
+                         (DESTRUCTURE-ELEMENT ((GI) NAME VALUE) CHILD
+                          (VALIDATE-GI GI '||::|member|)
+                          (UNLESS (AND NAME VALUE)
+                            (XML-ERROR |VC: Element Valid| :NAME GI))
+                          (VALIDATE-GI (NAME NAME) '||::|name|)
+                          (VALIDATE-GI (NAME VALUE) '||::|value|)
+                          (CONS (MAKE-UNAME (FIRST (CHILDREN NAME)))
+                                (XML-RPC-DECODE-VALUE VALUE))))
+                     CONTENT))
+            (:METHOD ((TYPE-NAME (EQL 'VECTOR)) CONTENT)
+             (DESTRUCTURE-ELEMENT ((GI) &amp;REST VALUES) (FIRST CONTENT)
+              (VALIDATE-GI GI '||::|data|)
+              (APPLY #'VECTOR (MAPCAR #'XML-RPC-DECODE-VALUE VALUES)))))</div></div><hr class='text'/><h2 class='text'>receiving and decoding requests</h2><p class='text'>
+in order to receive a request, there must be a process which serves http and provides the xml-rpc server the request header properties and either the content string or a readable content stream. there are several native lisp http servers. any one would do. as this discussion requires rudimentary http support only, for illustration purposes, it presumes a single-function <a href='http.html'>http server</a>.<br/>
+<code>(DEFUN SERVE-HTTP (&KEY PORT HANDLERS))
+</code>
+which is invoked with a port designator and an alist of <code>(URI . FUNCTION)</code> pairs.</p>
+<div class='definition' ID='def_9'>
+  <div class='signature' ><span>SERVE-XML-RPC NIL</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_9")'>Function</a></span></div>
+  <div class='form' ID='def_9_form' onclick='javascript: toggleDefinitionVisibility("def_9")'>(DEFUN SERVE-XML-RPC ()
+  (SERVE-HTTP :PORT "8080" :HANDLERS
+   (LIST (LIST* "/RPC2"
+                #'(LAMBDA (URI STREAM)
+                    (SERVE-METHOD-CALL URI STREAM STREAM))))))</div></div><p class='text'>
+in order to decode a request, one needs to parse the message content, identify the significant components, extract them and map them into their lisp equivalents.</p><p class='text'>identifying and extracting the significant components is a straight-forward process of destructuring. in a strict sense, as xml encode nothing more than dominance and sequence, a representation in terms of lists of atomic values is all that would be required, and <code>car</code> and <code>cdr</code> would suffice for access. on the other hand, it is sometimes worthwhile to abstract the implementation from the immediate representation. it would be possible, for example, to describe the access in terms of abstract paths, but that would require one to implement those as well, so we take the alternative path of performing simple abstract destructuring</p><p class='text'>for the purposes of xml-rpc a simple macro, <code>destructure-element</code>, allows one to specify bindings for the generic identifier, attributes, and content components in simple terms.<br/>
+<code><pre><b>destructure-element</b> ((<i>gi</i>) { [<b>&amp;rest</b> <i>attributes</i>] | <i>attribute</i>* })
+  { [<b>&amp;rest</b> <i>children</i>] | <i>child</i> } )
+   <b>&amp;rest</b> <i>body</i></pre></code>
+ </p>
+<div class='definition' ID='def_10'>
+  <div class='signature' ><span>PERFORM-METHOD-CALL (EXPRESSION)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_10")'>Function</a></span></div>
+  <div class='form' ID='def_10_form' onclick='javascript: toggleDefinitionVisibility("def_10")'>(DEFUN PERFORM-METHOD-CALL (EXPRESSION)
+  (DESTRUCTURE-ELEMENT ((GI) METHOD-NAME-ELEMENT ARGUMENTS-ELEMENT) EXPRESSION
+   (DESTRUCTURE-ELEMENT ((GI) METHOD-NAMESTRING) METHOD-NAME-ELEMENT
+    (DESTRUCTURE-ELEMENT ((GI) &amp;REST ARGUMENT-ELEMENTS) ARGUMENTS-ELEMENT
+     (APPLY (INTERN-FUNCTION METHOD-NAMESTRING)
+            (MAPCAR #'(LAMBDA (PARAM)
+                        (XML-RPC-DECODE-VALUE (FIRST (CHILDREN PARAM))))
+                    ARGUMENT-ELEMENTS))))))</div></div><p class='text'>
+it is also possible to add simple guard functions, such as</p>
+<div class='definition' ID='def_11'>
+  <div class='signature' ><span>VALIDATE-GI (NAME CONSTRAINT &OPTIONAL (ERRORP T))</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_11")'>Function</a></span></div>
+  <div class='form' ID='def_11_form' onclick='javascript: toggleDefinitionVisibility("def_11")'>(DEFUN VALIDATE-GI (NAME CONSTRAINT &amp;OPTIONAL (ERRORP T))
+  (OR (EQ NAME CONSTRAINT)
+      (WHEN ERRORP (XML-ERROR |VC: Element Valid| :NAME NAME))))</div></div><p class='text'>
+to check the document form, in those situations where the parser does not do so.</p>
+<div class='definition' ID='def_12'>
+  <div class='signature' ><span>PERFORM-METHOD-CALL (EXPRESSION)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_12")'>Function</a></span></div>
+  <div class='form' ID='def_12_form' onclick='javascript: toggleDefinitionVisibility("def_12")'>(DEFUN PERFORM-METHOD-CALL (EXPRESSION)
+  (DESTRUCTURE-ELEMENT ((GI) METHOD-NAME-ELEMENT ARGUMENTS-ELEMENT) EXPRESSION
+   (VALIDATE-GI GI '||::|methodCall|)
+   (DESTRUCTURE-ELEMENT ((GI) METHOD-NAMESTRING) METHOD-NAME-ELEMENT
+    (VALIDATE-GI GI '||::|methodName|)
+    (DESTRUCTURE-ELEMENT ((GI) &amp;REST ARGUMENT-ELEMENTS) ARGUMENTS-ELEMENT
+     (VALIDATE-GI GI '||::|params|)
+     (APPLY (INTERN-FUNCTION METHOD-NAMESTRING)
+            (MAPCAR #'(LAMBDA (PARAM)
+                        (XML-RPC-DECODE-VALUE (FIRST (CHILDREN PARAM))))
+                    ARGUMENT-ELEMENTS))))))</div></div><p class='text'>
+where <code>xml-rpc-decode-value</code> proceeds as above.
+</p><hr class='text'/><h2 class='text'>computing a result</h2><p class='text'>lisp provides tools to examine the request, determine whether it designates an applicable function, and compute the function result. it even makes it easy to control which functions are available to the server. all without additional definitions.</p><p class='text'>the introspective facilities in lisp make it possible to determine whether a symbol names a function, whether the symbol was intended to name an externally accessible operation, and in some cases the function arity and signature. this facilities must be present as information is used by the run-time to type-check function applications. the lisp standard make them available for application use as well. for the purposes of xml-rpc, they are most effective when the rpc server methods are defined as generic function methods. where this is done, and where one follows the convention, that a given server mediates access to functions exported from a given package, a simple function application is the only thing required to compute a result, and discovery can be implemented as a direct encoding of introspection results.</p>
+<div class='definition' ID='def_13'>
+  <div class='signature' ><span>PERFORM-METHOD-CALL (EXPRESSION)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_13")'>Function</a></span></div>
+  <div class='form' ID='def_13_form' onclick='javascript: toggleDefinitionVisibility("def_13")'>(DEFUN PERFORM-METHOD-CALL (EXPRESSION)
+  (DESTRUCTURE-ELEMENT ((GI) METHOD-NAME-ELEMENT ARGUMENTS-ELEMENT) EXPRESSION
+   (VALIDATE-GI GI '||::|methodCall|)
+   (DESTRUCTURE-ELEMENT ((GI) METHOD-NAMESTRING) METHOD-NAME-ELEMENT
+    (VALIDATE-GI GI '||::|methodName|)
+    (DESTRUCTURE-ELEMENT ((GI) &amp;REST ARGUMENT-ELEMENTS) ARGUMENTS-ELEMENT
+     (VALIDATE-GI GI '||::|params|)
+     (APPLY (INTERN-FUNCTION METHOD-NAMESTRING)
+            (MAPCAR #'(LAMBDA (PARAM)
+                        (XML-RPC-DECODE-VALUE (FIRST (CHILDREN PARAM))))
+                    ARGUMENT-ELEMENTS))))))</div></div><hr class='text'/><h2 class='text'>encoding and sending responses</h2><p class='text'/>
+<div class='definition' ID='def_14'>
+  <div class='signature' ><span>XML-RPC-ENCODE-VALUE (NODE)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_14")'>Function</a></span></div>
+  <div class='form' ID='def_14_form' onclick='javascript: toggleDefinitionVisibility("def_14")'>(DEFGENERIC XML-RPC-ENCODE-VALUE
+            (NODE)
+            (:METHOD ((NODE INTEGER)) (XML* ||::|int| (ENCODE-NODE NODE)))
+            (:METHOD ((NODE STRING)) (ENCODE-NODE NODE))
+            (:METHOD ((NODE FLOAT))
+             (XML* ||::|double| (ENCODE-STRING (WRITE-TO-STRING NODE))))
+            (:METHOD ((NODE SEQUENCE))
+             (IF (EQUAL (ARRAY-ELEMENT-TYPE NODE) '(UNSIGNED-BYTE 8))
+                 (XML* ||::|base64| (ENCODE-BASE64 NODE))
+                 (XML* ||::|array|
+                  (XML* ||::|data|
+                   (MAP NIL
+                        #'(LAMBDA (V)
+                            (XML* ||::|value| (XML-RPC-ENCODE-VALUE V)))
+                        NODE)))))
+            (:METHOD ((NODE (EQL T))) (XML* ||::|boolean| "1"))
+            (:METHOD ((NODE NULL)) (XML* ||::|boolean| "0"))
+            (:METHOD ((NODE CONS))
+             (XML* ||::|struct|
+              (DOLIST (MEMBER NODE)
+                (DESTRUCTURING-BIND
+                  (NAME . VALUE)
+                  MEMBER
+                  (XML* ||::|member| (XML* ||::|name| (ENCODE-NODE NAME))
+                   (XML* ||::|value| (XML-RPC-ENCODE-VALUE VALUE))))))))</div></div><a class='text' name='Interfaces'><hr/></a><h2 class='text'>defining interfaces</h2><p class='text'>there are three essential interface functions:
+<ul>
+ <li>one to implement the server side of the protocol process,</li>
+ <li>one to implement the client side,</li>
+ <li>one to define server function interfaces on the client,</li> and finally,
+ <li>one to define server function implementations on the server</li>
+ </ul></p><p class='text'>the first function is expressed in terms of two parameters, an input source and an output destination.
+where the source and destination are streams, one specialization implements the method call component of the xml-rpc protocol by accepting the request from the input source, parsing, and decoding the request, performing the designated operation, encoding the result, and returning it to the client.</p><p class='text'>
+note that the server function accepts both a package for interning </p>
+<div class='definition' ID='def_15'>
+  <div class='signature' ><span>SERVE-METHOD-CALL (URI INPUT-SOURCE OUTPUT-DESTINATION &KEY ((XML-RPC-PACKAGE *XML-RPC-PACKAGE*) (OR (FIND-PACKAGE URI) (ERROR package not found: ~s. URI))) (NAMESPACE-BINDINGS (LIST (LIST*  *XML-RPC-PACKAGE*))))</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_15")'>Function</a></span></div>
+  <div class='form' ID='def_15_form' onclick='javascript: toggleDefinitionVisibility("def_15")'>(DEFUN SERVE-METHOD-CALL (URI INPUT-SOURCE OUTPUT-DESTINATION &amp;KEY
+                          ((:XML-RPC-PACKAGE *XML-RPC-PACKAGE*)
+                           (OR (FIND-PACKAGE URI)
+                               (ERROR "package not found: ~s." URI)))
+                          (NAMESPACE-BINDINGS
+                           (LIST (LIST* "" *XML-RPC-PACKAGE*))))
+  (HANDLER-CASE (LET* ((DOCUMENT
+                        (DOCUMENT-PARSER INPUT-SOURCE :IGNORE-WHITESPACE T))
+                       (RESULT NIL))
+                  (HANDLER-BIND ((ERROR (LAMBDA (C) (BREAK "error: ~a" C))))
+                                (LET ((*NAMESPACE-BINDINGS*
+                                       NAMESPACE-BINDINGS))
+                                  (SETF RESULT
+                                        (PERFORM-METHOD-CALL
+                                         (ROOT DOCUMENT)))))
+                  (WITH-XML-WRITER (OUTPUT-DESTINATION)
+                   (XML* ||::|methodResponse|
+                    (XML* ||::|params|
+                     (XML* |xhtml|:|param|
+                      (XML* ||::|value| (XML-RPC-ENCODE-VALUE RESULT)))))))
+                (ERROR (CONDITION)
+                       (WITH-XML-WRITER (OUTPUT-DESTINATION)
+                        (XML
+                         ((||::|methodResponse|)
+                          ((||::|fault|)
+                           ((||::|value|)
+                            (XML-RPC-ENCODE-VALUE
+                             (LIST* (LIST* '||::|faultCode|
+                                           (GET-UNIVERSAL-TIME))
+                                    (LIST (LIST*
+                                           '||::|faultString|
+                                           (FORMAT
+                                            NIL
+                                            "~a"
+                                            CONDITION)))))))))))))</div></div><p class='text'>
+the server method definition is s simple defmethod form</p>
+<div class='definition' ID='def_16'>
+  <div class='signature' ><span>system.listMethods NIL</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_16")'>Method</a></span></div>
+  <div class='form' ID='def_16_form' onclick='javascript: toggleDefinitionVisibility("def_16")'>(DEFMETHOD |system.listMethods| ()
+  (LET ((NAMES (MAKE-ARRAY 32 :ADJUSTABLE T :FILL-POINTER 0)))
+    (WITH-PACKAGE-ITERATOR
+      (GET-NEXT *XML-RPC-PACKAGE* :EXTERNAL)
+      (LOOP (MULTIPLE-VALUE-BIND (NEXT-P SYMBOL)
+                (GET-NEXT)
+              (IF NEXT-P (VECTOR-PUSH-EXTEND SYMBOL NAMES) (RETURN)))))
+    (SORT NAMES #'STRING-LESSP)))</div></div>
+<div class='definition' ID='def_17'>
+  <div class='signature' ><span>system.methodSignature ((NAME STRING))</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_17")'>Method</a></span></div>
+  <div class='form' ID='def_17_form' onclick='javascript: toggleDefinitionVisibility("def_17")'>(DEFMETHOD |system.methodSignature| ((NAME STRING))
+  (LET ((FUNCTION (INTERN-FUNCTION NAME)))
+    (IF (TYPEP FUNCTION 'GENERIC-FUNCTION)
+        (LET* ((METHOD (FIRST (GENERIC-FUNCTION-METHODS FUNCTION)))
+               (SPECIALIZERS (METHOD-SPECIALIZERS METHOD)))
+          (MAP 'VECTOR #'COMPUTE-XML-RPC-TYPE SPECIALIZERS))
+        (ERROR 'UNDEFINED-FUNCTION :NAME (INTERN-NAME NAME "")))))</div></div>
+<div class='definition' ID='def_18'>
+  <div class='signature' ><span>CALL-SERVED-METHOD (URI METHOD-NAME &REST ARGUMENTS)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_18")'>Function</a></span></div>
+  <div class='form' ID='def_18_form' onclick='javascript: toggleDefinitionVisibility("def_18")'>(DEFUN CALL-SERVED-METHOD (URI METHOD-NAME &amp;REST ARGUMENTS)
+  (LET* ((REQUEST-CONTENT
+          (WITH-OUTPUT-TO-STRING (CONTENT-STREAM)
+            (WITH-XML-WRITER (CONTENT-STREAM)
+             (XML
+              ((||::|methodCall|)
+               ((||::|methodName|) (ENCODE-STRING METHOD-NAME))
+               ((||::|params|)
+                (DOLIST (ARGUMENT ARGUMENTS)
+                  (XML
+                   ((|xhtml|:|param|)
+                    ((||::|value|) (XML-RPC-ENCODE-VALUE ARGUMENT)))))))))))
+         (REQUEST-LENGTH (LENGTH REQUEST-CONTENT)))
+    (WITH-HTTP-STREAM
+     (HTTP-STREAM URI :METHOD :POST :CONTENT-LENGTH REQUEST-LENGTH
+      :CONTENT-TYPE '(:TEXT :XML) :CONTENT
+      (LAMBDA (OUTPUT-DESTINATION)
+        (MAP NIL
+             #'(LAMBDA (CHAR) (WRITE-BYTE (CHAR-CODE CHAR) OUTPUT-DESTINATION))
+             REQUEST-CONTENT)))
+     (LET ((BUFFER
+            (MAKE-ARRAY 1024
+                        :FILL-POINTER
+                        0
+                        :ADJUSTABLE
+                        T
+                        :ELEMENT-TYPE
+                        'CHARACTER))
+           (BYTE 0))
+       (LOOP (UNLESS (SETF BYTE (READ-BYTE HTTP-STREAM NIL NIL)) (RETURN))
+             (VECTOR-PUSH-EXTEND (CODE-CHAR BYTE) BUFFER))
+       (LET* ((RESULT (DOCUMENT-PARSER BUFFER :IGNORE-WHITESPACE T)))
+         (DESTRUCTURE-ELEMENT ((GI) RESPONSE-PARAMETERS) (ROOT RESULT)
+          (VALIDATE-GI GI '||::|methodResponse|)
+          (DESTRUCTURE-ELEMENT ((GI) RESPONSE-VALUE) RESPONSE-PARAMETERS
+           (COND ((EQ GI '||::|params|)
+                  (XML-RPC-DECODE-VALUE (FIRST (CHILDREN RESPONSE-VALUE))))
+                 ((EQ GI '||::|fault|)
+                  (LET ((ERROR-VALUES (XML-RPC-DECODE-VALUE RESPONSE-VALUE)))
+                    (ERROR "server-fault: ~s: ~a"
+                           (REST (ASSOC '||::|faultCode| ERROR-VALUES))
+                           (REST (ASSOC '||::|faultString|
+                                        ERROR-VALUES)))))))))))))</div></div>
+<div class='definition' ID='def_19'>
+  <div class='signature' ><span>DEFRPC (NAME PARAMETERS)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_19")'>Macro</a></span></div>
+  <div class='form' ID='def_19_form' onclick='javascript: toggleDefinitionVisibility("def_19")'>(DEFMACRO DEFRPC (NAME PARAMETERS)
+  (LET* ((PATH-OBJECT-FRAGMENT (SYMBOL-NAME NAME))
+         (HASH
+          (OR (POSITION #\# PATH-OBJECT-FRAGMENT :FROM-END T)
+              (ERROR "invalid rpc designator: ~s." NAME)))
+         (PROTOCOL-AND-AUTHORITY (PACKAGE-NAME (SYMBOL-PACKAGE NAME)))
+         (PATH-AND-OBJECT (SUBSEQ PATH-OBJECT-FRAGMENT 0 HASH))
+         (FRAGMENT (SUBSEQ PATH-OBJECT-FRAGMENT (1+ HASH))))
+    (LIST* 'DEFUN
+           (LIST* NAME
+                  (LIST* PARAMETERS
+                         (LIST (LIST* 'CALL-SERVED-METHOD
+                                      (LIST* (FORMAT
+                                              NIL
+                                              "~a/~@[~a~]"
+                                              PROTOCOL-AND-AUTHORITY
+                                              PATH-AND-OBJECT)
+                                             (LIST* FRAGMENT PARAMETERS)))))))))</div></div><hr class='text'/><h2 class='text'>miscellaneous encoding and decoding functions</h2><p class='text'>double parsing is accomplished with a function which is based on a <a href='http://www.cliki.net/Meta'>lisp implementation</a> of the <a href='http://home.pipeline.com/~hbaker1/Prag-Parse.html'>meta parser</a></p>
+<div class='definition' ID='def_20'>
+  <div class='signature' ><span>PARSE-DOUBLE (STRING &AUX (S 1) (ES 1) (I 0) (F 0) (E 0) (M e) (F-COUNT 0) (I-COUNT 0) (E-COUNT 0) (V 0) D)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_20")'>Function</a></span></div>
+  <div class='form' ID='def_20_form' onclick='javascript: toggleDefinitionVisibility("def_20")'>(DEFUN PARSE-DOUBLE (STRING &amp;AUX (S 1) (ES 1) (I 0) (F 0) (E 0) (M #\e)
+                     (F-COUNT 0) (I-COUNT 0) (E-COUNT 0) (V 0) D)
+  (FLET ((CTOI (D) (- (CHAR-CODE D) (CHAR-CODE #\0))))
+    (WITH-STRING-META (STRING)
+     (AND (MATCH "[{#\\+ [#\\- !(setq s -1)] []}
+          $[@(\"0123456789\" d) !(setf i (+ (* i 10) (ctoi d)) i-count (1+  i-count))]
+          {#\\. []}
+          $[@(\"0123456789\" d) !(setf f (+ (* f 10) (ctoi d)) f-count (1+ f-count))]
+          {@(\"eEsSdDfFlL\" m) []}
+          {#\\+ [#\\- !(setq es -1)] []}
+          $[@(\"0123456789\" d) !(setf e (+ (* e 10) (ctoi d)) e-count (1+ e-count))]
+          ]")
+          (WHEN (&gt; (+ F-COUNT I-COUNT) 0)
+            (WHEN (&gt; F-COUNT 0) (SETF F (/ F (EXPT 10 F-COUNT))))
+            (SETF V (+ I F))
+            (WHEN E-COUNT (SETF V (* V (EXPT 10 (* ES E)))))
+            (WHEN (&lt; S 0) (SETF V (- V)))
+            (CASE M
+              ((#\E #\e) (FLOAT V 0.0))
+              ((#\S #\s) (FLOAT V 0.0S0))
+              ((#\D #\d) (FLOAT V 0.0))
+              ((#\F #\f) (FLOAT V 0.0S0))
+              ((#\L #\l) (FLOAT V 0.0S0))))))))</div></div>
+<div class='definition' ID='def_21'>
+  <div class='signature' ><span>PARSE-BASE64 (STRING)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_21")'>Function</a></span></div>
+  <div class='form' ID='def_21_form' onclick='javascript: toggleDefinitionVisibility("def_21")'>(DEFUN PARSE-BASE64 (STRING)
+  (DECLARE (IGNORE STRING))
+  (ERROR "not implemented"))</div></div>
+<div class='definition' ID='def_22'>
+  <div class='signature' ><span>ENCODE-BASE64 (VALUE)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_22")'>Function</a></span></div>
+  <div class='form' ID='def_22_form' onclick='javascript: toggleDefinitionVisibility("def_22")'>(DEFUN ENCODE-BASE64 (VALUE) (DECLARE (IGNORE VALUE)) (ERROR "not implemented"))</div></div>
+<div class='definition' ID='def_23'>
+  <div class='signature' ><span>COMPUTE-XML-RPC-TYPE (NODE)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("def_23")'>Function</a></span></div>
+  <div class='form' ID='def_23_form' onclick='javascript: toggleDefinitionVisibility("def_23")'>(DEFGENERIC COMPUTE-XML-RPC-TYPE
+            (NODE)
+            (:METHOD ((NODE INTEGER)) "int")
+            (:METHOD ((NODE STRING)) "string")
+            (:METHOD ((NODE FLOAT)) "double")
+            (:METHOD ((NODE SEQUENCE))
+             (IF (EQUAL (ARRAY-ELEMENT-TYPE NODE) '(UNSIGNED-BYTE 8))
+                 "base64"
+                 "array"))
+            (:METHOD ((NODE (EQL T))) "boolean")
+            (:METHOD ((NODE NULL)) "boolean")
+            (:METHOD ((NODE CONS)) "struct"))</div></div><a class='text' name='Examples'><hr/></a><h2 class='text'>examples</h2><p class='text'>a simple invocation can provide the server, method, and arguments explicitly:
+<code><pre>
+(call-served-method "http://time.xmlrpc.com/RPC2" "currentTime.getCurrentTime")
+</pre></code>
+while a frequently used operation might be better supported by defining a function.
+for this alternative, first define a package to own the function names:
+<code><pre>
+(defpackage "http://www.oreillynet.com"
+  (:use )
+  (:export "meerkat/xml-rpc/server.php#system.methodSignature"))
+</pre></code>
+then define the proxy function. each method is defined by combining a fragment identifier with the absolute uri for the xml-rpc service at the remove host.
+<code><pre>
+(defRPC |http://www.oreillynet.com|:|meerkat/xml-rpc/server.php#system.methodSignature| (method-name))
+
+(|http://www.oreillynet.com|:|meerkat/xml-rpc/server.php#system.methodSignature| "meerkat.getCategories")
+</pre></code>
+</p><div class='source'>:EOF</div>
+<hr /><div class='footer'><span class='copyright'>&#169;</span> <span class='logo'>setf.de</span> 20031111T141020 = <a href='./index.lisp' type='text/plain'>index.lisp</a></div>
+</body></html>

@@ -1,0 +1,798 @@
+Last login: Tue May 27 16:57:10 on console
+Welcome to Darwin!
+[tschichold:~]                                                                   janson% uptime
+ 2:03PM  up 1 day, 21:14, 2 users, load averages: 0.35, 0.26, 0.15
+[tschichold:~]                                                                   janson% cd /Applications
+[tschichold:/Applications]                                                       janson% cd Allegro
+[tschichold:/Applications/Allegro]                                               janson% ls
+acl62_trial
+[tschichold:/Applications/Allegro]                                               janson% cd acl62_trial/
+[tschichold:/Applications/Allegro/acl62_trial]                                   [tschichold:/Applications/Allegro/acl62_trial]                                   janson% ./alisp
+WARNING: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+WARNING: Allegro CL will expire in 7 days.
+WARNING: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+International Allegro CL Trial Edition
+6.2 [Mac OS X] (Feb 4, 2003 21:46)
+Copyright (C) 1985-2002, Franz Inc., Berkeley, CA, USA.  All Rights Reserved.
+
+This development copy of Allegro CL is licensed to:
+   james anderson, setf.de
+
+;   Loading Packages:de;setf;utility;package.lisp
+;      (/Development/Source/Library/LISP/de/setf/utility/package.lisp)
+;; Optimization settings: safety 1, space 1, speed 1, debug 2.
+;; For a complete description of all compiler switches given the
+;; current optimization settings evaluate (EXPLAIN-COMPILER-SETTINGS).
+CL-USER(1): (load "/Development/Source/cl-xml-0-949/load")
+; Loading /Development/Source/cl-xml-0-949/load.lisp
+;   Loading /Development/Source/cl-xml-0-949/library/define-system.lisp
+
+;;
+;; systems: (:XPARSER)
+;loading /Development/Source/cl-xml-0-949/sysdcl.lisp, no bin.
+;   Loading /Development/Source/cl-xml-0-949/sysdcl.lisp
+
+load defaults: #p"/Development/Source/cl-xml-0-949/sysdcl.lisp".
+compile target: #p"xml:root;bin;acl6fasl;**;*.fasl".
+;;
+;; collected systems: (:XQDM :BASE :BNFP :XUTIL :XPARSER)
+;;
+;; sorted systems: (:BASE :BNFP :XUTIL :XQDM :XPARSER)
+;;
+;; systems needing loading: (:BASE :BNFP :XUTIL :XQDM :XPARSER)
+;;
+;; effective components: ("xml:code;patch;cmucl"
+                          "xml:library;de;setf;utility;package"
+                          "xml:library;de;setf;utility;string"
+                          "xml:library;de;setf;utility;conditions"
+                          "xml:library;de;setf;utility;test"
+                          "xml:code;base;package" :BASE
+                          "xml:code;atn-parser;clifs;inference-system-classes"
+                          "xml:code;atn-parser;clifs;inference-units"
+                          "xml:code;atn-parser;atn-parameters"
+                          "xml:code;atn-parser;atn-classes"
+                          "xml:code;atn-parser;atn-macros"
+                          "xml:code;atn-parser;ebnf-tokenizer"
+                          "xml:code;atn-parser;ebnf-to-atn-translator"
+                          "xml:code;atn-parser;atn-macro-to-canonic-form"
+                          "xml:code;atn-parser;ebnf-grammar.atn"
+                          "xml:code;atn-parser;atn-runtime"
+                          "xml:code;atn-parser;conditions"
+                          "xml:code;atn-parser;atn-lisp-compiler"
+                          "xml:code;atn-parser;atn-regex" :BNFP
+                          "xml:code;base;parameters"
+                          "xml:code;base;cllib" "xml:code;base;utils"
+                          "xml:code;base;parsetable"
+                          "xml:code;base;vector-stream"
+                          "xml:code;base;www-utils-ersatz"
+                          "xml:code;base;tokenizer"
+                          "xml:code;base;conditions" :XUTIL
+                          "xml:code;xquerydatamodel;xqdm-namespaces"
+                          "xml:code;xquerydatamodel;xqdm-parameters"
+                          "xml:code;xquerydatamodel;xqdm-character-classes"
+                          "xml:code;xquerydatamodel;xqdm-classes"
+                          "xml:code;xquerydatamodel;xsd-types"
+                          "xml:code;xquerydatamodel;conditions;names;conditions"
+                          "xml:code;xquerydatamodel;conditions;node;conditions"
+                          "xml:code;xquerydatamodel;conditions;model;conditions"
+                          "xml:code;xquerydatamodel;xqdm-operators"
+                          "xml:code;xquerydatamodel;xqdm-validation"
+                          "xml:code;xquerydatamodel;qname-resolution"
+                          "xml:code;xquerydatamodel;xqdm-graph"
+                          "xml:code;xquerydatamodel;node-path-walk"
+                          "xml:code;xquerydatamodel;xqdm-walk"
+                          "xml:code;xquerydatamodel;xqdm-walk-accessors"
+                          :XQDM "xml:code;xparser;xml-parameters"
+                          "xml:code;xparser;conditions;codec;conditions"
+                          "xml:code;xparser;xml-stream-coding"
+                          "xml:code;xparser;xml-operators"
+                          "xml:code;xparser;xml-readers"
+                          "xml:code;xparser;xml-tokenizer"
+                          "xml:code;xparser;xml-processing-instruction"
+                          "xml:code;xparser;xml-constructors"
+                          "xml:code;xparser;xml-parser"
+                          "xml:code;xparser;xml-printer"
+                          "xml:code;xparser;xml-writer" :XPARSER)
+;; component: "xml:code;patch;cmucl"
+;Compiling #p"XML:CODE;PATCH;CMUCL.LISP" -> #p"xml:code;patch;cmucl.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/PATCH/CMUCL.LISP
+;;; Writing fasl file xml:code;patch;cmucl.BIN
+;;;   (/Development/Source/cl-xml-0-949/bin/acl6fasl/code/patch/cmucl.fasl)
+Warning: No IN-PACKAGE form seen in
+         /Development/Source/cl-xml-0-949/CODE/PATCH/CMUCL.LISP.
+         (Allegro Presto will be ineffective when loading a file having
+         no IN-PACKAGE form.)
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/patch/cmucl.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/patch/cmucl.fasl
+
+;; component: "xml:library;de;setf;utility;package"
+;Compiling #p"XML:LIBRARY;DE;SETF;UTILITY;PACKAGE.LISP" -> #p"xml:library;de;setf;utility;package.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/LIBRARY/DE/SETF/UTILITY/PACKAGE.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/package.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/package.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/package.fasl
+
+;; component: "xml:library;de;setf;utility;string"
+;Skipped Compiling #p"XML:LIBRARY;DE;SETF;UTILITY;STRING.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/string.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/string.fasl
+
+;; component: "xml:library;de;setf;utility;conditions"
+;Compiling #p"XML:LIBRARY;DE;SETF;UTILITY;CONDITIONS.LISP" -> #p"xml:library;de;setf;utility;conditions.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/LIBRARY/DE/SETF/UTILITY/CONDITIONS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/conditions.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/conditions.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/conditions.fasl
+
+;; component: "xml:library;de;setf;utility;test"
+;Compiling #p"XML:LIBRARY;DE;SETF;UTILITY;TEST.LISP" -> #p"xml:library;de;setf;utility;test.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/LIBRARY/DE/SETF/UTILITY/TEST.LISP
+; While compiling TEST-OUTPUT:
+Warning: Variable WINDOW-TITLE-P is never used.
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/test.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/test.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/library/de/setf/utility/test.fasl
+
+;; component: "xml:code;base;package"
+;Compiling #p"XML:CODE;BASE;PACKAGE.LISP" -> #p"xml:code;base;package.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/BASE/PACKAGE.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/package.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/package.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/package.fasl
+
+;; system load time set: :BASE
+;; component: "xml:code;atn-parser;clifs;inference-system-classes"
+;Skipped Compiling #p"XML:CODE;ATN-PARSER;CLIFS;INFERENCE-SYSTEM-CLASSES.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/clifs/inference-system-classes.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/clifs/inference-system-classes.fasl
+
+;; component: "xml:code;atn-parser;clifs;inference-units"
+;Skipped Compiling #p"XML:CODE;ATN-PARSER;CLIFS;INFERENCE-UNITS.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/clifs/inference-units.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/clifs/inference-units.fasl
+
+;; component: "xml:code;atn-parser;atn-parameters"
+;Compiling #p"XML:CODE;ATN-PARSER;ATN-PARAMETERS.LISP" -> #p"xml:code;atn-parser;atn-parameters.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/ATN-PARSER/ATN-PARAMETERS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-parameters.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-parameters.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-parameters.fasl
+
+;; component: "xml:code;atn-parser;atn-classes"
+;Compiling #p"XML:CODE;ATN-PARSER;ATN-CLASSES.LISP" -> #p"xml:code;atn-parser;atn-classes.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/ATN-PARSER/ATN-CLASSES.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-classes.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-classes.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-classes.fasl
+
+;; component: "xml:code;atn-parser;atn-macros"
+;Compiling #p"XML:CODE;ATN-PARSER;ATN-MACROS.LISP" -> #p"xml:code;atn-parser;atn-macros.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/ATN-PARSER/ATN-MACROS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-macros.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-macros.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-macros.fasl
+
+;; component: "xml:code;atn-parser;ebnf-tokenizer"
+;Compiling #p"XML:CODE;ATN-PARSER;EBNF-TOKENIZER.LISP" -> #p"xml:code;atn-parser;ebnf-tokenizer.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/ATN-PARSER/EBNF-TOKENIZER.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/ebnf-tokenizer.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/ebnf-tokenizer.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/ebnf-tokenizer.fasl
+
+;; component: "xml:code;atn-parser;ebnf-to-atn-translator"
+;Skipped Compiling #p"XML:CODE;ATN-PARSER;EBNF-TO-ATN-TRANSLATOR.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/ebnf-to-atn-translator.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/ebnf-to-atn-translator.fasl
+
+;; component: "xml:code;atn-parser;atn-macro-to-canonic-form"
+;Compiling #p"XML:CODE;ATN-PARSER;ATN-MACRO-TO-CANONIC-FORM.LISP" -> #p"xml:code;atn-parser;atn-macro-to-canonic-form.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/ATN-PARSER/ATN-MACRO-TO-CANONIC-FORM.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-macro-to-canonic-form.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-macro-to-canonic-form.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-macro-to-canonic-form.fasl
+
+;; component: "xml:code;atn-parser;ebnf-grammar.atn"
+;Skipped Compiling "xml:code;atn-parser;ebnf-grammar.atn".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/ebnf-grammar.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/ebnf-grammar.fasl
+
+;; component: "xml:code;atn-parser;atn-runtime"
+;Skipped Compiling #p"XML:CODE;ATN-PARSER;ATN-RUNTIME.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-runtime.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-runtime.fasl
+
+;; component: "xml:code;atn-parser;conditions"
+;Compiling #p"XML:CODE;ATN-PARSER;CONDITIONS.LISP" -> #p"xml:code;atn-parser;conditions.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/ATN-PARSER/CONDITIONS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/conditions.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/conditions.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/conditions.fasl
+
+;; component: "xml:code;atn-parser;atn-lisp-compiler"
+;Compiling #p"XML:CODE;ATN-PARSER;ATN-LISP-COMPILER.LISP" -> #p"xml:code;atn-parser;atn-lisp-compiler.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/ATN-PARSER/ATN-LISP-COMPILER.LISP
+; While compiling (:TOP-LEVEL-FORM "ATN-LISP-COMPILER.LISP" 9736):
+Warning: compile-file found "PROCLAIM" at the top-level --  see the
+         documentation for
+         comp:*cltl1-compile-file-toplevel-compatibility-p*
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-lisp-compiler.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-lisp-compiler.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-lisp-compiler.fasl
+
+;; component: "xml:code;atn-parser;atn-regex"
+;Compiling #p"XML:CODE;ATN-PARSER;ATN-REGEX.LISP" -> #p"xml:code;atn-parser;atn-regex.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/ATN-PARSER/ATN-REGEX.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-regex.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-regex.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-parser/atn-regex.fasl
+
+;; system load time set: :BNFP
+;; component: "xml:code;base;parameters"
+;Skipped Compiling #p"XML:CODE;BASE;PARAMETERS.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/parameters.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/parameters.fasl
+
+;; component: "xml:code;base;cllib"
+;Compiling #p"XML:CODE;BASE;CLLIB.LISP" -> #p"xml:code;base;cllib.BIN"...
+;;; Compiling file /Development/Source/cl-xml-0-949/CODE/BASE/CLLIB.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/cllib.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/cllib.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/cllib.fasl
+
+;; component: "xml:code;base;utils"
+;Compiling #p"XML:CODE;BASE;UTILS.LISP" -> #p"xml:code;base;utils.BIN"...
+;;; Compiling file /Development/Source/cl-xml-0-949/CODE/BASE/UTILS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/utils.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/utils.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/utils.fasl
+
+;; component: "xml:code;base;parsetable"
+;Compiling #p"XML:CODE;BASE;PARSETABLE.LISP" -> #p"xml:code;base;parsetable.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/BASE/PARSETABLE.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/parsetable.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/parsetable.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/parsetable.fasl
+
+;; component: "xml:code;base;vector-stream"
+;Compiling #p"XML:CODE;BASE;VECTOR-STREAM.LISP" -> #p"xml:code;base;vector-stream.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/BASE/VECTOR-STREAM.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/vector-stream.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/vector-stream.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/vector-stream.fasl
+
+;; component: "xml:code;base;www-utils-ersatz"
+;Compiling #p"XML:CODE;BASE;WWW-UTILS-ERSATZ.LISP" -> #p"xml:code;base;www-utils-ersatz.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/BASE/WWW-UTILS-ERSATZ.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/www-utils-ersatz.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/www-utils-ersatz.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/www-utils-ersatz.fasl
+
+;; component: "xml:code;base;tokenizer"
+;Compiling #p"XML:CODE;BASE;TOKENIZER.LISP" -> #p"xml:code;base;tokenizer.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/BASE/TOKENIZER.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/tokenizer.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/tokenizer.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/tokenizer.fasl
+
+;; component: "xml:code;base;conditions"
+;Compiling #p"XML:CODE;BASE;CONDITIONS.LISP" -> #p"xml:code;base;conditions.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/BASE/CONDITIONS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/conditions.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/conditions.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/base/conditions.fasl
+
+;; system load time set: :XUTIL
+;; component: "xml:code;xquerydatamodel;xqdm-namespaces"
+;Compiling #p"XML:CODE;XQUERYDATAMODEL;XQDM-NAMESPACES.LISP" -> #p"xml:code;xquerydatamodel;xqdm-namespaces.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XQUERYDATAMODEL/XQDM-NAMESPACES.LISP
+; While compiling (:TOP-LEVEL-FORM "XQDM-NAMESPACES.LISP" 38467):
+Warning: compile-file found "IMPORT" at the top-level --  see the
+         documentation for
+         comp:*cltl1-compile-file-toplevel-compatibility-p*
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-namespaces.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-namespaces.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-namespaces.fasl
+
+;; component: "xml:code;xquerydatamodel;xqdm-parameters"
+;Compiling #p"XML:CODE;XQUERYDATAMODEL;XQDM-PARAMETERS.LISP" -> #p"xml:code;xquerydatamodel;xqdm-parameters.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XQUERYDATAMODEL/XQDM-PARAMETERS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-parameters.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-parameters.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-parameters.fasl
+
+;; component: "xml:code;xquerydatamodel;xqdm-character-classes"
+;Compiling #p"XML:CODE;XQUERYDATAMODEL;XQDM-CHARACTER-CLASSES.LISP" -> #p"xml:code;xquerydatamodel;xqdm-character-classes.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XQUERYDATAMODEL/XQDM-CHARACTER-CLASSES.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-character-classes.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-character-classes.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-character-classes.fasl
+
+;; component: "xml:code;xquerydatamodel;xqdm-classes"
+;Compiling #p"XML:CODE;XQUERYDATAMODEL;XQDM-CLASSES.LISP" -> #p"xml:code;xquerydatamodel;xqdm-classes.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XQUERYDATAMODEL/XQDM-CLASSES.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-classes.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-classes.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-classes.fasl
+
+;; component: "xml:code;xquerydatamodel;xsd-types"
+;Skipped Compiling #p"XML:CODE;XQUERYDATAMODEL;XSD-TYPES.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xsd-types.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xsd-types.fasl
+
+;; component: "xml:code;xquerydatamodel;conditions;names;conditions"
+;Compiling #p"XML:CODE;XQUERYDATAMODEL;CONDITIONS;NAMES;CONDITIONS.LISP" -> #p"xml:code;xquerydatamodel;conditions;names;conditions.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XQUERYDATAMODEL/CONDITIONS/NAMES/CONDITIONS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/conditions/names/conditions.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/conditions/names/conditions.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/conditions/names/conditions.fasl
+
+;; component: "xml:code;xquerydatamodel;conditions;node;conditions"
+;Skipped Compiling #p"XML:CODE;XQUERYDATAMODEL;CONDITIONS;NODE;CONDITIONS.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/conditions/node/conditions.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/conditions/node/conditions.fasl
+
+;; component: "xml:code;xquerydatamodel;conditions;model;conditions"
+;Compiling #p"XML:CODE;XQUERYDATAMODEL;CONDITIONS;MODEL;CONDITIONS.LISP" -> #p"xml:code;xquerydatamodel;conditions;model;conditions.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XQUERYDATAMODEL/CONDITIONS/MODEL/CONDITIONS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/conditions/model/conditions.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/conditions/model/conditions.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/conditions/model/conditions.fasl
+
+;; component: "xml:code;xquerydatamodel;xqdm-operators"
+;Skipped Compiling #p"XML:CODE;XQUERYDATAMODEL;XQDM-OPERATORS.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-operators.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-operators.fasl
+
+;; component: "xml:code;xquerydatamodel;xqdm-validation"
+;Compiling #p"XML:CODE;XQUERYDATAMODEL;XQDM-VALIDATION.LISP" -> #p"xml:code;xquerydatamodel;xqdm-validation.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XQUERYDATAMODEL/XQDM-VALIDATION.LISP
+8534456 bytes have been tenured, next gc will be global.
+See the documentation for variable EXCL:*GLOBAL-GC-BEHAVIOR* for more information.
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-validation.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-validation.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-validation.fasl
+
+;; component: "xml:code;xquerydatamodel;qname-resolution"
+;Compiling #p"XML:CODE;XQUERYDATAMODEL;QNAME-RESOLUTION.LISP" -> #p"xml:code;xquerydatamodel;qname-resolution.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XQUERYDATAMODEL/QNAME-RESOLUTION.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/qname-resolution.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/qname-resolution.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/qname-resolution.fasl
+
+;; component: "xml:code;xquerydatamodel;xqdm-graph"
+;Skipped Compiling #p"XML:CODE;XQUERYDATAMODEL;XQDM-GRAPH.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-graph.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-graph.fasl
+
+;; component: "xml:code;xquerydatamodel;node-path-walk"
+;Skipped Compiling #p"XML:CODE;XQUERYDATAMODEL;NODE-PATH-WALK.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/node-path-walk.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/node-path-walk.fasl
+
+;; component: "xml:code;xquerydatamodel;xqdm-walk"
+;Compiling #p"XML:CODE;XQUERYDATAMODEL;XQDM-WALK.LISP" -> #p"xml:code;xquerydatamodel;xqdm-walk.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XQUERYDATAMODEL/XQDM-WALK.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-walk.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-walk.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-walk.fasl
+
+;; component: "xml:code;xquerydatamodel;xqdm-walk-accessors"
+;Skipped Compiling #p"XML:CODE;XQUERYDATAMODEL;XQDM-WALK-ACCESSORS.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-walk-accessors.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xquerydatamodel/xqdm-walk-accessors.fasl
+
+;; system load time set: :XQDM
+;; component: "xml:code;xparser;xml-parameters"
+;Compiling #p"XML:CODE;XPARSER;XML-PARAMETERS.LISP" -> #p"xml:code;xparser;xml-parameters.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XPARSER/XML-PARAMETERS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-parameters.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-parameters.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-parameters.fasl
+
+;; component: "xml:code;xparser;conditions;codec;conditions"
+;Skipped Compiling #p"XML:CODE;XPARSER;CONDITIONS;CODEC;CONDITIONS.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/conditions/codec/conditions.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/conditions/codec/conditions.fasl
+
+;; component: "xml:code;xparser;xml-stream-coding"
+;Compiling #p"XML:CODE;XPARSER;XML-STREAM-CODING.LISP" -> #p"xml:code;xparser;xml-stream-coding.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XPARSER/XML-STREAM-CODING.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-stream-coding.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-stream-coding.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-stream-coding.fasl
+
+;; component: "xml:code;xparser;xml-operators"
+;Compiling #p"XML:CODE;XPARSER;XML-OPERATORS.LISP" -> #p"xml:code;xparser;xml-operators.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XPARSER/XML-OPERATORS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-operators.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-operators.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-operators.fasl
+
+;; component: "xml:code;xparser;xml-readers"
+;Skipped Compiling #p"XML:CODE;XPARSER;XML-READERS.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-readers.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-readers.fasl
+
+;; component: "xml:code;xparser;xml-tokenizer"
+;Skipped Compiling #p"XML:CODE;XPARSER;XML-TOKENIZER.LISP".
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-tokenizer.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-tokenizer.fasl
+
+;; component: "xml:code;xparser;xml-processing-instruction"
+;Compiling #p"XML:CODE;XPARSER;XML-PROCESSING-INSTRUCTION.LISP" -> #p"xml:code;xparser;xml-processing-instruction.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XPARSER/XML-PROCESSING-INSTRUCTION.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-processing-instruction.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-processing-instruction.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-processing-instruction.fasl
+
+;; component: "xml:code;xparser;xml-constructors"
+;Compiling #p"XML:CODE;XPARSER;XML-CONSTRUCTORS.LISP" -> #p"xml:code;xparser;xml-constructors.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XPARSER/XML-CONSTRUCTORS.LISP
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-constructors.fasl
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-constructors.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-constructors.fasl
+
+;; component: "xml:code;xparser;xml-parser"
+;Compiling #p"XML:CODE;XPARSER;XML-PARSER.LISP" -> #p"xml:code;xparser;xml-parser.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XPARSER/XML-PARSER.LISP
+; While compiling (:TOP-LEVEL-FORM "XML-PARSER.LISP" 19547):
+Warning: Nonterminal Element nicht definiert!?
+Warning: Nonterminal MiscSequence nicht definiert!?
+Warning: Nonterminal Prolog nicht definiert!?
+;;; Compiling file xml:code;atn-lib;xml-grammar.lisp
+;;;   (/Development/Source/cl-xml-0-949/code/atn-lib/xml-grammar.lisp)
+;;; Writing fasl file
+;;;   /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-lib/xml-grammar.fasl
+;;; Fasl write complete
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-lib/xml-grammar.fasl
+;;; Writing fasl file xml:code;xparser;xml-parser.BIN
+;;;   (/Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-parser.fasl)
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-parser.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-parser.fasl
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-lib/xml-grammar.fasl, newer.
+;     Fast loading
+;        /Development/Source/cl-xml-0-949/bin/acl6fasl/code/atn-lib/xml-grammar.fasl
+
+;; component: "xml:code;xparser;xml-printer"
+;Compiling #p"XML:CODE;XPARSER;XML-PRINTER.LISP" -> #p"xml:code;xparser;xml-printer.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XPARSER/XML-PRINTER.LISP
+;;; Writing fasl file xml:code;xparser;xml-printer.BIN
+;;;   (/Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-printer.fasl)
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-printer.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-printer.fasl
+
+;; component: "xml:code;xparser;xml-writer"
+;Compiling #p"XML:CODE;XPARSER;XML-WRITER.LISP" -> #p"xml:code;xparser;xml-writer.BIN"...
+;;; Compiling file
+;;;   /Development/Source/cl-xml-0-949/CODE/XPARSER/XML-WRITER.LISP
+;;; Writing fasl file xml:code;xparser;xml-writer.BIN
+;;;   (/Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-writer.fasl)
+;;; Fasl write complete
+
+;loading /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-writer.fasl, newer.
+;   Fast loading
+;      /Development/Source/cl-xml-0-949/bin/acl6fasl/code/xparser/xml-writer.fasl
+
+;; system load time set: :XPARSER
+Warning: While compiling these undefined functions were referenced:
+         XML-PARSER::|IS-Prolog| from position 349 in
+           xml:code;atn-lib;xml-grammar.lisp
+         XML-PARSER::|IS-MiscSequence| from position 349 in
+           xml:code;atn-lib;xml-grammar.lisp
+
+cl xml loaded:
+(:SXHASH-TOKENIZATION :NAMESET-TOKENIZER :XML-SYMBOLS :DEFINE-SYSTEM
+ :ALLEGRO-CL-TRIAL :ACL-SOCKET :HIPER-SOCKET :PROFILER :MULTIPROCESSING
+ :FLAVORS :BIG-ENDIAN :GSGC :COMPILER :USE-STRUCTS-IN-COMPILER :CLOS
+ :VERIFY-CAR-CDR :DYNLOAD :DLMAC :UNIX :MACOSX :POWERPC
+ :ENCAPSULATING-EFS :RELATIVE-PACKAGE-NAMES :MODULE-VERSIONS :IEEE
+ :IEEE-FLOATING-POINT :CONFORMING-IEEE :ICS :COMMON-LISP :ANSI-CL
+ :DRAFT-ANSI-CL-2 :X3J13 :ALLEGRO :EXCL :FRANZ-INC :ALLEGRO-VERSION>=
+ :SYMBOL-VALUE-VECTOR :DYNLOAD-ACL-LIBRARY :ALLEGRO-V6.2)
+T
+CL-USER(2): (list-all-packages)
+(#<The $ package> #<The * package> #<The ACL-SOCKET package>
+ #<The ACLMOP package> #<The BNF-PARSER package>
+ #<The COMMON-LISP package> #<The COMMON-LISP-USER package>
+ #<The COMPILER package> #<The CROSS-REFERENCE package>
+ #<The DE.SETF.UTILITY.IMPLEMENTATION package> ...)
+CL-USER(3): (find-package :xml-parser)
+#<The XML-PARSER package>
+CL-USER(4): (xmlp:document-parser "<document/")
+Error: attempt to call `XML-PARSER::|IS-Prolog|' which is an undefined
+       function.
+  [condition type: UNDEFINED-FUNCTION]
+
+Restart actions (select using :continue):
+ 0: Try calling XML-PARSER::|IS-Prolog| again.
+ 1: Return a value instead of calling XML-PARSER::|IS-Prolog|.
+ 2: Try calling a function other than XML-PARSER::|IS-Prolog|.
+ 3: Setf the symbol-function of XML-PARSER::|IS-Prolog| and call it again.
+ 4: Return to Top Level (an "abort" restart).
+ 5: Abort entirely from this process.
+[1] CL-USER(5): :a
+Unknown top-level command: "a"
+Type `:help' for the list of commands.
+[1] CL-USER(5): :pop
+CL-USER(6): (room)
+area area  address(bytes)        cons         other bytes
+  #  type                   8 bytes each
+                             (free:used)      (free:used)
+     Top #x30d64000
+     New #x30c1e000(1335296)    -----            -----
+     New #x30ad8000(1335296)   665:66589     191096:551664
+  22 Old #x30a98000(262144)      0:0         150136:111704
+  21 Old #x30a58000(262144)      0:0         253448:8392
+  20 Old #x30a18000(262144)      0:0         251232:10608
+  19 Old #x309d8000(262144)      0:0         213704:48136
+  18 Old #x30998000(262144)      0:0          51288:210552
+  17 Old #x30918000(524288)      0:0         278384:245472
+  16 Old #x308d8000(262144)      0:0         257784:4056
+  15 Old #x30898000(262144)      0:0         261016:824
+  14 Old #x30858000(262144)      0:0         261840:0
+  13 Old #x30818000(262144)      0:0         245096:16744
+  12 Old #x307d8000(262144)      0:0         204384:57456
+  11 Old #x30798000(262144)      0:0         242264:19576
+  10 Old #x30758000(262144)      0:0         204592:57248
+   9 Old #x30718000(262144)      0:0         246920:14920
+   8 Old #x30698000(524288)      0:0         445904:77952
+   7 Old #x30658000(262144)    294:6839       59496:145000
+   6 Old #x30618000(262144)      0:8152           0:196304
+   5 Old #x305d8000(262144)      0:5095           0:220880
+   4 Old #x30598000(262144)      0:6114           0:212688
+   3 Old #x30518000(524288)      0:12228          0:425552
+   2 Old #x304d8000(262144)      0:8152           0:196304
+   1 Old #x30498000(262144)      0:3057           0:237264
+   0 Old #x30000d00(4813568)     0:186477         0:3311912
+     OTot(Old Areas)           294:236114   3627488:5829544
+Root pages: 112
+Lisp heap limit: 22020096
+ Lisp heap: #x30000000  pos: #x30d64000 resrve: 22020096
+ C heap:    #x64000000  pos: #x64019000 resrve: 1024000
+
+CL-USER(7): (map nil #'print (list-all-packages))
+
+#<The $ package> 
+#<The * package> 
+#<The ACL-SOCKET package> 
+#<The ACLMOP package> 
+#<The BNF-PARSER package> 
+#<The COMMON-LISP package> 
+#<The COMMON-LISP-USER package> 
+#<The COMPILER package> 
+#<The CROSS-REFERENCE package> 
+#<The DE.SETF.UTILITY.IMPLEMENTATION package> 
+#<The DE.SETF.UTILITY.PACKAGE package> 
+#<The DE.SETF.UTILITY.STRING package> 
+#<The DE.SETF.UTILITY.TEST package> 
+#<The DEBUGGER package> 
+#<The DEFSYSTEM package> 
+#<The EXCL package> 
+#<The EXCL.SCM package> 
+#<The FOREIGN-FUNCTIONS package> 
+#<The G6 package> 
+#<The GARBAGE package> 
+#<The HTTP package> 
+#<The http://www.w3.org/2001/XMLSchema package> 
+#<The http://www.w3.org/2001/XMLSchema-datatypes package> 
+#<The http://www.w3.org/2001/XMLSchema-instance package> 
+#<The INSPECT package> 
+#<The KEYWORD package> 
+#<The LEP package> 
+#<The LEP-IO package> 
+#<The MULTIPROCESSING package> 
+#<The NET.URI package> 
+#<The PROFILER package> 
+#<The SETF.CONDITIONS package> 
+#<The SYSTEM package> 
+#<The TK1 package> 
+#<The TOP-LEVEL package> 
+#<The UTILITY package> 
+#<The WWW-UTILS package> 
+#<The xhtml package> 
+#<The xml package> 
+#<The XML-PARSER package> 
+#<The XML-PATH package> 
+#<The XML-PATH-ALGEBRA package> 
+#<The XML-QUERY package> 
+#<The XML-QUERY-ALGEBRA package> 
+#<The XML-QUERY-DATA-MODEL package> 
+#<The XML-QUERY-LANGUAGE package> 
+#<The XML-SCHEMA-DATATYPES package> 
+#<The XML-UTILS package> 
+#<The xmlns package> 
+NIL
+CL-USER(8): 

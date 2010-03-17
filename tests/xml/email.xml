@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone='yes'?>
+<!-- This is a sample email data file -->
+<!DOCTYPE mail SYSTEM "email.dtd" [
+        <!ELEMENT mail (#PCDATA)>
+        <!ENTITY ingo    "Ingo.Macherius@tu-clausthal.de" >
+        <!ENTITY henning "hb@ix.heise.de"                 >
+]>
+<mail>
+        <Recipient attr='val'>&henning;</Recipient>
+        <Sender>&ingo;</Sender>
+        <Date>Mon, 21 Apr 1997 09:27:55 +0200</Date>
+        <Subject>XML literature</Subject>
+
+<Textbody>
+        <p>Hello Mr <Name>Behme</Name>,</p>
+
+        <p>Please read <Name>Jon Bosak</Name>'s
+           introductory text</p>
+        <p>"SGML, Java and the Future of the Web"</p>
+        <p>Best wishes,</p>
+
+        <p>
+                <Name>Ingo Macherius</Name>
+        </p>
+</Textbody>
+</mail>

@@ -1,0 +1,293 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<META NAME="GENERATOR" Content="Symantec Visual Page 1.0.3">
+	<TITLE>QName Semantics - Examples</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF">
+
+<P><BR>
+The selection from the concrete BNF of the syntax of XML which concerns generic identifiers
+in start tags and end tags, and attribute names in start tags includes the following
+phrases:</P>
+<PRE>[[1]]  Document    ::= <CODE>DoctypeDecl?</CODE> Element
+<CODE>[[28]] DoctypeDecl ::= '<B>&lt;!DOCTYPE</B>' QName MarkupDecl* '<B>&gt;</B>'
+[[29]] MarkupDecl  ::= ElementDecl | AttlistDecl
+</CODE>[[39]] Element ::= STag ( '<B>/&gt;</B>' | ( '<B>&gt;</B>' Content* ETag ) )
+[[40]] STag ::= '<B>&lt;</B>' QName AttributeSequence? 
+       AttributeSequence ::= Attribute AttributeSequence?
+[[41]] Attribute ::=  QName AttValue
+[[42]] ETag ::= '<B>&lt;/</B>' QName  '<B>&gt;</B>'
+<CODE>[[45]] ElementDecl ::= <B>'&lt;!ELEMENT</B>' QName Qname* '<B>&gt;</B>'
+[[52]] AttlistDecl ::= '<B>&lt;!ATTLIST</B>' QName AttDef '<B>&gt;</B>'
+[[53]] AttDef ::= QName AttValue
+       QName ::= Prefix? LocalPart
+       Prefix ::= NCName '<B>:</B>'
+       LocalPart ::= NCName</CODE></PRE>
+<PRE><CODE></CODE></PRE>
+<P>These can be elaborated to distinguish namespaces from other attributes, and simplified
+to the following forms:</P>
+<PRE>NCName                       ::= (Letter | '_' | ':') (Letter | Digit | '.' | '-' | '_' | ':')*
+p   .E. Prefix               ::= NCName
+l   .E. LocalPart            ::= NCName
+ns  .E. Namespace            ::= Character+
+null                         ::= '()'
+qn  .E. QualifiedName        ::= (:qn (Prefix + null) X LocalPart )
+un  .E. UniversalName        ::= (:un (Namespace + null) X LocalPart )
+n   .E. Name                 ::= UniversalName + QualifiedName
+nsb .E. NamespaceBinding     ::= (:nsb . ((LocalPart X Namespace) + (null X (Namespace + null))) )
+a   .E. Attribute            ::= (:a Name )
+e   .E. Element              ::= (:e Name X NamespaceBinding* X Attribute* X Element* )
+ed  .E. ElementDeclaration   ::= (:ed Name X (Name* + '*') )
+ad  .E. AttributeDeclaration ::= (:ad Name X NamespaceBinding* X Attribute* )
+dcl .E. DeclarationContext   ::= (:dcl (ElementDeclaration + AttributeDeclaration + DeclarationContext)* )
+doc .E. Document             ::= (:doc Name DeclarationContext X Element )</PRE>
+<P>from which the following exemplary variations can be extrapolated. the respective
+values are reexpressed as declaration-free documents.</P>
+<P>
+<HR />
+
+<H3>literal identity</H3>
+<H4>LI.1</H4>
+<P>the scope of the p1-&gt;ns0 binding comprises the element declaration. by virtue
+of attribute defaults it extends to the document element instance</P>
+<P>
+<PRE><CODE>&lt;!DOCTYPE P0:L0 [
+  &lt;!ELEMENT P0:L0 EMPTY &gt;
+  &lt;!ATTLIST P0:L0 xmlns:P0 CDATA 'ns0' &gt; ] &gt;
+&lt;P0:L0/&gt;
+
+(:doc (:qn p<SUB>0</SUB>l<SUB>0</SUB>)
+ (:dcl ((:ed (:qn p<SUB>0</SUB>l<SUB>0</SUB>) )
+        (:ad (:qn p<SUB>0</SUB>l<SUB>0</SUB>) (:nsb p<SUB>0</SUB>ns<SUB>0</SUB> )))
+ (:e (:qn p<SUB>0</SUB>l<SUB>0</SUB>) () () ()))
+==&gt;
+(:doc ns<SUB>0</SUB> l<SUB>0</SUB>)
+ (:dcl ((:ad ns<SUB>0</SUB> l<SUB>0</SUB>) (:nsb nil nil) (:nsb p<SUB>0</SUB>ns<SUB>0</SUB> )
+        (:ed ns<SUB>0</SUB> l<SUB>0</SUB>) )))
+ (:e ns<SUB>0</SUB> l<SUB>0</SUB>) ((:nsb nil nil) (:nsb p<SUB>0</SUB>ns<SUB>0</SUB>) () ()))</CODE></PRE>
+<P>
+<HR />
+
+<H4>LI.2</H4>
+<P>the scope of the p1-&gt;ns1 binding comprises the element declaration and to content
+elements. by virtue of attribute defaults it extends to the document element instance.</P>
+<P>
+<PRE><CODE>&lt;!DOCTYPE P0:L0 [
+  &lt;!ELEMENT P0:L0 ( P0:L1, P0:L2 ) &gt;
+  &lt;!ATTLIST P0:L0 xmlns:P0 CDATA 'ns0'  P0:LA1 CDATA 'attValue-1'  P0:LA2 CDATA 'attValue-2' &gt;
+  &lt;!ELEMENT P0:L1 EMPTY &gt;
+  &lt;!ELEMENT P0:L2 EMPTY &gt;
+  &lt;!ATTLIST P0:L0 P0:ATT3 CDATA 'attValue-3' &gt; ] &gt;
+&lt;P0:L0&gt;
+&lt;P0:L1/&gt;
+&lt;P0:L2/&gt;&lt;/P0:L0&gt;
+
+(:doc (:qn p<SUB>0</SUB>l<SUB>0</SUB>)
+ (:dcl ((:ed (:qn p<SUB>0</SUB>l<SUB>0</SUB>) (:qn p<SUB>0</SUB>l<SUB>1</SUB>) (:qn p<SUB>0</SUB>l<SUB>2</SUB>))
+        (:ad (:qn p<SUB>0</SUB>l<SUB>0</SUB>) (:nsb p<SUB>0</SUB>ns<SUB>0</SUB> (:ad (:qn p<SUB>0</SUB>la<SUB>1</SUB>)) (:ad (:qn p<SUB>0</SUB>la<SUB>2</SUB>)))
+        (:ed (:qn p<SUB>0</SUB>l<SUB>1</SUB>) )
+        (:ed (:qn p<SUB>0</SUB>l<SUB>2</SUB>) )
+        (:ad (:qn p<SUB>0</SUB>l<SUB>0</SUB>)  (:ad (:qn p<SUB>0</SUB>att<SUB>3</SUB>)))))
+ (:e (:qn p<SUB>0</SUB>l<SUB>0</SUB>) () ()
+  ((:e (:qn p<SUB>0</SUB>l<SUB>1</SUB>) () () ())
+   (:e (:qn p<SUB>0</SUB>l<SUB>2</SUB>) () () ())))
+==&gt;
+(:doc ns<SUB>0</SUB> l<SUB>0</SUB>)
+ (:dcl ((:ad ns<SUB>0</SUB> l<SUB>0</SUB>) (:nsb nil nil) (:nsb p<SUB>0</SUB>ns<SUB>0</SUB> (:ad ns<SUB>0</SUB> att<SUB>3</SUB>)) (:ad ns<SUB>0</SUB> la<SUB>2</SUB>)) (:ad ns<SUB>0</SUB> la<SUB>1</SUB>)))
+        (:ed ns<SUB>0</SUB> l<SUB>0</SUB>) ns<SUB>0</SUB> l<SUB>2</SUB>) ns<SUB>0</SUB> l<SUB>1</SUB>) ns<SUB>0</SUB> l<SUB>0</SUB>))
+        (:ed ns<SUB>0</SUB> l<SUB>1</SUB>) )
+        (:ed ns<SUB>0</SUB> l<SUB>2</SUB>) )))
+ (:e ns<SUB>0</SUB> l<SUB>0</SUB>) ((:nsb nil nil) (:nsb p<SUB>0</SUB>ns<SUB>0</SUB>) ((:ad ns<SUB>0</SUB> att<SUB>3</SUB>)) (:ad ns<SUB>0</SUB> la<SUB>2</SUB>)) (:ad ns<SUB>0</SUB> la<SUB>1</SUB>)))
+  ((:e ns<SUB>0</SUB> l<SUB>1</SUB>) () () ())
+   (:e ns<SUB>0</SUB> l<SUB>2</SUB>) () () ())))</CODE></PRE>
+<P>
+<HR />
+
+<H4></H4>
+<H4>LI.3</H4>
+<P>the scope of the p1-&gt;ns1 binding comprises the element declaration and declared
+content elements. by virtue of attribute defaults it extends to the document element
+instance.</P>
+<P>
+<PRE><CODE>&lt;!DOCTYPE P1:L1 [
+  &lt;!ELEMENT P1:L1 ( P1:L2 ) &gt;
+  &lt;!ELEMENT P1:L2 EMPTY &gt;
+  &lt;!ATTLIST P1:L1 xmlns:P1 CDATA 'ns1' &gt; ] &gt;
+&lt;P1:L1&gt;
+&lt;P1:L2/&gt;&lt;/P1:L1&gt;
+
+(:doc (:qn p<SUB>1</SUB>l<SUB>1</SUB>)
+ (:dcl ((:ed (:qn p<SUB>1</SUB>l<SUB>1</SUB>) (:qn p<SUB>1</SUB>l<SUB>2</SUB>))
+        (:ed (:qn p<SUB>1</SUB>l<SUB>2</SUB>) )
+        (:ad (:qn p<SUB>1</SUB>l<SUB>1</SUB>) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB> )))
+ (:e (:qn p<SUB>1</SUB>l<SUB>1</SUB>) () ()
+  ((:e (:qn p<SUB>1</SUB>l<SUB>2</SUB>) () () ())))
+==&gt;
+(:doc ns<SUB>1</SUB> l<SUB>1</SUB>)
+ (:dcl ((:ed ns<SUB>1</SUB> l<SUB>2</SUB>) )))
+ (:e ns<SUB>1</SUB> l<SUB>1</SUB>) ((:nsb nil nil) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB>) ()
+  ((:e ns<SUB>1</SUB> l<SUB>2</SUB>) () () ())))</CODE></PRE>
+<P>
+<HR />
+
+<H4>LI.4</H4>
+<P>the scope of the p1-&gt;ns1 binding comprises the element declaration and ANY
+content elements. by virtue of attribute defaults it extends to the document element
+instance.</P>
+<P>
+<PRE><CODE>&lt;!DOCTYPE P1:L1 [
+  &lt;!ELEMENT P1:L1 ANY &gt;
+  &lt;!ELEMENT P1:L2 EMPTY &gt;
+  &lt;!ATTLIST P1:L1 xmlns:P1 CDATA 'ns1' &gt; ] &gt;
+&lt;P1:L1&gt;
+&lt;P1:L2/&gt;&lt;/P1:L1&gt;
+
+(:doc (:qn p<SUB>1</SUB>l<SUB>1</SUB>)
+ (:dcl ((:ed (:qn p<SUB>1</SUB>l<SUB>1</SUB>) *)
+        (:ed (:qn p<SUB>1</SUB>l<SUB>2</SUB>) )
+        (:ad (:qn p<SUB>1</SUB>l<SUB>1</SUB>) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB> )))
+ (:e (:qn p<SUB>1</SUB>l<SUB>1</SUB>) () ()
+  ((:e (:qn p<SUB>1</SUB>l<SUB>2</SUB>) () () ())))
+==&gt;
+(:doc ns<SUB>1</SUB> l<SUB>1</SUB>)
+ (:dcl ((:ed ns<SUB>1</SUB> l<SUB>2</SUB>) )))
+ (:e ns<SUB>1</SUB> l<SUB>1</SUB>) ((:nsb nil nil) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB>) ()
+  ((:e ns<SUB>1</SUB> l<SUB>2</SUB>) () () ())))</CODE></PRE>
+<P>
+<HR />
+</P>
+<H3>synonomy</H3>
+<H4>S.1</H4>
+<H4>S.2</H4>
+<H4>S.3</H4>
+<H4>S.4</H4>
+<H4>S.5</H4>
+<P>the scope of the p1-&gt;ns1 binding encompasses declarations of elements which
+appear in declaration entities dependent on the entity within which the binding appears.
+it extends as well over distinct branch entities and over children of the directly
+declared element by virtue of the ANY content model.</P>
+<P>
+<PRE><CODE>&lt;!DOCTYPE P1:L1 [
+  &lt;!ATTLIST P1:L1 xmlns:P1 CDATA 'ns1' &gt;
+  &lt;!ENTITY % e-1 SYSTEM 'data:,&lt;!ELEMENT P1:L1 ANY &gt; '&gt; %e-1;
+  &lt;!ENTITY % e-2 SYSTEM 'data:,&lt;!ELEMENT P1:L2 EMPTY &gt; '&gt; %e-2; ] &gt;
+&lt;P1:L1&gt;
+&lt;P1:L2/&gt;&lt;/P1:L1&gt;
+
+(:doc (:qn p<SUB>1</SUB>l<SUB>1</SUB>)
+ (:dcl ((:ad (:qn p<SUB>1</SUB>l<SUB>1</SUB>) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB> )
+        (:dcl ((:ed (:qn p<SUB>1</SUB>l<SUB>1</SUB>) *)))
+        (:dcl ((:ed (:qn p<SUB>1</SUB>l<SUB>2</SUB>) )))))
+ (:e (:qn p<SUB>1</SUB>l<SUB>1</SUB>) () ()
+  ((:e (:qn p<SUB>1</SUB>l<SUB>2</SUB>) () () ())))
+==&gt;
+(:doc ns<SUB>1</SUB> l<SUB>1</SUB>)
+ (:dcl ((:ed ns<SUB>1</SUB> l<SUB>2</SUB>) )))
+ (:e ns<SUB>1</SUB> l<SUB>1</SUB>) ((:nsb nil nil) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB>) ()
+  ((:e ns<SUB>1</SUB> l<SUB>2</SUB>) () () ())))</CODE></PRE>
+<P>
+<HR />
+
+<H4>S.6</H4>
+<P>the scope of the p1-&gt;ns1, and p2-&gt;ns1 binding encompasses declarations of
+elements which appear in declaration entities dependent on the entity within which
+the binding appears. it extends as well over distinct child entities and over children
+of the directly declared element to effect the identity od names with distinct literal
+expressions.</P>
+<P>
+<PRE><CODE>&lt;!DOCTYPE P1:L1 [
+  &lt;!ATTLIST P1:L1 xmlns:P1 CDATA 'ns1'  xmlns:P2 CDATA 'ns1' &gt;
+  &lt;!ENTITY % e-1 SYSTEM 'data:,&lt;!ELEMENT P1:L1 ( P1:L2 ) &gt; '&gt; %e-1;
+  &lt;!ENTITY % e-2 SYSTEM 'data:,&lt;!ELEMENT P2:L2 EMPTY &gt; '&gt; %e-2; ] &gt;
+&lt;P1:L1&gt;
+&lt;P1:L2/&gt;&lt;/P1:L1&gt;
+
+(:doc (:qn p<SUB>1</SUB>l<SUB>1</SUB>)
+ (:dcl ((:ad (:qn p<SUB>1</SUB>l<SUB>1</SUB>) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB> (:nsb p<SUB>2</SUB>ns<SUB>1</SUB> )
+        (:dcl ((:ed (:qn p<SUB>1</SUB>l<SUB>1</SUB>) (:qn p<SUB>1</SUB>l<SUB>2</SUB>))))
+        (:dcl ((:ed (:qn p<SUB>2</SUB>l<SUB>2</SUB>) )))))
+ (:e (:qn p<SUB>1</SUB>l<SUB>1</SUB>) () ()
+  ((:e (:qn p<SUB>1</SUB>l<SUB>2</SUB>) () () ())))
+==&gt;
+(:doc ns<SUB>1</SUB> l<SUB>1</SUB>)
+ (:dcl ((:ed ns<SUB>1</SUB> l<SUB>2</SUB>) )))
+ (:e ns<SUB>1</SUB> l<SUB>1</SUB>) ((:nsb nil nil) (:nsb p<SUB>2</SUB>ns<SUB>1</SUB> (:nsb p<SUB>1</SUB>ns<SUB>1</SUB>) ()
+  ((:e ns<SUB>1</SUB> l<SUB>2</SUB>) () () ())))</CODE></PRE>
+<P>
+<HR />
+
+<H3>homography</H3>
+<H4>H.1</H4>
+<P>the scope of the p1-&gt;ns1 binding encompasses declarations of elements which
+appear in declaration entities dependent on the entity within which the binding appears.
+it extends as well over distinct child entities and over children of the directly
+declared element.</P>
+<P>
+<PRE><CODE>&lt;!DOCTYPE P1:L1 [
+  &lt;!ATTLIST P1:L1 xmlns:P1 CDATA 'ns1' &gt;
+  &lt;!ENTITY % e-1 SYSTEM 'data:,&lt;!ELEMENT P1:L1 ANY &gt; '&gt; %e-1;
+  &lt;!ENTITY % e-2 SYSTEM 'data:,&lt;!ELEMENT P1:L2 EMPTY &gt; '&gt; %e-2; ] &gt;
+&lt;P1:L1&gt;
+&lt;P1:L2/&gt;&lt;/P1:L1&gt;
+
+(:doc (:qn p<SUB>1</SUB>l<SUB>1</SUB>)
+ (:dcl ((:ad (:qn p<SUB>1</SUB>l<SUB>1</SUB>) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB> )
+        (:dcl ((:ed (:qn p<SUB>1</SUB>l<SUB>1</SUB>) *)))
+        (:dcl ((:ed (:qn p<SUB>1</SUB>l<SUB>2</SUB>) )))))
+ (:e (:qn p<SUB>1</SUB>l<SUB>1</SUB>) () ()
+  ((:e (:qn p<SUB>1</SUB>l<SUB>2</SUB>) () () ())))
+==&gt;
+(:doc ns<SUB>1</SUB> l<SUB>1</SUB>)
+ (:dcl ((:ed ns<SUB>1</SUB> l<SUB>2</SUB>) )))
+ (:e ns<SUB>1</SUB> l<SUB>1</SUB>) ((:nsb nil nil) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB>) ()
+  ((:e ns<SUB>1</SUB> l<SUB>2</SUB>) () () ())))</CODE></PRE>
+<P>
+<HR />
+
+<H4>H.2</H4>
+<P>the scope of the p1-&gt;ns1 binding does not encompass declarations of elements
+which appear in declaration entities in parallel branches. it extends as well over
+distinct child entities and over children of the directly declared element.</P>
+<PRE><CODE>&lt;!DOCTYPE P1:L1 [
+  &lt;!ATTLIST P1:L1 xmlns:P1 CDATA 'ns1'  xmlns:P2 CDATA 'ns2' &gt;
+  &lt;!ELEMENT P1:L1 ( P1:L2, P2:L2 ) &gt;
+  &lt;!ENTITY % e-1 SYSTEM 'data:,&lt;!ELEMENT P1:L2 EMPTY &gt; &lt;!ATTLIST P1:L2 xmlns:P1 CDATA &quot;ns1&quot; &gt; '&gt; %e-1;
+  &lt;!ENTITY % e-2 SYSTEM 'data:,&lt;!ELEMENT P1:L2 EMPTY &gt; &lt;!ATTLIST P1:L2 xmlns:P1 CDATA &quot;ns2&quot; &gt; '&gt; %e-2; ] &gt;
+&lt;P1:L1&gt;
+&lt;P1:L2/&gt;
+&lt;P2:L2/&gt;&lt;/P1:L1&gt;
+(:doc (:qn p<SUB>1</SUB>l<SUB>1</SUB>)
+ (:dcl ((:ad (:qn p<SUB>1</SUB>l<SUB>1</SUB>) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB> (:nsb p<SUB>2</SUB>ns<SUB>2</SUB> )
+        (:ed (:qn p<SUB>1</SUB>l<SUB>1</SUB>) (:qn p<SUB>1</SUB>l<SUB>2</SUB>) (:qn p<SUB>2</SUB>l<SUB>2</SUB>))
+        (:dcl ((:ed (:qn p<SUB>1</SUB>l<SUB>2</SUB>) )
+               (:ad (:qn p<SUB>1</SUB>l<SUB>2</SUB>) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB> )))
+        (:dcl ((:ed (:qn p<SUB>1</SUB>l<SUB>2</SUB>) )
+               (:ad (:qn p<SUB>1</SUB>l<SUB>2</SUB>) (:nsb p<SUB>1</SUB>ns<SUB>2</SUB> )))))
+ (:e (:qn p<SUB>1</SUB>l<SUB>1</SUB>) () ()
+  ((:e (:qn p<SUB>1</SUB>l<SUB>2</SUB>) () () ())
+   (:e (:qn p<SUB>2</SUB>l<SUB>2</SUB>) () () ())))
+==&gt;
+(:doc ns<SUB>1</SUB> l<SUB>1</SUB>)
+ (:dcl ((:ad ns<SUB>2</SUB> l<SUB>2</SUB>) (:nsb p<SUB>1</SUB>ns<SUB>2</SUB> )
+        (:ed ns<SUB>2</SUB> l<SUB>2</SUB>) )
+        (:ad ns<SUB>1</SUB> l<SUB>2</SUB>) (:nsb p<SUB>1</SUB>ns<SUB>1</SUB> )
+        (:ed ns<SUB>1</SUB> l<SUB>2</SUB>) )))
+ (:e ns<SUB>1</SUB> l<SUB>1</SUB>) ((:nsb nil nil) (:nsb p<SUB>2</SUB>ns<SUB>2</SUB> (:nsb p<SUB>1</SUB>ns<SUB>1</SUB>) ()
+  ((:e ns<SUB>1</SUB> l<SUB>2</SUB>) ((:nsb p<SUB>1</SUB>ns<SUB>1</SUB>) () ())
+   (:e ns<SUB>2</SUB> l<SUB>2</SUB>) ((:nsb p<SUB>1</SUB>ns<SUB>2</SUB>) () ())))</CODE></PRE>
+<P>
+<HR />
+</P>
+
+<P>
+<HR>
+
+
+
+</BODY>
+
+</HTML>

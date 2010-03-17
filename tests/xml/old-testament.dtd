@@ -1,0 +1,29 @@
+<!-- DTD for testaments    J. Bosak    1992.11.15, 1994.03.26,
+                                       1994.04.01, 1997.01.02
+ 19971210.jaa : with j.bosak e-mail additions 1997.11.28.  you should check the
+ <A HREF="http://sunsite.unc.edu/pub/sun-info/standards/xml/eg/religion.1.02.xml.zip">definitive
+ source.</A> this is included here as a convenience only, since the complete zip files are rather
+ large.
+ -->
+
+<!ENTITY amp "&#38;">
+<!ELEMENT p          (#PCDATA)>
+
+<!ELEMENT tstmt      (ttitle,fm,sbttitle?,preface?,(sura | book)+)>
+<!ELEMENT ttitle     (#PCDATA | ttitle2)*>
+<!ELEMENT ttitle2    (#PCDATA)>
+<!ELEMENT fm         (p)+>
+<!ELEMENT sbttitle   (p)+>
+<!ELEMENT preface    (ptitle, p+)+>
+<!ELEMENT ptitle     (#PCDATA)>
+<!ELEMENT book       (bktlong, bktshort, epigraph?, bksum?, chapter+)>
+<!ELEMENT sura       (bktlong, bktshort, epigraph?, bksum?, v+)>
+<!ELEMENT bktlong    (#PCDATA)>
+<!ELEMENT bktshort   (#PCDATA)>
+<!ELEMENT bksum      (p)+>
+<!ELEMENT epigraph   (p)+>
+<!ELEMENT chapter    (chtitle, epigraph?, chsum?, v+)>
+<!ELEMENT chtitle    (#PCDATA)>
+<!ELEMENT chsum      (p)+>
+<!ELEMENT v          (vn, p)>
+<!ELEMENT vn         (#PCDATA)>

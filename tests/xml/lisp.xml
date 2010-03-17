@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<!DOCTYPE LISP SYSTEM "lisp.dtd" [
+ <!ATTLIST LISP xmlns CDATA '-//mecomnet.de//DTD Lisp (sort of)//en'>
+ ] >
+
+<LISP xmlns='lisp as xml'>
+        <DEFUN>
+         <NAME>asdf</NAME>
+         <ARGUMENT-LIST>
+          <ARGUMENT><NAME>arg-1</NAME></ARGUMENT>
+          <ARGUMENT><NAME>arg-2</NAME></ARGUMENT>
+          </ARGUMENT-LIST>
+         <DOCUMENTATION>this is a test</DOCUMENTATION>
+         <BODY>
+          <SEXP><OPERATOR>this</OPERATOR>
+               <ATOM>is</ATOM><ATOM>a</ATOM><ATOM>test</ATOM>
+           </SEXP>
+          <SEXP>
+           <OPERATOR>to</OPERATOR>
+           <ATOM>see</ATOM><ATOM>if</ATOM><ATOM>the</ATOM><ATOM>defun</ATOM><ATOM>model</ATOM><ATOM>works</ATOM>
+           </SEXP>
+          </BODY>
+         </DEFUN>
+
+        <DEFMETHOD>
+         <NAME>asdf</NAME>
+         <SPECIALIZED-ARGUMENT-LIST>
+          <SPECIALIZED-ARGUMENT><NAME>arg-1</NAME><SPECIALIZER>a class</SPECIALIZER></SPECIALIZED-ARGUMENT>
+          <SPECIALIZED-ARGUMENT><NAME>arg-2</NAME></SPECIALIZED-ARGUMENT>
+          </SPECIALIZED-ARGUMENT-LIST>
+         <DOCUMENTATION>this is a test for defmethod</DOCUMENTATION>
+         <BODY><SEXP><OPERATOR>this</OPERATOR>
+                <ATOM>is</ATOM><ATOM>a</ATOM><ATOM>test</ATOM>
+                </SEXP>
+               <SEXP><OPERATOR>to</OPERATOR>
+                <ATOM>see</ATOM><ATOM>if</ATOM><ATOM>the</ATOM><ATOM>defun</ATOM><ATOM>model</ATOM><ATOM>works</ATOM>
+                </SEXP>
+               </BODY>
+         </DEFMETHOD>
+
+        <SEXP><OPERATOR>print</OPERATOR><ATOM>a-ok</ATOM></SEXP>
+
+        <ATOM>EOF</ATOM>
+  
+        </LISP>

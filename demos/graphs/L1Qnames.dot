@@ -1,0 +1,22 @@
+
+
+digraph "NODE-0" {
+
+  "NODE-0" [label="{ns1}L1[QE.14922]"];
+
+  "xmlns-1" [label="ns: xmlns=''"];
+
+  "NODE-0" -> "xmlns-1" ;
+
+  "P1-2" [label="ns: P1='ns1'"];
+
+  "NODE-0" -> "P1-2" ;
+
+  "NODE-3" [label="{ns1}L2[QE.14922]"];
+
+  "NODE-3" -> "NODE-0" ;
+
+  "NODE-0" -> "NODE-3" ;
+
+ }
+

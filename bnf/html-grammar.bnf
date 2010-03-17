@@ -1,0 +1,200 @@
+/*
+<DOCUMENTATION>
+ <DESCRIPTION>
+  <p>
+  this is the BNF for XML
+  it is derived from <a href='http://www.w3.org/TR/2000/REC-xml-20001006'>REC-xml-20001006</a>.
+  it is the input bnf for <a href='file://xml/code/xparser/xml-parser.lisp'>xml-parser.lisp</a>.
+  </p>
+  <p>
+  nb. the production numbers correspond to those present in the recommendation.
+  this formulation differs from the literal text of the recommendation in numerous regards.
+  none of these differences is believed to affect the conformance of the resulting parser.
+  <ul>
+  <li>the grammar is modified to accommodate namespaces.</li>
+  <li>the grammar is <em>not</em> complete. numerous terms, for example 'NCName' are not
+      defined. the parser treats these terms as categories, for which predicates are to be
+      defined.</li>
+  <li>names have been edited (wrt capitalization).
+      for example, PI -> Pi as the former is a constant in lisp.</li>
+  <li>some productions have been reordered, and some non-terminals and terminals have been
+      reclassified to ease the parsing.
+      in particular, by extending tokens and rewriting entity definition and notation
+      rules, it was possible to eliminate the need to backup - eg the Element production -
+      this could well be pushed further</li>
+  <li>the productions are, for the most part, 'post-entity-expansion'. where references
+      are includes, note that the parser has been tested where these are placeholders for
+      expanded references.</li>
+  <li>some repeated/optional components have been reconstructed as sequences. eg:
+      Misc* ==>  MiscSequence and MiscSequence ::= Misc MiscSequence?.</li>
+  <li>some of the character data productions do not distinguish content by
+      name (eg. CharData) for both element and cdata character content. this because
+      the lexical readers already terminate tokens where appropriate.</li>
+  <li>the distinction between NCName, Qname, and NameCharData.</li>
+  <li>S == whitespace is a lexical token in itself, which may appear multiply when crossing an
+      entity border, thus the formulations S+ and S*.</li>
+  </ul></p>
+  </DESCRIPTION>
+ <COPYRIGHT YEAR='2001' AUTHOR='james adam anderson' MARK='&copy'
+            href='file://xml/sysdcl.lisp' />
+ <COPYRIGHT YEAR='2000' AUTHOR='w3c' MARK='&copy'
+            smtp='site-policy@w3.org'
+            href='file://xml/W3C-copyrightsoft-19980720.html'>
+  Copyright &copy; 2000 <a href='http://www.w3.org/'>World Wide Web Consortium</a>,
+   (<a href='http://www.lcs.mit.edu/'>Massachusetts Institute of Technology</a>,
+    <a href='http://www.inria.fr/'>Institut National de Recherche en Informatique et en Automatique</a>,
+    <a href='http://www.keio.ac.jp/'>Keio University</a>).
+   All Rights Reserved. http://www.w3.org/Consortium/Legal/
+  </COPYRIGHT>
+ </DOCUMENTATION>
+*/
+
+[[1]]  HtmlDocument ::= Prolog Root MiscSequence?
+       Root ::= ElementHtml
+//     implemented as category predicates
+//     [[2]]  Char ::=  #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
+//     [[3]]  S ::= (#x20 | #x9 | #xD | #xA)+
+//     [[4]]  NameChar ::=Letter | Digit | '.' | '-' | '_' | ':' | CombiningChar | Extender
+//     [[5]]  Name ::= (Letter | '_' | ':') (NameChar)*
+//     QNames data is implemented as categories in order to avoid ambiguous parses,
+//     they exist as production in order to get an entry in the wfst - and a constructor
+//     Prefix ::= NCName
+//     LocalPart ::= NCName
+//     QName ::= ( Prefix ':') ? LocalPart
+       QName ::= QNameCharData
+       HtmlGIQName ::= HtmlGIQNameCharData
+[[6]]  Names ::= NCName (S Names)?
+[[7]]  Nmtoken ::= NameCharData
+[[8]]  Nmtokens ::= Nmtoken (S Nmtokens)?
+[[9]]  EntityValue ::= ('"' EntityData? '"') | ('\'' EntityData? '\'')
+       // as the entity references are expanded, the data only is left to parse.
+       // EntityValue ::= ('"' EntityChildSequence? '"') | ('\'' EntityChildSequence? '\'')
+       // EntityChildSequence ::= EntityChild EntityChildSequence?
+       // EntityChild ::= EntityCharData | PEReference | Reference
+[[10]] AttValue ::= ('"' AttChildSequence? '"' ) | ('\'' AttChildSequence? '\'')
+       AttChildSequence ::= AttChild AttChildSequence?
+       AttChild ::= AttCharData | Reference | ParsedReference
+       DefaultAttValue ::= ('"' DefaultAttChildSequence? '"' ) | ('\'' DefaultAttChildSequence? '\'')
+       DefaultAttChildSequence ::= DefaultAttChild DefaultAttChildSequence?
+       DefaultAttChild ::= DefaultAttCharData | Reference | ParsedReference
+[[11]] SystemLiteral ::= ('"' SystemCharData? '"') | ('\'' SystemCharData? '\'')
+[[12]] PubidLiteral ::= ('"' PubidCharData? '"') | ('\'' PubidCharData? '\'')
+//     [[13]] PubidChar ::= #x20 | #xD | #xA | [a-zA-Z0-9] | [-'()+,./:=?;!*#@$_%]
+//     [[14]] CharData ::= [^<&]* - ([^<&]* ']]>' [^<&]*)
+[[15]] Comment ::= '<!--' CommentCharData? '-->'
+//     when data appears, then with a preceeding space. note that just space is ok.
+[[16]] Pi ::= '<?' PiTarget (S PiCharData? )? '?>'
+//     [[17]] PITarget ::= NCName - (('X' | 'x') ('M' | 'm') ('L' | 'l'))
+[[18]] CDSect ::= CDStart CDataCharData? CDEnd
+[[19]] CDStart ::= '<![CDATA['
+//     [[20]] CData ::= (Char* - (Char* ']]>' Char*)
+[[21]] CDEnd ::= ']]>'
+[[22]] Prolog ::= XMLDecl? MiscSequence? DoctypeProlog?
+       DoctypeProlog ::= DoctypeDecl MiscSequence?
+[[23]] XMLDecl ::= '<?xml' VersionInfo EncodingDecl? SDDecl? S* '?>'
+[[24]] VersionInfo ::= S+ version Eq ( ('"' VersionNumCharData '"') | ('\'' VersionNumCharData '\'') )
+[[25]] Eq ::= S* '=' S*
+//     [[26]] VersionNum ::= ([a-zA-Z0-9_.:] | '-')+
+       MiscSequence ::= Misc MiscSequence?
+[[27]] Misc ::= Comment | Pi | S+
+[[28]] DoctypeDecl ::= '<!DOCTYPE' S+ QName (S ExternalID)? S* ('[' IntSubsetDecl* ']' S* )? '>'
+       // IntSubsetDeclSequence ::= IntSubsetDecl+
+       IntSubsetDecl ::= DeclSep | MarkupDecl
+[[28a]] DeclSep ::= S+ | PEReference | ParsedExtSubset
+[[29]] MarkupDecl ::= ElementDecl | AttlistDecl | EntityDecl | NotationDecl | Pi | Comment
+[[30]] ExtSubset ::= TextDecl? ExtSubsetDecl*
+       // ExtSubset ::= TextDecl? ExtSubsetDeclSequence?
+       // ExtSubsetDeclSequence ::= ExtSubsetDecl ExtSubsetDeclSequence?
+       // ExtSubsetDeclSequence ::= ExtSubsetDecl+
+[[31]] ExtSubsetDecl ::= MarkupDecl | ConditionalSect | DeclSep
+[[32]] SDDecl ::= S+ standalone Eq ( ('"' YesOrNo '"') | ('\'' YesOrNo '\'') )
+       YesOrNo ::= yes | no
+//     [[33]] ... [[38]] ?
+[[39]] ElementHtml ::= HtmlTag | ( STag ( '/>' | ( '>' Content* ETag ) ) )
+       // this formulation overflows the stack for large content. for example, the xml rec
+       // with reduction disabled generates an 800+ sequence for the character table.
+       // Element ::= STag ( '/>' | ( '>' ContentSequence? ETag ) )
+       // ContentSequence ::= Content ContentSequence?
+       // the original formulation intriduced ambiguity which required unrestricted look-ahead
+       // over the tag content
+       // Element ::= EmptyElemTag | ( STag ContentSequence? ETag )
+[[40]] STag ::= '<' QName AttributeSequence? S*
+       AttributeSequence ::= Attribute AttributeSequence?
+       // STag ::= '<' QName AttributeSequence? S* '>'
+       HtmlTag ::= '<' HtmlGIQName AttributeSequence? S* '>'
+[[41]] Attribute ::= S+ QName Eq AttValue
+[[42]] ETag ::= '</' QName S* '>'
+//     in content, try to parse CharData first so that tag parsers are active
+//     only once the tag start has been recognized. 
+[[43]] Content ::= CharData | ElementHtml | Comment | Pi | CDSect | Reference | ParsedReference
+       // Content ::= CharData | Element | Reference | CDSect | Pi | Comment
+       // Element does not now require this
+//     [[44]] EmptyElemTag ::= '<' QName AttributeSequence? S* '/>'
+[[45]] ElementDecl ::= '<!ELEMENT' S+ QName S+ ContentSpec S* '>'
+       //   the content spec is expressed without whitespace since it is stripped there
+[[46]] ContentSpec ::= EMPTY | ANY | Mixed | Children
+       // rewritten to eliminate otherwise unbounded look-ahead
+[[47]] Children ::= ChoiceOrSeq Cardinality?
+[[48]] Cp ::= ( QName | ChoiceOrSeq ) Cardinality?
+       ChoiceOrSeq ::= '(' S* Cp ( Choice | Seq )? S* ')'
+[[49]] Choice ::= ( S* '|' S* Cp )+
+[[50]] Seq    ::= ( S* ',' S* Cp )+
+       // Children ::= (Choice | Seq) Cardinality?
+       // Cp ::= ( QName | Choice | Seq) Cardinality?
+       // Choice ::= '(' S* Cp ( S* '|' S* Cp )+ S* ')'
+       // Seq    ::= '(' S* Cp ( S* ',' S* Cp )* S* ')'
+[[51]] Mixed ::= ( '(' S* PCDATA ( S* '|' S* QName )* S* ')' MixedCardinality )
+               | ( '(' S* PCDATA S* ')' )
+       Cardinality ::= '?' | '+' | '*'
+       MixedCardinality ::= '*'
+[[52]] AttlistDecl ::= '<!ATTLIST' S+ QName AttDefSequence? S* '>'
+       AttDefSequence ::= AttDef AttDefSequence?
+[[53]] AttDef ::= S+ QName S+ AttType S+ DefaultDecl
+[[54]] AttType ::= StringType | TokenizedType | EnumeratedType
+[[55]] StringType ::= CDATA
+[[56]] TokenizedType ::= ID | IDREF | IDREFS | ENTITY | ENTITIES | NMTOKEN | NMTOKENS
+[[57]] EnumeratedType ::= NotationType | Enumeration
+[[58]] NotationType ::= NOTATION S+ '(' S* NotationTypeSequence S* ')' 
+       NotationTypeSequence ::= NCName (S*  '|' S* NotationTypeSequence )?
+//     the spec says Nmtoken, but the conformance tests say character sequence
+//     Enumeration ::= '(' Nmtoken ( '|' Nmtoken)* ')'
+[[59]] Enumeration ::= '(' EnumerationSequence S* ')'
+       EnumerationSequence ::= S* Nmtoken ( S* '|' EnumerationSequence )?
+[[60]] DefaultDecl ::= REQUIRED | IMPLIED | (( FIXED S)? DefaultAttValue)
+[[61]] ConditionalSect ::= IncludeSect | IgnoreSect | NamedConditionalSect
+       // ConditionalSect ::= IncludeSect | IgnoreSect
+[[62]] IncludeSect ::= '<![' S* INCLUDE S* '[' ExtSubsetDecl* ']]>'
+       // IncludeSect ::= '<![' S* INCLUDE S* '[' ExtSubsetDecl* ']]>'
+[[63]] IgnoreSect ::= '<![' S* IGNORE S* '[' IgnoreSectContents? ']]>'
+[[64]] IgnoreSectContents ::= Ignore IgnoreSectContents?
+[[65]] Ignore ::= IgnoreCData |  ('<![' IgnoreSectContents? ']]>' )
+       NamedConditionalSect ::= '<![' S* PEReference S* '[' ExtSubsetDecl* ']]>'
+//     NamedConditionalSect ::= '<![' S* PEReference S* '[' ExtSubsetDecl* ']]>'
+[[66]] CharRef ::= ('&#' Number ';') | ( '&#x' HexNumber ';' )
+[[67]] Reference ::= EntityRef | CharRef
+[[68]] EntityRef ::= '&' NCName ';'
+[[69]] PEReference ::= '%' NCName ';'
+[[70]] EntityDecl ::= '<!ENTITY' S+ ( GEDecl | PEDecl )
+//     EntityDecl ::= GEDecl | PEDecl
+[[71]] GEDecl ::= NCName S+ EntityDef S* '>'
+//     GEDecl ::= '<!ENTITY' S+ NCName S+ EntityDef S* '>'
+[[72]] PEDecl ::= '%' S+ NCName S+ PEDef S* '>'
+       // PEDecl ::= '<!ENTITY' S+ '%' S+ NCName S+ PEDef S* '>'
+[[73]] EntityDef ::= EntityValue | (ExternalID NDataDecl?)
+[[74]] PEDef ::= EntityValue | ExternalID
+[[75]] ExternalID ::= ( SYSTEM S+ SystemLiteral )
+                    | ( PUBLIC S+ PubidLiteral S+ SystemLiteral )
+[[76]] NDataDecl ::=  S+ NDATA S+ NCName
+[[77]] TextDecl ::= '<?xml' VersionInfo? EncodingDecl S* '?>'
+[[78]] ExtParsedEnt ::= TextDecl? Content*
+//     [[79]]  eliminated ExtPE ::= TextDecl? ExtSubsetDecl*
+[[80]] EncodingDecl ::=  S+ encoding Eq ( ('"' EncNameCharData '"') | ( '\'' EncNameCharData '\'' ) )
+//     [[81]] EncName ::= [A-Za-z] ([A-Za-z0-9._] | '-')*
+[[82]] NotationDecl ::= '<!NOTATION'  S+ NCName S+ PublicID S* '>'
+//     NotationDecl ::= '<!NOTATION'  S+ NCName S+ (ExternalID |  PublicID) S* '>'
+[[83]] PublicID  ::= ( SYSTEM S+ SystemLiteral )
+                   | ( PUBLIC S+ PubidLiteral (S+ SystemLiteral)? )
+//     PublicID ::= PUBLIC S+ PubidLiteral
+
+
+

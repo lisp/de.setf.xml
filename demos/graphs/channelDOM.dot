@@ -1,0 +1,800 @@
+
+
+digraph Channel {
+
+  "Channel" ;
+
+  "Channel-8319" ;
+
+  "xmlns-8320" [label="xmlns=''"];
+
+  "Channel-8319" -> "xmlns-8320" ;
+
+  "HREF-8321" [label="HREF='http://www.foosports.com/foosports.cdf'"];
+
+  "Channel-8319" -> "HREF-8321" ;
+
+  "IsClonable-8322" [label="IsClonable='YES'"];
+
+  "Channel-8319" -> "IsClonable-8322" ;
+
+  "STRING-8323" [label="'\n\n    '"];
+
+  "Channel-8319" -> "STRING-8323" ;
+
+  "IntroURI-8324" ;
+
+  "VALUE-8325" [label="VALUE='http://www.foosports.com/channel-setup.html'"];
+
+  "IntroURI-8324" -> "VALUE-8325" ;
+
+  "Channel-8319" -> "IntroURI-8324" ;
+
+  "STRING-8326" [label="'\n    '"];
+
+  "Channel-8319" -> "STRING-8326" ;
+
+  "LastMod-8327" ;
+
+  "VALUE-8328" [label="VALUE='1994.11.05T08:15-0500'"];
+
+  "LastMod-8327" -> "VALUE-8328" ;
+
+  "Channel-8319" -> "LastMod-8327" ;
+
+  "STRING-8329" [label="'\n    '"];
+
+  "Channel-8319" -> "STRING-8329" ;
+
+  "Title-8330" ;
+
+  "VALUE-8331" [label="VALUE='FooSports'"];
+
+  "Title-8330" -> "VALUE-8331" ;
+
+  "Channel-8319" -> "Title-8330" ;
+
+  "STRING-8332" [label="'\n    '"];
+
+  "Channel-8319" -> "STRING-8332" ;
+
+  "Abstract-8333" ;
+
+  "VALUE-8334" [label="VALUE='The latest in sports and atheletics from\nFooSports'"];
+
+  "Abstract-8333" -> "VALUE-8334" ;
+
+  "Channel-8319" -> "Abstract-8333" ;
+
+  "STRING-8335" [label="'\n    '"];
+
+  "Channel-8319" -> "STRING-8335" ;
+
+  "Author-8336" ;
+
+  "VALUE-8337" [label="VALUE='FooSports'"];
+
+  "Author-8336" -> "VALUE-8337" ;
+
+  "Channel-8319" -> "Author-8336" ;
+
+  "STRING-8338" [label="'\n\n    '"];
+
+  "Channel-8319" -> "STRING-8338" ;
+
+  "Schedule-8339" ;
+
+  "STRING-8340" [label="'\n      '"];
+
+  "Schedule-8339" -> "STRING-8340" ;
+
+  "EndDate-8341" ;
+
+  "VALUE-8342" [label="VALUE='1994.11.05T08:15-0500'"];
+
+  "EndDate-8341" -> "VALUE-8342" ;
+
+  "Schedule-8339" -> "EndDate-8341" ;
+
+  "STRING-8343" [label="'\n      '"];
+
+  "Schedule-8339" -> "STRING-8343" ;
+
+  "IntervalTime-8344" ;
+
+  "DAY-8345" [label="DAY='1'"];
+
+  "IntervalTime-8344" -> "DAY-8345" ;
+
+  "HOUR-8346" [label="HOUR='0'"];
+
+  "IntervalTime-8344" -> "HOUR-8346" ;
+
+  "MIN-8347" [label="MIN='0'"];
+
+  "IntervalTime-8344" -> "MIN-8347" ;
+
+  "SEC-8348" [label="SEC='0'"];
+
+  "IntervalTime-8344" -> "SEC-8348" ;
+
+  "Schedule-8339" -> "IntervalTime-8344" ;
+
+  "STRING-8349" [label="'\n      '"];
+
+  "Schedule-8339" -> "STRING-8349" ;
+
+  "EarliestTime-8350" ;
+
+  "HOUR-8351" [label="HOUR='12'"];
+
+  "EarliestTime-8350" -> "HOUR-8351" ;
+
+  "DAY-8352" [label="DAY='0'"];
+
+  "EarliestTime-8350" -> "DAY-8352" ;
+
+  "MIN-8353" [label="MIN='0'"];
+
+  "EarliestTime-8350" -> "MIN-8353" ;
+
+  "SEC-8354" [label="SEC='0'"];
+
+  "EarliestTime-8350" -> "SEC-8354" ;
+
+  "Schedule-8339" -> "EarliestTime-8350" ;
+
+  "STRING-8355" [label="'\n      '"];
+
+  "Schedule-8339" -> "STRING-8355" ;
+
+  "LatestTime-8356" ;
+
+  "HOUR-8357" [label="HOUR='18'"];
+
+  "LatestTime-8356" -> "HOUR-8357" ;
+
+  "DAY-8358" [label="DAY='0'"];
+
+  "LatestTime-8356" -> "DAY-8358" ;
+
+  "MIN-8359" [label="MIN='0'"];
+
+  "LatestTime-8356" -> "MIN-8359" ;
+
+  "SEC-8360" [label="SEC='0'"];
+
+  "LatestTime-8356" -> "SEC-8360" ;
+
+  "Schedule-8339" -> "LatestTime-8356" ;
+
+  "STRING-8361" [label="'\n   '"];
+
+  "Schedule-8339" -> "STRING-8361" ;
+
+  "Channel-8319" -> "Schedule-8339" ;
+
+  "STRING-8362" [label="'\n\n    '"];
+
+  "Channel-8319" -> "STRING-8362" ;
+
+  "Logo-8363" ;
+
+  "HREF-8364" [label="HREF='http://www.foosports.com/images/logo.gif'"];
+
+  "Logo-8363" -> "HREF-8364" ;
+
+  "TYPE-8365" [label="TYPE='REGULAR'"];
+
+  "Logo-8363" -> "TYPE-8365" ;
+
+  "Channel-8319" -> "Logo-8363" ;
+
+  "STRING-8366" [label="'\n\n    '"];
+
+  "Channel-8319" -> "STRING-8366" ;
+
+  "Item-8367" ;
+
+  "HREF-8368" [label="HREF='http://www.foosports.com/articles/a1.html'"];
+
+  "Item-8367" -> "HREF-8368" ;
+
+  "IsVisible-8369" [label="IsVisible='YES'"];
+
+  "Item-8367" -> "IsVisible-8369" ;
+
+  "Priority-8370" [label="Priority='NORMAL'"];
+
+  "Item-8367" -> "Priority-8370" ;
+
+  "Precache-8371" [label="Precache='DEFAULT'"];
+
+  "Item-8367" -> "Precache-8371" ;
+
+  "STRING-8372" [label="'\n       '"];
+
+  "Item-8367" -> "STRING-8372" ;
+
+  "LastMod-8373" ;
+
+  "VALUE-8374" [label="VALUE='1994.11.05T08:15-0500'"];
+
+  "LastMod-8373" -> "VALUE-8374" ;
+
+  "Item-8367" -> "LastMod-8373" ;
+
+  "STRING-8375" [label="'\n       '"];
+
+  "Item-8367" -> "STRING-8375" ;
+
+  "Title-8376" ;
+
+  "VALUE-8377" [label="VALUE='How to get the most out of your mountain\nbike'"];
+
+  "Title-8376" -> "VALUE-8377" ;
+
+  "Item-8367" -> "Title-8376" ;
+
+  "STRING-8378" [label="'\n       '"];
+
+  "Item-8367" -> "STRING-8378" ;
+
+  "Abstract-8379" ;
+
+  "VALUE-8380" [label="VALUE='20 tips on how to work your mountain-bike\nto the bone and come out on top.'"];
+
+  "Abstract-8379" -> "VALUE-8380" ;
+
+  "Item-8367" -> "Abstract-8379" ;
+
+  "STRING-8381" [label="'\n       '"];
+
+  "Item-8367" -> "STRING-8381" ;
+
+  "Author-8382" ;
+
+  "VALUE-8383" [label="VALUE='FooSports'"];
+
+  "Author-8382" -> "VALUE-8383" ;
+
+  "Item-8367" -> "Author-8382" ;
+
+  "STRING-8384" [label="'\n    '"];
+
+  "Item-8367" -> "STRING-8384" ;
+
+  "Channel-8319" -> "Item-8367" ;
+
+  "STRING-8385" [label="'\n\n    '"];
+
+  "Channel-8319" -> "STRING-8385" ;
+
+  "Channel-8386" ;
+
+  "xmlns-8387" [label="xmlns=''"];
+
+  "Channel-8386" -> "xmlns-8387" ;
+
+  "IsClonable-8388" [label="IsClonable='NO'"];
+
+  "Channel-8386" -> "IsClonable-8388" ;
+
+  "STRING-8389" [label="'\n        '"];
+
+  "Channel-8386" -> "STRING-8389" ;
+
+  "LastMod-8390" ;
+
+  "VALUE-8391" [label="VALUE='1994.11.05T08:15-0500'"];
+
+  "LastMod-8390" -> "VALUE-8391" ;
+
+  "Channel-8386" -> "LastMod-8390" ;
+
+  "STRING-8392" [label="'\n        '"];
+
+  "Channel-8386" -> "STRING-8392" ;
+
+  "Title-8393" ;
+
+  "VALUE-8394" [label="VALUE='FooSports News'"];
+
+  "Title-8393" -> "VALUE-8394" ;
+
+  "Channel-8386" -> "Title-8393" ;
+
+  "STRING-8395" [label="'\n        '"];
+
+  "Channel-8386" -> "STRING-8395" ;
+
+  "Abstract-8396" ;
+
+  "VALUE-8397" [label="VALUE='Up-to-date daily sports news from\nFooSports'"];
+
+  "Abstract-8396" -> "VALUE-8397" ;
+
+  "Channel-8386" -> "Abstract-8396" ;
+
+  "STRING-8398" [label="'\n        '"];
+
+  "Channel-8386" -> "STRING-8398" ;
+
+  "Author-8399" ;
+
+  "VALUE-8400" [label="VALUE='FooSports'"];
+
+  "Author-8399" -> "VALUE-8400" ;
+
+  "Channel-8386" -> "Author-8399" ;
+
+  "STRING-8401" [label="'\n\n        '"];
+
+  "Channel-8386" -> "STRING-8401" ;
+
+  "Logo-8402" ;
+
+  "HREF-8403" [label="HREF='http://www.foosports.com/images/newslogo.gif'"];
+
+  "Logo-8402" -> "HREF-8403" ;
+
+  "TYPE-8404" [label="TYPE='REGULAR'"];
+
+  "Logo-8402" -> "TYPE-8404" ;
+
+  "Channel-8386" -> "Logo-8402" ;
+
+  "STRING-8405" [label="'\n        '"];
+
+  "Channel-8386" -> "STRING-8405" ;
+
+  "Logo-8406" ;
+
+  "HREF-8407" [label="HREF='http://www.foosports.com/images/newslogowide.gif'"];
+
+  "Logo-8406" -> "HREF-8407" ;
+
+  "TYPE-8408" [label="TYPE='WIDE'"];
+
+  "Logo-8406" -> "TYPE-8408" ;
+
+  "Channel-8386" -> "Logo-8406" ;
+
+  "STRING-8409" [label="'\n\n        '"];
+
+  "Channel-8386" -> "STRING-8409" ;
+
+  "Item-8410" ;
+
+  "HREF-8411" [label="HREF='http://www.foosports.com/articles/news1.html'"];
+
+  "Item-8410" -> "HREF-8411" ;
+
+  "IsVisible-8412" [label="IsVisible='YES'"];
+
+  "Item-8410" -> "IsVisible-8412" ;
+
+  "Priority-8413" [label="Priority='NORMAL'"];
+
+  "Item-8410" -> "Priority-8413" ;
+
+  "Precache-8414" [label="Precache='DEFAULT'"];
+
+  "Item-8410" -> "Precache-8414" ;
+
+  "STRING-8415" [label="'\n            '"];
+
+  "Item-8410" -> "STRING-8415" ;
+
+  "LastMod-8416" ;
+
+  "VALUE-8417" [label="VALUE='1994.11.05T08:15-0500'"];
+
+  "LastMod-8416" -> "VALUE-8417" ;
+
+  "Item-8410" -> "LastMod-8416" ;
+
+  "STRING-8418" [label="'\n            '"];
+
+  "Item-8410" -> "STRING-8418" ;
+
+  "Title-8419" ;
+
+  "VALUE-8420" [label="VALUE='Michael Jordan does it again!'"];
+
+  "Title-8419" -> "VALUE-8420" ;
+
+  "Item-8410" -> "Title-8419" ;
+
+  "STRING-8421" [label="'\n            '"];
+
+  "Item-8410" -> "STRING-8421" ;
+
+  "Abstract-8422" ;
+
+  "VALUE-8423" [label="VALUE='Led by Michael Jordan in scoring, the\nChicago Bulls make it to the playoffs again!'"];
+
+  "Abstract-8422" -> "VALUE-8423" ;
+
+  "Item-8410" -> "Abstract-8422" ;
+
+  "STRING-8424" [label="'\n            '"];
+
+  "Item-8410" -> "STRING-8424" ;
+
+  "Author-8425" ;
+
+  "VALUE-8426" [label="VALUE='FooSports'"];
+
+  "Author-8425" -> "VALUE-8426" ;
+
+  "Item-8410" -> "Author-8425" ;
+
+  "STRING-8427" [label="'\n        '"];
+
+  "Item-8410" -> "STRING-8427" ;
+
+  "Channel-8386" -> "Item-8410" ;
+
+  "STRING-8428" [label="'\n\n        '"];
+
+  "Channel-8386" -> "STRING-8428" ;
+
+  "Item-8429" ;
+
+  "HREF-8430" [label="HREF='http://www.foosports.com/articles/news2.html'"];
+
+  "Item-8429" -> "HREF-8430" ;
+
+  "IsVisible-8431" [label="IsVisible='YES'"];
+
+  "Item-8429" -> "IsVisible-8431" ;
+
+  "Priority-8432" [label="Priority='NORMAL'"];
+
+  "Item-8429" -> "Priority-8432" ;
+
+  "Precache-8433" [label="Precache='DEFAULT'"];
+
+  "Item-8429" -> "Precache-8433" ;
+
+  "STRING-8434" [label="'\n            '"];
+
+  "Item-8429" -> "STRING-8434" ;
+
+  "LastMod-8435" ;
+
+  "VALUE-8436" [label="VALUE='1994.11.05T08:15-0500'"];
+
+  "LastMod-8435" -> "VALUE-8436" ;
+
+  "Item-8429" -> "LastMod-8435" ;
+
+  "STRING-8437" [label="'\n            '"];
+
+  "Item-8429" -> "STRING-8437" ;
+
+  "Title-8438" ;
+
+  "VALUE-8439" [label="VALUE='Islanders winning streak ends'"];
+
+  "Title-8438" -> "VALUE-8439" ;
+
+  "Item-8429" -> "Title-8438" ;
+
+  "STRING-8440" [label="'\n            '"];
+
+  "Item-8429" -> "STRING-8440" ;
+
+  "Abstract-8441" ;
+
+  "VALUE-8442" [label="VALUE='The New York islanders' 10-game\nwinning streak ended with a disappointing loss to the Rangers'"];
+
+  "Abstract-8441" -> "VALUE-8442" ;
+
+  "Item-8429" -> "Abstract-8441" ;
+
+  "STRING-8443" [label="'\n            '"];
+
+  "Item-8429" -> "STRING-8443" ;
+
+  "Author-8444" ;
+
+  "VALUE-8445" [label="VALUE='FooSports'"];
+
+  "Author-8444" -> "VALUE-8445" ;
+
+  "Item-8429" -> "Author-8444" ;
+
+  "STRING-8446" [label="'\n        '"];
+
+  "Item-8429" -> "STRING-8446" ;
+
+  "Channel-8386" -> "Item-8429" ;
+
+  "STRING-8447" [label="'\n\n    '"];
+
+  "Channel-8386" -> "STRING-8447" ;
+
+  "Channel-8319" -> "Channel-8386" ;
+
+  "STRING-8448" [label="'\n\n    '"];
+
+  "Channel-8319" -> "STRING-8448" ;
+
+  "Item-8449" ;
+
+  "HREF-8450" [label="HREF='http://www.foosports.com/animations/scrnsvr.html'"];
+
+  "Item-8449" -> "HREF-8450" ;
+
+  "IsVisible-8451" [label="IsVisible='YES'"];
+
+  "Item-8449" -> "IsVisible-8451" ;
+
+  "Priority-8452" [label="Priority='NORMAL'"];
+
+  "Item-8449" -> "Priority-8452" ;
+
+  "Precache-8453" [label="Precache='DEFAULT'"];
+
+  "Item-8449" -> "Precache-8453" ;
+
+  "STRING-8454" [label="'\n       '"];
+
+  "Item-8449" -> "STRING-8454" ;
+
+  "Usage-8455" ;
+
+  "VALUE-8456" [label="VALUE='ScreenSaver'"];
+
+  "Usage-8455" -> "VALUE-8456" ;
+
+  "Item-8449" -> "Usage-8455" ;
+
+  "STRING-8457" [label="'\n    '"];
+
+  "Item-8449" -> "STRING-8457" ;
+
+  "Channel-8319" -> "Item-8449" ;
+
+  "STRING-8458" [label="'\n\n    '"];
+
+  "Channel-8319" -> "STRING-8458" ;
+
+  "Item-8459" ;
+
+  "HREF-8460" [label="HREF='http://www.foosports.com/ticker.html'"];
+
+  "Item-8459" -> "HREF-8460" ;
+
+  "IsVisible-8461" [label="IsVisible='YES'"];
+
+  "Item-8459" -> "IsVisible-8461" ;
+
+  "Priority-8462" [label="Priority='NORMAL'"];
+
+  "Item-8459" -> "Priority-8462" ;
+
+  "Precache-8463" [label="Precache='DEFAULT'"];
+
+  "Item-8459" -> "Precache-8463" ;
+
+  "STRING-8464" [label="'\n       '"];
+
+  "Item-8459" -> "STRING-8464" ;
+
+  "Title-8465" ;
+
+  "VALUE-8466" [label="VALUE='FooSports News Ticker'"];
+
+  "Title-8465" -> "VALUE-8466" ;
+
+  "Item-8459" -> "Title-8465" ;
+
+  "STRING-8467" [label="'\n       '"];
+
+  "Item-8459" -> "STRING-8467" ;
+
+  "Abstract-8468" ;
+
+  "VALUE-8469" [label="VALUE='The latest sports headlines from\nFooSports'"];
+
+  "Abstract-8468" -> "VALUE-8469" ;
+
+  "Item-8459" -> "Abstract-8468" ;
+
+  "STRING-8470" [label="'\n       '"];
+
+  "Item-8459" -> "STRING-8470" ;
+
+  "Author-8471" ;
+
+  "VALUE-8472" [label="VALUE='FooSports'"];
+
+  "Author-8471" -> "VALUE-8472" ;
+
+  "Item-8459" -> "Author-8471" ;
+
+  "STRING-8473" [label="'\n       '"];
+
+  "Item-8459" -> "STRING-8473" ;
+
+  "LastMod-8474" ;
+
+  "VALUE-8475" [label="VALUE='1994.11.05T08:15-0500'"];
+
+  "LastMod-8474" -> "VALUE-8475" ;
+
+  "Item-8459" -> "LastMod-8474" ;
+
+  "STRING-8476" [label="'\n\n       '"];
+
+  "Item-8459" -> "STRING-8476" ;
+
+  "COMMENT-8477" [label="' This is an example of how Usage can be used for client\nenhancements '"];
+
+  "Item-8459" -> "COMMENT-8477" ;
+
+  "STRING-8478" [label="'\n       '"];
+
+  "Item-8459" -> "STRING-8478" ;
+
+  "Usage-8479" ;
+
+  "VALUE-8480" [label="VALUE='DesktopComponent'"];
+
+  "Usage-8479" -> "VALUE-8480" ;
+
+  "STRING-8481" [label="'\n         '"];
+
+  "Usage-8479" -> "STRING-8481" ;
+
+  "Width-8482" ;
+
+  "VALUE-8483" [label="VALUE='400'"];
+
+  "Width-8482" -> "VALUE-8483" ;
+
+  "Usage-8479" -> "Width-8482" ;
+
+  "STRING-8484" [label="'\n         '"];
+
+  "Usage-8479" -> "STRING-8484" ;
+
+  "Height-8485" ;
+
+  "VALUE-8486" [label="VALUE='80'"];
+
+  "Height-8485" -> "VALUE-8486" ;
+
+  "Usage-8479" -> "Height-8485" ;
+
+  "STRING-8487" [label="'\n       '"];
+
+  "Usage-8479" -> "STRING-8487" ;
+
+  "Item-8459" -> "Usage-8479" ;
+
+  "STRING-8488" [label="'\n\n       '"];
+
+  "Item-8459" -> "STRING-8488" ;
+
+  "Schedule-8489" ;
+
+  "STRING-8490" [label="'\n          '"];
+
+  "Schedule-8489" -> "STRING-8490" ;
+
+  "StartDate-8491" ;
+
+  "VALUE-8492" [label="VALUE='1994.11.05T08:15-0500'"];
+
+  "StartDate-8491" -> "VALUE-8492" ;
+
+  "Schedule-8489" -> "StartDate-8491" ;
+
+  "STRING-8493" [label="'\n          '"];
+
+  "Schedule-8489" -> "STRING-8493" ;
+
+  "EndDate-8494" ;
+
+  "VALUE-8495" [label="VALUE='1994.11.05T08:15-0500'"];
+
+  "EndDate-8494" -> "VALUE-8495" ;
+
+  "Schedule-8489" -> "EndDate-8494" ;
+
+  "STRING-8496" [label="'\n          '"];
+
+  "Schedule-8489" -> "STRING-8496" ;
+
+  "IntervalTime-8497" ;
+
+  "DAY-8498" [label="DAY='1'"];
+
+  "IntervalTime-8497" -> "DAY-8498" ;
+
+  "HOUR-8499" [label="HOUR='0'"];
+
+  "IntervalTime-8497" -> "HOUR-8499" ;
+
+  "MIN-8500" [label="MIN='0'"];
+
+  "IntervalTime-8497" -> "MIN-8500" ;
+
+  "SEC-8501" [label="SEC='0'"];
+
+  "IntervalTime-8497" -> "SEC-8501" ;
+
+  "Schedule-8489" -> "IntervalTime-8497" ;
+
+  "STRING-8502" [label="'\n          '"];
+
+  "Schedule-8489" -> "STRING-8502" ;
+
+  "EarliestTime-8503" ;
+
+  "HOUR-8504" [label="HOUR='12'"];
+
+  "EarliestTime-8503" -> "HOUR-8504" ;
+
+  "DAY-8505" [label="DAY='0'"];
+
+  "EarliestTime-8503" -> "DAY-8505" ;
+
+  "MIN-8506" [label="MIN='0'"];
+
+  "EarliestTime-8503" -> "MIN-8506" ;
+
+  "SEC-8507" [label="SEC='0'"];
+
+  "EarliestTime-8503" -> "SEC-8507" ;
+
+  "Schedule-8489" -> "EarliestTime-8503" ;
+
+  "STRING-8508" [label="'\n          '"];
+
+  "Schedule-8489" -> "STRING-8508" ;
+
+  "LatestTime-8509" ;
+
+  "HOUR-8510" [label="HOUR='18'"];
+
+  "LatestTime-8509" -> "HOUR-8510" ;
+
+  "DAY-8511" [label="DAY='0'"];
+
+  "LatestTime-8509" -> "DAY-8511" ;
+
+  "MIN-8512" [label="MIN='0'"];
+
+  "LatestTime-8509" -> "MIN-8512" ;
+
+  "SEC-8513" [label="SEC='0'"];
+
+  "LatestTime-8509" -> "SEC-8513" ;
+
+  "Schedule-8489" -> "LatestTime-8509" ;
+
+  "STRING-8514" [label="'\n       '"];
+
+  "Schedule-8489" -> "STRING-8514" ;
+
+  "Item-8459" -> "Schedule-8489" ;
+
+  "STRING-8515" [label="'\n    '"];
+
+  "Item-8459" -> "STRING-8515" ;
+
+  "Channel-8319" -> "Item-8459" ;
+
+  "STRING-8516" [label="'\n\n'"];
+
+  "Channel-8319" -> "STRING-8516" ;
+
+  "Channel" -> "Channel-8319" ;
+
+ }
+

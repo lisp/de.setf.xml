@@ -1,0 +1,204 @@
+
+
+digraph mail {
+
+  "mail" ;
+
+  "COMMENT-8537" [label="' This is a sample email data file '"];
+
+  "mail" -> "COMMENT-8537" ;
+
+  "mail-8538" ;
+
+  "xmlns-8539" [label="xmlns=''"];
+
+  "mail-8538" -> "xmlns-8539" ;
+
+  "STRING-8540" [label="'\n        '"];
+
+  "mail-8538" -> "STRING-8540" ;
+
+  "Recipient-8541" ;
+
+  "attr-8542" [label="attr='val'"];
+
+  "Recipient-8541" -> "attr-8542" ;
+
+  "STRING-8543" [label="'hb@ix.heise.de'"];
+
+  "Recipient-8541" -> "STRING-8543" ;
+
+  "mail-8538" -> "Recipient-8541" ;
+
+  "STRING-8544" [label="'\n        '"];
+
+  "mail-8538" -> "STRING-8544" ;
+
+  "Sender-8545" ;
+
+  "STRING-8546" [label="'Ingo.Macherius@tu-clausthal.de'"];
+
+  "Sender-8545" -> "STRING-8546" ;
+
+  "mail-8538" -> "Sender-8545" ;
+
+  "STRING-8547" [label="'\n        '"];
+
+  "mail-8538" -> "STRING-8547" ;
+
+  "Date-8548" ;
+
+  "STRING-8549" [label="'Mon, 21 Apr 1997 09:27:55 +0200'"];
+
+  "Date-8548" -> "STRING-8549" ;
+
+  "mail-8538" -> "Date-8548" ;
+
+  "STRING-8550" [label="'\n        '"];
+
+  "mail-8538" -> "STRING-8550" ;
+
+  "Subject-8551" ;
+
+  "STRING-8552" [label="'XML literature'"];
+
+  "Subject-8551" -> "STRING-8552" ;
+
+  "mail-8538" -> "Subject-8551" ;
+
+  "STRING-8553" [label="'\n\n'"];
+
+  "mail-8538" -> "STRING-8553" ;
+
+  "Textbody-8554" ;
+
+  "STRING-8555" [label="'\n        '"];
+
+  "Textbody-8554" -> "STRING-8555" ;
+
+  "p-8556" ;
+
+  "lang-8557" [label="lang='en'"];
+
+  "p-8556" -> "lang-8557" ;
+
+  "STRING-8558" [label="'Hello Mr '"];
+
+  "p-8556" -> "STRING-8558" ;
+
+  "Name-8559" ;
+
+  "STRING-8560" [label="'Behme'"];
+
+  "Name-8559" -> "STRING-8560" ;
+
+  "p-8556" -> "Name-8559" ;
+
+  "STRING-8561" [label="','"];
+
+  "p-8556" -> "STRING-8561" ;
+
+  "Textbody-8554" -> "p-8556" ;
+
+  "STRING-8562" [label="'\n\n        '"];
+
+  "Textbody-8554" -> "STRING-8562" ;
+
+  "p-8563" ;
+
+  "lang-8564" [label="lang='en'"];
+
+  "p-8563" -> "lang-8564" ;
+
+  "STRING-8565" [label="'Please read '"];
+
+  "p-8563" -> "STRING-8565" ;
+
+  "Name-8566" ;
+
+  "STRING-8567" [label="'Jon Bosak'"];
+
+  "Name-8566" -> "STRING-8567" ;
+
+  "p-8563" -> "Name-8566" ;
+
+  "STRING-8568" [label="''s\n           introductory text'"];
+
+  "p-8563" -> "STRING-8568" ;
+
+  "Textbody-8554" -> "p-8563" ;
+
+  "STRING-8569" [label="'\n        '"];
+
+  "Textbody-8554" -> "STRING-8569" ;
+
+  "p-8570" ;
+
+  "lang-8571" [label="lang='en'"];
+
+  "p-8570" -> "lang-8571" ;
+
+  "STRING-8572" [label="'\"SGML, Java and the Future of the Web\"'"];
+
+  "p-8570" -> "STRING-8572" ;
+
+  "Textbody-8554" -> "p-8570" ;
+
+  "STRING-8573" [label="'\n        '"];
+
+  "Textbody-8554" -> "STRING-8573" ;
+
+  "p-8574" ;
+
+  "lang-8575" [label="lang='en'"];
+
+  "p-8574" -> "lang-8575" ;
+
+  "STRING-8576" [label="'Best wishes,'"];
+
+  "p-8574" -> "STRING-8576" ;
+
+  "Textbody-8554" -> "p-8574" ;
+
+  "STRING-8577" [label="'\n\n        '"];
+
+  "Textbody-8554" -> "STRING-8577" ;
+
+  "p-8578" ;
+
+  "lang-8579" [label="lang='en'"];
+
+  "p-8578" -> "lang-8579" ;
+
+  "STRING-8580" [label="'\n                '"];
+
+  "p-8578" -> "STRING-8580" ;
+
+  "Name-8581" ;
+
+  "STRING-8582" [label="'Ingo Macherius'"];
+
+  "Name-8581" -> "STRING-8582" ;
+
+  "p-8578" -> "Name-8581" ;
+
+  "STRING-8583" [label="'\n        '"];
+
+  "p-8578" -> "STRING-8583" ;
+
+  "Textbody-8554" -> "p-8578" ;
+
+  "STRING-8584" [label="'\n'"];
+
+  "Textbody-8554" -> "STRING-8584" ;
+
+  "mail-8538" -> "Textbody-8554" ;
+
+  "STRING-8585" [label="'\n'"];
+
+  "mail-8538" -> "STRING-8585" ;
+
+  "mail" -> "mail-8538" ;
+
+ }
+

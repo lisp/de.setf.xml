@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+<!--
+<DOCUMENTATION>
+ <CHRONOLOGY>
+  <DELTA><DATE>19971115</DATE>
+   <A HREF="mailto:jaa%mecom-gmbh@mixx.de">jaa </A>:
+   this document was composed to accompany the prototype distribution.
+   covers background, program structure, and file organization.
+   </DELTA>
+  <DELTA><DATE>19971210</DATE>
+   jaa:
+   additions for model compiler and element matcher
+   </DELTA>
+  <DELTA><DATE>19980102</DATE>
+   jaa: relation to other lisp serialization / representation efforts
+   <DELTA>
+  </CHRONOLOGY>
+ </DOCUMENTATION>
+-->
+
+	<META NAME="GENERATOR" Content="Symantec Visual Page 1.0.3">
+	<TITLE>Common Lisp - XML</TITLE>
+</HEAD>
+
+<BODY TEXT="#000000" BGCOLOR="#E8E8E8">
+
+<P>
+<HR>
+<BR>
+
+<TABLE BORDER="1" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+	<TR>
+		<TD ALIGN="CENTER">
+			<P ALIGN="CENTER">[<A HREF="#XML-BACKGROUND">background</A> on xml] [<A HREF="#OTHER-REPRESENTATIONS">alternative
+			&quot;representations&quot; in lisp</A>]<A NAME="TOP"></A>
+		</TD>
+	</TR>
+</TABLE>
+
+<HR>
+</P>
+<P>This document is included with CL-XML as a placeholder for links to XML resources.<BR>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+	<TR>
+		<TD>
+<HR>
+		</TD>
+		<TD WIDTH="24" UNITS="PIXELS">[<A HREF="#TOP">Top</A>]</TD>
+	</TR>
+</TABLE>
+
+<H3><A NAME="XML-BACKGROUND"></A>A bit of background on XML</H3>
+<P>There is a wealth of information available on-line about XML One might start with
+one of the following:
+
+<UL>
+	<LI><A HREF="http://www.w3.org/XML/">the W3 xml page</A>,
+	<LI>an <A HREF="http://sunsite.unc.edu/pub/sun-info/standards/xml/why/xmlapps.htm">article
+	by Jon Bosak</A>, which suggests various xml applications,
+	<LI><A HREF="http://www.xml.org">xml.org</A>
+	<LI><A HREF="http://www.oasis.org">oasis.org</A>
+	<LI><A HREF="http://www.xml.com">xml.com</A>
+</UL>
+
+<P>XML is a <A HREF="#language">notation</A> for storing, retrieving, and, in general,
+communicating data in a &quot;self-describing&quot; serialized form. It is a syntax
+to &quot;mark up&quot; text-encoded data. The encoding uses annotated, or attributed
+tags to denote sequence and containment relations among data. Each application is
+free to define its own tags and relations as a document type. XML is proposed, in
+particular, as a notation for data to be exchanged between HTTP clients and servers
+(or, more accurately among any processes capable of operating with URL-specified
+data resources). To quote the original standard
+
+
+<BLOCKQUOTE>
+	<P>&quot;The Extensible Markup Language (XML) is a simple dialect of SGML.... The
+	goal is to enable generic SGML to be served, received, and processed on the Web in
+	the way that is now possible with HTML. XML has been designed for ease of implementation
+	and for interoperability with both SGML and HTML.&quot;
+
+</BLOCKQUOTE>
+
+<P>There is now even a form of HTML ( <A HREF="REC-XHTML">XHTML</A> ) which is a
+direct implementation of XML. A definition is, however, optional and documents are
+also permitted, which have no definition, so long as all elements are marked with
+matching open and close tags or with an empty tag, and so long as containment relations
+are unambiguous.</P>
+<P>One might, for example, express the most trivial of relations from the lisp domain
+as the following XML document:</P>
+<PRE>&lt;cons&gt;&lt;car&gt;first&lt;/car&gt;&lt;cdr&gt;rest&lt;/cdr&gt;&lt;/cons&gt;
+</PRE>
+<P>The following, also trivial, HTML document, would also be a legitimate XML document:</P>
+<PRE>&lt;html&gt;
+ &lt;head&gt;<CODE>&lt;title&gt;A Title&lt;/title&gt;</CODE>&lt;/head&gt;
+ &lt;body&gt;greetings in xml&lt;/body&gt;
+ &lt;/html&gt;
+</PRE>
+<P>In addition to the encoded content proper, in order to remain in accord with the
+various anscilliary standards, a documents likely includes a certain amount of &quot;commentary&quot;:</P>
+<PRE><CODE>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE html 
+      PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+     &quot;DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
+   &lt;head&gt;&lt;title&gt;A Title&lt;/title&gt;&lt;/head&gt;
+   &lt;body&gt;</CODE>greetings in xml<CODE>&lt;/body&gt;
+ &lt;/html&gt;</CODE></PRE>
+<P>One of the purposes for these additions, is to incorporate &quot;meta&quot;-data
+into the document by reference. The <CODE>DOCTYPE</CODE> form, for example, specifies
+the name and location of a &quot;document type definition&quot; which, in turn, describes
+the forms a valid document must follow. The <CODE>xmlns</CODE> attribute, for example,
+designates the &quot;namespace&quot; in which all unprefixed element names reside.</P>
+<P>XML is embodied in meriad proposals from the world-wide-web consortion, the internet
+engineering task force and the international standards organization. the consitiute
+a vast bidy of technical notes concerning the representation, communication and manipulation
+of &quot;document objects&quot;.
+
+<UL>
+	<LI>the <A HREF="#W3C.XML">XML proposal</A> itself, concerns the standard notation
+	to serialize &quot;document objects&quot;.
+	<LI>a <CITE>&quot;document object model&quot;</CITE> (or <A HREF="#W3C.DOM">&quot;DOM&quot;</A>)
+	describes a standard class hierarchy and functional interface to retrieve data from
+	&quot;document objects&quot;.
+	<LI>an <CITE>&quot;extensible style language</CITE> (or <A HREF="#W3C.XSL">&quot;XSL&quot;</A>)
+	proposes a system-independent description language for presentation and data store
+	interfaces
+	<LI>an <CITE>&quot;extensible linking language</CITE> (or <A HREF="#NOTE-XLL">&quot;</A><A
+	HREF="#W3C.XLL">XLL</A><A HREF="#NOTE-XLL">&quot;</A>) concerns the representation
+	on effects of links between &quot;document objects&quot;.
+	<LI>the &quot;<I>simple object application protocol</I>&quot; (or &quot;<A HREF="#W3C.SOAP">SOAP</A>&quot;)
+	concerns interprocess comunication.
+	<LI>java classes exist (<A HREF="http://www.microsoft.com/standards/xml/xmlparse.htm#docs">com.ms.xml.dso</A>)
+	which can operate within a brower to retrieve content from xml data sources and incorporate
+	them in html content.
+</UL>
+
+<P>In terms useful for the LISP developer, this means that an XML-serialization interface
+suffices to communicate data with any and all of
+
+<UL>
+	<LI>another lisp process, which can parse xml;
+	<LI>a browser, which uses xml-data sources to present the content as html
+	<LI>a java process, which can parse xml;
+	<LI>a sgml (or ultimately xml) editor, which could perform structurally constrained
+	editing and return the data as an xml object;
+	<LI>any xml-equiped database could be a persistent object store;
+</UL>
+
+<P>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+	<TR>
+		<TD>
+<HR>
+		</TD>
+		<TD WIDTH="24" UNITS="PIXELS">[<A HREF="#TOP">Top</A>]</TD>
+	</TR>
+</TABLE>
+
+<H3><A NAME="OTHER-REPRESENTATIONS"></A>what about other &quot;representations&quot;</H3>
+<P>the lisp world is at no loss for alternatives to serialize data or otherwise represent
+it external to a lisp process. the lisp standard includes at least two means (reader
+macros and load forms) which can be used to serialize data for archival or to pass
+it to another process. with suitable meta-object support, the necessary definitions
+can be specified as an aspect of class definition.</P>
+<P>the lisp application community has also been at no loss to develop representations
+for data and for data manipulation. in most cases (for example, KIF) the standard
+incorporates the standard lisp reader and thereby depends on equivalent runtime support
+among a communicating processes. such standards also extend well beyond the scope
+of xml, to specify protocols for application-level data-exchange and to specify mechanisms
+for interpreting messages.</P>
+
+<P>xml, on the other hand, is strictly a convention for encoding. it plays a role
+analogous to the <CODE>#(<I>structure-type</I> <I>slot-name</I> <I>slot-value</I>)</CODE>,
+and could be substituted for it in applications which share data with foreign application
+environments. as an encoding, xml does not concern protocol questions, which, in
+the case of a presentation protocol, are relegated to the application domain, and
+in the case of transport protocols are left to an underlying transport layer. for
+the latter, http is the likely dominant protocol.for the former, remember &quot;it's
+not a language, it's an encoding&quot;: semantic issues are also left entirely to
+the application, whereby a number of &quot;standardized&quot; applications are being
+discussed. (see the various <A HREF="http://www.w3c.org/">w3c</A> <A HREF="http://www.w3.org/Submission/">submissions</A>
+and <A HREF="http://www.w3.org/TR/">reports</A>.)<BR>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+	<TR>
+		<TD>
+<HR>
+		</TD>
+		<TD WIDTH="24" UNITS="PIXELS">[<A HREF="#TOP">Top</A>]</TD>
+	</TR>
+</TABLE>
+</P>
+
+<P><A HREF="/cl-http/standards/XSL/NOTE-xsl.html"><BR>
+</A>references<BR>
+<A NAME="LANGUAGE"></A> On the matter of &quot;languageW, &quot;encoding&quot;, and
+&quot;notation&quot; see please &quot;A Theory of Semiotics&quot;, Eco, Indiana university
+press, 1979. in particular p. 38, the discussion of <CITE>s-codes</CITE>. The XML
+standard itself is mostly restricted to specifing a <EM>notation for</EM> encoding,
+rather than an encoding. Encoding specifications are prodiced for document type definitions
+only. The XML-Names recommendation goeas a step further, where it specifies aspects
+of a sematics and encoding for universal names.<BR>
+<A NAME="XMLConform"></A> The OASIS confrmance suite, in the version 20010315 was
+used for confrmance testing.<BR>
+<A NAME="W3C.SOAP"></A> (SOAP) The <A HREF="http://www.w3.org/TR/xhtml1">recommendation</A>
+is available from the <A HREF="http://www.w3.org/">w3</A> consortion.<BR>
+<A NAME="W3C.XHTML"></A> (XHTML) The <A HREF="http://www.w3.org/TR/xhtml1">recommendation</A>
+is available from the <A HREF="http://www.w3.org/">w3</A> consortion.<BR>
+<A NAME="W3C.XMLINFO"></A> (XMLINFO): The <A HREF="http://www.w3.org/TR/xml-infoset">XML
+Infoset</A> specifies the terms of an abstract model for the content of a document.
+This model, in the concrete form of the <A HREF="#W3C.XQDM">XML Query Data Model</A>,
+serves as the input for XML Query and XML Path operations.<BR>
+<A NAME="W3C.XML"></A> (XML): The <A HREF="http://www.w3.org/TR/REC-xml">XML standard</A>
+specifies the code used to serialize data models as well as the groundrules for document
+and processor conformance. It also specifies validation criteria, but is restricted
+to namespace-neutral encodings.<BR>
+<A NAME="W3C.XMLNAMES"></A> (XML-NAMES): The provisions for encoding articulate names
+in XML describes how to treat the document entity. There is no ratified specification
+for DTD treatment.<BR>
+<A NAME="W3C.XPATH"></A> (XPATH) The <A HREF="http://www.w3.org/TR/xpath">XML Path
+Language</A> provides a syntax and semantics for expressions which address parts
+of an XML document. XPath expressions are incorporated in the <A HREF="#W3C.XQUERY">XML
+Query Language</A> to select document components as query operands.<BR>
+<A NAME="W3C.XQDM"></A> (XQDM): The <A HREF="http://www.w3.org/TR/query-datamodel">XML
+Query Data Model</A> is &quot;the foundation for the W3C XML Query Algebra... The
+XML Query Data Model defines formally the information contained in the input to an
+XML Query processor.&quot;<BR>
+<A NAME="W3C.XQUERY"></A>(XQUERY): The XML Query endeavour comprises two efforts:
+an <A HREF="http://www.w3.org/TR/query-algebra/">XML Query Algebra</A> and an <A
+HREF="http://www.w3.org/TR/xquery/">XML Query Language</A>. The former describes
+the abstract semantics of query operations against a data model. The latter specifies
+a concrete language for query expressions and their interpretation in terms of the
+query algebra.<BR>
+<A NAME="W3C.XSL"></A> (XSL): The original technical note is available <A HREF="http://www.w3.org/TR/NOTE-XSL.html">from
+the w3 consortium</A> or, in the 27.08.97 version, <A HREF="/cl-http/standards/XSL/NOTE-xsl.html">with
+the cl-http release.</A><BR>
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+	<TR>
+		<TD>
+<HR>
+		</TD>
+		<TD WIDTH="24" UNITS="PIXELS">[<A HREF="#TOP">Top</A>]</TD>
+	</TR>
+</TABLE>
+<A HREF="/cl-http/standards/XSL/NOTE-xsl.html"><BR>
+</A>&#169; setf.de 2001
+
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,4 @@
+
+20040515
+
+this is the cl-xml-0-949 release built for allegro.

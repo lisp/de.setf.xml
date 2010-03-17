@@ -1,0 +1,75 @@
+;;; -*- Mode: lisp; Syntax: ansi-common-lisp; Base: 10; Package: cl-user; -*-
+(in-package "COMMON-LISP-USER")
+
+;; FIXME: This doesn't belong here
+(require 'gray-streams)
+
+(setf (logical-pathname-translations "xml")
+      `(("**;*.*.*" ,(make-pathname :name nil :type nil :version nil
+				    :directory (append (pathname-directory *load-truename*)
+						       '(:wild-inferiors))
+				    :defaults (parse-namestring *load-truename*)))))
+
+(mk:defsystem :cl-xml
+    :source-pathname "xml:code;"
+    :source-extension "lisp"
+    :depends-on (bnfp)
+    :components ((:module :xutil
+			  :source-pathname "base;"
+			  :components ((:file "package")
+				       (:file "parameters")
+				       (:file "cllib")
+				       (:file "utils")
+				       (:file "parsetable")
+				       (:file "vector-stream")
+				       (:file "www-utils-ersatz")
+				       (:file "tokenizer")))
+		 (:module :xqdm
+			  :source-pathname "xquerydatamodel;"
+			  :components ((:file "xqdm-namespaces")
+				       (:file "xqdm-parameters")
+				       (:file "xqdm-character-classes")
+				       (:file "xqdm-classes")
+				       (:file "xsd-types")
+				       (:file "xqdm-conditions")
+				       (:file "xqdm-operators")
+				       (:file "xqdm-qnames")
+				       (:file "xqdm-validation")
+				       (:file "xqdm-graph")))
+		 (:module :xparser
+			  :source-pathname "xparser;"
+			  :depends-on (:xutil :xqdm)
+			  :components ((:file "xml-parameters")
+				       (:file "xml-stream-coding")
+				       (:file "xml-operators")
+				       (:file "xml-readers")
+				       (:file "xml-tokenizer")
+				       (:file "xml-processing-instruction")
+				       (:file "xml-constructors")
+				       (:file "xml-parser")
+				       (:file "xml-printer")
+				       (:file "xml-writer")))
+		 (:module :xpath
+			  :source-pathname "xpath;"
+			  :depends-on (xparser)
+			  :components ((:file "xpath-parameters")
+				       (:file "xpath-tokenizer")
+				       (:file "xpath-classes")
+				       (:file "xpath-operators")
+				       (:file "xpath-constructors")
+				       (:file "xpath-parser")
+				       (:file "xpath-printer")
+				       (:file "xpath-library")))
+		 (:module :xquery
+			  :source-pathname "xquery;"
+			  :depends-on (xparser xpath)
+			  :components ((:file "xq-parameters")
+				       (:file "xqa-classes")
+				       (:file "xqa-operators")
+				       (:file "xql-operators")
+				       (:file "xqa-library")
+				       (:file "xql-library")
+				       (:file "xql-tokenizer")
+				       (:file "xql-constructors")
+				       (:file "xql-parser")
+				       (:file "xq-printer")))))

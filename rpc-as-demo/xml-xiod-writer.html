@@ -1,0 +1,279 @@
+<html><head><title>xml-xiod-writer.lisp</title><style type='text/css'>
+body {background-color: #f4f4f8;}
+hr { clear: left;}
+*.logo { color: rgb(57%, 9.2%, 0%); }
+div.text { margin: 1ex; width: 30%; padding: 0; float:left; clear: left; }
+div.definition {
+  width: 65%; margin-left: auto; margin-right:1em; margin-top: .5ex; margin-bottom: .5ex; padding-left: 1em;
+  border: solid; border-width: 1px;
+  border-top-color: #e0e0e0; border-left-color: #e0e0e0; border-right-color: #ffffff; border-bottom-color: #ffffff;
+  background-color: #f6f6fa;
+  }
+div.definition div.signature {
+  margin-top: .1ex; margin-bottom: 0ex; font-family: 'courier';
+  }
+span.nature { float: right; }
+div.definition div.documentation {
+  visibility: visible; margin-left: 2em; margin-top: .1ex; margin-bottom: 0ex;
+  }
+div.definition div.form {
+  visibility: hidden; height: 0;
+  margin-left: 2em; margin-top: 0ex; margin-bottom: 0ex;  white-space: pre;
+  border-color: #e0e0e0;  border: solid; border-width: 1px;
+  font-family: 'courier';
+  background-color: #ffffff;
+  }
+div.source {
+  margin-right: 1em; margin-top: 1ex; margin-bottom: 1ex;  white-space: pre;  clear:left;
+  border-color: #e0e0e0;  border: solid; border-width: 1px;
+  font-family: 'courier';
+  background-color: #ffffff;
+  }
+div.file div.DOCUMENTATION { background-color: #f8f6fa; clear:left;
+                    border: solid; border-width: 1px;
+                    border-color: #e0e0e0;}
+</style>
+<script type='text/javascript'>
+  function showElement(target) {
+    target.style.visibility='visible';
+    target.style.height='auto';
+  }
+  function hideElement(target) {
+    target.style.visibility='hidden';
+    target.style.height='0';
+  }
+  function toggleDefinitionVisibility(name) {
+    formTarget = document.getElementById(name+'_form');
+    docTarget = document.getElementById(name+'_documentation');
+    if ( formTarget != undefined) {
+      if ( formTarget.style.visibility == 'visible' )
+        hideElement(formTarget);
+      else
+        showElement(formTarget);
+    }
+    if ( docTarget != undefined) {
+      if ( docTarget.style.visibility == 'hidden' )
+        showElement(docTarget);
+      else
+        hideElement(docTarget);
+    }
+  }
+  
+</script></head>
+<body>
+
+<div class='source' >(IN-PACKAGE :XML-PARSER)</div><table border='0' cellpadding='.1ex' cellspacing='0' width='100%'><tr><td style='font-size: 16pt; font-weight: bold;' class='logo'>setf.de:</td></tr><tr><td><a href='./xml-xiod-writer.lisp' type='text/plain'>xml-xiod-writer.lisp</a></td></tr><tr><td><hr/></td></tr></table>
+<div class='definition' ID='XML'>
+  <div class='signature' ><span>XML (EXPRESSION)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("XML")'>Macro</a></span></div>
+  <div class='form' ID='XML_form' onclick='javascript: toggleDefinitionVisibility("XML")'>(DEFMACRO XML (EXPRESSION)
+  (WHEN (EQ (FIRST EXPRESSION) 'ANNOTATION)
+    (SETF EXPRESSION (REST EXPRESSION)))
+  (LIST* 'XML*
+         (LIST* (FIRST EXPRESSION)
+                (MAPCAR #'(LAMBDA (EXP)
+                            (TYPECASE EXP
+                              (CONS (IF (CONSP (FIRST EXP))
+                                        (LIST* 'XML (LIST EXP))
+                                        EXP))
+                              (T EXP)))
+                        (REST EXPRESSION)))))</div></div>
+<div class='source' >(SETQ DE.SETF.XIOD.IMPLEMENTATION::*XML-HOOK*
+      #'(LAMBDA (EXPRESSION) (CONS 'ANNOTATION EXPRESSION)))</div>
+<div class='definition' ID='ANNOTATION'>
+  <div class='signature' ><span>ANNOTATION (&REST EXPRESSION)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("ANNOTATION")'>Macro</a></span></div>
+  <div class='form' ID='ANNOTATION_form' onclick='javascript: toggleDefinitionVisibility("ANNOTATION")'>(DEFMACRO ANNOTATION (&amp;REST EXPRESSION)
+  (CONS 'DE.SETF.XIOD.IMPLEMENTATION::COMMENT EXPRESSION))</div></div>
+<div class='definition' ID='XML*'>
+  <div class='signature' ><span>XML* (TAG &REST CONTENT)</span><span class='nature'><a href='javascript:toggleDefinitionVisibility("XML*")'>Macro</a></span></div>
+  <div class='documentation' ID='XML*_documentation'>Write a tag with contents, xs.  form can be:
+  tag -> name
+  tag -> (name . attribute ...)
+  name -> a symbol naming an HTML element, like h1. (nb. unquoted is normal)
+  attribute -> a symbol naming an attribute with a declare value, 
+               like compact.
+  attribute -> (name value)
+  value -> will be turned into a string and escaped properly.
+  nb. intended to be used within an an <code>WITH-XML-WRITER</code>.</div>
+  <div class='form' ID='XML*_form' onclick='javascript: toggleDefinitionVisibility("XML*")'>(DEFMACRO XML* (TAG &amp;REST CONTENT)
+  "Write a tag with contents, xs.  form can be:
+  tag -&gt; name
+  tag -&gt; (name . attribute ...)
+  name -&gt; a symbol naming an HTML element, like h1. (nb. unquoted is normal)
+  attribute -&gt; a symbol naming an attribute with a declare value, 
+               like compact.
+  attribute -&gt; (name value)
+  value -&gt; will be turned into a string and escaped properly.
+  nb. intended to be used within an an &lt;code&gt;WITH-XML-WRITER&lt;/code&gt;."
+  (LET* ((NEED-NAMESPACES NIL)
+         (TAG-NAME
+          (ETYPECASE TAG
+            (STRING TAG)
+            (SYMBOL (PROGN (SETF NEED-NAMESPACES T) TAG))
+            (ABSTRACT-NAME (PROGN (SETF NEED-NAMESPACES T) TAG))
+            (CONS (IF (AND (= (LENGTH TAG) 2) (EQ (CAR TAG) 'QUOTE))
+                      (SECOND TAG)
+                      (IF (CONSP (FIRST TAG))
+                          (SECOND (FIRST TAG))
+                          (FIRST TAG))))))
+         (ATTRIBUTES
+          (ETYPECASE TAG
+            (STRING NIL)
+            (SYMBOL NIL)
+            (ABSTRACT-NAME NIL)
+            (CONS (IF (AND (= (LENGTH TAG) 2) (EQ (CAR TAG) 'QUOTE))
+                      NIL
+                      (CDR TAG)))))
+         (NAMESPACE-BINDINGS
+          (REMOVE NIL
+                  (MAPCAR #'(LAMBDA (ATTR)
+                              (DESTRUCTURING-BIND
+                                (NAME VALUE)
+                                ATTR
+                                (ETYPECASE NAME
+                                  (STRING NIL)
+                                  ((OR SYMBOL ABSTRACT-NAME)
+                                   (WHEN (STRING=
+                                          (NAMESPACE-NAME (NAMESPACE NAME))
+                                          *XMLNS-PREFIX-NAMESTRING*)
+                                     (SETF NEED-NAMESPACES T)
+                                     (UNLESS (FIND-NAMESPACE
+                                              VALUE
+                                              :IF-DOES-NOT-EXIST
+                                              NIL)
+                                       (WARN
+                                        "namespace not defined: '~a'"
+                                        VALUE))
+                                     (LIST* 'SETF
+                                            (LIST*
+                                             '*NAMESPACE-BINDINGS*
+                                             (LIST
+                                              (LIST*
+                                               'ACONS
+                                               (LIST*
+                                                (LIST* 'QUOTE (LIST NAME))
+                                                (LIST*
+                                                 (LIST*
+                                                  'FIND-NAMESPACE
+                                                  (LIST VALUE))
+                                                 '(*NAMESPACE-BINDINGS*))))))))))))
+                          ATTRIBUTES))))
+    (FLET ((NEEDS-QUOTING? (V)
+             (NOT (FIND-IF #'(LAMBDA (C) (FIND C "&lt;&gt;&amp;")) V))))
+      (WHEN (SYMBOLP TAG-NAME) (SETF TAG-NAME (LIST* 'QUOTE (LIST TAG-NAME))))
+      (LIST* 'LET
+             (LIST* (APPEND (WHEN NEED-NAMESPACES
+                              '((*NAMESPACE-BINDINGS* *NAMESPACE-BINDINGS*)
+                                (*GENERATED-NS-BINDINGS* NIL)))
+                            '((*NODE-LEVEL* (1+ *NODE-LEVEL*))))
+                    (APPEND NAMESPACE-BINDINGS
+                            (LIST* '(WHEN *PRINT-PRETTY*
+                                      (ENCODE-CHAR #\Newline)
+                                      (DOTIMES (I *NODE-LEVEL*)
+                                        (ENCODE-CHAR #\Space)))
+                                   (LIST* '(ENCODE-CHAR #\&lt;)
+                                          (LIST*
+                                           (LIST* 'ENCODE-NODE (LIST TAG-NAME))
+                                           (APPEND
+                                            (WHEN
+                                             ATTRIBUTES
+                                             (MAPCAR
+                                              #'(LAMBDA
+                                                 (ATTR &amp;AUX NAME VALUE)
+                                                 (IF
+                                                  (CONSP ATTR)
+                                                  (SETF
+                                                   NAME
+                                                   (FIRST ATTR)
+                                                   VALUE
+                                                   (SECOND ATTR))
+                                                  (SETF
+                                                   NAME
+                                                   ATTR
+                                                   VALUE
+                                                   (STRING ATTR)))
+                                                 (LIST*
+                                                  'LET
+                                                  (LIST*
+                                                   (LIST
+                                                    (LIST*
+                                                     'ATTRIBUTE-VALUE
+                                                     (LIST VALUE)))
+                                                   (LIST
+                                                    (LIST*
+                                                     'WHEN
+                                                     (LIST*
+                                                      'ATTRIBUTE-VALUE
+                                                      (LIST*
+                                                       '(ENCODE-CHAR #\Space)
+                                                       (LIST*
+                                                        (LIST*
+                                                         'ENCODE-NODE
+                                                         (LIST
+                                                          (LIST*
+                                                           'QUOTE
+                                                           (LIST NAME))))
+                                                        '((ENCODE-CHAR #\=)
+                                                          (ENCODE-CHAR #\')
+                                                          (ENCODE-NODE
+                                                           ATTRIBUTE-VALUE)
+                                                          (ENCODE-CHAR
+                                                           #\'))))))))))
+                                              ATTRIBUTES))
+                                            (APPEND
+                                             (IF
+                                              NEED-NAMESPACES
+                                              '((WHEN
+                                                 *GENERATED-NS-BINDINGS*
+                                                 (ENCODE-GENERATED-NS-BINDINGS
+                                                  *GENERATED-NS-BINDINGS*))))
+                                             (LIST*
+                                              (IF
+                                               CONTENT
+                                               '(ENCODE-CHAR #\&gt;)
+                                               '(ENCODE-STRING " /&gt;"))
+                                              (APPEND
+                                               (MAPCAR
+                                                #'(LAMBDA
+                                                   (FORM)
+                                                   (IF
+                                                    (CONSP FORM)
+                                                    FORM
+                                                    (IF
+                                                     (AND
+                                                      (STRINGP FORM)
+                                                      (NOT
+                                                       (NEEDS-QUOTING? FORM)))
+                                                     (LIST*
+                                                      'ENCODE-STRING
+                                                      (LIST FORM))
+                                                     (LIST*
+                                                      'ENCODE-NODE
+                                                      (LIST FORM)))))
+                                                CONTENT)
+                                               (LIST*
+                                                '(WHEN
+                                                  *PRINT-PRETTY*
+                                                  (ENCODE-CHAR #\Newline)
+                                                  (DOTIMES
+                                                   (I (1+ *NODE-LEVEL*))
+                                                   (ENCODE-CHAR #\Space)))
+                                                (WHEN
+                                                 CONTENT
+                                                 (LIST*
+                                                  '(ENCODE-STRING "&lt;/")
+                                                  (LIST*
+                                                   (LIST*
+                                                    'ENCODE-NODE
+                                                    (LIST TAG-NAME))
+                                                   '((ENCODE-STRING
+                                                      "&gt;")))))))))))))))))))</div></div><div class='source'>:EOF</div>
+<hr />
+
+<div class='file'><div class='DOCUMENTATION'><dl><dt>description</dt><dd>
+  immediate serialization macros.
+  <p>
+  adapted from html-gen.slik. the resemblance remains, but is remote.</p></dd><dt>copyright</dt><dd>&#160;2001, james adam anderson<br/></dd><dt>20010621</dt><dd>JAA: []<br/>
+   new. adapted html-gen to the encoding serialization functions.</dd><dt>20011219</dt><dd>*generated-ns-bindings*as a special binding with
+   a single global handler;<br/>corrections for name instances.</dd></dl></div></div >
+<hr /><div><span class='copyright'>&#169;</span> <span class='logo'>setf.de</span> 20031110T225312 = <a href='./xml-xiod-writer.lisp' type='text/plain'>xml-xiod-writer.lisp</a></div>
+</body></html>

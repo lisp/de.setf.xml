@@ -1,0 +1,223 @@
+/*
+<DOCUMENTATION>
+ <DESCRIPTION>
+  <p>
+  this is the BNF for XML-PATH expressions.
+  it is derived from the <a href='http://www.w3.org/TR/1999/REC-xpath-19991116'>REC-xpath-19991116</a>.
+  it is the input bnf for <a href='file://xml/code/xpath/xpath-parser.lisp'>xml-parser.lisp</a>.
+  </p>
+  <p>
+  nb. the numbers are as noted for the productions in that document.
+  this formulation differs from the literal text of the recommendation in numerous regards.
+  none of these differences is believed to affect the conformance of the resulting parser.
+  expressions were reformulated because
+  <ul>
+  <li>the reader is inflexible with regard to delimiters</li>
+  <li>the parser requires that grouping be explicit.</li>
+  <li>the nonterminals from the xml recommendation are present.</li>
+  <li>[35] specified a constraint which is just as well covered by the disambiguation
+      rules for lexical structure (3.7)</li>
+  <li>the atn is more effective if recursions are the last things to try and if
+      alternatives are the first.</li>
+  <li>tokens which need to be marked as part of phrase rules (as opposed to
+      categories) are given their own production. this applies to expression operators
+      and to abbreviations which must be distinguished. this includes necesarily
+      '@', '.', and '..'. the marking was also done for '/' and '//' as it is necessary
+      with in the PathExpr substructure.
+      step separators, as they are already in their own productions.</li>
+  <li>the original formulation put unary expressions ten layers down in the parse tree.</li>
+  </ul></p>
+  </DESCRIPTION>
+ <COPYRIGHT YEAR='2001' AUTHOR='james adam anderson' MARK='&copy'
+            href='file://xml/sysdcl.lisp' />
+ <COPYRIGHT YEAR='1999' AUTHOR='w3c' MARK='&copy'
+            smtp='site-policy@w3.org'
+            href='file://xml/W3C-copyrightsoft-19980720.html'>
+  Copyright &copy; 1999 <a href='http://www.w3.org/'>World Wide Web Consortium</a>,
+   (<a href='http://www.lcs.mit.edu/'>Massachusetts Institute of Technology</a>,
+    <a href='http://www.inria.fr/'>Institut National de Recherche en Informatique et en Automatique</a>,
+    <a href='http://www.keio.ac.jp/'>Keio University</a>).
+   All Rights Reserved. http://www.w3.org/Consortium/Legal/
+  </COPYRIGHT>
+ </DOCUMENTATION>
+*/   
+
+
+
+[[1]] LocationPath ::= RelativeLocationPath | AbsoluteLocationPath
+
+[[2]] AbsoluteLocationPath ::= (SingleSlash RelativeLocationPath? )
+   //                        | (Anchor SingleSlash RelativeLocationPath? )
+                             | AbbreviatedAbsoluteLocationPath
+
+//[[3]] RelativeLocationPath ::= ( Step SingleSlash RelativeLocationPath )
+//                             | Step
+//                             | AbbreviatedRelativeLocationPath
+
+[[3]] RelativeLocationPath ::= Step ( ( SingleSlash | DoubleSlash ) RelativeLocationPath )?
+
+
+[[4]] Step ::= ( AxisSpecifier NodeTest Predicate*)
+             | ( NodeTest Predicate*)
+             | AbbreviatedStep
+
+[[5]] AxisSpecifier ::= (AxisName '::')  // no need to mark the '::'
+                      | AbbreviatedAxisSpecifier 
+
+// [[5.1]] from WD-xslt1.1-20001212
+// Anchor ::= IdAnchor | KeyAnchor
+// IdAnchor ::= 'id' '(' Literal ')'
+// KeyAnchor ::= 'key' '(' Literal ',' Literal ')'
+
+[[6]] AxisName ::= 'ancestor' | 'ancestor-or-self' | 'attribute' | 'child' | 'descendant'
+                 | 'descendant-or-self' | 'following' | 'following-sibling' | 'namespace'
+                 | 'parent' | 'preceding' | 'preceding-sibling' | 'self'
+
+[[7]] NodeTest ::=  NameTest | TypeTest | PiTest
+      TypeTest ::= NodeType '(' ')'
+      PiTest ::= 'processing-instruction' '(' Literal ')'
+
+[[8]] Predicate ::= '[' PredicateExpr ']'
+
+[[9]] PredicateExpr ::= Expr
+
+[[10]] AbbreviatedAbsoluteLocationPath ::= DoubleSlash RelativeLocationPath
+
+// [[11]] AbbreviatedRelativeLocationPath ::= Step DoubleSlash RelativeLocationPath
+
+[[12]] AbbreviatedStep ::= SingleDot | DoubleDot
+
+[[13]] AbbreviatedAxisSpecifier ::= '@' 
+// was   '@'? is more clearly expressed in the alternatives to step
+
+
+[[14]] Expr ::= OrExpr
+// a test Expr ::= QName | PrimaryExpr | OrExpr
+   
+
+[[15]] PrimaryExpr ::= Literal | Number | VariableReference | FunctionCall
+                     | ( '(' Expr ')' )
+// [[15.1]]
+//                   | QName
+                
+[[16]] FunctionCall ::= FunctionName '(' ( Argument ( ',' Argument )* )? ')'
+[[17]] Argument ::= Expr
+//   FunctionCall ::= FunctionName '(' ArgumentSequence? ')'
+//   ArgumentSequence ::= Argument (',' ArgumentSequence )?
+   
+
+
+[[18]] UnionExpr ::= PathExpr | (PathExpr unionOp UnionExpr)
+
+[[19]] PathExpr ::= ( FilterExpr ( ( SingleSlash | DoubleSlash ) RelativeLocationPath )? ) 
+                  | LocationPath  // as last in order to prefer simpler forms
+
+[[20]] FilterExpr ::= PrimaryExpr | ( Predicate FilterExpr ) 
+
+[[21]] OrExpr ::= AndExpr ( orOp OrExpr )?
+
+[[22]] AndExpr ::= EqualityExpr ( andOp AndExpr )?
+
+[[23]] EqualityExpr ::= RelationalExpr ( EqualityOp EqualityExpr )?
+       EqualityOp ::= eqOp | neqOp
+
+[[24]] RelationalExpr ::= AdditiveExpr ( RelationalOp RelationalExpr )?
+       RelationalOp ::= ltOp | gtOp | leOp | geOp
+
+[[25]] AdditiveExpr ::= MultiplicativeExpr ( AdditiveOp AdditiveExpr )?
+       AdditiveOp ::= plusOp | minusOp
+
+[[26]] MultiplicativeExpr ::= UnaryExpr ( MultiplicativeOp MultiplicativeExpr )?
+       MultiplicativeOp ::= timesOp | divOp | modOp
+
+[[27]] UnaryExpr ::= UnionExpr | AdditiveInverse
+       AdditiveInverse ::= '-' UnaryExpr  // no need to mark the '-'
+
+//[[28]]   
+// ExprToken ::= '(' | ')' | '[' | ']' | '.' | '..' | '@' | ',' | '::'
+//             | NameTest | NodeType | Operator | FunctionName | AxisName
+//             | Literal | Number | VariableReference
+//[[29]]   
+//   Literal ::=   
+//   ( DoubleQuote NotDoubleQuote* DoubleQuote )  | ( SingleQuote NotSingleQuote* SingleQuote )
+//   SingleQuote ::= #x27
+//   DoubleQuote ::= #x22
+//   NotSingleQuote ::= [^#x27]
+//   NotDoubleQuote ::= [^#x22]
+//[[30]]   
+//   Number ::=   
+//   ( Digits ('.' Digits?)? ) | ( '.' Digits )
+//   Digits ::= Digit+
+//   Digit ::= [0-9]
+//[[31]]   
+//   Digits ::= Digit+
+//   Digit ::= [0-9]
+//[[32]]  
+// Operator ::=   
+// OperatorName | MultiplyOperator |
+// '/' | '//' | '|' | '+' | '-' | '=' | '!=' | '<' | '<=' | '>' | '>='
+//[[33]]  
+// OperatorName ::=   
+// 'and' | 'or' | 'mod' | 'div'
+//[[34]]  
+// MultiplyOperator ::=   
+// '*'
+
+   SingleDot ::= '.'
+   DoubleDot ::= '..'
+   SingleSlash ::= '/'
+   DoubleSlash ::= '//'
+   unionOp ::= '|'
+   plusOp ::= '+'
+   minusOp ::= '-'
+   eqOp ::= '='
+   neqOp ::= '!='
+   ltOp ::= '<'
+   gtOp ::= '>'
+   leOp ::= '<='
+   geOp ::= '>='
+   andOp ::= 'and'
+   orOp ::= 'or'
+   modOp ::= 'mod'
+   divOp ::= 'div'
+   timesOp ::= '*'
+   notOp ::= 'not'
+
+  
+// the literal bnf was 'QName - NodeType', which is not accepted by this parser
+// it is sufficient to neglect it while constructing the parse tree and to
+// enforce it as a semantic rule when generating the path processor
+[[35]] FunctionName ::= QName
+
+[[36]] VariableReference ::= '$' QName
+
+// NameTest ::= '*' | ( NCName ':' '*' ) | QName
+[[37]] NameTest ::= PrefixTest? ( WildName | LocalPart )
+       PrefixTest ::= ( WildName | NCName ) ':'
+       WildName ::= '*'
+
+[[38]] NodeType ::= 'comment' | 'text' | 'processing-instruction' | 'node'
+
+// [[39]]   
+// this non-terminal is implied in the spec, but doesn't appear in the grammar.
+// the lexical reader strips whitespace anyway, since it's based on the cl reader
+//  ExprWhitespace ::=   
+//   S
+
+
+// additionals
+   QName ::= Prefix? LocalPart
+
+   Prefix ::= NCName ':'
+   LocalPart ::= NCName
+
+//
+//
+// NCName ::= NC*
+//
+// the 'name character' categorization is implicit in the lexical reader
+// NC ::= [a-z] | [A-Z] | '.' | '-' | '_'
+//
+// S ::= #x09 | #x0a | #x0d | #x20
+
+// EOF

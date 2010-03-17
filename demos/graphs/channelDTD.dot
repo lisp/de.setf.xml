@@ -1,0 +1,136 @@
+
+
+digraph Channel {
+
+  "Channel" ;
+
+  "LastMod" ;
+
+  "Channel" -> "LastMod" ;
+
+  "Logo" ;
+
+  "Channel" -> "Logo" ;
+
+  "Title" ;
+
+  "Channel" -> "Title" ;
+
+  "Abstract" ;
+
+  "Channel" -> "Abstract" ;
+
+  "Author" ;
+
+  "Channel" -> "Author" ;
+
+  "Publisher" ;
+
+  "Channel" -> "Publisher" ;
+
+  "Copyright" ;
+
+  "Channel" -> "Copyright" ;
+
+  "PublicationDate" ;
+
+  "Channel" -> "PublicationDate" ;
+
+  "Keywords" ;
+
+  "Channel" -> "Keywords" ;
+
+  "Category" ;
+
+  "Channel" -> "Category" ;
+
+  "Rating" ;
+
+  "Channel" -> "Rating" ;
+
+  "Channel" -> "Channel" ;
+
+  "Item" ;
+
+  "Item" -> "LastMod" ;
+
+  "Item" -> "Title" ;
+
+  "Item" -> "Abstract" ;
+
+  "Item" -> "Author" ;
+
+  "Item" -> "Publisher" ;
+
+  "Item" -> "Copyright" ;
+
+  "Item" -> "PublicationDate" ;
+
+  "Item" -> "Keywords" ;
+
+  "Item" -> "Category" ;
+
+  "Item" -> "Rating" ;
+
+  "Schedule" ;
+
+  "StartDate" ;
+
+  "Schedule" -> "StartDate" ;
+
+  "EndDate" ;
+
+  "Schedule" -> "EndDate" ;
+
+  "IntervalTime" ;
+
+  "Schedule" -> "IntervalTime" ;
+
+  "EarliestTime" ;
+
+  "Schedule" -> "EarliestTime" ;
+
+  "LatestTime" ;
+
+  "Schedule" -> "LatestTime" ;
+
+  "Item" -> "Schedule" ;
+
+  "Usage" ;
+
+  "*" ;
+
+  "Usage" -> "*" ;
+
+  "Item" -> "Usage" ;
+
+  "Channel" -> "Item" ;
+
+  "Channel" -> "Schedule" ;
+
+  "IntroURI" ;
+
+  "Channel" -> "IntroURI" ;
+
+  "Authorization" ;
+
+  "Channel" -> "Authorization" ;
+
+  "IsClonable" ;
+
+  "Channel" -> "IsClonable" ;
+
+  "MinStorage" ;
+
+  "Channel" -> "MinStorage" ;
+
+  "Tracking" ;
+
+  "PostURL" ;
+
+  "Tracking" -> "PostURL" ;
+
+  "Channel" -> "Tracking" ;
+
+ }
+

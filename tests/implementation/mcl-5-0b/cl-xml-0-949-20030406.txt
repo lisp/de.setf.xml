@@ -1,0 +1,2592 @@
+#<OUTPUT CCL::OUTPUT-FILE-STREAM to "osx.tschichold:Applications:MCL 5.0:digitool-20030406.txt">
+? (software-version)
+"Rom Version Unknown, System Version 10.2.4"
+? (machine-version)
+"Macintosh #NIL with Unknown CPU, Unknown FPU, Cosmo USB Domestic (ANSI) Keyboard"
+? (lisp-implementation-version)
+"Version 5.0"
+? (setq *load-verbose* t)
+T
+? (load "osx.tschichold:development:source:cl-xml-0-949:load-clhttp-instancenames.lisp")
+;Loading #P"osx.tschichold:development:source:cl-xml-0-949:load-clhttp-instancenames.lisp"...
+;Loading #P"osx.tschichold:development:source:cl-xml-0-949:library:define-system.lisp"...
+;;
+;; systems: (:XPARSER)
+;loading osx.tschichold:Development:Source:cl-xml-0-949:sysdcl.lisp, no bin.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:sysdcl.lisp"...
+load defaults: #P"osx.tschichold:Development:Source:cl-xml-0-949:sysdcl.lisp".
+compile target: #4P"xml:root;bin;digifasl;**;*.cfsl.newest".
+;Loading #4P"ccl:library;OPENTRANSPORT.lisp"...
+;Loading #4P"ccl:library;IO-BUFFER.lisp"...
+;Loading #4P"ccl:library;LOOP.cfsl"...
+;;
+;; collected systems: (:XQDM :BASE :BNFP :XUTIL :XPARSER)
+;;
+;; sorted systems: (:BASE :BNFP :XUTIL :XQDM :XPARSER)
+;;
+;; systems needing loading: (:BASE :BNFP :XUTIL :XQDM :XPARSER)
+;;
+;; effective components: ("xml:code;patch;cmucl" "xml:library;de;setf;utility;package" "xml:library;de;setf;utility;string" "xml:library;de;setf;utility;conditions" "xml:library;de;setf;utility;test" "xml:code;base;package" :BASE "xml:code;atn-parser;clifs;inference-system-classes" "xml:code;atn-parser;clifs;inference-units" "xml:code;atn-parser;atn-parameters" "xml:code;atn-parser;atn-classes" "xml:code;atn-parser;atn-macros" "xml:code;atn-parser;ebnf-tokenizer" "xml:code;atn-parser;ebnf-to-atn-translator" "xml:code;atn-parser;atn-macro-to-canonic-form" "xml:code;atn-parser;ebnf-grammar.atn" "xml:code;atn-parser;atn-runtime" "xml:code;atn-parser;conditions" "xml:code;atn-parser;atn-lisp-compiler" "xml:code;atn-parser;atn-regex" :BNFP "xml:code;base;parameters" "xml:code;base;cllib" "xml:code;base;utils" "xml:code;base;parsetable" "xml:code;base;vector-stream" "xml:code;base;www-utils-ersatz" "xml:code;base;tokenizer" "xml:code;base;conditions" :XUTIL "xml:code;xquerydatamodel;xqdm-namespaces" "xml:code;xquerydatamodel;xqdm-parameters" "xml:code;xquerydatamodel;xqdm-character-classes" "xml:code;xquerydatamodel;xqdm-classes" "xml:code;xquerydatamodel;xsd-types" "xml:code;xquerydatamodel;conditions;names;conditions" "xml:code;xquerydatamodel;conditions;node;conditions" "xml:code;xquerydatamodel;conditions;model;conditions" "xml:code;xquerydatamodel;xqdm-operators" "xml:code;xquerydatamodel;xqdm-validation" "xml:code;xquerydatamodel;qname-resolution" "xml:code;xquerydatamodel;xqdm-graph" "xml:code;xquerydatamodel;node-path-walk" "xml:code;xquerydatamodel;xqdm-walk" "xml:code;xquerydatamodel;xqdm-walk-accessors" :XQDM "xml:code;xparser;xml-parameters" "xml:code;xparser;conditions;codec;conditions" "xml:code;xparser;xml-stream-coding" "xml:code;xparser;xml-operators" "xml:code;xparser;xml-readers" "xml:code;xparser;xml-tokenizer" "xml:code;xparser;xml-processing-instruction" "xml:code;xparser;xml-constructors" "xml:code;xparser;xml-parser" "xml:code;xparser;xml-printer" "xml:code;xparser;xml-writer" :XPARSER)
+;; component: "xml:code;patch;cmucl"
+;Compiling #4P"xml:code;patch;cmucl.LISP" -> #4P"xml:code;patch;cmucl.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:patch:cmucl.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:patch:cmucl.cfsl"...
+;; component: "xml:library;de;setf;utility;package"
+;Compiling #4P"xml:library;de;setf;utility;package.LISP" -> #4P"xml:library;de;setf;utility;package.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:library:de:setf:utility:package.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:library:de:setf:utility:package.cfsl"...
+;; component: "xml:library;de;setf;utility;string"
+;Compiling #4P"xml:library;de;setf;utility;string.LISP" -> #4P"xml:library;de;setf;utility;string.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:library:de:setf:utility:string.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:library:de:setf:utility:string.cfsl"...
+;; component: "xml:library;de;setf;utility;conditions"
+;Compiling #4P"xml:library;de;setf;utility;conditions.LISP" -> #4P"xml:library;de;setf;utility;conditions.BIN"...
+;Compiler warnings for "osx.tschichold:Development:Source:Library:LISP:de:setf:utility:conditions.LISP" :
+;   Unused lexical variable CONDITION, in an anonymous lambda form inside an anonymous lambda form.
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:library:de:setf:utility:conditions.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:library:de:setf:utility:conditions.cfsl"...
+;; component: "xml:library;de;setf;utility;test"
+;Compiling #4P"xml:library;de;setf;utility;test.LISP" -> #4P"xml:library;de;setf;utility;test.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:library:de:setf:utility:test.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:library:de:setf:utility:test.cfsl"...
+;; component: "xml:code;base;package"
+;Compiling #4P"xml:code;base;package.LISP" -> #4P"xml:code;base;package.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:package.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:package.cfsl"...
+;; system load time set: :BASE
+;; component: "xml:code;atn-parser;clifs;inference-system-classes"
+;Compiling #4P"xml:code;atn-parser;clifs;inference-system-classes.LISP" -> #4P"xml:code;atn-parser;clifs;inference-system-classes.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:clifs:inference-system-classes.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:clifs:inference-system-classes.cfsl"...
+;; component: "xml:code;atn-parser;clifs;inference-units"
+;Compiling #4P"xml:code;atn-parser;clifs;inference-units.LISP" -> #4P"xml:code;atn-parser;clifs;inference-units.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:clifs:inference-units.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:clifs:inference-units.cfsl"...
+;; component: "xml:code;atn-parser;atn-parameters"
+;Compiling #4P"xml:code;atn-parser;atn-parameters.LISP" -> #4P"xml:code;atn-parser;atn-parameters.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-parameters.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-parameters.cfsl"...
+;; component: "xml:code;atn-parser;atn-classes"
+;Compiling #4P"xml:code;atn-parser;atn-classes.LISP" -> #4P"xml:code;atn-parser;atn-classes.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-classes.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-classes.cfsl"...
+;; component: "xml:code;atn-parser;atn-macros"
+;Compiling #4P"xml:code;atn-parser;atn-macros.LISP" -> #4P"xml:code;atn-parser;atn-macros.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-macros.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-macros.cfsl"...
+;; component: "xml:code;atn-parser;ebnf-tokenizer"
+;Compiling #4P"xml:code;atn-parser;ebnf-tokenizer.LISP" -> #4P"xml:code;atn-parser;ebnf-tokenizer.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:ebnf-tokenizer.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:ebnf-tokenizer.cfsl"...
+;; component: "xml:code;atn-parser;ebnf-to-atn-translator"
+;Compiling #4P"xml:code;atn-parser;ebnf-to-atn-translator.LISP" -> #4P"xml:code;atn-parser;ebnf-to-atn-translator.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:ebnf-to-atn-translator.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:ebnf-to-atn-translator.cfsl"...
+;; component: "xml:code;atn-parser;atn-macro-to-canonic-form"
+;Compiling #4P"xml:code;atn-parser;atn-macro-to-canonic-form.LISP" -> #4P"xml:code;atn-parser;atn-macro-to-canonic-form.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-macro-to-canonic-form.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-macro-to-canonic-form.cfsl"...
+;; component: "xml:code;atn-parser;ebnf-grammar.atn"
+;Compiling "xml:code;atn-parser;ebnf-grammar.atn" -> #4P"xml:code;atn-parser;ebnf-grammar.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:ebnf-grammar.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:ebnf-grammar.cfsl"...
+;; component: "xml:code;atn-parser;atn-runtime"
+;Compiling #4P"xml:code;atn-parser;atn-runtime.LISP" -> #4P"xml:code;atn-parser;atn-runtime.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-runtime.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-runtime.cfsl"...
+;; component: "xml:code;atn-parser;conditions"
+;Compiling #4P"xml:code;atn-parser;conditions.LISP" -> #4P"xml:code;atn-parser;conditions.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:conditions.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:conditions.cfsl"...
+;; component: "xml:code;atn-parser;atn-lisp-compiler"
+;Compiling #4P"xml:code;atn-parser;atn-lisp-compiler.LISP" -> #4P"xml:code;atn-parser;atn-lisp-compiler.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-lisp-compiler.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-lisp-compiler.cfsl"...
+;; component: "xml:code;atn-parser;atn-regex"
+;Compiling #4P"xml:code;atn-parser;atn-regex.LISP" -> #4P"xml:code;atn-parser;atn-regex.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-regex.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-parser:atn-regex.cfsl"...
+;; system load time set: :BNFP
+;; component: "xml:code;base;parameters"
+;Compiling #4P"xml:code;base;parameters.LISP" -> #4P"xml:code;base;parameters.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:parameters.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:parameters.cfsl"...
+;; component: "xml:code;base;cllib"
+;Compiling #4P"xml:code;base;cllib.LISP" -> #4P"xml:code;base;cllib.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:cllib.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:cllib.cfsl"...
+;; component: "xml:code;base;utils"
+;Compiling #4P"xml:code;base;utils.LISP" -> #4P"xml:code;base;utils.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:utils.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:utils.cfsl"...
+;; component: "xml:code;base;parsetable"
+;Compiling #4P"xml:code;base;parsetable.LISP" -> #4P"xml:code;base;parsetable.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:parsetable.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:parsetable.cfsl"...
+;; component: "xml:code;base;vector-stream"
+;Compiling #4P"xml:code;base;vector-stream.LISP" -> #4P"xml:code;base;vector-stream.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:vector-stream.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:vector-stream.cfsl"...
+;; component: "xml:code;base;www-utils-ersatz"
+;Compiling #4P"xml:code;base;www-utils-ersatz.LISP" -> #4P"xml:code;base;www-utils-ersatz.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:www-utils-ersatz.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:www-utils-ersatz.cfsl"...
+;; component: "xml:code;base;tokenizer"
+;Compiling #4P"xml:code;base;tokenizer.LISP" -> #4P"xml:code;base;tokenizer.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:tokenizer.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:tokenizer.cfsl"...
+;; component: "xml:code;base;conditions"
+;Compiling #4P"xml:code;base;conditions.LISP" -> #4P"xml:code;base;conditions.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:conditions.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:base:conditions.cfsl"...
+;; system load time set: :XUTIL
+;; component: "xml:code;xquerydatamodel;xqdm-namespaces"
+;Compiling #4P"xml:code;xquerydatamodel;xqdm-namespaces.LISP" -> #4P"xml:code;xquerydatamodel;xqdm-namespaces.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-namespaces.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-namespaces.cfsl"...
+;; component: "xml:code;xquerydatamodel;xqdm-parameters"
+;Compiling #4P"xml:code;xquerydatamodel;xqdm-parameters.LISP" -> #4P"xml:code;xquerydatamodel;xqdm-parameters.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-parameters.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-parameters.cfsl"...
+;; component: "xml:code;xquerydatamodel;xqdm-character-classes"
+;Compiling #4P"xml:code;xquerydatamodel;xqdm-character-classes.LISP" -> #4P"xml:code;xquerydatamodel;xqdm-character-classes.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-character-classes.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-character-classes.cfsl"...
+;; component: "xml:code;xquerydatamodel;xqdm-classes"
+;Compiling #4P"xml:code;xquerydatamodel;xqdm-classes.LISP" -> #4P"xml:code;xquerydatamodel;xqdm-classes.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-classes.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-classes.cfsl"...
+;; component: "xml:code;xquerydatamodel;xsd-types"
+;Compiling #4P"xml:code;xquerydatamodel;xsd-types.LISP" -> #4P"xml:code;xquerydatamodel;xsd-types.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xsd-types.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xsd-types.cfsl"...
+;; component: "xml:code;xquerydatamodel;conditions;names;conditions"
+;Compiling #4P"xml:code;xquerydatamodel;conditions;names;conditions.LISP" -> #4P"xml:code;xquerydatamodel;conditions;names;conditions.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:conditions:names:conditions.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:conditions:names:conditions.cfsl"...
+;; component: "xml:code;xquerydatamodel;conditions;node;conditions"
+;Compiling #4P"xml:code;xquerydatamodel;conditions;node;conditions.LISP" -> #4P"xml:code;xquerydatamodel;conditions;node;conditions.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:conditions:node:conditions.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:conditions:node:conditions.cfsl"...
+;; component: "xml:code;xquerydatamodel;conditions;model;conditions"
+;Compiling #4P"xml:code;xquerydatamodel;conditions;model;conditions.LISP" -> #4P"xml:code;xquerydatamodel;conditions;model;conditions.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:conditions:model:conditions.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:conditions:model:conditions.cfsl"...
+;; component: "xml:code;xquerydatamodel;xqdm-operators"
+;Compiling #4P"xml:code;xquerydatamodel;xqdm-operators.LISP" -> #4P"xml:code;xquerydatamodel;xqdm-operators.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-operators.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-operators.cfsl"...
+;; component: "xml:code;xquerydatamodel;xqdm-validation"
+;Compiling #4P"xml:code;xquerydatamodel;xqdm-validation.LISP" -> #4P"xml:code;xquerydatamodel;xqdm-validation.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-validation.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-validation.cfsl"...
+;; component: "xml:code;xquerydatamodel;qname-resolution"
+;Compiling #4P"xml:code;xquerydatamodel;qname-resolution.LISP" -> #4P"xml:code;xquerydatamodel;qname-resolution.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:qname-resolution.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:qname-resolution.cfsl"...
+;; component: "xml:code;xquerydatamodel;xqdm-graph"
+;Compiling #4P"xml:code;xquerydatamodel;xqdm-graph.LISP" -> #4P"xml:code;xquerydatamodel;xqdm-graph.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-graph.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-graph.cfsl"...
+;; component: "xml:code;xquerydatamodel;node-path-walk"
+;Compiling #4P"xml:code;xquerydatamodel;node-path-walk.LISP" -> #4P"xml:code;xquerydatamodel;node-path-walk.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:node-path-walk.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:node-path-walk.cfsl"...
+;; component: "xml:code;xquerydatamodel;xqdm-walk"
+;Compiling #4P"xml:code;xquerydatamodel;xqdm-walk.LISP" -> #4P"xml:code;xquerydatamodel;xqdm-walk.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-walk.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-walk.cfsl"...
+;; component: "xml:code;xquerydatamodel;xqdm-walk-accessors"
+;Compiling #4P"xml:code;xquerydatamodel;xqdm-walk-accessors.LISP" -> #4P"xml:code;xquerydatamodel;xqdm-walk-accessors.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-walk-accessors.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xquerydatamodel:xqdm-walk-accessors.cfsl"...
+;; system load time set: :XQDM
+;; component: "xml:code;xparser;xml-parameters"
+;Compiling #4P"xml:code;xparser;xml-parameters.LISP" -> #4P"xml:code;xparser;xml-parameters.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-parameters.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-parameters.cfsl"...
+;; component: "xml:code;xparser;conditions;codec;conditions"
+;Compiling #4P"xml:code;xparser;conditions;codec;conditions.LISP" -> #4P"xml:code;xparser;conditions;codec;conditions.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:conditions:codec:conditions.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:conditions:codec:conditions.cfsl"...
+;; component: "xml:code;xparser;xml-stream-coding"
+;Compiling #4P"xml:code;xparser;xml-stream-coding.LISP" -> #4P"xml:code;xparser;xml-stream-coding.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-stream-coding.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-stream-coding.cfsl"...
+;; component: "xml:code;xparser;xml-operators"
+;Compiling #4P"xml:code;xparser;xml-operators.LISP" -> #4P"xml:code;xparser;xml-operators.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-operators.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-operators.cfsl"...
+;; component: "xml:code;xparser;xml-readers"
+;Compiling #4P"xml:code;xparser;xml-readers.LISP" -> #4P"xml:code;xparser;xml-readers.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-readers.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-readers.cfsl"...
+;; component: "xml:code;xparser;xml-tokenizer"
+;Compiling #4P"xml:code;xparser;xml-tokenizer.LISP" -> #4P"xml:code;xparser;xml-tokenizer.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-tokenizer.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-tokenizer.cfsl"...
+;; component: "xml:code;xparser;xml-processing-instruction"
+;Compiling #4P"xml:code;xparser;xml-processing-instruction.LISP" -> #4P"xml:code;xparser;xml-processing-instruction.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-processing-instruction.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-processing-instruction.cfsl"...
+;; component: "xml:code;xparser;xml-constructors"
+;Compiling #4P"xml:code;xparser;xml-constructors.LISP" -> #4P"xml:code;xparser;xml-constructors.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-constructors.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-constructors.cfsl"...
+;; component: "xml:code;xparser;xml-parser"
+;Compiling #4P"xml:code;xparser;xml-parser.LISP" -> #4P"xml:code;xparser;xml-parser.BIN"...
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-lib:xml-grammar.cfsl"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-parser.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-parser.cfsl"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-lib:xml-grammar.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:atn-lib:xml-grammar.cfsl"...
+;; component: "xml:code;xparser;xml-printer"
+;Compiling #4P"xml:code;xparser;xml-printer.LISP" -> #4P"xml:code;xparser;xml-printer.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-printer.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-printer.cfsl"...
+;; component: "xml:code;xparser;xml-writer"
+;Compiling #4P"xml:code;xparser;xml-writer.LISP" -> #4P"xml:code;xparser;xml-writer.BIN"...
+;loading osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-writer.cfsl, newer.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:bin:digifasl:code:xparser:xml-writer.cfsl"...
+;; system load time set: :XPARSER
+cl xml loaded:
+(:SXHASH-TOKENIZATION :NAMESET-TOKENIZER :MACTCP-COMPATIBILITY :XML-SYMBOLS :DEFINE-SYSTEM :CARBON-COMPAT :ANSI-CL :ANSI-MAKE-LOAD-FORM :NEW-TABLES :PRIMARY-CLASSES :CCL :CCL-2 :CCL-3 :CORAL :APPLE :DIGITOOL :COMMON-LISP :MCL :CLTL2 :PROCESSES :INTERFACES-2 :CCL-4 :CCL-4.2 :CCL-4.3 :CCL-4.3.1 :CCL-4.4 :CCL-5.0 :POWERPC :PPC-TARGET :PPC-CLOS)
+#P"osx.tschichold:Development:Source:cl-xml-0-949:load-clhttp-instancenames.lisp"
+? (execute-system-operations :xtests '(:load))
+
+;;
+;; systems: (:XTESTS)
+;;
+;; collected systems: (:XQDM :BASE :BNFP :XUTIL :XPARSER :XTESTS)
+;;
+;; sorted systems: (:BASE :BNFP :XUTIL :XQDM :XPARSER :XTESTS)
+;;
+;; systems needing loading: (:XTESTS)
+;;
+;; effective components: ("xml:tests;xquerydatamodel;model" "xml:tests;parser;bom" "xml:tests;parser;document-internal" "xml:tests;parser;document-external" "xml:tests;parser;document-specialized" "xml:tests;parser;qnames.lisp" "xml:tests;parser;validation.lisp" "xml:tests;parser;namespaces.lisp" "xml:tests;parser;oasis.lisp" :XTESTS)
+;; component: "xml:tests;xquerydatamodel;model"
+;loading osx.tschichold:Development:Source:cl-xml-0-949:tests:xquerydatamodel:model.LISP, no bin.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:xquerydatamodel:model.LISP"...<?xml version='1.0' standalone='yes' ?>
+<xml />
+
+initial document: #<DOC-NODE <no uri> #x1BE6F4E>.
+<?xml version='1.0' standalone='yes' ?>
+<p1:e1 xmlns:p1='data,ns1' p1:a1='attribute value'>
+ <p1:e2 p1:x='some data'>
+  <p1:e3 /></p1:e2>
+ <!-- a comment text -->
+ <?aPiNode with some text?></p1:e1>
+
+modified document: #<DOC-NODE <no uri> #x1BE6F4E>.
+<?xml version='1.0' standalone='yes' ?>
+<p1:e1 xmlns:p1='data,ns1' p1:aNew='new attribute value' p1:a1='modified value'>
+ <p1:e2 p1:x='some data'>
+  <p1:e3 /></p1:e2>
+ <!-- a comment text -->
+ <?aPiNode with some text?></p1:e1>
+;; component: "xml:tests;parser;bom"
+;loading osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:bom.LISP, no bin.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:bom.LISP"...WFC: External Parsed Entity signaled:
+entity identified as (SYSTEM "ent2x.ent" PUBLIC NIL) does not have the form of an external parsed entity:
+INCOMPLETE-PARSE signaled:
+incomplete parse: result #<EXTERNAL-PARSED-ENTITY ||::|| #x1BFE20E>.
+parser error with-state #<XML-PARSE-STATE :sources NIL :input #\Space :token NIL :lexical-context |Document| :source #<XML-INPUT #x1BFE16E> :term |Content| :non-terminal |ExtParsedEnt| :stack NIL >.
+parser error with-state #<XML-PARSE-STATE :sources NIL :input #\< :token NIL :lexical-context |Content| :source #<XML-INPUT #x1BFD31E> :term |Content| :non-terminal |ExtParsedEnt| :stack NIL >.
+((#P"osx.tschichold:Documents:Standards:XML:XMLConf:bomtest:doc.xml"
+  #<DOC-NODE <no uri> #x1BED4FE> :UTF-8 NIL)
+ (#P"osx.tschichold:Documents:Standards:XML:XMLConf:bomtest:docx.xml"
+  #<DOC-NODE <no uri> #x1BF122E> :UTF-8 NIL)
+ (#P"osx.tschichold:Documents:Standards:XML:XMLConf:bomtest:ent.xml"
+  #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/bomtest/ent.xml #x1BF3BEE>
+  :UTF-8 :UTF-8)
+ (#P"osx.tschichold:Documents:Standards:XML:XMLConf:bomtest:ent2.xml"
+  #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/bomtest/ent2.xml #x1BF826E>
+  :UTF-8 :UTF-8)
+ (#P"osx.tschichold:Documents:Standards:XML:XMLConf:bomtest:ent2x.xml"
+  #<|WFC: External Parsed Entity| #x1BFE83E>)
+ (#P"osx.tschichold:Documents:Standards:XML:XMLConf:bomtest:entx.xml"
+  #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/bomtest/entx.xml #x1C06C7E>
+  :UTF-8 :UTF-8))
+;; component: "xml:tests;parser;document-internal"
+;loading osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:document-internal.LISP, no bin.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:document-internal.LISP"...
+
+source:
+"<document/>"
+parsed result:
+#<DOC-NODE <no uri> #x1C11BBE>
+serializes as:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<document />
+
+source:
+"data:,<document/>"
+parsed result:
+#<DOC-NODE <no uri> #x1C142B6>
+serializes as:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<document />
+
+source:
+"<document att='qwer'><?pi?><!-- ... --></document>
+<?pi note that a processing instruction is not <em>not</em> part of a document's
+     character data. thus entities (&#63; and &#62; too) remain unexpanded.?>
+<!-- comment -->"
+parsed result:
+#<DOC-NODE <no uri> #x1C1826E>
+serializes as:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<document att='qwer'><?pi ?><!--  ...  --></document>
+<?pi note that a processing instruction is not &lt;em&gt;not&lt;/em&gt; part of a document's
+     character data. thus entities (&#63; and &#62; too) remain unexpanded.?>
+<!--  comment  -->
+
+source:
+"<document attr='value'>content</document>"
+parsed result:
+#<DOC-NODE <no uri> #x1C1B4F6>
+serializes as:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<document attr='value'>content</document>
+
+source:
+"<ns:document attr='value' xmlns:ns='ns1' xmlns='ns2' ns:attr='value'>asdf<element/></ns:document>"
+parsed result:
+#<DOC-NODE <no uri> #x1C1E056>
+serializes as:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<ns:document xmlns:ns='ns1' xmlns='ns2' attr='value' ns:attr='value'>asdf<element /></ns:document>
+
+source:
+"file://xml/tests/xml/channel.xml"
+parsed result:
+#<DOC-NODE file://xml/tests/xml/channel.xml #x1C21CC6>
+serializes as:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE Channel [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT Channel (LastMod | Logo | Title | Abstract | Author | Publisher | Copyright | PublicationDate | Keywords | Category | Rating | Channel | Item | Schedule | IntroURI | Authorization | IsClonable | MinStorage | Tracking)* >
+ <!ATTLIST Channel 
+   IsClonable (YES|NO)  'NO'
+   HREF CDATA #IMPLIED >
+ <!ELEMENT LastMod EMPTY >
+ <!ATTLIST LastMod 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Logo EMPTY >
+ <!ATTLIST Logo 
+   TYPE (BIG|WIDE|SMALL|REGULAR)  'REGULAR'
+   HREF CDATA #REQUIRED >
+ <!ELEMENT Title EMPTY >
+ <!ATTLIST Title 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Abstract EMPTY >
+ <!ATTLIST Abstract 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Author EMPTY >
+ <!ATTLIST Author 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Publisher EMPTY >
+ <!ATTLIST Publisher 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Copyright EMPTY >
+ <!ATTLIST Copyright 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT PublicationDate EMPTY >
+ <!ATTLIST PublicationDate 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Keywords EMPTY >
+ <!ATTLIST Keywords 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Category EMPTY >
+ <!ATTLIST Category 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Rating EMPTY >
+ <!ATTLIST Rating 
+   PICS-Label CDATA #REQUIRED >
+ <!ELEMENT Item (LastMod | Title | Abstract | Author | Publisher | Copyright | PublicationDate | Keywords | Category | Rating | Schedule | Usage)* >
+ <!ATTLIST Item 
+   Precache (YES|NO|DEFAULT)  'DEFAULT'
+   Priority (HI|NORMAL|LOW)  'NORMAL'
+   IsVisible (YES|NO)  'YES'
+   MIMEType CDATA #IMPLIED
+   HREF CDATA #REQUIRED >
+ <!ELEMENT Schedule (StartDate?, EndDate?, IntervalTime?, EarliestTime?, LatestTime?) >
+ <!ELEMENT StartDate EMPTY >
+ <!ATTLIST StartDate 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT EndDate EMPTY >
+ <!ATTLIST EndDate 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT IntervalTime EMPTY >
+ <!ATTLIST IntervalTime 
+   SEC CDATA  '0'
+   MIN CDATA  '0'
+   HOUR CDATA  '0'
+   DAY CDATA  '0' >
+ <!ELEMENT EarliestTime EMPTY >
+ <!ATTLIST EarliestTime 
+   SEC CDATA  '0'
+   MIN CDATA  '0'
+   HOUR CDATA  '0'
+   DAY CDATA  '0' >
+ <!ELEMENT LatestTime EMPTY >
+ <!ATTLIST LatestTime 
+   SEC CDATA  '0'
+   MIN CDATA  '0'
+   HOUR CDATA  '0'
+   DAY CDATA  '0' >
+ <!ELEMENT Usage ANY >
+ <!ATTLIST Usage 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT IntroURI EMPTY >
+ <!ATTLIST IntroURI 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Authorization EMPTY >
+ <!ATTLIST Authorization 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT IsClonable EMPTY >
+ <!ELEMENT MinStorage EMPTY >
+ <!ATTLIST MinStorage 
+   VALUE CDATA  '0' >
+ <!ELEMENT Tracking (PostURL?) >
+ <!ELEMENT PostURL EMPTY >
+ <!ATTLIST PostURL 
+   HREF CDATA #REQUIRED >
+ <!ELEMENT UserSchedule EMPTY >
+ <!ATTLIST UserSchedule 
+   VALUE (DAILY|WEEKLY|HOURLY) #REQUIRED >
+ ]>
+<Channel HREF='http://www.foosports.com/foosports.cdf' IsClonable='YES'>
+    <IntroURI VALUE='http://www.foosports.com/channel-setup.html' />
+    <LastMod VALUE='1994.11.05T08:15-0500' />
+    <Title VALUE='FooSports' />
+    <Abstract VALUE='The latest in sports and atheletics from
+              FooSports' />
+    <Author VALUE='FooSports' />
+
+    <Schedule>
+      <EndDate VALUE='1994.11.05T08:15-0500' />
+      <IntervalTime DAY='1' SEC='0' MIN='0' HOUR='0' />
+      <EarliestTime HOUR='12' SEC='0' MIN='0' DAY='0' />
+      <LatestTime HOUR='18' SEC='0' MIN='0' DAY='0' />
+   </Schedule>
+
+    <Logo HREF='http://www.foosports.com/images/logo.gif' TYPE='REGULAR' />
+
+    <Item HREF='http://www.foosports.com/articles/a1.html' Precache='DEFAULT' Priority='NORMAL' IsVisible='YES'>
+       <LastMod VALUE='1994.11.05T08:15-0500' />
+       <Title VALUE='How to get the most out of your mountain bike' />
+       <Abstract VALUE='20 tips on how to work your mountain-bike
+to the bone and come out on top.' />
+       <Author VALUE='FooSports' />
+    </Item>
+    <Channel IsClonable='NO'>
+        <LastMod VALUE='1994.11.05T08:15-0500' />
+        <Title VALUE='FooSports News' />
+        <Abstract VALUE='Up-to-date daily sports news from FooSports' />
+        <Author VALUE='FooSports' />
+
+        <Logo HREF='http://www.foosports.com/images/newslogo.gif' TYPE='REGULAR' />
+        <Logo HREF='http://www.foosports.com/images/newslogowide.gif' TYPE='WIDE' />
+
+        <Item HREF='http://www.foosports.com/articles/news1.html' Precache='DEFAULT' Priority='NORMAL' IsVisible='YES'>
+            <LastMod VALUE='1994.11.05T08:15-0500' />
+            <Title VALUE='Michael Jordan does it again!' />
+            <Abstract VALUE='Led by Michael Jordan in scoring, the
+Chicago Bulls make it to the playoffs again!' />
+            <Author VALUE='FooSports' />
+        </Item>
+
+        <Item HREF='http://www.foosports.com/articles/news2.html' Precache='DEFAULT' Priority='NORMAL' IsVisible='YES'>
+            <LastMod VALUE='1994.11.05T08:15-0500' />
+            <Title VALUE='Islanders winning streak ends' />
+            <Abstract VALUE='The New York islanders' 10-game
+winning streak ended with a disappointing loss to the Rangers' />
+            <Author VALUE='FooSports' />
+        </Item>
+
+    </Channel>
+
+    <Item HREF='http://www.foosports.com/animations/scrnsvr.html' Precache='DEFAULT' Priority='NORMAL' IsVisible='YES'>
+       <Usage VALUE='ScreenSaver' />
+    </Item>
+
+    <Item HREF='http://www.foosports.com/ticker.html' Precache='DEFAULT' Priority='NORMAL' IsVisible='YES'>
+       <Title VALUE='FooSports News Ticker' />
+       <Abstract VALUE='The latest sports headlines from
+FooSports' />
+       <Author VALUE='FooSports' />
+       <LastMod VALUE='1994.11.05T08:15-0500' />
+
+       <!--  This is an example of how Usage can be used for client
+            enhancements  -->
+       <Usage VALUE='DesktopComponent'>
+         <Width VALUE='400' />
+         <Height VALUE='80' />
+       </Usage>
+
+       <Schedule>
+          <StartDate VALUE='1994.11.05T08:15-0500' />
+          <EndDate VALUE='1994.11.05T08:15-0500' />
+          <IntervalTime DAY='1' SEC='0' MIN='0' HOUR='0' />
+          <EarliestTime HOUR='12' SEC='0' MIN='0' DAY='0' />
+          <LatestTime HOUR='18' SEC='0' MIN='0' DAY='0' />
+       </Schedule>
+    </Item>
+
+</Channel>
+
+<SOAP-ENV:Envelope
+     xmlns:SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/'
+     xmlns:xsi='http://www.w3.org/1999/XMLSchema-instance'
+     xmlns:xsd='http://www.w3.org/1999/XMLSchema'>
+     <SOAP-ENV:Body>
+        <ns1:getRate xmlns:ns1='urn:demo1:exchange' 
+           SOAP-ENV:encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'>
+           <country1 xsi:type='xsd:string'>USA</country1>
+           <country2 xsi:type='xsd:string'>japan</country2>
+        </ns1:getRate>
+     </SOAP-ENV:Body>
+  </SOAP-ENV:Envelope>
+ timings:
+(DOTIMES (X 10) (DOCUMENT-PARSER *EXML-DOCUMENT*)) took 58 milliseconds (0.058 seconds) to run.
+Of that, 1 milliseconds (0.001 seconds) were spent in The Cooperative Multitasking Experience.
+ 232,672 bytes of memory allocated.
+
+ with prebound namespace (+/-0 for packages):
+(DOTIMES (X 10) (DOCUMENT-PARSER *EXML-DOCUMENT*)) took 54 milliseconds (0.054 seconds) to run.
+ 232,672 bytes of memory allocated.
+
+
+a document which uses the null namespace only
+<Envelope >
+     <Body>
+        <getRate xmlns:ns1='urn:demo1:exchange' 
+           encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'>
+           <country2 type='xsd:string'>japan</country2>
+        </getRate>
+     </Body>
+  </Envelope>
+ timings:
+(DOTIMES (X 10) (DOCUMENT-PARSER *EXML-DOCUMENT/NULL*)) took 33 milliseconds (0.033 seconds) to run.
+ 157,608 bytes of memory allocated.
+
+
+<!DOCTYPE ns:doc [
+     <!ELEMENT ns:doc (a, b)>
+     <!ATTLIST ns:doc xmlns:ns CDATA 'a namespace' >
+     <!ELEMENT a ANY>
+     <!ATTLIST a ns:att1 CDATA ' a default' >
+     <!ELEMENT b ANY>
+     <!ELEMENT c ANY>
+     ]>
+   <ns:doc>
+     <a xmlns:qwerty='a namespace' qwerty:att1='explicitly'><b><c/></b></a>
+     </ns:doc>
+ timings:
+(DOTIMES (X 10) (DOCUMENT-PARSER *DTD-DOCUMENT*)) took 70 milliseconds (0.070 seconds) to run.
+ 233,304 bytes of memory allocated.
+
+ serialized:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE doc [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT ns:doc (a, b) >
+ <!ATTLIST ns:doc 
+   xmlns:ns CDATA  'a namespace' >
+ <!ELEMENT a ANY >
+ <!ATTLIST a 
+   ns:att1 CDATA  ' a default' >
+ <!ELEMENT b ANY >
+ <!ELEMENT c ANY >
+ ]>
+<ns:doc xmlns:ns='a namespace'>
+     <a xmlns:qwerty='a namespace' qwerty:att1='explicitly'><b><c /></b></a>
+     </ns:doc>
+
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE library [
+  <!ELEMENT library (book*) >
+  <!ELEMENT book (author, title) >
+  <!ELEMENT author (#PCDATA) >
+  <!ELEMENT title (#PCDATA) >
+  <!ATTLIST library xmlns CDATA 'data:,lc.setf.de' >
+  <!ATTLIST book isbn CDATA #REQUIRED >
+  <!ENTITY isbn 'isbn:' >
+  ] >
+<library >
+  <book isbn='&lt;0-312-85172-3&gt;'>
+    <title>Aristoi</title>
+    <author>Walter Jon Williams</author>
+    </book>
+  <book isbn='&isbn;0-812-51349-5'>
+    <title>Enders Game</title>
+    <author>Orson Scott Card</author>
+    </book>
+  <book isbn='&isbn;0-812-51349-5'>
+    <title>Enders Game</title>
+    <author>Orson Scott Card</author>
+    </book>
+  </library>
+ timings:
+(DOTIMES (X 10) (DOCUMENT-PARSER *LIBRARY-DOCUMENT*)) took 93 milliseconds (0.093 seconds) to run.
+ 303,232 bytes of memory allocated.
+
+ serialized:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE library [
+ <!ENTITY isbn 'isbn:' >
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT library (book*) >
+ <!ATTLIST library 
+   xmlns CDATA  'data:,lc.setf.de' >
+ <!ELEMENT book (author, title) >
+ <!ATTLIST book 
+   isbn CDATA #REQUIRED >
+ <!ELEMENT author (#PCDATA) >
+ <!ELEMENT title (#PCDATA) >
+ ]>
+<library xmlns='data:,lc.setf.de'>
+  <book isbn='&lt;0-312-85172-3&gt;'>
+    <title>Aristoi</title>
+    <author>Walter Jon Williams</author>
+    </book>
+  <book isbn='isbn:0-812-51349-5'>
+    <title>Enders Game</title>
+    <author>Orson Scott Card</author>
+    </book>
+  <book isbn='isbn:0-812-51349-5'>
+    <title>Enders Game</title>
+    <author>Orson Scott Card</author>
+    </book>
+  </library>
+
+ reorganized as an index model:
+<?xml version='1.0' standalone='yes' ?>
+<lc:index lc='data:,lc.setf.de'>
+ <lc:entry lc:key='Aristoi' isbn='&lt;0-312-85172-3&gt;' />
+ <lc:entry lc:key='Walter Jon Williams' isbn='&lt;0-312-85172-3&gt;' />
+ <lc:entry lc:key='Enders Game' isbn='isbn:0-812-51349-5' />
+ <lc:entry lc:key='Orson Scott Card' isbn='isbn:0-812-51349-5' />
+ <lc:entry lc:key='Enders Game' isbn='isbn:0-812-51349-5' />
+ <lc:entry lc:key='Orson Scott Card' isbn='isbn:0-812-51349-5' /></lc:index>
+
+ serialized directly:
+document:
+
+ <LC:index xmlns:LC='data:,lc.setf.de'>
+  <LC:entry LC:key='Aristoi' isbn='0-312-85172-3' />
+  <LC:entry LC:key='Walter Jon Williams' isbn='0-312-85172-3' />
+  <LC:entry LC:key='Enders Game' isbn='0-812-51349-5' />
+  <LC:entry LC:key='Orson Scott Card' isbn='0-812-51349-5' />
+ </LC:index>
+==>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<LC:index xmlns:LC='data:,lc.setf.de'>
+  <LC:entry LC:key='Aristoi' isbn='0-312-85172-3' />
+  <LC:entry LC:key='Walter Jon Williams' isbn='0-312-85172-3' />
+  <LC:entry LC:key='Enders Game' isbn='0-812-51349-5' />
+  <LC:entry LC:key='Orson Scott Card' isbn='0-812-51349-5' />
+ </LC:index>
+(DOCUMENT-PARSER "<!DOCTYPE document [ <!ENTITY external SYSTEM 'data:,external data'><!ELEMENT document ANY > ] > <document attr='&external;'/>"): passed.
+(DOCUMENT-PARSER "<unbound:document />"): passed.
+(DOCUMENT-PARSER "<document />"): passed.
+;; component: "xml:tests;parser;document-external"
+;loading osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:document-external.LISP, no bin.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:document-external.LISP"...
+
+various examples parsing and serializing documents from external sources:
+
+
+;; source: (:SERIALIZE-P NIL)
+#4P"xml:Tests;xml;channel.xml"
+;; parsed result:
+#<DOC-NODE file://xml/Tests/xml/channel.xml #x1DBFAD6>#<DOC-NODE file://xml/Tests/xml/channel.xml #x1DBFAD6>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x1BDD07E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|Channel| 1 #x1DD38A6>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|Channel| #x1DD345E>
+ROOT: #<ELEM-NODE ||::|Channel| 1 #x1DD38A6>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x1DBFE46>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x1DC011E>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x1DBFA7E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x1DC06CE>
+TYPES: #<HASH-TABLE :TEST EQL size 27/60 #x1DC09A6>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+
+;; source: 
+"file://xml/Tests/xml/channel.xml"
+;; parsed result:
+#<DOC-NODE file://xml/Tests/xml/channel.xml #x1DE232E>#<DOC-NODE file://xml/Tests/xml/channel.xml #x1DE232E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x1BDD07E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|Channel| 1 #x1DF603E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|Channel| #x1DF5BF6>
+ROOT: #<ELEM-NODE ||::|Channel| 1 #x1DF603E>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x1DE269E>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x1DE2976>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x1DE22D6>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x1DE2F26>
+TYPES: #<HASH-TABLE :TEST EQL size 27/60 #x1DE31FE>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+;; serializes as:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE Channel [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT Channel (LastMod | Logo | Title | Abstract | Author | Publisher | Copyright | PublicationDate | Keywords | Category | Rating | Channel | Item | Schedule | IntroURI | Authorization | IsClonable | MinStorage | Tracking)* >
+ <!ATTLIST Channel 
+   IsClonable (YES|NO)  'NO'
+   HREF CDATA #IMPLIED >
+ <!ELEMENT LastMod EMPTY >
+ <!ATTLIST LastMod 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Logo EMPTY >
+ <!ATTLIST Logo 
+   TYPE (BIG|WIDE|SMALL|REGULAR)  'REGULAR'
+   HREF CDATA #REQUIRED >
+ <!ELEMENT Title EMPTY >
+ <!ATTLIST Title 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Abstract EMPTY >
+ <!ATTLIST Abstract 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Author EMPTY >
+ <!ATTLIST Author 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Publisher EMPTY >
+ <!ATTLIST Publisher 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Copyright EMPTY >
+ <!ATTLIST Copyright 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT PublicationDate EMPTY >
+ <!ATTLIST PublicationDate 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Keywords EMPTY >
+ <!ATTLIST Keywords 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Category EMPTY >
+ <!ATTLIST Category 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Rating EMPTY >
+ <!ATTLIST Rating 
+   PICS-Label CDATA #REQUIRED >
+ <!ELEMENT Item (LastMod | Title | Abstract | Author | Publisher | Copyright | PublicationDate | Keywords | Category | Rating | Schedule | Usage)* >
+ <!ATTLIST Item 
+   Precache (YES|NO|DEFAULT)  'DEFAULT'
+   Priority (HI|NORMAL|LOW)  'NORMAL'
+   IsVisible (YES|NO)  'YES'
+   MIMEType CDATA #IMPLIED
+   HREF CDATA #REQUIRED >
+ <!ELEMENT Schedule (StartDate?, EndDate?, IntervalTime?, EarliestTime?, LatestTime?) >
+ <!ELEMENT StartDate EMPTY >
+ <!ATTLIST StartDate 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT EndDate EMPTY >
+ <!ATTLIST EndDate 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT IntervalTime EMPTY >
+ <!ATTLIST IntervalTime 
+   SEC CDATA  '0'
+   MIN CDATA  '0'
+   HOUR CDATA  '0'
+   DAY CDATA  '0' >
+ <!ELEMENT EarliestTime EMPTY >
+ <!ATTLIST EarliestTime 
+   SEC CDATA  '0'
+   MIN CDATA  '0'
+   HOUR CDATA  '0'
+   DAY CDATA  '0' >
+ <!ELEMENT LatestTime EMPTY >
+ <!ATTLIST LatestTime 
+   SEC CDATA  '0'
+   MIN CDATA  '0'
+   HOUR CDATA  '0'
+   DAY CDATA  '0' >
+ <!ELEMENT Usage ANY >
+ <!ATTLIST Usage 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT IntroURI EMPTY >
+ <!ATTLIST IntroURI 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT Authorization EMPTY >
+ <!ATTLIST Authorization 
+   VALUE CDATA #REQUIRED >
+ <!ELEMENT IsClonable EMPTY >
+ <!ELEMENT MinStorage EMPTY >
+ <!ATTLIST MinStorage 
+   VALUE CDATA  '0' >
+ <!ELEMENT Tracking (PostURL?) >
+ <!ELEMENT PostURL EMPTY >
+ <!ATTLIST PostURL 
+   HREF CDATA #REQUIRED >
+ <!ELEMENT UserSchedule EMPTY >
+ <!ATTLIST UserSchedule 
+   VALUE (DAILY|WEEKLY|HOURLY) #REQUIRED >
+ ]>
+<Channel HREF='http://www.foosports.com/foosports.cdf' IsClonable='YES'>
+    <IntroURI VALUE='http://www.foosports.com/channel-setup.html' />
+    <LastMod VALUE='1994.11.05T08:15-0500' />
+    <Title VALUE='FooSports' />
+    <Abstract VALUE='The latest in sports and atheletics from
+              FooSports' />
+    <Author VALUE='FooSports' />
+
+    <Schedule>
+      <EndDate VALUE='1994.11.05T08:15-0500' />
+      <IntervalTime DAY='1' SEC='0' MIN='0' HOUR='0' />
+      <EarliestTime HOUR='12' SEC='0' MIN='0' DAY='0' />
+      <LatestTime HOUR='18' SEC='0' MIN='0' DAY='0' />
+   </Schedule>
+
+    <Logo HREF='http://www.foosports.com/images/logo.gif' TYPE='REGULAR' />
+
+    <Item HREF='http://www.foosports.com/articles/a1.html' Precache='DEFAULT' Priority='NORMAL' IsVisible='YES'>
+       <LastMod VALUE='1994.11.05T08:15-0500' />
+       <Title VALUE='How to get the most out of your mountain bike' />
+       <Abstract VALUE='20 tips on how to work your mountain-bike
+to the bone and come out on top.' />
+       <Author VALUE='FooSports' />
+    </Item>
+    <Channel IsClonable='NO'>
+        <LastMod VALUE='1994.11.05T08:15-0500' />
+        <Title VALUE='FooSports News' />
+        <Abstract VALUE='Up-to-date daily sports news from FooSports' />
+        <Author VALUE='FooSports' />
+
+        <Logo HREF='http://www.foosports.com/images/newslogo.gif' TYPE='REGULAR' />
+        <Logo HREF='http://www.foosports.com/images/newslogowide.gif' TYPE='WIDE' />
+
+        <Item HREF='http://www.foosports.com/articles/news1.html' Precache='DEFAULT' Priority='NORMAL' IsVisible='YES'>
+            <LastMod VALUE='1994.11.05T08:15-0500' />
+            <Title VALUE='Michael Jordan does it again!' />
+            <Abstract VALUE='Led by Michael Jordan in scoring, the
+Chicago Bulls make it to the playoffs again!' />
+            <Author VALUE='FooSports' />
+        </Item>
+
+        <Item HREF='http://www.foosports.com/articles/news2.html' Precache='DEFAULT' Priority='NORMAL' IsVisible='YES'>
+            <LastMod VALUE='1994.11.05T08:15-0500' />
+            <Title VALUE='Islanders winning streak ends' />
+            <Abstract VALUE='The New York islanders' 10-game
+winning streak ended with a disappointing loss to the Rangers' />
+            <Author VALUE='FooSports' />
+        </Item>
+
+    </Channel>
+
+    <Item HREF='http://www.foosports.com/animations/scrnsvr.html' Precache='DEFAULT' Priority='NORMAL' IsVisible='YES'>
+       <Usage VALUE='ScreenSaver' />
+    </Item>
+
+    <Item HREF='http://www.foosports.com/ticker.html' Precache='DEFAULT' Priority='NORMAL' IsVisible='YES'>
+       <Title VALUE='FooSports News Ticker' />
+       <Abstract VALUE='The latest sports headlines from
+FooSports' />
+       <Author VALUE='FooSports' />
+       <LastMod VALUE='1994.11.05T08:15-0500' />
+
+       <!--  This is an example of how Usage can be used for client
+            enhancements  -->
+       <Usage VALUE='DesktopComponent'>
+         <Width VALUE='400' />
+         <Height VALUE='80' />
+       </Usage>
+
+       <Schedule>
+          <StartDate VALUE='1994.11.05T08:15-0500' />
+          <EndDate VALUE='1994.11.05T08:15-0500' />
+          <IntervalTime DAY='1' SEC='0' MIN='0' HOUR='0' />
+          <EarliestTime HOUR='12' SEC='0' MIN='0' DAY='0' />
+          <LatestTime HOUR='18' SEC='0' MIN='0' DAY='0' />
+       </Schedule>
+    </Item>
+
+</Channel>
+
+;; source: 
+#4P"xml:Tests;xml;email.xml"
+;; parsed result:
+#<DOC-NODE file://xml/Tests/xml/email.xml #x1E068CE>#<DOC-NODE file://xml/Tests/xml/email.xml #x1E068CE>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x1BDD07E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x1E087C6> #<ELEM-NODE ||::|mail| 1 #x1E0C52E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|mail| #x1E0C41E>
+ROOT: #<ELEM-NODE ||::|mail| 1 #x1E0C52E>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x1E06C3E>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x1E06F16>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 7/60 #x1E06876>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x1E074C6>
+TYPES: #<HASH-TABLE :TEST EQL size 9/60 #x1E0779E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+;; serializes as:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE mail [
+ <!ENTITY henning 'hb@ix.heise.de' >
+ <!ENTITY ingo 'Ingo.Macherius@tu-clausthal.de' >
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT mail (#PCDATA) >
+ <!ELEMENT p ((#PCDATA) | Name)* >
+ <!ATTLIST p 
+   lang (de|en)  'en' >
+ <!ELEMENT Name (#PCDATA) >
+ <!ELEMENT Date (#PCDATA) >
+ <!ELEMENT Subject (#PCDATA) >
+ <!ELEMENT Email (Recipient, Sender, Date, Subject, TextBody) >
+ <!ELEMENT Recipient (#PCDATA) >
+ <!ELEMENT Sender (#PCDATA) >
+ <!ELEMENT TextBody (p)+ >
+ ]>
+<!--  This is a sample email data file  -->
+<mail>
+        <Recipient attr='val'>hb@ix.heise.de</Recipient>
+        <Sender>Ingo.Macherius@tu-clausthal.de</Sender>
+        <Date>Mon, 21 Apr 1997 09:27:55 +0200</Date>
+        <Subject>XML literature</Subject>
+
+<Textbody>
+        <p lang='en'>Hello Mr <Name>Behme</Name>,</p>
+
+        <p lang='en'>Please read <Name>Jon Bosak</Name>'s
+           introductory text</p>
+        <p lang='en'>"SGML, Java and the Future of the Web"</p>
+        <p lang='en'>Best wishes,</p>
+
+        <p lang='en'>
+                <Name>Ingo Macherius</Name>
+        </p>
+</Textbody>
+</mail>
+
+;; source: 
+#4P"xml:Tests;xml;lisp.xml"continuable condition ignored: NSC: Namespace Attribute Default signaled:
+namespace name does not match default value:  == "lisp as xml" /= "-//mecomnet.de//DTD Lisp (sort of)//en":
+.
+;; parsed result:
+#<DOC-NODE file://xml/Tests/xml/lisp.xml #x1E10A4E>#<DOC-NODE file://xml/Tests/xml/lisp.xml #x1E10A4E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x1BDD07E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE |lisp as xml|::LISP 1 #x1E26C8E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE |-//mecomnet.de//DTD Lisp (sort of)//en|::LISP #x1E267BE>
+ROOT: #<ELEM-NODE |lisp as xml|::LISP 1 #x1E26C8E>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x1E10DBE>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x1E11096>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x1E109F6>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x1E11646>
+TYPES: #<HASH-TABLE :TEST EQL size 43/60 #x1E1191E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+;; serializes as:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE LISP [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT LISP ((DEFCLASS | DEFCONSTANT | DEFUN | DEFGENERIC | DEFMACRO | DEFMETHOD | DEFPARAMETER | DEFSTRUCT | DEFVAR | SEXP | ATOM)*) >
+ <!ATTLIST LISP 
+   xmlns CDATA  '-//mecomnet.de//DTD Lisp (sort of)//en' >
+ <!ELEMENT DEFCLASS (NAME, CLASS-LIST, SLOT-LIST, (DOCUMENTATION | METACLASS)*) >
+ <!ELEMENT NAME (#PCDATA) >
+ <!ELEMENT CLASS-LIST (CLASS*) >
+ <!ELEMENT CLASS (#PCDATA) >
+ <!ELEMENT SLOT-LIST (SLOT*) >
+ <!ELEMENT SLOT (NAME, DEFAULT, TYPE, DOCUMENTATION) >
+ <!ELEMENT DEFAULT (#PCDATA) >
+ <!ELEMENT TYPE (#PCDATA) >
+ <!ELEMENT DOCUMENTATION (#PCDATA) >
+ <!ELEMENT METACLASS (#PCDATA) >
+ <!ELEMENT DEFCONSTANT (NAME, VALUE, DOCUMENTATION?) >
+ <!ELEMENT VALUE (#PCDATA) >
+ <!ELEMENT DEFUN (NAME, ARGUMENT-LIST, DOCUMENTATION?, BODY) >
+ <!ELEMENT ARGUMENT-LIST (ARGUMENT*, (OPTIONAL, ARGUMENT)?, (REST, ARGUMENT)?, (KEY, KEYWORD-ARGUMENT*)?, (AUX, DEFAULT-ARGUMENT*)?) >
+ <!ELEMENT ARGUMENT (NAME) >
+ <!ELEMENT OPTIONAL (NAME) >
+ <!ELEMENT REST (#PCDATA) >
+ <!ELEMENT KEY (#PCDATA) >
+ <!ELEMENT KEYWORD-ARGUMENT (NAME | (NAME, DEFAULT) | (NAME, DEFAULT, KEYWORD)) >
+ <!ELEMENT KEYWORD (#PCDATA) >
+ <!ELEMENT AUX (#PCDATA) >
+ <!ELEMENT DEFAULT-ARGUMENT (NAME | (NAME, DEFAULT)) >
+ <!ELEMENT BODY (SEXP*) >
+ <!ELEMENT SEXP ((OPERATOR | LAMBDA), (SEXP | ATOM)*) >
+ <!ELEMENT OPERATOR (#PCDATA) >
+ <!ELEMENT LAMBDA (ARGUMENT-LIST, BODY) >
+ <!ELEMENT ATOM (#PCDATA) >
+ <!ELEMENT DEFGENERIC (NAME, GENERIC-ARGUMENT-LIST, DOCUMENTATION?) >
+ <!ELEMENT GENERIC-ARGUMENT-LIST (ARGUMENT*, (OPTIONAL, ARGUMENT)?, (REST, ARGUMENT)?, (KEY, ARGUMENT*)?, (AUX, ARGUMENT*)?) >
+ <!ELEMENT DEFMACRO (NAME, ARGUMENT-LIST, DOCUMENTATION?, BODY) >
+ <!ELEMENT DEFMETHOD (NAME, QUALIFIER-LIST?, SPECIALIZED-ARGUMENT-LIST, DOCUMENTATION?, BODY) >
+ <!ELEMENT QUALIFIER-LIST (QUALIFIER*) >
+ <!ELEMENT QUALIFIER (#PCDATA) >
+ <!ELEMENT SPECIALIZED-ARGUMENT-LIST (SPECIALIZED-ARGUMENT*, (OPTIONAL, ARGUMENT)?, (REST, ARGUMENT)?, (KEY, KEYWORD-ARGUMENT*)?, (AUX, DEFAULT-ARGUMENT*)?) >
+ <!ELEMENT SPECIALIZED-ARGUMENT ((NAME, SPECIALIZER) | NAME) >
+ <!ELEMENT SPECIALIZER (#PCDATA) >
+ <!ELEMENT DEFPARAMETER (NAME, VALUE, DOCUMENTATION?) >
+ <!ELEMENT DEFSTRUCT (NAME, INCLUDE?, STRUCTURE-SLOT-LIST) >
+ <!ELEMENT INCLUDE (#PCDATA) >
+ <!ELEMENT STRUCTURE-SLOT-LIST (STRUCTURE-SLOT*) >
+ <!ELEMENT STRUCTURE-SLOT (NAME, DEFAULT, TYPE) >
+ <!ELEMENT DEFVAR (NAME, (VALUE | (VALUE, DOCUMENTATION))?) >
+ ]>
+<LISP xmlns='lisp as xml'>
+        <DEFUN>
+         <NAME>asdf</NAME>
+         <ARGUMENT-LIST>
+          <ARGUMENT><NAME>arg-1</NAME></ARGUMENT>
+          <ARGUMENT><NAME>arg-2</NAME></ARGUMENT>
+          </ARGUMENT-LIST>
+         <DOCUMENTATION>this is a test</DOCUMENTATION>
+         <BODY>
+          <SEXP><OPERATOR>this</OPERATOR>
+               <ATOM>is</ATOM><ATOM>a</ATOM><ATOM>test</ATOM>
+           </SEXP>
+          <SEXP>
+           <OPERATOR>to</OPERATOR>
+           <ATOM>see</ATOM><ATOM>if</ATOM><ATOM>the</ATOM><ATOM>defun</ATOM><ATOM>model</ATOM><ATOM>works</ATOM>
+           </SEXP>
+          </BODY>
+         </DEFUN>
+
+        <DEFMETHOD>
+         <NAME>asdf</NAME>
+         <SPECIALIZED-ARGUMENT-LIST>
+          <SPECIALIZED-ARGUMENT><NAME>arg-1</NAME><SPECIALIZER>a class</SPECIALIZER></SPECIALIZED-ARGUMENT>
+          <SPECIALIZED-ARGUMENT><NAME>arg-2</NAME></SPECIALIZED-ARGUMENT>
+          </SPECIALIZED-ARGUMENT-LIST>
+         <DOCUMENTATION>this is a test for defmethod</DOCUMENTATION>
+         <BODY><SEXP><OPERATOR>this</OPERATOR>
+                <ATOM>is</ATOM><ATOM>a</ATOM><ATOM>test</ATOM>
+                </SEXP>
+               <SEXP><OPERATOR>to</OPERATOR>
+                <ATOM>see</ATOM><ATOM>if</ATOM><ATOM>the</ATOM><ATOM>defun</ATOM><ATOM>model</ATOM><ATOM>works</ATOM>
+                </SEXP>
+               </BODY>
+         </DEFMETHOD>
+
+        <SEXP><OPERATOR>print</OPERATOR><ATOM>a-ok</ATOM></SEXP>
+
+        <ATOM>EOF</ATOM>
+  
+        </LISP>
+
+;; source: 
+#4P"xml:Tests;xml;real-mini-aleph-het.xml"
+;; parsed result:
+#<DOC-NODE file://xml/Tests/xml/real-mini-aleph-het.xml #x1E34F7E>#<DOC-NODE file://xml/Tests/xml/real-mini-aleph-het.xml #x1E34F7E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x1BDD07E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::DICTIONARY 1 #x1E3FD16>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::DICTIONARY #x1E3FBDE>
+ROOT: #<ELEM-NODE ||::DICTIONARY 1 #x1E3FD16>
+STANDALONE: NIL
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x1E352EE>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 11/60 #x1E355C6>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x1E34F26>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 2/60 #x1E35B76>
+TYPES: #<HASH-TABLE :TEST EQL size 13/60 #x1E35E4E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+;; serializes as:
+<?xml version='1.0' encoding='ISO-8859-1' standalone='no' ?>
+<!DOCTYPE DICTIONARY [
+ <!ENTITY % OPTIONAL-FIELDS 'HB?, ALT?, TRF*, XRF?, NT*' >
+ <!ENTITY % STATUS 'st CDATA #IMPLIED' >
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT DICTIONARY (EN*) >
+ <!ELEMENT EN (((RT, SB+) | (CF, W*)), NT*) >
+ <!ATTLIST EN 
+   md NMTOKEN #REQUIRED
+   hw ID #REQUIRED >
+ <!ELEMENT RT (GR?, GL, HB?, ALT?, TRF*, XRF?, NT*) >
+ <!ELEMENT GR (#PCDATA) >
+ <!ATTLIST GR 
+   st CDATA #IMPLIED >
+ <!ELEMENT GL (#PCDATA) >
+ <!ATTLIST GL 
+   st CDATA #IMPLIED >
+ <!ELEMENT HB (#PCDATA) >
+ <!ELEMENT ALT (#PCDATA) >
+ <!ELEMENT TRF (#PCDATA) >
+ <!ELEMENT XRF (#PCDATA) >
+ <!ELEMENT NT (#PCDATA) >
+ <!ELEMENT SB (GR?, GL?, CF?, W*, NT*) >
+ <!ATTLIST SB 
+   p (y|n)  'y' >
+ <!ELEMENT CF (GR, GL?, HB?, ALT?, TRF*, XRF?, NT*) >
+ <!ATTLIST CF 
+   id ID #REQUIRED >
+ <!ELEMENT W (GR, GL?, HB?, ALT?, TRF*, XRF?, NT*) >
+ <!ATTLIST W 
+   id ID #REQUIRED >
+ ]>
+<DICTIONARY>
+<EN hw='h432' md='310898'>
+<CF id='w552'><GR>cn</GR><GL>flute</GL></CF></EN>
+<EN hw='h153' md='310898'><RT><GR>vb</GR><GL>wish, want</GL><HB>ý·”</HB></RT>
+<SB p='y'>
+<W id='w2033'><GR>3sf pre</GR></W></SB></EN>
+<EN hw='h627' md='310898'><RT><GR>vb</GR><GL>mourn</GL></RT>
+<SB p='y'>
+<CF id='w3498'><GR>3sm suf P I</GR></CF></SB>
+<SB p='y'><W id='w3597'><GR st='?'>1s Q</GR><TRF>g37:35 strange syntax in
+general, and is this an instance of abs pro suffix?</TRF></W>
+</SB><NT>+ ÚÃÏ</NT></EN>
+<EN hw='h1280' md='310898'>
+<CF id='w4337'><GR>cn sa</GR><GL>mourning</GL></CF>
+<W id='w4336'><GR>sd</GR></W>
+<W id='w2636'><GR>3sm</GR><NT>odd context</NT></W></EN>
+</DICTIONARY>
+
+;; source: (:SERIALIZE-P NIL)
+"http://localhost/standards/XML/REC-xml-20001006.xml"continuable condition ignored: NSC: Namespace Attribute Default signaled:
+namespace name does not match default value: xlink == "http://www.w3.org/TR/WD-xlink" /= "http://www.w3.org/1999/xlink":
+.
+;; parsed result:
+#<DOC-NODE http://localhost/standards/XML/REC-xml-20001006.xml #x1E496E6>#<DOC-NODE http://localhost/standards/XML/REC-xml-20001006.xml #x1E496E6>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x1BDD07E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|spec| 1 #x1F6E46E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|spec| #x1F6E1CE>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x1F6E46E>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x1E49A56>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 298/305 #x1E49D2E>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 29/60 #x1E4968E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 74/90 #x1E4A2DE>
+TYPES: #<HASH-TABLE :TEST EQL size 157/203 #x1E4A5B6>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+
+;; source: (:SERIALIZE-P NIL)
+#4P"xml:standards;XML;REC-xml-20001006.xml"continuable condition ignored: NSC: Namespace Attribute Default signaled:
+namespace name does not match default value: xlink == "http://www.w3.org/TR/WD-xlink" /= "http://www.w3.org/1999/xlink":
+.
+;; parsed result:
+#<DOC-NODE file://xml/standards/XML/REC-xml-20001006.xml #x21B6666>#<DOC-NODE file://xml/standards/XML/REC-xml-20001006.xml #x21B6666>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x1BDD07E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|spec| 1 #x22D4966>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|spec| #x22D46C6>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x22D4966>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x21B69D6>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 298/305 #x21B6CAE>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 29/60 #x21B660E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 74/90 #x21B725E>
+TYPES: #<HASH-TABLE :TEST EQL size 157/203 #x21B7536>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+
+;; source: (:SERIALIZE-P NIL)
+"file://xml/standards/XML/REC-xml-20001006.xml"continuable condition ignored: NSC: Namespace Attribute Default signaled:
+namespace name does not match default value: xlink == "http://www.w3.org/TR/WD-xlink" /= "http://www.w3.org/1999/xlink":
+.
+;; parsed result:
+#<DOC-NODE file://xml/standards/XML/REC-xml-20001006.xml #x10D85A6>#<DOC-NODE file://xml/standards/XML/REC-xml-20001006.xml #x10D85A6>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10AC5CE>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|spec| 1 #x118916E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|spec| #x1188ECE>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x118916E>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x10D8896>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 298/305 #x10D8B4E>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 29/60 #x10D8566>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 74/90 #x10D8B9E>
+TYPES: #<HASH-TABLE :TEST EQL size 157/203 #x10D8E56>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+
+;; source: (:SERIALIZE-P NIL)
+#4P"xml:standards;XML;W3CSchema;XMLSchema.xsd"
+;; parsed result:
+#<DOC-NODE file://xml/standards/XML/W3CSchema/XMLSchema.xsd #x13CB97E>#<DOC-NODE file://xml/standards/XML/W3CSchema/XMLSchema.xsd #x13CB97E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10AC5CE>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x13CD91E> #<COMMENT-NODE #x13CD9EE> #<COMMENT-NODE #x13CDAA6>
+           #<COMMENT-NODE #x13CDB5E> #<COMMENT-NODE #x13CDC0E>
+           #<ELEM-NODE |http://www.w3.org/2001/XMLSchema|::|schema| 1 #x142655E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE |http://www.w3.org/2001/XMLSchema|::|schema| #x1425776>
+ROOT: #<ELEM-NODE |http://www.w3.org/2001/XMLSchema|::|schema| 1 #x142655E>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 2/60 #x13CBCEE>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 130/135 #x13CBFC6>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x13CB926>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 114/135 #x13CC576>
+TYPES: #<HASH-TABLE :TEST EQL size 44/60 #x13CC84E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+
+;; source: (:REDUCE-P NIL :TIME-P T :ENCODING :ISO-8859-1 :SERIALIZE-P NIL)
+#4P"xml:standards;XML;XMLConf;xmlbench;Benchmark;Data;REC.xml"
+(APPLY #'DOCUMENT-PARSER SOURCE :TRACE TRACE-P :REDUCE REDUCE-P (WHEN ENCODING (LIST :ENCODING ENCODING))) took 633 milliseconds (0.633 seconds) to run.
+ 687,656 bytes of memory allocated.
+
+;; parsed result:
+|Document|Symbol: |Document|
+Function
+INTERNAL in package: #<Package "XML-PARSER">
+Print name: "Document"
+Value: #<Unbound>
+Function: #<Compiled-function |Document| #xF1B81E>
+Arglist: (BNF-PARSER::INDEX &AUX |MiscSequence| |Prolog| |Root|)
+Plist: (:PRODUCTION "
+{1 } Document ::= Prolog Root MiscSequence?"
+        :TERMS (|MiscSequence| |Prolog| |Root|) :PARSETABLE |Document-Parsetable|)
+
+
+;; source: (:REDUCE-P T :TIME-P T :SERIALIZE-P NIL)
+#4P"xml:standards;XML;XMLConf;xmlbench;Benchmark;Data;REC.xml"
+(APPLY #'DOCUMENT-PARSER SOURCE :TRACE TRACE-P :REDUCE REDUCE-P (WHEN ENCODING (LIST :ENCODING ENCODING))) took 891 milliseconds (0.891 seconds) to run.
+ 1,731,824 bytes of memory allocated.
+
+;; parsed result:
+#<DOC-NODE file://xml/standards/XML/XMLConf/xmlbench/Benchmark/Data/REC.xml #x15EDFAE>#<DOC-NODE file://xml/standards/XML/XMLConf/xmlbench/Benchmark/Data/REC.xml #x15EDFAE>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10AC5CE>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x15F2DDE> #<PI-NODE ||::VERBATIM '"eg" ' #x15F2E7E>
+           #<ELEM-NODE ||::|spec| 1 #x15F3066> #<COMMENT-NODE #x179424E>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE #:|spec| #x15F2CEE>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x15F3066>
+STANDALONE: NIL
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x15EE31E>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x15EE5F6>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 26/60 #x15EDF56>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x15EEBA6>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x15EEE7E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+
+;; source: (:REDUCE-P NIL :TIME-P T :SERIALIZE-P NIL)
+#4P"xml:standards;XML;XMLConf;xmlbench;Benchmark;Data;chrmed.xml"
+(APPLY #'DOCUMENT-PARSER SOURCE :TRACE TRACE-P :REDUCE REDUCE-P (WHEN ENCODING (LIST :ENCODING ENCODING))) took 1,383 milliseconds (1.383 seconds) to run.
+ 2,399,832 bytes of memory allocated.
+
+;; parsed result:
+|Document|Symbol: |Document|
+Function
+INTERNAL in package: #<Package "XML-PARSER">
+Print name: "Document"
+Value: #<Unbound>
+Function: #<Compiled-function |Document| #xF1B81E>
+Arglist: (BNF-PARSER::INDEX &AUX |MiscSequence| |Prolog| |Root|)
+Plist: (:PRODUCTION "
+{1 } Document ::= Prolog Root MiscSequence?"
+        :TERMS (|MiscSequence| |Prolog| |Root|) :PARSETABLE |Document-Parsetable|)
+
+
+;; source: (:REDUCE-P T :TIME-P T :SERIALIZE-P NIL)
+#4P"xml:standards;XML;XMLConf;xmlbench;Benchmark;Data;chrmed.xml"
+(APPLY #'DOCUMENT-PARSER SOURCE :TRACE TRACE-P :REDUCE REDUCE-P (WHEN ENCODING (LIST :ENCODING ENCODING))) took 1,655 milliseconds (1.655 seconds) to run.
+Of that, 1 milliseconds (0.001 seconds) were spent in The Cooperative Multitasking Experience.
+ 3,423,080 bytes of memory allocated.
+
+;; parsed result:
+#<DOC-NODE <no uri> #x19E2C06>#<DOC-NODE <no uri> #x19E2C06>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10AC5CE>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x19E4A16> #<COMMENT-NODE #x19E4E7E> #<COMMENT-NODE #x19E4F06>
+           #<COMMENT-NODE #x19E4F6E> #<COMMENT-NODE #x19E502E> #<COMMENT-NODE #x19E508E>
+           #<PI-NODE ||::VERBATIM '"eg" ' #x19E50FE> #<ELEM-NODE ||::|spec| 1 #x19E52C6>
+           #<COMMENT-NODE #x1D25CEE>)
+ENTITY-INFO: #<ENTITY-INFORMATION-NODE ||::|| #x1D25D8E>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x19E52C6>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x19E2F76>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x19E324E>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x19E2BAE>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x19E37FE>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x19E3AD6>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+
+;; source: (:REDUCE-P NIL :TIME-P T :ENCODING :ISO-8859-1 :SERIALIZE-P NIL)
+#4P"xml:standards;XML;XMLConf;xmlbench;Benchmark;Data;med.xml"
+(APPLY #'DOCUMENT-PARSER SOURCE :TRACE TRACE-P :REDUCE REDUCE-P (WHEN ENCODING (LIST :ENCODING ENCODING))) took 4,766 milliseconds (4.766 seconds) to run.
+ 4,740,064 bytes of memory allocated.
+
+;; parsed result:
+|Document|Symbol: |Document|
+Function
+INTERNAL in package: #<Package "XML-PARSER">
+Print name: "Document"
+Value: #<Unbound>
+Function: #<Compiled-function |Document| #xF1B81E>
+Arglist: (BNF-PARSER::INDEX &AUX |MiscSequence| |Prolog| |Root|)
+Plist: (:PRODUCTION "
+{1 } Document ::= Prolog Root MiscSequence?"
+        :TERMS (|MiscSequence| |Prolog| |Root|) :PARSETABLE |Document-Parsetable|)
+
+
+;; source: (:REDUCE-P T :TIME-P T :SERIALIZE-P NIL)
+#4P"xml:standards;XML;XMLConf;xmlbench;Benchmark;Data;med.xml"
+(APPLY #'DOCUMENT-PARSER SOURCE :TRACE TRACE-P :REDUCE REDUCE-P (WHEN ENCODING (LIST :ENCODING ENCODING))) took 7,017 milliseconds (7.017 seconds) to run.
+Of that, 2 milliseconds (0.002 seconds) were spent in The Cooperative Multitasking Experience.
+185 milliseconds (0.185 seconds) was spent in GC.
+ 12,964,088 bytes of memory allocated.
+
+;; parsed result:
+#<DOC-NODE file://xml/standards/XML/XMLConf/xmlbench/Benchmark/Data/med.xml #x10D3E76>#<DOC-NODE file://xml/standards/XML/XMLConf/xmlbench/Benchmark/Data/med.xml #x10D3E76>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10A2B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x10D7096> #<PI-NODE ||::VERBATIM '"eg" ' #x10D70CE>
+           #<ELEM-NODE ||::|spec| 1 #x10D71AE> #<COMMENT-NODE #x1A285B6>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE #:|spec| #x10D6FB6>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x10D71AE>
+STANDALONE: NIL
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x10D4166>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x10D441E>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 26/60 #x10D3E36>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x10D46D6>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x10D498E>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+
+;; source: (:REDUCE-P NIL :TIME-P T :SERIALIZE-P NIL)
+#4P"xml:standards;XML;XMLConf;xmlbench;Benchmark;Data;chrbig.xml"
+(APPLY #'DOCUMENT-PARSER SOURCE :TRACE TRACE-P :REDUCE REDUCE-P (WHEN ENCODING (LIST :ENCODING ENCODING))) took 3,837 milliseconds (3.837 seconds) to run.
+Of that, 1 milliseconds (0.001 seconds) were spent in The Cooperative Multitasking Experience.
+ 8,333,112 bytes of memory allocated.
+
+;; parsed result:
+|Document|Symbol: |Document|
+Function
+INTERNAL in package: #<Package "XML-PARSER">
+Print name: "Document"
+Value: #<Unbound>
+Function: #<Compiled-function |Document| #xF1AC36>
+Arglist: (BNF-PARSER::INDEX &AUX |MiscSequence| |Prolog| |Root|)
+Plist: (:PRODUCTION "
+{1 } Document ::= Prolog Root MiscSequence?"
+        :TERMS (|MiscSequence| |Prolog| |Root|) :PARSETABLE |Document-Parsetable|)
+
+
+;; source: (:REDUCE-P T :TIME-P T :SERIALIZE-P NIL)
+#4P"xml:standards;XML;XMLConf;xmlbench;Benchmark;Data;chrbig.xml"
+(APPLY #'DOCUMENT-PARSER SOURCE :TRACE TRACE-P :REDUCE REDUCE-P (WHEN ENCODING (LIST :ENCODING ENCODING))) took 4,014 milliseconds (4.014 seconds) to run.
+Of that, 2 milliseconds (0.002 seconds) were spent in The Cooperative Multitasking Experience.
+148 milliseconds (0.148 seconds) was spent in GC.
+ 9,287,824 bytes of memory allocated.
+
+;; parsed result:
+#<DOC-NODE <no uri> #x10D4E8E>#<DOC-NODE <no uri> #x10D4E8E>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10A2B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x10D6626> #<COMMENT-NODE #x10D6A7E> #<COMMENT-NODE #x10D6AF6>
+           #<COMMENT-NODE #x10D6B4E> #<COMMENT-NODE #x10D6BFE> #<COMMENT-NODE #x10D6C4E>
+           #<PI-NODE ||::VERBATIM '"eg" ' #x10D6C76> #<ELEM-NODE ||::|spec| 1 #x10D6D46>
+           #<COMMENT-NODE #x190D16E>)
+ENTITY-INFO: #<ENTITY-INFORMATION-NODE ||::|| #x190D20E>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x10D6D46>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x10D517E>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x10D5436>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x10D4E4E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x10D56EE>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x10D59A6>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+
+
+;; source: (:REDUCE-P NIL :TIME-P T :ENCODING :ISO-8859-1 :SERIALIZE-P NIL)
+#4P"xml:standards;XML;XMLConf;xmlbench;Benchmark;Data;big.xml"
+(APPLY #'DOCUMENT-PARSER SOURCE :TRACE TRACE-P :REDUCE REDUCE-P (WHEN ENCODING (LIST :ENCODING ENCODING))) took 19,096 milliseconds (19.096 seconds) to run.
+Of that, 4 milliseconds (0.004 seconds) were spent in The Cooperative Multitasking Experience.
+121 milliseconds (0.121 seconds) was spent in GC.
+ 18,634,200 bytes of memory allocated.
+
+;; parsed result:
+|Document|Symbol: |Document|
+Function
+INTERNAL in package: #<Package "XML-PARSER">
+Print name: "Document"
+Value: #<Unbound>
+Function: #<Compiled-function |Document| #xF1AC36>
+Arglist: (BNF-PARSER::INDEX &AUX |MiscSequence| |Prolog| |Root|)
+Plist: (:PRODUCTION "
+{1 } Document ::= Prolog Root MiscSequence?"
+        :TERMS (|MiscSequence| |Prolog| |Root|) :PARSETABLE |Document-Parsetable|)
+
+
+;; source: (:REDUCE-P T :TIME-P T :SERIALIZE-P NIL)
+#4P"xml:standards;XML;XMLConf;xmlbench;Benchmark;Data;big.xml"
+(APPLY #'DOCUMENT-PARSER SOURCE :TRACE TRACE-P :REDUCE REDUCE-P (WHEN ENCODING (LIST :ENCODING ENCODING))) took 28,064 milliseconds (28.064 seconds) to run.
+Of that, 6 milliseconds (0.006 seconds) were spent in The Cooperative Multitasking Experience.
+762 milliseconds (0.762 seconds) was spent in GC.
+ 51,475,280 bytes of memory allocated.
+
+;; parsed result:
+#<DOC-NODE file://xml/standards/XML/XMLConf/xmlbench/Benchmark/Data/big.xml #x10D6ADE>#<DOC-NODE file://xml/standards/XML/XMLConf/xmlbench/Benchmark/Data/big.xml #x10D6ADE>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10A2B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<COMMENT-NODE #x10D9CFE> #<PI-NODE ||::VERBATIM '"eg" ' #x10D9D36>
+           #<ELEM-NODE ||::|spec| 1 #x10D9E16> #<COMMENT-NODE #x22A3F86>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE #:|spec| #x10D9C1E>
+ROOT: #<ELEM-NODE ||::|spec| 1 #x10D9E16>
+STANDALONE: NIL
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x10D6DCE>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x10D7086>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 26/60 #x10D6A9E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x10D733E>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x10D75F6>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+(SETQ *EXTERNAL-DOM* (DOCUMENT-PARSER "file://xml/standards/xml/rec-xml-20001006.xml" :TRACE NIL :REDUCE NIL :ENCODING :ISO-8859-1)) took 820 milliseconds (0.820 seconds) to run.
+ 877,832 bytes of memory allocated.
+expected condition ignored: NSC: Namespace Attribute Default signaled:
+namespace name does not match default value: xmlns:xlink == "http://www.w3.org/TR/WD-xlink" /= "http://www.w3.org/1999/xlink":
+.
+(SETQ *EXTERNAL-DOM* (DOCUMENT-PARSER "file://xml/standards/XML/REC-xml-20001006.xml" :TRACE NIL :REDUCE T)) took 1,899 milliseconds (1.899 seconds) to run.
+Of that, 140 milliseconds (0.140 seconds) was spent in GC.
+ 3,330,232 bytes of memory allocated.
+expected condition ignored: NSC: Namespace Attribute Default signaled:
+namespace name does not match default value: xlink == "http://www.w3.org/TR/WD-xlink" /= "http://www.w3.org/1999/xlink":
+.
+(SETQ *EXTERNAL-DOM* (DOCUMENT-PARSER "file://xml/standards/XML/REC-xml-20001006.xml" :TRACE NIL :REDUCE T)) took 1,915 milliseconds (1.915 seconds) to run.
+Of that, 1 milliseconds (0.001 seconds) were spent in The Cooperative Multitasking Experience.
+ 3,536,600 bytes of memory allocated.
+;;
+;;  an exmample from xhtml modularization:
+;;  nothing special is needed for the entity-based identifier generation,
+;;  but the dtd has no danespace declarations, which means that the definition is recognized as a homograph:
+#<DOC-NODE file://xml/standards/XML/XHTML-MODULAR/examples/inventory.xml #x15BE8F6>
+ ==>
+#<DOC-NODE file://xml/standards/XML/XHTML-MODULAR/examples/inventory.xml #x15BE8F6>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10A2B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE |http://www.example.com/xmlns/inventory|::|shelf| 1 #x15CFC16>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE ||::|shelf| #x15CF61E>
+ROOT: #<ELEM-NODE |http://www.example.com/xmlns/inventory|::|shelf| 1 #x15CFC16>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x15BEC66>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x15BEF3E>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x15BE89E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 37/60 #x15BF4EE>
+TYPES: #<HASH-TABLE :TEST EQL size 5/60 #x15BF7C6>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE shelf [
+ <!ENTITY % Inventory.shelf.qname 'shelf' >
+ <!ENTITY % Inventory.mod SYSTEM 'inventory-1.mod' >
+ <!ENTITY % Inventory.sku.qname 'sku' >
+ <!ENTITY % NS.decl.attrib '' >
+ <!ENTITY % URI.datatype 'CDATA' >
+ <!ENTITY % ContentTypes.datatype 'CDATA' >
+ <!ENTITY % Inventory.xmlns.attrib 'xmlns	CDATA	#FIXED 'http://www.example.com/xmlns/inventory'' >
+ <!ENTITY % Inventory.price.qname 'price' >
+ <!ENTITY % Charsets.datatype 'CDATA' >
+ <!ENTITY % Datetime.datatype 'CDATA' >
+ <!ENTITY % NS.prefixed 'IGNORE' >
+ <!ENTITY % Number.datatype 'CDATA' >
+ <!ENTITY % XHTML.xmlns.extra.attrib '' >
+ <!ENTITY % Script.datatype 'CDATA' >
+ <!ENTITY % Pixels.datatype 'CDATA' >
+ <!ENTITY % Length.datatype 'CDATA' >
+ <!ENTITY % Charset.datatype 'CDATA' >
+ <!ENTITY % xhtml-datatypes.mod PUBLIC '-//W3C//ENTITIES XHTML Datatypes 1.0//EN' '../xhtml-datatypes-1.mod' >
+ <!ENTITY % Inventory.pfx '' >
+ <!ENTITY % URIs.datatype 'CDATA' >
+ <!ENTITY % Inventory.xmlns.extra.attrib '' >
+ <!ENTITY % Inventory.prefix 'inventory' >
+ <!ENTITY % MediaDesc.datatype 'CDATA' >
+ <!ENTITY % Inventory.prefixed 'IGNORE' >
+ <!ENTITY % Color.datatype 'CDATA' >
+ <!ENTITY % Text.datatype 'CDATA' >
+ <!ENTITY % LinkTypes.datatype 'NMTOKENS' >
+ <!ENTITY % Character.datatype 'CDATA' >
+ <!ENTITY % Inventory.xmlns 'http://www.example.com/xmlns/inventory' >
+ <!ENTITY % ContentType.datatype 'CDATA' >
+ <!ENTITY % LanguageCode.datatype 'NMTOKEN' >
+ <!ENTITY % Inventory.item.qname 'item' >
+ <!ENTITY % Inventory.desc.qname 'desc' >
+ <!ENTITY % MultiLength.datatype 'CDATA' >
+ <!ENTITY % Inventory-qname.mod SYSTEM 'inventory-qname-1.mod' >
+ <!ENTITY % FPI.datatype 'CDATA' >
+ <!ENTITY % Inventory.Common.attrib '' >
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT shelf (item)* >
+ <!ATTLIST shelf 
+   location CDATA #IMPLIED >
+ <!ELEMENT item (desc, sku, price) >
+ <!ATTLIST item 
+   location CDATA #IMPLIED >
+ <!ELEMENT desc (#PCDATA) >
+ <!ELEMENT sku (#PCDATA) >
+ <!ELEMENT price (#PCDATA) >
+ ]>
+<shelf xmlns='http://www.example.com/xmlns/inventory'>
+    <item>
+        <desc>
+	  this is a description.
+	</desc>
+        <sku>
+	  this is the price.
+        </sku>
+        <price>
+	  this is the price.
+	</price>
+    </item>
+</shelf>the dtd itself can also be loaded, so long as one observes the entity dependancies:
+#<EXT-SUBSET-NODE #x15E3AD6>
+ ==>
+#<EXT-SUBSET-NODE #x15E3AD6>
+Class: #<STANDARD-CLASS EXT-SUBSET-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER EXT-SUBSET-NODE #x10A82CE>
+Instance slots
+PARENT: NIL
+ENTITY-INFO: #<ENTITY-INFORMATION-NODE ||::|| #x15E3AA6>
+CHILDREN: (#<COMMENT-NODE #x15D6D4E> #<COMMENT-NODE #x15D6E3E> #<COMMENT-NODE #x15D76DE>
+           #<COMMENT-NODE #x15D783E> #<COMMENT-NODE #x15D78CE>
+           #<DEF-EXTERNAL-PARAMETER-ENTITY ||::|xhtml-datatypes.mod| #x15D7AAE>
+           #<COMMENT-NODE #x15D876E> #<COMMENT-NODE #x15D885E> #<COMMENT-NODE #x15D9D36>
+           #<COMMENT-NODE #x15D9E9E> #<COMMENT-NODE #x15D9F56> #<COMMENT-NODE #x15DA00E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Length.datatype| 'CDATA' #x15DA0E6>
+           #<COMMENT-NODE #x15DA19E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|LinkTypes.datatype| 'NMTOKENS' #x15DA276>
+           #<COMMENT-NODE #x15DA34E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|MediaDesc.datatype| 'CDATA' #x15DA426>
+           #<COMMENT-NODE #x15DA4D6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|MultiLength.datatype| 'CDATA' #x15DA5B6>
+           #<COMMENT-NODE #x15DA65E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Number.datatype| 'CDATA' #x15DA736>
+           #<COMMENT-NODE #x15DA7F6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Pixels.datatype| 'CDATA' #x15DA8CE>
+           #<COMMENT-NODE #x15DA966>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Script.datatype| 'CDATA' #x15DAA3E>
+           #<COMMENT-NODE #x15DAACE>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Text.datatype| 'CDATA' #x15DAB9E>
+           #<COMMENT-NODE #x15DAC76> #<COMMENT-NODE #x15DAD1E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Character.datatype| 'CDATA' #x15DADF6>
+           #<COMMENT-NODE #x15DAEB6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Charset.datatype| 'CDATA' #x15DAF8E>
+           #<COMMENT-NODE #x15DB07E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Charsets.datatype| 'CDATA' #x15DB156>
+           #<COMMENT-NODE #x15DB246>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Color.datatype| 'CDATA' #x15DB316>
+           #<COMMENT-NODE #x15DB3BE>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|ContentType.datatype| 'CDATA' #x15DB49E>
+           #<COMMENT-NODE #x15DB57E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|ContentTypes.datatype| 'CDATA' #x15DB65E>
+           #<COMMENT-NODE #x15DB726>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Datetime.datatype| 'CDATA' #x15DB7FE>
+           #<COMMENT-NODE #x15DB8C6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|FPI.datatype| 'CDATA' #x15DB996>
+           #<COMMENT-NODE #x15DBA4E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|LanguageCode.datatype| 'NMTOKEN' #x15DBB2E>
+           #<COMMENT-NODE #x15DBBEE>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|URI.datatype| 'CDATA' #x15DBCBE>
+           #<COMMENT-NODE #x15DBDB6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|URIs.datatype| 'CDATA' #x15DBE86>
+           #<COMMENT-NODE #x15DBF2E> #<COMMENT-NODE #x15DC1D6>
+           #<DEF-EXTERNAL-PARAMETER-ENTITY ||::|Inventory-qname.mod| #x15DC336>
+           #<COMMENT-NODE #x15DCF36> #<COMMENT-NODE #x15DD04E> #<COMMENT-NODE #x15DD9BE>
+           #<COMMENT-NODE #x15DDAA6> #<COMMENT-NODE #x15DDBCE>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|NS.prefixed| 'IGNORE' #x15DDC9E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.prefixed| 'IGNORE' #x15DDDE6>
+           #<COMMENT-NODE #x15DDEAE>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.xmlns| 'http://www.exam...' #x15DDF86>
+           #<COMMENT-NODE #x15DE04E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.prefix| 'inventory' #x15DE126>
+           #<COMMENT-NODE #x15DE1DE>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.pfx| #x15DE3FE>
+           #<COMMENT-NODE #x15DE4D6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.xmlns.extra.attrib| #x15DE796>
+           #<COMMENT-NODE #x15DE8A6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|XHTML.xmlns.extra.attrib| #x15DE9CE>
+           #<COMMENT-NODE #x15DEAD6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.shelf.qname| 'shelf' #x15DEBD6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.item.qname| 'item' #x15DECE6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.desc.qname| 'desc' #x15DEDF6>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.sku.qname| 'sku' #x15DEF06>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.price.qname| 'price' #x15DF016>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|NS.decl.attrib| #x15DF296>
+           #<COMMENT-NODE #x15DF31E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.Common.attrib| #x15DF406>
+           #<DEF-EXTERNAL-PARAMETER-ENTITY ||::|Inventory.mod| #x15DF55E>
+           #<COMMENT-NODE #x15E0126> #<COMMENT-NODE #x15E025E> #<COMMENT-NODE #x15E0B56>
+           #<COMMENT-NODE #x15E0CB6> #<COMMENT-NODE #x15E0D66>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.xmlns.attrib| 'xmlns	CDATA	#FI...' #x15E1076>
+           #<COMMENT-NODE #x15E115E>
+           #<DEF-INTERNAL-PARAMETER-ENTITY ||::|Inventory.Common.attrib| 'xmlns	CDATA	#FI...' #x15E12B6>
+           #<COMMENT-NODE #x15E13A6>
+           #<DEF-ELEM-TYPE #:|shelf|     shelf ::= (item)* #x15E16B6>
+           #<DEF-ATTR #:shelf[QE.8834.8837] (#<def-elem-property-type #:|location| #x15e1aae>) #x15E1B7E>
+           #<DEF-ELEM-TYPE #:|item|     item ::= (desc sku price) #x15E21BE>
+           #<DEF-ATTR #:item[QE.8834.8837] (#<def-elem-property-type #:|location| #x15e2536>) #x15E2606>
+           #<DEF-ELEM-TYPE #:|desc|     desc ::= (#PCDATA) #x15E289E>
+           #<DEF-ATTR #:desc[QE.8834.8837] {common-lisp}nil #x15E2B16>
+           #<DEF-ELEM-TYPE #:|sku|     sku ::= (#PCDATA) #x15E2D66>
+           #<DEF-ATTR #:sku[QE.8834.8837] {common-lisp}nil #x15E2FDE>
+           #<DEF-ELEM-TYPE #:|price|     price ::= (#PCDATA) #x15E3206>
+           #<DEF-ATTR #:price[QE.8834.8837] {common-lisp}nil #x15E347E>
+           #<COMMENT-NODE #x15E3566> #<COMMENT-NODE #x15E373E>)
+(DOCUMENT-PARSER #4P"xml:standards;XML;XMLConf;macbeth.xml") took 1,141 milliseconds (1.141 seconds) to run.
+ 2,176,368 bytes of memory allocated.
+the macbeth example loaded both as an instacne model and as an s-expression model:
+#<DOC-NODE <no uri> #x15E8BC6>
+ ==>
+#<DOC-NODE <no uri> #x15E8BC6>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10A2B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::PLAY 1 #x15EAAFE>)
+ENTITY-INFO: #<ENTITY-INFORMATION-NODE ||::|| #x17FB7AE>
+ROOT: #<ELEM-NODE ||::PLAY 1 #x15EAAFE>
+STANDALONE: T
+VERSION: "1.0"
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x15E8F36>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x15E920E>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x15E8B6E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x15E97BE>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x15E9A96>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+(DOCUMENT-PARSER #4P"xml:standards;XML;XMLConf;macbeth.xml" :REDUCE 'CONS) took 774 milliseconds (0.774 seconds) to run.
+ 1,917,112 bytes of memory allocated.
+
+;; when :reduce is CONS, reduction is to an s-expression representation of the parse tree.
+;; the tags are taken from the bnf grammar.
+;; the order within a given production is alphabetical.
+;; sequence values appear as an untagged list:
+(|Document| (|MiscSequence| (|Misc|))
+            (|Prolog| (|MiscSequence| (|Misc|))
+                      (|XMLDecl| (|VersionInfo| (|VersionNumCharData| "1.0"))))
+            (|Root| (|Element| ((|Content| (|CharData| "
+"))
+                                (|Content| (|Element| ((|Content| #)
+                                                       (|Content| #)
+                                                       (|Content| #)
+                                                       (|Content| #)
+                                                       (|Content| #)
+                                                       ...)
+                                                      (|ETag| (|QName| "ACT"))
+                                                      (|STag| (|QName| "ACT"))))
+                                (|Content| (|CharData| "
+
+"))
+                                (|Content| (|Element| ((|Content| #)
+                                                       (|Content| #)
+                                                       (|Content| #)
+                                                       (|Content| #)
+                                                       (|Content| #)
+                                                       ...)
+                                                      (|ETag| (|QName| "ACT"))
+                                                      (|STag| (|QName| "ACT"))))
+                                (|Content| (|CharData| "
+
+")) ...)
+                               (|ETag| (|QName| "PLAY"))
+                               (|STag| (|QName| "PLAY")))))(|Document|
+                                                            (|MiscSequence| (|Misc|))
+                                                            (|Prolog|
+                                                             (|MiscSequence| (|Misc|))
+                                                             (|XMLDecl|
+                                                              (|VersionInfo|
+                                                               (|VersionNumCharData|
+                                                                "1.0"))))
+                                                            (|Root|
+                                                             (|Element|
+                                                              ((|Content|
+                                                                (|CharData| "
+"))
+                                                               (|Content|
+                                                                (|Element|
+                                                                 ((|Content| #)
+                                                                  (|Content| #)
+                                                                  (|Content| #)
+                                                                  (|Content| #)
+                                                                  (|Content| #)
+                                                                  ...)
+                                                                 (|ETag| (|QName| "ACT"))
+                                                                 (|STag|
+                                                                  (|QName| "ACT"))))
+                                                               (|Content|
+                                                                (|CharData| "
+
+"))
+                                                               (|Content|
+                                                                (|Element|
+                                                                 ((|Content| #)
+                                                                  (|Content| #)
+                                                                  (|Content| #)
+                                                                  (|Content| #)
+                                                                  (|Content| #)
+                                                                  ...)
+                                                                 (|ETag| (|QName| "ACT"))
+                                                                 (|STag|
+                                                                  (|QName| "ACT"))))
+                                                               (|Content|
+                                                                (|CharData| "
+
+"))
+                                                               ...)
+                                                              (|ETag| (|QName| "PLAY"))
+                                                              (|STag| (|QName| "PLAY")))))
+Type: CONS
+Class: #<BUILT-IN-CLASS CONS>
+Normal List
+Length: 4
+0: |Document|
+1: (|MiscSequence| (|Misc|))
+2: (|Prolog| (|MiscSequence| (|Misc|))
+             (|XMLDecl| (|VersionInfo| (|VersionNumCharData| "1.0"))))
+3: (|Root| (|Element| ((|Content| (|CharData| "
+"))
+                       (|Content| (|Element| ((|Content| (|CharData| "
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content| (|CharData| "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content| (|CharData| "
+
+")) ...)
+                                             (|ETag| (|QName| "ACT"))
+                                             (|STag| (|QName| "ACT"))))
+                       (|Content| (|CharData| "
+
+"))
+                       (|Content| (|Element| ((|Content| (|CharData| "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content| (|CharData| "
+
+"))
+                                              (|Content| (|Element| # # #))
+                                              (|Content| (|CharData| "
+
+")) ...)
+                                             (|ETag| (|QName| "ACT"))
+                                             (|STag| (|QName| "ACT"))))
+                       (|Content| (|CharData| "
+
+")) ...)
+                      (|ETag| (|QName| "PLAY"))
+                      (|STag| (|QName| "PLAY"))))
+
+;; component: "xml:tests;parser;document-specialized"
+;loading osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:document-specialized.LISP, no bin.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:document-specialized.LISP"...#<DOC-NODE <no uri> #x19F5176>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10A2B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<ELEM-NODE ||::|envelope| 1 #x19F7106>)
+ENTITY-INFO: #<ENTITY-INFORMATION-NODE ||::|| #x19F7766>
+ROOT: #<ELEM-NODE ||::|envelope| 1 #x19F7106>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x19F54E6>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x19F57BE>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x19F511E>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x19F5D6E>
+TYPES: #<HASH-TABLE :TEST EQL size 0/60 #x19F6046>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+#<DOC-NODE <no uri> #x19FC946>
+Class: #<STANDARD-CLASS DOC-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER DOC-NODE #x10A2B6E>
+Instance slots
+PARENT: NIL
+CHILDREN: (#<|envelope| #x19FF1AE>)
+ENTITY-INFO: #<DOCUMENT-TYPE-DECLARATION-INFORMATION-NODE |envelope| #x19FEFA6>
+ROOT: #<|envelope| #x19FF1AE>
+STANDALONE: T
+VERSION: NIL
+NOTATIONS: #<HASH-TABLE :TEST EQL size 0/60 #x19FCCB6>
+XML-QUERY-DATA-MODEL::IDS: #<HASH-TABLE :TEST EQL size 0/60 #x19FCF8E>
+GENERAL-ENTITIES: #<HASH-TABLE :TEST EQL size 5/60 #x19FC8EE>
+PARAMETER-ENTITIES: #<HASH-TABLE :TEST EQL size 0/60 #x19FD53E>
+TYPES: #<HASH-TABLE :TEST EQL size 1/60 #x19FD816>
+ATTRIBUTES: NIL
+XML-QUERY-DATA-MODEL::VALIDATE: NIL
+NAMESPACES: NIL
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE envelope [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' > <!-- no root element definition present -->
+ <!ELEMENT envelope ANY >
+ <!ATTLIST envelope 
+   xmlns CDATA  'XML-PARSER' >
+ ]>
+<envelope xmlns='XML-PARSER'>asd<f /></envelope>
+;; component: "xml:tests;parser;qnames.lisp"
+;loading osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:qnames.lisp, no bin.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:qnames.lisp"...
+
+the qname test document:
+<!DOCTYPE doc [
+    <!ELEMENT doc (a:x)* >
+    <!ATTLIST doc xmlns CDATA 'data:,ns-top'>
+    <!ELEMENT a:x EMPTY>
+    <!ATTLIST a:x
+              xmlns:a CDATA 'data:,ns-a'
+              a:qname CDATA 'a:test'>
+    ]>
+
+   <doc xmlns='data:,ns-top'
+        xmlns:a='data:,ns-a'>
+     <x xmlns='data:,ns-a'></x>
+     </doc>
+
+reserializes as
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE doc [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT doc (nsp-1:x)* >
+ <!ATTLIST doc 
+   xmlns CDATA  'data:,ns-top' >
+ <!ATTLIST doc 
+   xmlns:nsp-1 CDATA 'data:,ns-a' >
+ <!ELEMENT a:x EMPTY >
+ <!ATTLIST a:x 
+   xmlns:a CDATA  'data:,ns-a'
+   a:qname CDATA  'a:test' >
+ ]>
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-a'>
+     <a:x xmlns='data:,ns-a' xmlns:a='data:,ns-a' a:qname='a:test' />
+     </doc>
+
+./{*}doc element:
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-a'>
+     <a:x xmlns='data:,ns-a' xmlns:a='data:,ns-a' a:qname='a:test' />
+     </doc>
+
+.//{*}x element:
+<a:x xmlns='data:,ns-a' xmlns:a='data:,ns-a' a:qname='a:test' />
+
+(.//{*}x/@{*}qname) attribute:
+#<STRING-ATTR-NODE |data:,ns-a|::|qname| #x1A075CE>
+Class: #<STANDARD-CLASS STRING-ATTR-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER STRING-ATTR-NODE #x10A32BE>
+Instance slots
+PARENT: #<ELEM-NODE |data:,ns-a|::\x 2 #x1A0743E>
+CHILDREN: ("a:test")
+DEF: #<DEF-ELEM-PROPERTY-TYPE |data:,ns-a|::|qname| #x1A06AB6>
+DOCUMENT: #<DOC-NODE <no uri> #x1A03A9E>
+NAME: |data:,ns-a|::|qname|
+VALUE: "a:test"
+
+
+(.//{*}x/@{*}qname/text()) attribute:
+
+"" 
+
+(.//{*}x/@{*}qname/value()) attribute:
+"a:test"
+Type: (SIMPLE-ARRAY CHARACTER (6))
+Class: #<BUILT-IN-CLASS CCL::SIMPLE-EXTENDED-STRING>
+Length: 6
+0: #\a
+1: #\:
+2: #\t
+3: #\e
+4: #\s
+5: #\t
+
+
+an element with reused names:
+<nsp-1:newElement nsp-1:test='' nsp-1='data:,ns-a'>
+ this demonstrates benefits
+ of first-class names. it doesn't
+ matter, whether prefixes are retained...</nsp-1:newElement>
+
+an element with reused names, but with cleared prefixes:
+Symbol: |data:,ns-a|::|newElement|
+INTERNAL in package: #<Package "data:,ns-a">
+Print name: "newElement"
+Value: #<Unbound>
+Function: #<Unbound>
+Plist: (:PREFIX NIL)
+
+#<ELEM-NODE |data:,ns-a|::|newElement| #x1A1793E>
+Class: #<STANDARD-CLASS ELEM-NODE>
+Wrapper: #<CCL::CLASS-WRAPPER ELEM-NODE #x10A2A4E>
+Instance slots
+DOCUMENT: NIL
+ORDINALITY: NIL
+PARENT: NIL
+DEF: NIL
+NAME: |data:,ns-a|::|newElement|
+CHILDREN: ("... or not. if the model is complete,"
+           "operations are closed and the serialized form is NS-valid." "...")
+ATTRIBUTES: (#<QNAME-ATTR-NODE |data:,ns-a|::|test| #x1A1790E>)
+NAMESPACES: NIL
+VALID: #<Unbound>
+
+<nsp-1:newElement nsp-1:test='' nsp-1='data:,ns-a'>
+ ... or not. if the model is complete,
+ operations are closed and the serialized form is NS-valid.
+ ...</nsp-1:newElement><?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE doc [
+ <!ENTITY % dtd2 SYSTEM 'data:,&lt;!ELEMENT y (b)*&gt; &lt;!ELEMENT b EMPTY&gt;' >
+ <!ENTITY % dtd1 SYSTEM 'data:,&lt;!ELEMENT x (a)*&gt; &lt;!ELEMENT a EMPTY&gt;' >
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT compound:doc (nsp-1:x, nsp-2:y)* >
+ <!ATTLIST compound:doc 
+   xmlns:compound CDATA  'data:,ns-doc' >
+ <!ATTLIST compound:doc 
+   xmlns:nsp-2 CDATA 'data:,ns-b'
+   xmlns:nsp-1 CDATA 'data:,ns-a' >
+ <!ELEMENT x (a)* >
+ <!ATTLIST x 
+   xmlns CDATA  'data:,ns-a' >
+ <!ELEMENT a EMPTY >
+ <!ELEMENT y (b)* >
+ <!ATTLIST y 
+   xmlns CDATA  'data:,ns-b' >
+ <!ELEMENT b EMPTY >
+ ]>
+<compound:doc xmlns='data:,ns-doc' xmlns:compound='data:,ns-doc'>
+     <x xmlns='data:,ns-a'><a /></x>
+     <y xmlns='data:,ns-b'><b /></y>
+     </compound:doc>
+
+an examination of the document entitiy demonstrates that element names are resolved:
+    |data:,ns-doc|::|doc| |data:,ns-a|::\x |data:,ns-a|::\a |data:,ns-b|::\y |data:,ns-b|::\b
+and, in addition, the nems in element definitions are alos resolved:
+    |data:,ns-b|::\y |data:,ns-a|::\x |data:,ns-a|::\a |data:,ns-doc|::|doc| |data:,ns-b|::\b
+
+this demonstrates ns propagation with multiple unambiguous prefix bindings.
+in this case, the dominant declaration preceeds the dependant declarations and shares a prefix.<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE doc [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT doc (nsp-1:x, nsp-2:y)* >
+ <!ATTLIST doc 
+   xmlns CDATA  'data:,ns-top' >
+ <!ATTLIST doc 
+   xmlns:nsp-2 CDATA 'data:,ns-b'
+   xmlns:nsp-1 CDATA 'data:,ns-a' >
+ <!ELEMENT a:x (a:a)* >
+ <!ATTLIST a:x 
+   xmlns CDATA  'data:,ns-a'
+   xmlns:a CDATA  'data:,ns-a' >
+ <!ELEMENT a:a EMPTY >
+ <!ELEMENT b:y (b:b)* >
+ <!ATTLIST b:y 
+   xmlns CDATA  'data:,ns-b'
+   xmlns:b CDATA  'data:,ns-b' >
+ <!ELEMENT b:b EMPTY >
+ ]>
+<doc xmlns='data:,ns-top'>
+     <a:x xmlns='data:,ns-a' xmlns:a='data:,ns-a'><a:a /></a:x>
+     <b:y xmlns='data:,ns-b' xmlns:b='data:,ns-b'><b:b /></b:y>
+     </doc>
+
+this demonstrates the problmes which arise where declaration either are missing in the document
+and/or declaration or do not match.
+validity condition as expected: VC: Element Valid signaled:
+there must be a definition where the name matches: "x".
+parser error with-state #<XML-PARSE-STATE :sources ((:SOURCE #<VECTOR-INPUT-STREAM #(3C 21 44 4F 43 54 59 50 45 20 64 6F 63 20 5B D 20 20 20 20 3C 21 45 4C 45 4D 45 4E 54 20 64 6F ...)> :POSITION 414 :COLUMN 10 :LINE 17)) :input #\< :token NIL :lexical-context |STag| :source #<XML-INPUT #x1A36B9E> :term S :non-terminal |STag| :stack (|STag| |Element| |Content| |Element| |Root| |Document| |Document-Parser|) >.
+
+validity condition as expected: VC: Element Valid signaled:
+there must be a definition where the name matches: |data:,ns-top|::\x.
+parser error with-state #<XML-PARSE-STATE :sources ((:SOURCE #<VECTOR-INPUT-STREAM #(3C 21 44 4F 43 54 59 50 45 20 64 6F 63 20 5B D 20 20 20 20 3C 21 45 4C 45 4D 45 4E 54 20 64 6F ...)> :POSITION 422 :COLUMN 18 :LINE 17)) :input #\Newline :token NIL :lexical-context |Content| :source #<XML-INPUT #x1A36B9E> :term S :non-terminal |Element| :stack (|Element| |Content| |Element| |Root| |Document| |Document-Parser|) >.
+
+validity condition as expected: VC: Element Content signaled:
+content must match the element model: (#<ELEM-NODE |data:,ns-top|::\a 3 #x1A3C74E>): 
+NIL.
+parser error with-state #<XML-PARSE-STATE :sources ((:SOURCE #<VECTOR-INPUT-STREAM #(3C 21 44 4F 43 54 59 50 45 20 64 6F 63 20 5B D 20 20 20 20 3C 21 45 4C 45 4D 45 4E 54 20 64 6F ...)> :POSITION 422 :COLUMN 18 :LINE 17)) :input #\Newline :token NIL :lexical-context |Content| :source #<XML-INPUT #x1A36B9E> :term S :non-terminal |Element| :stack (|Element| |Content| |Element| |Root| |Document| |Document-Parser|) >.
+
+validity condition as expected: VC: Element Valid signaled:
+there must be a definition where the name matches: "y".
+parser error with-state #<XML-PARSE-STATE :sources ((:SOURCE #<VECTOR-INPUT-STREAM #(3C 21 44 4F 43 54 59 50 45 20 64 6F 63 20 5B D 20 20 20 20 3C 21 45 4C 45 4D 45 4E 54 20 64 6F ...)> :POSITION 432 :COLUMN 10 :LINE 18)) :input #\< :token NIL :lexical-context |STag| :source #<XML-INPUT #x1A36B9E> :term S :non-terminal |STag| :stack (|STag| |Element| |Content| |Element| |Root| |Document| |Document-Parser|) >.
+
+validity condition as expected: VC: Element Valid signaled:
+there must be a definition where the name matches: |data:,ns-top|::\y.
+parser error with-state #<XML-PARSE-STATE :sources ((:SOURCE #<VECTOR-INPUT-STREAM #(3C 21 44 4F 43 54 59 50 45 20 64 6F 63 20 5B D 20 20 20 20 3C 21 45 4C 45 4D 45 4E 54 20 64 6F ...)> :POSITION 440 :COLUMN 18 :LINE 18)) :input #\Newline :token NIL :lexical-context |Content| :source #<XML-INPUT #x1A36B9E> :term S :non-terminal |Element| :stack (|Element| |Content| |Element| |Root| |Document| |Document-Parser|) >.
+
+validity condition as expected: VC: Element Content signaled:
+content must match the element model: (#<ELEM-NODE |data:,ns-top|::\b 5 #x1A426DE>): 
+NIL.
+parser error with-state #<XML-PARSE-STATE :sources ((:SOURCE #<VECTOR-INPUT-STREAM #(3C 21 44 4F 43 54 59 50 45 20 64 6F 63 20 5B D 20 20 20 20 3C 21 45 4C 45 4D 45 4E 54 20 64 6F ...)> :POSITION 440 :COLUMN 18 :LINE 18)) :input #\Newline :token NIL :lexical-context |Content| :source #<XML-INPUT #x1A36B9E> :term S :non-terminal |Element| :stack (|Element| |Content| |Element| |Root| |Document| |Document-Parser|) >.
+
+validity condition as expected: VC: Element Valid signaled:
+there must be a definition where the name matches: |data:,ns-top|::\x.
+parser error with-state #<XML-PARSE-STATE :sources ((:SOURCE #<VECTOR-INPUT-STREAM #(3C 21 44 4F 43 54 59 50 45 20 64 6F 63 20 5B D 20 20 20 20 3C 21 45 4C 45 4D 45 4E 54 20 64 6F ...)> :POSITION 451 :COLUMN 11 :LINE 19)) :input NIL :token NIL :lexical-context |Document| :source #<XML-INPUT #x1A36B9E> :term S :non-terminal |Element| :stack (|Element| |Root| |Document| |Document-Parser|) >.
+
+validity condition as expected: VC: Element Content signaled:
+content must match the element model: ("
+     " #<ELEM-NODE |data:,ns-top|::\x 2 #x1A3C59E> "
+     " #<ELEM-NODE |data:,ns-top|::\y 4 #x1A4252E> "
+     "): 
+     doc ::= (x y)*.
+parser error with-state #<XML-PARSE-STATE :sources ((:SOURCE #<VECTOR-INPUT-STREAM #(3C 21 44 4F 43 54 59 50 45 20 64 6F 63 20 5B D 20 20 20 20 3C 21 45 4C 45 4D 45 4E 54 20 64 6F ...)> :POSITION 451 :COLUMN 11 :LINE 19)) :input NIL :token NIL :lexical-context |Document| :source #<XML-INPUT #x1A36B9E> :term S :non-terminal |Element| :stack (|Element| |Root| |Document| |Document-Parser|) >.
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE doc [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT doc (nsp-1:x, nsp-2:y)* >
+ <!ATTLIST doc 
+   xmlns CDATA  'data:,ns-top' >
+ <!ATTLIST doc 
+   xmlns:nsp-2 CDATA 'data:,ns-b'
+   xmlns:nsp-1 CDATA 'data:,ns-a' >
+ <!ELEMENT a:x (a:a)* >
+ <!ATTLIST a:x 
+   xmlns CDATA  'data:,ns-a'
+   xmlns:a CDATA  'data:,ns-a' >
+ <!ELEMENT a:a EMPTY >
+ <!ELEMENT b:y (b:b)* >
+ <!ATTLIST b:y 
+   xmlns CDATA  'data:,ns-b'
+   xmlns:b CDATA  'data:,ns-b' >
+ <!ELEMENT b:b EMPTY >
+ ]>
+<doc xmlns='data:,ns-top'>
+     <x><a /></x>
+     <y><b /></y>
+     </doc>
+
+namespace declarations are propagation with multiple unambiguous prefix bindings.
+in this case, the dominant declaration follows the dependant declarations.
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE doc [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT doc (nsp-1:x, nsp-2:y)* >
+ <!ATTLIST doc 
+   xmlns CDATA  'data:,ns-top' >
+ <!ATTLIST doc 
+   xmlns:nsp-2 CDATA 'data:,ns-b'
+   xmlns:nsp-1 CDATA 'data:,ns-a' >
+ <!ELEMENT a:x (a:a)* >
+ <!ATTLIST a:x 
+   xmlns CDATA  'data:,ns-a'
+   xmlns:a CDATA  'data:,ns-a' >
+ <!ELEMENT a:a EMPTY >
+ <!ELEMENT b:y (b:b)* >
+ <!ATTLIST b:y 
+   xmlns CDATA  'data:,ns-b'
+   xmlns:b CDATA  'data:,ns-b' >
+ <!ELEMENT b:b EMPTY >
+ ]>
+<doc xmlns='data:,ns-top'>
+     <a:x xmlns='data:,ns-a' xmlns:a='data:,ns-a'><a:a /></a:x>
+     <b:y xmlns='data:,ns-b' xmlns:b='data:,ns-b'><b:b /></b:y>
+     </doc>
+
+this example notes the ambiguous namespace bindings.
+and signal validation errors for the content and the missing definition.
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE doc [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT doc (nsp-1:x)* >
+ <!ATTLIST doc 
+   xmlns:a CDATA  'data:,ns-b'
+   xmlns CDATA  'data:,ns-top' >
+ <!ATTLIST doc 
+   xmlns:nsp-1 CDATA 'data:,ns-a' >
+ <!ELEMENT a:x EMPTY >
+ <!ATTLIST a:x 
+   xmlns:a CDATA  'data:,ns-a' >
+ ]>
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-b'>  <!--  nb. as xmlns:a='data:,ns-a' this causes a ns default error instance  -->
+     <a:x xmlns='data:,ns-a' xmlns:a='data:,ns-a' />
+     </doc>
+
+this example demonstrate the effects of changing a namespace name v/s changing the value in a namespace node.
+
+original. :
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-a' >
+     <x xmlns='data:,ns-a'><z/></x>
+     <y xmlns='data:,ns-b'></y>
+     </doc>
+
+I. original serialized. :
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-a'>
+     <x xmlns='data:,ns-a'><z /></x>
+     <y xmlns='data:,ns-b' />
+     </doc>
+
+II. a change of the prefix specified for a local namespace binding has the expected effect on the serialized document, even though
+#<ELEM-NODE |data:,ns-a|::\x 2 #x1A784FE>.name.prefix remains = "" :
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-a'>
+     <aChanged:x xmlns:aChanged='data:,ns-a'><aChanged:z /></aChanged:x>
+     <y xmlns='data:,ns-b' />
+     </doc>
+
+III. moving the element does not cause the artifactual null prefix to be captured.
+#<ELEM-NODE |data:,ns-a|::\z 3 #x1A7BE7E>.name.prefix remains = "". the serializer uses the binding visible in the root node.
+#<ELEM-NODE |data:,ns-b|::\y 4 #x1A7C17E>.namespaces = (#<NS-NODE |xmlns|:|| -> "data:,ns-b" #x1A7C076>). :
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-a'>
+     <x xmlns='data:,ns-a' />
+     <y xmlns='data:,ns-b'><a:z /></y>
+     </doc>
+
+IV. the prefixes are serialization artifacts, where the local namespace nodes have been deleted, the serializer either generates new ones, or uses other apparent bindings.
+#<ELEM-NODE |data:,ns-a|::\x 2 #x1A7F4BE>.namespaces = NIL.
+#<ELEM-NODE |data:,ns-b|::\y 4 #x1A7F98E>.namespaces = NIL. :
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-a'>
+     <a:x><a:z /></a:x>
+     <nsp-1:y nsp-1='data:,ns-b' />
+     </doc>
+
+V. the effect of a change to the value of a namespace node is limited to that node. it has no affect on the names within its scope...
+#<ELEM-NODE |data:,ns-a|::\x 2 #x1A82C76>.namespaces = (#<NS-NODE |xmlns|:|| -> "" #x1A8349E>). :
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-a'>
+     <a:x xmlns=''><a:z /></a:x>
+     <y xmlns='data:,ns-b' />
+     </doc>
+
+VI. the effect of a change to the value of a namespace node is limited to that node. it has no affect on the names within its scope...
+#<ELEM-NODE |data:,ns-a|::\x 2 #x1A86316>.namespaces = (#<NS-NODE |xmlns|:|| -> "data:,ns-nonexistant1" #x1A86B3E>).
+#<ELEM-NODE |data:,ns-b|::\y 4 #x1A867E6>.namespaces = (#<NS-NODE |xmlns|:|| -> "data:,ns-nonexistant2" #x1A86D86>). :
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-a'>
+     <a:x xmlns='data:,ns-nonexistant1'><a:z /></a:x>
+     <nsp-1:y xmlns='data:,ns-nonexistant2' nsp-1='data:,ns-b' />
+     </doc>
+
+VII. ... even where new nodes supplant all original prefix/namespace bindings.
+#<ELEM-NODE |data:,ns-a|::\x 2 #x1A89F6E>.namespaces = (#<NS-NODE |xmlns|::\a -> "" #x1A8A7E6> #<NS-NODE |xmlns|:|| -> "" #x1A8A796>). :
+<doc xmlns='data:,ns-top' xmlns:a='data:,ns-a'>
+     <a:x xmlns:a='' xmlns=''><a:z /></a:x>
+     <y xmlns='data:,ns-b' />
+     </doc>
+;; component: "xml:tests;parser;validation.lisp"
+;loading osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:validation.lisp, no bin.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:validation.lisp"...
+
+;;
+;; examples which demonstrate the difference between a namespace default and
+;; a fixed attribute default: where the former differ, the parse may
+;; fail independant of validation while in the latter case, it fails under
+;; validation only.
+
+
+;;
+;; namespace declarations (-validation): element = x /= default = y ==> error:
+
+as expected: NSC: Namespace Attribute Default signaled:
+namespace name does not match default value:  == "http://over.the.rainbow.com/somewhere" /= "http://java.sun.com/historical":
+
+
+
+;;
+;; namespace declarations (-validation): element = x == default = x ==> ok:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE palimpest [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT palimpest EMPTY >
+ <!ATTLIST palimpest 
+   xmlns CDATA #FIXED 'http://over.the.rainbow.com/somewhere' >
+ ]>
+<palimpest xmlns='http://over.the.rainbow.com/somewhere' />
+
+;;
+;; namespace declarations (-validation): element = x /= default = nil ==> ok:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE palimpest [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT palimpest EMPTY >
+ ]>
+<palimpest xmlns='http://over.the.rainbow.com/somewhere' />
+
+;;
+;; namespace declarations (-validation): element = nil == default = x ==> ok:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE palimpest [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT palimpest EMPTY >
+ <!ATTLIST palimpest 
+   xmlns CDATA #FIXED 'http://over.the.rainbow.com/somewhere' >
+ ]>
+<palimpest xmlns='http://over.the.rainbow.com/somewhere' />
+
+;;
+;; namespace declarations (-validation): element = nil == default = nil ==> ok:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE palimpest [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT palimpest EMPTY >
+ ]>
+<palimpest />
+
+;;
+;; attributes (+validation): element = x /= default = y ==> error:
+
+as expected: VC: Fixed Attribute Default signaled:
+attribute value does not match default: attr: ("http://over.the.rainbow.com/somewhere"): ("http://java.sun.com/historical"):
+parser error with-state #<XML-PARSE-STATE :sources ((:SOURCE #<VECTOR-INPUT-STREAM #(3C 21 44 4F 43 54 59 50 45 20 70 61 6C 69 6D 70 65 73 74 20 5B D 3C 21 45 4C 45 4D 45 4E 54 20 ...)> :POSITION 242 :COLUMN 57 :LINE 8)) :input NIL :token NIL :lexical-context |STag| :source #<XML-INPUT #x1AB15C6> :term S :non-terminal |STag| :stack (|STag| |Element| |Root| |Document| |Document-Parser|) >.
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE palimpest [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT palimpest EMPTY >
+ <!ATTLIST palimpest 
+   attr CDATA #FIXED 'http://java.sun.com/historical' >
+ ]>
+<palimpest attr='http://over.the.rainbow.com/somewhere' />
+
+;;
+;; attributes (-validation): element = x /= default = y ==> ok:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE palimpest [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT palimpest EMPTY >
+ <!ATTLIST palimpest 
+   attr CDATA #FIXED 'http://java.sun.com/historical' >
+ ]>
+<palimpest attr='http://over.the.rainbow.com/somewhere' />
+
+;;
+;; attributes (+validation): element = x == default = y ==> ok:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE palimpest [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT palimpest EMPTY >
+ <!ATTLIST palimpest 
+   attr CDATA #FIXED 'http://java.sun.com/historical' >
+ ]>
+<palimpest attr='http://java.sun.com/historical' />
+
+;;
+;; attributes (-validation): element = x == default = y ==> ok:
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!DOCTYPE palimpest [
+ <!ENTITY apos '&#39;' >
+ <!ENTITY quot '&#34;' >
+ <!ENTITY amp '&#38;' >
+ <!ENTITY gt '>' >
+ <!ENTITY lt '&#60;' >
+ <!ELEMENT palimpest EMPTY >
+ <!ATTLIST palimpest 
+   attr CDATA #FIXED 'http://java.sun.com/historical' >
+ ]>
+<palimpest attr='http://java.sun.com/historical' />
+;; component: "xml:tests;parser;namespaces.lisp"
+;loading osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:namespaces.lisp, no bin.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:namespaces.lisp"...
+
+;; this illustrates the consequences of attempts to bind standard namespaces.
+;; 0.949 fails these tests
+("XPARSER" "NAMESPACES" "DTD"): failed.
+;; component: "xml:tests;parser;oasis.lisp"
+;loading osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:oasis.lisp, no bin.
+;Loading #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:oasis.lisp"...
+
+#4P"xmlconf:oasis;*pass*.xml" (:PASS T)....
+
+p04pass1.xml (p y) (v n): FAILED: OK/DISCREPANT: PE: tag '<A.-:Ì€Â·/>' is a qualified name -> NSC: Prefix Declared signaled: no visible binding for prefix: "A.-". parser error with-state #<XML-PARSE-STATE :sources NIL :input #\Newline :token NIL :lexical-context |STag| :source #<XML-INPUT #x1B5B046> :term S :non-terminal |STag| :stack NIL >. 
+
+p05pass1.xml (p y) (v n): FAILED: OK/DISCREPANT: PE: tags '<::._-0/>' and '<:/>' don't follow QName constraint. -> NSC: Prefix Declared signaled: no visible binding for prefix: "A". parser error with-state #<XML-PARSE-STATE :sources NIL :input #\Newline :token NIL :lexical-context |STag| :source #<XML-INPUT #x1B617EE> :term S :non-terminal |STag| :stack NIL >. .....
+
+p11pass1.xml (p y) (v n): FAILED: OK/DISCREPANT: PE: the system literal contains a fragment identifier. -> WFC: [SystemLiteral] signaled: no fragment identifier permitted: "a%a&b&#0<!ELEMENT<!--<?</>?>/\\''". production failed. parser error with-state #<XML-PARSE-STATE :sources NIL :input #\> :token NIL :lexical-context |SystemCharData| :source #<XML-INPUT #x1B775CE> :term S :non-terminal |SystemLiteral| :stack NIL >.............................................................................
+
+p66pass1.xml (p y) (v n): FAILED: OK/DISCREPANT: IR: character is beyond implementation limit. -> WFC: Legal Character signaled: character name/code error: "x10F2ec"/#x10F2EC (not supported). parser error with-state #<XML-PARSE-STATE :sources NIL :input #\; :token NIL :lexical-context |Content| :source #<XML-INPUT #x1C6FF8E> :term |xml|:/> :non-terminal |xml|:> :stack NIL >..........
+
+#4P"xmlconf:oasis;*fail*.xml" (:PASS NIL).......................................................................
+
+p06fail1.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/oasis/p06fail1.xml #x1D45E46>: OK/DISCREPANT: VR: idref validity not enforced.
+
+p08fail1.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/oasis/p08fail1.xml #x1D4A87E>: OK/DISCREPANT: VR: a null name or empty set is permitted.
+
+p08fail2.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/oasis/p08fail2.xml #x1D4E17E>: OK/DISCREPANT: VR: passes when not validating..........................
+
+p16fail3.xml (p n) (v n): PASSED: #<DOC-NODE <no uri> #x1D94086>: OK/DISCREPANT: PE: is not present in the documentation and has a legal NCName as PiTarget.......................................................................................................................................................
+
+#4P"xmlconf:sun;not-wf;*.xml" (:PASS NIL)........................................................
+
+#4P"xmlconf:sun;invalid;*.xml" (:PASS NIL :VALIDATE T)..........................
+
+empty.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/empty.xml #x20147EE>: OK/DISCREPANT: VR: whitespace, comments, and processing instructions are permitted in EMPTY.........
+
+id08.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/id08.xml #x203BDFE>: OK/DISCREPANT: VR: validation does not check id cross-references.
+
+id09.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/id09.xml #x203F8DE>: OK/DISCREPANT: VR: validation does not check id cross-references.
+
+not-sa01.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa01.xml #x2043996>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa02.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa02.xml #x204BD86>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa03.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa03.xml #x20558AE>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa04.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa04.xml #x205D6D6>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa05.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa05.xml #x2065286>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa06.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa06.xml #x206CEDE>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa07.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa07.xml #x2074D1E>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa08.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa08.xml #x207CBAE>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa09.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa09.xml #x2084B4E>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa10.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa10.xml #x208C936>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa11.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa11.xml #x20948EE>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa12.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa12.xml #x209C9F6>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa13.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa13.xml #x20A4826>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+not-sa14.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/not-sa14.xml #x20AC806>: OK/DISCREPANT: VR: standalone stipulation not enforced...........................
+
+pe01.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/sun/invalid/pe01.xml #x225B5EE>: OK/DISCREPANT: PE: a parameter entities is not recognized in an attribute default........
+
+#4P"xmlconf:sun;valid;*.xml" (:PASS T :VALIDATE T)...
+
+ext01.xml (p y) (v y): FAILED: OK/DISCREPANT: PE: references a non-existent external entity. -> WFC: External Parsed Entity signaled: entity identified as (SYSTEM "null.ent" PUBLIC NIL) does not have the form of an external parsed entity: File #P"osx.tschichold:Documents:Standards:XML:XMLConf:xmlconf:sun:valid:null.ent" does not exist. parser error with-state #<XML-PARSE-STATE :sources NIL :input #\Space :token NIL :lexical-context |Content| :source #<XML-INPUT #x22906A6> :term |Reference| :non-terminal |Content| :stack NIL >......
+
+notation01.xml (p y) (v y): FAILED: OK/DISCREPANT: VR: a notation is used prior to definition -> VC: Notation Attributes signaled: all notation names must be declared: ||::GIF. parser error with-state #<XML-PARSE-STATE :sources NIL :input #\Newline :token NIL :lexical-context |IntSubsetDecl| :source #<XML-INPUT #x22DB696> :term S :non-terminal |GEDecl| :stack NIL >..................
+
+#4P"xmlconf:ibm;not-wf;*;*.xml" (:PASS NIL)
+
+432gewf.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/not-wf/misc/432gewf.xml #x23A7DBE>: OK/DISCREPANT: PE: general entity content constraint not enforced..............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+
+#4P"xmlconf:ibm;invalid;*;*.xml" (:PASS NIL :VALIDATE T).
+
+ibm29i01.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/invalid/P29/ibm29i01.xml #x18F830E>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+ibm32i01.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/invalid/P32/ibm32i01.xml #x1904FC6>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+ibm32i02.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/invalid/P32/ibm32i02.xml #x190B206>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+ibm32i03.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/invalid/P32/ibm32i03.xml #x19110C6>: OK/DISCREPANT: VR: standalone stipulation not enforced..
+
+ibm32i04.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/invalid/P32/ibm32i04.xml #x19171E6>: OK/DISCREPANT: VR: standalone stipulation not enforced.........
+
+ibm49i01.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/invalid/P49/ibm49i01.xml #x19452CE>: OK/DISCREPANT: VR: group/pe nesting not enforced..
+
+ibm50i01.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/invalid/P50/ibm50i01.xml #x195104E>: OK/DISCREPANT: VR: group/pe nesting not enforced.
+
+ibm51i01.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/invalid/P51/ibm51i01.xml #x1959616>: OK/DISCREPANT: VR: group/pe nesting not enforced........
+
+ibm56i08.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/invalid/P56/ibm56i08.xml #x1980CFE>: OK/DISCREPANT: PE: references a non-existent external entity...
+
+ibm56i10.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/ibm/invalid/P56/ibm56i10.xml #x198EF36>: OK/DISCREPANT: VR: id reference validity is not enforced..........................
+
+#4P"xmlconf:ibm;valid;*;*.xml" (:PASS T :VALIDATE T).
+
+ibm02v01.xml (p y) (v y): FAILED: OK/DISCREPANT: IR: character is beyond implementation limit at offset 281. -> XML-ERROR signaled: unsupported unicode datum: (240 144 128 ...).............................................................................................
+
+ibm54v01.xml (p y) (v y): FAILED: OK/DISCREPANT: VR: a notation is used prior to definition -> VC: Notation Attributes signaled: all notation names must be declared: ||::|gif|. parser error with-state #<XML-PARSE-STATE :sources NIL :input #\Newline :token NIL :lexical-context |IntSubsetDecl| :source #<XML-INPUT #x1BF7FFE> :term S :non-terminal |GEDecl| :stack NIL >...............
+
+ibm58v01.xml (p y) (v y): FAILED: OK/DISCREPANT: PE: constraint introduced in errata. -> VC: No Duplicate Tokens signaled: The names in a single declaration must all be distinct. parser error with-state #<XML-PARSE-STATE :sources NIL :input |xml|:> :token NIL :lexical-context |AttDef| :source #<XML-INPUT #x1C586EE> :term REQUIRED :non-terminal |AttDef| :stack NIL >..
+
+ibm59v01.xml (p y) (v y): FAILED: OK/DISCREPANT: PE: constraint introduced in errata. -> VC: No Duplicate Tokens signaled: The names in a single declaration must all be distinct. parser error with-state #<XML-PARSE-STATE :sources NIL :input |xml|:> :token NIL :lexical-context |AttDef| :source #<XML-INPUT #x1C69866> :term REQUIRED :non-terminal |AttDef| :stack NIL >.......................
+
+ibm66v01.xml (p y) (v y): FAILED: OK/DISCREPANT: IR: character is beyond implementation limit. -> WFC: Legal Character signaled: character name/code error: "x10000"/#x10000 (not supported). parser error with-state #<XML-PARSE-STATE :sources NIL :input #\; :token NIL :lexical-context |Content| :source #<XML-INPUT #x1CF6216> :term |xml|:/> :non-terminal |xml|:> :stack NIL >...............
+
+#4P"xmlconf:xmltest;not-wf;*;*.xml" (:PASS NIL)...................................................................................
+
+074.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/not-wf/sa/074.xml #x1E4D306>: OK/DISCREPANT: VR: group/pe nesting not enforced..............................
+
+104.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/not-wf/sa/104.xml #x1EA2276>: OK/DISCREPANT: VR: group/pe nesting not enforced............
+
+115.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/not-wf/sa/115.xml #x1EC0426>: OK/DISCREPANT: PE a single character reference is well-formed...
+
+117.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/not-wf/sa/117.xml #x1EC61F6>: OK/DISCREPANT: PE a single character reference is well-formed...
+
+119.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/not-wf/sa/119.xml #x1ECC34E>: OK/DISCREPANT: PE a single character reference is well-formed..
+
+120.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/not-wf/sa/120.xml #x1ECF64E>: OK/DISCREPANT: PE a single character reference is well-formed..............................................................
+
+181.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/not-wf/sa/181.xml #x1F7B906>: OK/DISCREPANT: VR: group/pe nesting not enforced..
+
+182.xml (p n) (v n): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/not-wf/sa/182.xml #x1F7F00E>: OK/DISCREPANT: VR: group/pe nesting not enforced......
+
+#4P"xmlconf:xmltest;invalid;*.xml" (:PASS NIL :VALIDATE T)
+
+001.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/invalid/001.xml #x1F8FBCE>: OK/DISCREPANT: VR: group/pe nesting not enforced.
+
+002.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/invalid/002.xml #x1F942AE>: OK/DISCREPANT: VR: group/pe nesting not enforced.
+
+003.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/invalid/003.xml #x1F9887E>: OK/DISCREPANT: PE: 003-2.ent is missing....
+
+006.xml (p n) (v y): PASSED: #<DOC-NODE file:///osx.tschichold/Documents/Standards/XML/XMLConf/xmlconf/xmltest/invalid/006.xml #x1FA420E>: OK/DISCREPANT: VR: group/pe nesting not enforced.
+
+#4P"xmlconf:xmltest;valid;*;*.xml" (:PASS T :VALIDATE T).......
+
+003.xml (p y) (v y): FAILED: OK/DISCREPANT: PE: 003-2.ent is missing. -> WFC: External Subset signaled: entity identified as (SYSTEM "003-1.ent" PUBLIC NIL) does not have the form of an external subset: WFC: External Subset signaled: entity identified as (SYSTEM "003-2.ent" PUBLIC NIL) does not have the form of an external subset: File #P"osx.tschichold:Documents:Standards:XML:XMLConf:xmlconf:xmltest:valid:not-sa:003-2.ent" does not exist. parser error with-state #<XML-PARSE-STATE :sources NIL :input #\Space :token NIL :lexical-context |AttDef| :source #<XML-INPUT #x1FCDAF6> :term S :non-terminal S :stack NIL >. parser error with-state #<XML-PARSE-STATE :sources NIL :input #\Space :token NIL :lexical-context |AttDef| :source #<XML-INPUT #x1FCDAF6> :term S :non-terminal S :stack NIL >............................
+
+012.xml (p y) (v y): FAILED: OK/DISCREPANT: PE: attribute name ':' is not namespace conform -> INCOMPLETE-PARSE signaled: incomplete parse. parser error with-state #<XML-PARSE-STATE :sources NIL :input |xml|:\  :token NIL :lexical-context |Document| :source #<XML-INPUT #x204E7D6> :term |Root| :non-terminal |Prolog| :stack NIL >.............................................................
+
+052.xml (p y) (v y): FAILED: OK/DISCREPANT: IR: character is beyond implementation limit. -> XML-ERROR signaled: unsupported unicode datum: (240 144 128 ...)............
+
+064.xml (p y) (v y): FAILED: OK/DISCREPANT: IR: character is beyond implementation limit. -> WFC: Legal Character signaled: character name/code error: "x10000"/#x10000 (not supported). parser error with-state #<XML-PARSE-STATE :sources NIL :input #\; :token NIL :lexical-context |Content| :source #<XML-INPUT #x217779E> :term |xml|:/> :non-terminal |xml|:> :stack NIL >............
+
+076.xml (p y) (v y): FAILED: OK/DISCREPANT: VR: a notation is used prior to definition. -> VC: Notation Attributes signaled: all notation names must be declared: ||::\n1. parser error with-state #<XML-PARSE-STATE :sources NIL :input |xml|:> :token NIL :lexical-context |AttDef| :source #<XML-INPUT #x21A4676> :term REQUIRED :non-terminal |AttDef| :stack NIL >.............
+
+089.xml (p y) (v y): FAILED: OK/DISCREPANT: IR: character is beyond implementation limit. -> WFC: Legal Character signaled: character name/code error: "x10000"/#x10000 (not supported). parser error with-state #<XML-PARSE-STATE :sources NIL :input #\; :token NIL :lexical-context |EntityData| :source #<XML-INPUT #x21D88AE> :term S :non-terminal |xml|:\" :stack NIL >.
+
+090.xml (p y) (v y): FAILED: OK/DISCREPANT: VR: a notation is used prior to definition. -> VC: Notation Attributes signaled: all notation names must be declared: ||::\n. parser error with-state #<XML-PARSE-STATE :sources NIL :input |xml|:> :token NIL :lexical-context |AttDef| :source #<XML-INPUT #x21DB956> :term REQUIRED :non-terminal |AttDef| :stack NIL >..............................
+(MAP NIL #'(LAMBDA (LOCATION) (DESTRUCTURING-BIND (DIRECTORY &REST ARGS &KEY VALIDATE PASS (REDUCE T)) LOCATION (FORMAT *TRACE-OUTPUT* "~%~%~s ~s" DIRECTORY ARGS) (MAP NIL #'(LAMBDA (PATH) (UNLESS (SEARCH ".ent." (FILE-NAMESTRING PATH)) (ECASE (REPORT-PARSE PATH :REDUCE REDUCE :VALIDATE VALIDATE :PASS PASS) (:CONFORMANT (INCF CONFORMANT-COUNT)) (:DISCREPANT (PUSH (FILE-NAMESTRING PATH) *DISCREPANT-FILES*)) (:NONCONFORMANT (PUSH (FILE-NAMESTRING PATH) *NONCONFORMANT-FILES*)) (:ERRONEOUS (PUSH (FILE-NAMESTRING PATH) *ERRONEOUS-FILES*))) (INCF CASE-COUNT))) (SORT (DIRECTORY DIRECTORY) #'STRING-LESSP :KEY #'FILE-NAMESTRING)))) PATHS) took 11,556 milliseconds (11.556 seconds) to run.
+Of that, 11 milliseconds (0.011 seconds) were spent in The Cooperative Multitasking Experience.
+201 milliseconds (0.201 seconds) was spent in GC.
+ 27,991,616 bytes of memory allocated.
+
+(:CASES 1812 :CONFORMANT 1749 :DISCREPANT 63 :NONCONFORMANT 0 :ERRONEOUS 0) 
+(:CASES 1812 :CONFORMANT 1749 :DISCREPANT (63 "p04pass1.xml" "p05pass1.xml" "p11pass1.xml" "p66pass1.xml" "p06fail1.xml" "p08fail1.xml" "p08fail2.xml" "p16fail3.xml" "empty.xml" "id08.xml" "id09.xml" "not-sa01.xml" "not-sa02.xml" "not-sa03.xml" "not-sa04.xml" "not-sa05.xml" "not-sa06.xml" "not-sa07.xml" "not-sa08.xml" "not-sa09.xml" "not-sa10.xml" "not-sa11.xml" "not-sa12.xml" "not-sa13.xml" "not-sa14.xml" "pe01.xml" "ext01.xml" "notation01.xml" "432gewf.xml" "ibm29i01.xml" "ibm32i01.xml" "ibm32i02.xml" "ibm32i03.xml" "ibm32i04.xml" "ibm49i01.xml" "ibm50i01.xml" "ibm51i01.xml" "ibm56i08.xml" "ibm56i10.xml" "ibm02v01.xml" "ibm54v01.xml" "ibm58v01.xml" "ibm59v01.xml" "ibm66v01.xml" "074.xml" "104.xml" "115.xml" "117.xml" "119.xml" "120.xml" "181.xml" "182.xml" "001.xml" "002.xml" "003.xml" "006.xml" "003.xml" "012.xml" "052.xml" "064.xml" "076.xml" "089.xml" "090.xml") :NONCONFORMANT (0) :ERRONEOUS (0)) 
+;; system load time set: :XTESTS
+(#P"osx.tschichold:Development:Source:cl-xml-0-949:tests:xquerydatamodel:model.LISP" #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:bom.LISP" #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:document-internal.LISP" #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:document-external.LISP" #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:document-specialized.LISP" #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:qnames.lisp" #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:validation.lisp" #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:namespaces.lisp" #P"osx.tschichold:Development:Source:cl-xml-0-949:tests:parser:oasis.lisp")
+(:XTESTS)
+? (dribble)

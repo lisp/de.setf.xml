@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/1999/XMLSchema" xmlns:xsi="http://www.w3.org/1999/XMLSchema-instance">
+   <SOAP-ENV:Body>
+      <m:getStateName xmlns:m="http://www.soapware.org/">
+         <statenum xsi:type="xsd:int">41</statenum>
+<param SOAP-ENC:arrayType="xsd:ur-type[4]" xsi:type="SOAP-ENC:Array">
+   <item xsi:type="xsd:int">12</item>
+   <item xsi:type="xsd:string">Egypt</item>
+   <item xsi:type="xsd:boolean">0</item>
+   <item xsi:type="xsd:int">-31</item>
+   </param>
+         </m:getStateName>
+      </SOAP-ENV:Body>
+    </SOAP-ENV:Envelope>

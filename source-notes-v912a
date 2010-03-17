@@ -1,0 +1,175 @@
+here are responses to your changes and questions. 
+
+Notes from .912 version
+
+- had to convert from mac file format to windows file format for the .lisp files
+	[ stuffit will do it, but not by default]
+
+i've now gone through the oasis tests with cal 5.0.1 including your fixes.
+next is lispworks. in the meantime, i'll put up a 0.915 version .zip file
+
+- created atn-parser/runtime directory with these files
+	 atn-package, atn-parameters, and atn-runtime. 
+  This allows the directories to be compiled individually:
+	atn-parser/runtime
+	atn-parser/clifs
+	atn-parser
+  [needed by our build sequencing which wants to do one directory at a time
+	with no intermixing of subdirectories and files in parent directory]
+
+- in atn-parser/code/clifs/inference-system-classes
+	change to use #+allegro mop:class-precedence-list
+	since class-precedence-list is not CL [and thus not directly available]
+?
+added to atn-package in the package definition for "BNF-PARSER"
+  #+(and Allegro (version>= 6 0)) (:import-from "MOP" "CLASS-PRECEDENCE-LIST")
+  #+(and Allegro (version< 6 0)) (:import-from "CLOS" "CLASS-PRECEDENCE-LIST")
+?
+do the conditionals really need the additional feature to see if the (version ...) formulation is allowed?
+
+- in atn-parser\code\atn-lisp-compiler.lisp
+	added #+allegro ED-BEEP that calls error. [otherwise undefined function]
+the reference is in ATN-PPRINT, which is a debugging function, so i changed that
+to itself issue a more informative message.
+
+- in atn-parser/code/ changed
+	(defParameter *predicate-patterns*
+	  '("IS-~aToken" "IS-~:@(~a~)-TOKEN" "IS-~:@(~a~)Token" "IS-~a"))
+	This allow the "|IS-ELEMENTToken|" function to be found
+i'm not sure what problem you were adressing here. that token was, in anycase,
+obsolete and i've cleaned out those which no longer exist. i've left this as-was
+and observed no problem.
+
+- in code/base/package.lisp, 
+	changed "future-common-lisp" [genera thing] to just common-lisp.
+ok.
+
+- in code/base/utils.lisp
+	in with-http-stream (for (not cl-http) case)
+	added (let* ((,response-sym nil)) ..) 
+	added back definition of response-sym as a gensym
+have been fixed.
+	changed mode line to emacs-20 compatible
+see below.
+
+- in code/base/www-utils-ersatz, 
+	added #+allegro for use of mp:with-process-lock and mp:make-process-lock
+	(instead of ccl locks)
+have been fixed.
+
+- in code/base/cl-http-tokenizer, 
+	commented out the defpackage, duplicates version in package.lisp
+has been deleted.
+
+- in code/base/cl-http-tokenizer, 
+    load-factor, wrapped call to float around computation
+	 to ensure float [not rational] returned [line 274]
+    expected-probes-per-unsuccessful-hash, use (the single-float load-factor) [line 281]
+    explicitly use single-float for type of growth-factor 
+	line 256 [to avoid ACL 6 compiler warning]
+	line 241, set value as   (defvar *tokenizer-growth-factor* 1.025f0)
+    %expected-probes-per-successful-hash, use single-float as the type
+i worked the diffs in.
+
+- in code/xquerydatamodel/xqdm-namespaces.lisp
+	modified |{-reader| by removing the #. in front of the make-array
+	[not sure why they were there -- did not work in ACL6.01 that way]
+they were intended to avoid consing the arrays for each call. 5.0.1 was ok with them.
+i've removed them.
+
+- in code/xquerydatamodel/xsd-types.lisp
+	changed "short-float" to "single-float"
+	?? IS-anyTreeType calls to IS-element have wrong number arguments?
+		added type-specifier as second arg
+has been fixed.
+
+- in code/xquerydatamodel/xqdm-validation
+	commented out the first definition of:
+		compute-validation-function ((definition |content-model|))
+	since the second definition looks to handle more cases
+agreed.
+
+- in code/xparser/xparser.lisp
+	removed the eval-when (compile) that did the grammar compilation
+		and created a separate file generate-xml-grammar
+		with a function generate-xml-grammar
+		This allows the build sequencing instructions to explicitly invoke it.
+i have still to look at your message about what you did here.
+
+	changed to (eval-when (:compile-toplevel :load-toplevel :execute)
+		for class definitions, so the binary file loads properly
+fixed.
+
+- in code/xpath/xpath.lisp
+	removed the eval-when (compile) that did the grammar compilation
+	and created a separate file generate-xml-grammar
+	with a function generate-xml-grammar
+	This allows the build sequencing instructions to explicitly invoke it.
+same situation as for xml-parser
+
+- in code/xquery/xql-tokenizer
+	removed first definition of |ElementContent|, since it was given twice
+fixed.
+
+- in code/base/parsetable.lisp
+	replaced call to nremove [undefined function] with call to delete
+fixed
+
+- code\xquery\xql-tokenizer.lisp
+	Warning: While compiling these undefined functions were referenced:
+        	 XML-QUERY::CONTROL-KEY-P from position 19346 
+	I added a function that returns nil
+i've delete the print statement.
+
+
+
+Not worth effort to fix:
+- Warning: RETURN-BUFFER-STRING is defined more than once as a operator in the file
+         cl-xml\code\xparser\xml-parameters.lisp.
+  It is not clear why there are two very diferent definitions of this function.
+
+it avoided a problem with an incomplete implementation of support for first-level
+tokenization within the parser. i've since completed that.
+
+
+- many source files have a -*- package line that is not acceptable to the emacs 20.7
+that we are using.  I've had to replace them.
+
+i trust the more complete mode lines were ok. i've gone through the sources
+to make them all analogous.
+
+
+- the compilation of xsd-types produces a lot of warnings like this:
+Warning: Free reference to undeclared variable XML-SCHEMA-DATATYPES::|anyType| assumed
+         special.
+Fixing this may not be possible, or requires re-ordering the type definitions
+and functions that use them.
+
+fixed.
+i had added a form to generate the function to the defTypeClass macro without deleting
+those definitions which were already present.
+
+- Warning: XML-SCHEMA-DATATYPES::|element| is defined more than once as a type in the
+         file
+  	\cl-xml\code\xquerydatamodel\xsd-types.lisp
+but I don't know why
+
+there was a duplicate definition.
+
+
+-----
+Questions:
+
+the package definition in clifs directory [inside clifs/defsystem.lisp] is misleading
+Are planning to change the package at some point?
+
+the clifs:defsystem file is not only misleading, it is obsolete. i've removed it.
+
+
+the file atn-parser/code/atn-lisp-compiler-gotos is not used by the system definitions
+Is this correct?
+
+yes. i'm working on a version which generates state machines  which use goto's in the
+case of unambiguous grammars rather than mutually recursive labels. it's not done yet.
+
+

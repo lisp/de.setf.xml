@@ -1,0 +1,9 @@
+<!ELEMENT Email	(Recipient, Sender, Date, Subject, TextBody)      >
+<!ELEMENT Sender (#PCDATA)      >
+<!ELEMENT Recipient	(#PCDATA)       >
+<!ELEMENT Date	(#PCDATA)       >
+<!ELEMENT Subject	(#PCDATA)       >
+<!ELEMENT TextBody	(p)+            >
+<!ELEMENT Name	(#PCDATA)       >
+<!ELEMENT p             	(#PCDATA|Name)* >
+<!ATTLIST p        	 lang           (de|en) "en"    >

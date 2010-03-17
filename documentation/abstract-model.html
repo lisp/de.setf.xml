@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<META NAME="GENERATOR" Content="Symantec Visual Page 1.0.3">
+	<TITLE>abstract model</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+<P>
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>ncn</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>NameCharacterName</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">&#160;</TD>
+		<TD WIDTH="59%" VALIGN="TOP">&#160;</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>null</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>NullName</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">&#160;</TD>
+		<TD WIDTH="59%" VALIGN="TOP">&#160;</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>p</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>Prefix</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP"><I>NameCharacterName</I> + <I>NullName</I></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>wn</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>WildName</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">&#160;</TD>
+		<TD WIDTH="59%" VALIGN="TOP">&#160;</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>l</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>LocalPart</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP"><I>NameCharacterName</I> + <I>NullName</I></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>uri</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>UniformResourceIdentifier</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">&#160;</TD>
+		<TD WIDTH="59%" VALIGN="TOP">&#160;</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>nsn</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>NamespaceName</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP"><I>UniformResourceIdentifier</I> + <I>NullName</I></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>qn</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>QualifiedName</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP">( <I>Prefix</I> X <I>LocalPart</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>un</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>UniversalName</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP">( <I>Namespace</I> X <I>LocalPart</I> X <I>Prefix</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>ns</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>Namespace</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP">( <I>NamespaceName</I> X ( <I>LocalPart</I> =&gt; <I>UniversalName</I> ) )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>n</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>Name</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP">( <I>UniversalName</I> + <I>QualifiedName</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>nsb</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>NamespaceBinding</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP">( <I>Prefix</I> X <I>Namespace</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>nse</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>NamespaceEnvironment</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP"><I>( Prefix =&gt; (Namespace + Null) )</I></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>a</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>Attribute</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP"><I>Name</I></TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>e</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>Element</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP">( <I>Name</I> X <I>NamespaceBinding</I>* X <I>Attribute</I>* X <I>Element</I>* )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>em</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>ElementModel</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">&#160;</TD>
+		<TD WIDTH="59%" VALIGN="TOP">( <I>Name</I>* + <I>WildName</I> )</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>ed</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>ElementDeclaration</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP">( <I>Name</I> X <I>ElementModel</I> X <I>Name</I>* X<I> NamespaceEnvironment</I>)</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>s</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>Schema</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP"><I>ElementDeclaration</I>*</TD>
+	</TR>
+	<TR>
+		<TD WIDTH="7%" VALIGN="TOP"><I>doc</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">in</TD>
+		<TD WIDTH="24%" VALIGN="TOP"><I>Document</I></TD>
+		<TD WIDTH="5%" VALIGN="TOP">::=</TD>
+		<TD WIDTH="59%" VALIGN="TOP">( <I>Name</I> X <I>Schema</I> X <I>Element</I> )</TD>
+	</TR>
+</TABLE>
+
+
+
+</BODY>
+
+</HTML>

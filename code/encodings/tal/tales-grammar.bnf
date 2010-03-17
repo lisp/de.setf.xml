@@ -1,0 +1,70 @@
+Tales                 ::= DefineArgument |
+                          AttributesArgument |
+                          ConditionArgument |
+                          ReplaceArgument |
+                          ContentArgument |
+                          RepeatArgument |
+                          OnErrorArgument |
+                          OmitTagArgument
+
+// define
+DefineArgument       ::= DefineScope (';' DefineArgument)?
+DefineScope          ::= (local | global) ? DefineVar
+DefineVar            ::= NCName Expression
+// define_var            ::= variable_name expression
+// variable_name         ::= NCName
+
+// attributes
+AttributesArgument   ::= AttributeStatement (';' AttributesArgument)?
+AttributeStatement   ::= QName Expression
+// attribute_statement   ::= attribute_name expression
+// attribute_name        ::= QName
+
+// condition
+ConditionArgument    ::= Expression
+
+// replace
+ReplaceArgument       ::= (text | structure) ? Expression
+
+// content
+ContentArgument      ::= (text | structure) ? Expression
+
+// repeat
+RepeatArgument       ::= NCName Expression
+// VariableName         ::= NCName
+
+// on_error
+OnErrorArgument     ::= (text | structure) Expression
+
+// omit_tag
+OmitTagArgument     ::= Expression ?
+
+Expression            ::= PythonExpression | LispExpression |
+                          PathExpression | NotExpression | StringExpression |
+                          VariableExpression
+
+LispExpression       ::= lisp ':' StringData
+
+NotExpression        ::= not ':' Expression
+
+PythonExpression     ::= python ':' StringData
+
+VariableExpression   ::= (var ':')? NCName
+
+StringExpression        ::= (string | str) ':' StringExpressionElement*
+StringExpressionElement ::= PlainString | Varsub
+Varsub                  ::= ( '$' PathOperation ) | ( '${'  PathOperation '}' )
+PlainString             ::= PlainStringElement +
+PlainStringElement      ::= '$$' | StringData 
+
+//plain_string          ::= ( '$$' | non_dollar )*
+// non_dollar            ::= any character except '$'
+
+PathExpression        ::= path ':' PathOperation ( '|' PathOperation )*
+PathOperation         ::= NCName ( '/' URLSegment )*
+// Path                  ::= variable ( '/' URLSegment )*
+// variable              ::= NCName
+URLSegment            ::= NCName
+
+QName                 ::= Prefix? NCName
+Prefix                ::= NCName ':'

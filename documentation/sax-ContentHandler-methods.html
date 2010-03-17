@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=iso-8859-1">
+	<META NAME="GENERATOR" Content="Symantec Visual Page 1.0.3">
+	<TITLE>SAX ContentHandler methods</TITLE>
+</HEAD>
+
+<BODY BGCOLOR="#FFFFFF">
+
+<P>The <CODE>org.xml.sax.ContentHandler</CODE> interface specifies the core of the
+SAX-2 event-handling mechanism. The table below is excerpted from the respective
+JavaDoc interface description.</P>
+
+<P>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+	<TR BGCOLOR="#CCCCFF" CLASS="TableHeadingColor">
+		<TD COLSPAN="2"><FONT SIZE="5"><B>Method Summary</B></FONT></TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#characters(char[], int, int)"><CODE><B>characters</B></CODE></A><CODE>(char[]&#160;ch,
+			int&#160;start, int&#160;length)</CODE> <BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Receive notification
+			of character data.</TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#endDocument()"><CODE><B>endDocument</B></CODE></A><CODE>()</CODE>
+			<BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Receive notification
+			of the end of a document.</TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#endElement(java.lang.String, java.lang.String, java.lang.String)"><CODE><B>endElement</B></CODE></A><CODE>(java.lang.String&#160;namespaceURI,
+			java.lang.String&#160;localName, java.lang.String&#160;qName)</CODE> <BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Receive notification
+			of the end of an element.</TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#endPrefixMapping(java.lang.String)"><CODE><B>endPrefixMapping</B></CODE></A><CODE>(java.lang.String&#160;prefix)</CODE>
+			<BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;End the scope of a prefix-URI
+			mapping.</TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#ignorableWhitespace(char[], int, int)"><CODE><B>ignorableWhitespace</B></CODE></A><CODE>(char[]&#160;ch,
+			int&#160;start, int&#160;length)</CODE> <BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Receive notification
+			of ignorable whitespace in element content.</TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#processingInstruction(java.lang.String, java.lang.String)"><CODE><B>processingInstruction</B></CODE></A><CODE>(java.lang.String&#160;target,
+			java.lang.String&#160;data)</CODE> <BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Receive notification
+			of a processing instruction.</TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#setDocumentLocator(org.xml.sax.Locator)"><CODE><B>setDocumentLocator</B></CODE></A><CODE>(</CODE><A
+			HREF="../../../org/xml/sax/Locator.html"><CODE>Locator</CODE></A><CODE>&#160;locator)</CODE>
+			<BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Receive an object for
+			locating the origin of SAX document events.</TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#skippedEntity(java.lang.String)"><CODE><B>skippedEntity</B></CODE></A><CODE>(java.lang.String&#160;name)</CODE>
+			<BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Receive notification
+			of a skipped entity.</TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#startDocument()"><CODE><B>startDocument</B></CODE></A><CODE>()</CODE>
+			<BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Receive notification
+			of the beginning of a document.</TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)"><CODE><B>startElement</B></CODE></A><CODE>(java.lang.String&#160;namespaceURI,
+			java.lang.String&#160;localName, java.lang.String&#160;qName, </CODE><A HREF="../../../org/xml/sax/Attributes.html"><CODE>Attributes</CODE></A><CODE>&#160;atts)</CODE>
+			<BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Receive notification
+			of the beginning of an element.</TD>
+	</TR>
+	<TR BGCOLOR="white" CLASS="TableRowColor">
+		<TD WIDTH="1%" ALIGN="RIGHT" VALIGN="TOP">
+			<P ALIGN="RIGHT"><FONT SIZE="2"><CODE>&#160;void</CODE></FONT>
+		</TD>
+		<TD><A HREF="../../../org/xml/sax/ContentHandler.html#startPrefixMapping(java.lang.String, java.lang.String)"><CODE><B>startPrefixMapping</B></CODE></A><CODE>(java.lang.String&#160;prefix,
+			java.lang.String&#160;uri)</CODE> <BR>
+			&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Begin the scope of a
+			prefix-URI Namespace mapping.</TD>
+	</TR>
+</TABLE>
+
+
+
+</BODY>
+
+</HTML>

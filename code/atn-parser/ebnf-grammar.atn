@@ -1,0 +1,433 @@
+(in-package "BNFP")
+
+;;; System-Name
+
+"EBNF"
+
+;;; Hauptnetz
+
+"EBNF"
+
+;;; Finally
+()
+
+;;; Dokumentation
+;;; 20010612.jaa set off textual metasymbols with '.' to minimize
+;;  20010612 conflicts with target grammar
+
+"ATN-Grammatik fuer EBNF-Parser:
+ 
+  ebnf ::= definition+
+  definition ::= id? nonterminal defsymbol rhs
+
+  id ::= id-begin token id-end
+  id-begin ::= '{'
+  id-end ::= '}'
+  rhs ::= (qexpr+ | alternative) procedures?
+  qexpr ::= (symbol | group | tokenset | table-cell) occurrence?
+  group ::= leftpar (qexpr+ | alternative) procedures? rightpar
+  alternative ::= qexpr oneof (qexpr | alternative) 
+
+  tokenset ::= tokenset-begin negation? (tokenrange | token+) tokenset-end
+  tokenrange ::= (token range-junctor token)
+  range-junctor ::= '-'
+  tokenset-begin ::= '['
+  tokenset-end ::= ']'
+  negation ::= '^'
+
+  procedures ::= proc-begin proc-call (proc-delimiter proc-call)* proc-end
+  proc-begin ::= '{'
+  proc-end ::= '}'
+  proc-delimiter ::= ';'
+  proc-call ::= (proc-calltime proc-kind)? proc-name proc-args
+  proc-calltime ::= '.initially.' | '.finally.' | '.before.' | '.after.'
+  proc-kind ::= '.test.' | '.do.'
+  proc-name ::= token
+  proc-args ::= left-args-par token* right-args-par
+
+  symbol ::= terminal | nonterminal
+  nonterminal ::= token
+  terminal ::= terminal-delimiter token terminal-delimiter
+  terminal-delimiter ::= '''
+
+  table-cell ::= cell-begin row column-delimiter column 
+                  (substsymbol cell-value)? cell-end
+  cell-begin ::= '['
+  cell-end   ::= ']'
+  column-delimiter ::= ','
+  cell-value ::= terminal
+  column ::= decimal-number
+  row ::= decimal-number
+  decimal-number ::= digit+
+  digit ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+
+  left-args-par ::= '('
+  right-args-par ::= ')'
+  leftpar ::= '('
+  rightpar ::= ')'
+  oneof ::= '|'
+  defsymbol ::= '::='
+  substsymbol ::= '->'
+  occurrence ::= '+' | '*' | '?'"
+
+;;; Lexikalische Regeln
+
+(deflexicon
+  :lexems
+  ((|::=| defsymbol metasymbol)
+   (|->| substsymbol metasymbol)
+   (+ occurrence metasymbol)
+   (- range-junctor metasymbol)
+   (? occurrence metasymbol)
+   (* occurrence metasymbol)
+   (\( leftpar left-args-par metasymbol)
+   (\) rightpar right-args-par metasymbol)
+   (\| oneof metasymbol)
+   (\' terminal-delimiter metasymbol)
+   (\^ negation metasymbol)
+   (\; proc-delimiter metasymbol)
+   (\[ tokenset-begin cell-begin metasymbol)
+   ;;(\{ id-begin proc-begin metasymbol)
+   (\{ proc-begin metasymbol)
+   (|[[| id-begin metasymbol)
+   (\, column-delimiter metasymbol)
+   (".before." proc-calltime metasymbol)
+   (".after." proc-calltime)
+   (".initially." proc-calltime)
+   (".finally." proc-calltime)
+   (".do." proc-kind)
+   (".test." proc-kind)
+   (\; proc-delimiter metasymbol)
+   ;; (|#[| proc-begin metasymbol)
+   (\] tokenset-end cell-end #| proc-end |# metasymbol)
+   ;;(\} id-end proc-end metasymbol)
+   (\} proc-end metasymbol)
+   (|]]| id-end metasymbol)
+   (|/*| comment-left-delimiter metasymbol)
+   (|*/| comment-right-delimiter metasymbol))
+  :predicates
+  ;; werden benutzt wie Kategorie,
+  ;; aber ueber Methoden implementiert
+  ((token is-token)
+   (column is-token)
+   (row is-token)
+   (nonterminal is-token)
+   (proc-name is-token)))
+
+#| 
+(defun is-token (lexicon x) 
+  (declare (ignore lexicon))
+  (and (not (null x))
+       (not (has-category-p *lexicon* x 'metasymbol))))
+
+  comment ::= comment-left-delimiter token comment-right-delimiter
+  comment-left-delimiter ::= '/*'
+  comment-right-delimiter ::= '*/'
+
+  procedures ::= procedures-begin procedure-call (procedure-delimiter procedure-call)* procedures-end
+  procedures-begin ::= '#['
+  procedures-end ::= ']'
+  procedure-delimiter ::= ';'
+  procedure-call ::= (initially-call | finally-call | before-inner-call | after-inner-call
+  initially-call ::= 'initially' (test-call | do-call)
+  finally-call ::= 'finally' (test-call | do-call)
+  before-inner-call ::= 'before' (test-call | do-call)
+  after-inner-call ::= 'after'? (test-call | do-call)
+  test-call ::= 'test' procedure-name arguments
+  do-call ::= 'do' procedure-name arguments
+  procedure-name ::= token
+  arguments ::= leftpar token* rightpar
+|#
+;;; Strukturregeln
+
+;;; EBNF
+
+(defatn ebnf ebnf1
+  :nodes
+  ((ebnf1 
+    ((not (end-of-sequence-p index)) push definition ebnf1)
+    ((end-of-sequence-p index) pop ebnf)))
+  :finally pprint-results)
+
+;;; TableCell
+
+(defatn table-cell table-cell1
+  :nodes
+  ((table-cell1
+    (cat cell-begin table-cell2))
+   (table-cell2
+    (cat row table-cell3))
+   (table-cell3
+    (cat column-delimiter table-cell4))
+   (table-cell4
+    (cat column table-cell5))
+   (table-cell5
+    (cat substsymbol table-cell6)
+    (jump table-cell7))
+   (table-cell6
+    (push terminal table-cell7))
+   (table-cell7
+    (cat cell-end table-cell8))
+   (table-cell8
+    (pop table-cell))))
+
+;;; TokenSet
+
+(defatn tokenset tokenset1
+  :nodes
+  ((tokenset1
+    (cat tokenset-begin tokenset2))
+   (tokenset2
+    (cat negation tokenset3)
+    (jump tokenset3))
+   (tokenset3
+    (push tokenrange tokenset4)
+    (cat token tokenset5))
+   (tokenset5
+    (cat token tokenset5)
+    (jump tokenset4))
+   (tokenset4
+    (cat tokenset-end tokenset6))
+   (tokenset6
+    (pop tokenset))))
+
+;;; TokenRange
+
+(defatn tokenrange tokenrange1
+  :nodes
+  ((tokenrange1
+    (cat token tokenrange2))
+   (tokenrange2
+    (cat range-junctor tokenrange3))
+   (tokenrange3
+    (cat token tokenrange4))
+   (tokenrange4
+    (pop tokenrange))))
+
+;;; Procedures
+
+
+(defatn procedures procedures1
+;; procedures ::= proc-begin proc-call (proc-delimiter proc-call)* proc-end
+  :nodes
+  ((procedures1
+    (cat proc-begin procedures2))
+   (procedures2
+    (push proc-call procedures3))
+   (procedures3
+    (cat proc-delimiter procedures4)
+    (jump procedures5))
+   (procedures4
+    (push proc-call procedures6))
+   (procedures5
+    (cat proc-end procedures7))
+   (procedures6
+    (jump procedures3)
+    (jump procedures5))
+   (procedures7
+    (pop procedures))))
+
+;;; Procedure-Call
+
+(defatn proc-call proc-call1
+;; proc-call ::= (proc-calltime proc-kind)? proc-name proc-args
+  :nodes
+  ((proc-call1
+    (cat proc-calltime proc-call2)
+    (jump proc-call3))
+   (proc-call2
+    (cat proc-kind proc-call3))
+   (proc-call3
+    (cat proc-name proc-call4))
+   (proc-call4
+    (push proc-args proc-call5))
+   (proc-call5
+    (pop proc-call))))
+
+;;; Procedure-Arguments
+
+(defatn proc-args proc-args1
+;; proc-args ::= left-args-par token* right-args-par
+  :nodes
+  ((proc-args1
+    (cat left-args-par proc-args2))
+   (proc-args2
+    (cat token proc-args3)
+    (jump proc-args3))
+   (proc-args3
+    (cat token proc-args3)
+    (jump proc-args4))
+   (proc-args4
+    (cat right-args-par proc-args5))
+   (proc-args5
+    (pop proc-args))))
+
+;;; SYMBOL
+;;; this should well be renamed to avoid the conflict with cl:symbol
+
+(defatn symbol symbol1
+  :nodes
+  ((symbol1
+    (cat nonterminal symbol2)
+    (push terminal symbol2))
+   (symbol2
+    (pop symbol))))
+
+;;; TERMINAL
+
+(defatn terminal terminal1
+;;  id ::= id-begin token id-end
+  :nodes
+  ((terminal1
+    (cat terminal-delimiter terminal2))
+   (terminal2
+    (cat token terminal3))
+   (terminal3
+    (cat terminal-delimiter terminal4))
+   (terminal4
+    (pop terminal))))
+
+;;; DEFINITION
+
+(defatn id id0
+;;  definition ::= id? nonterminal defsymbol rhs
+  :nodes
+  ((id0
+    (cat id-begin id-number))
+   (id-number
+     (cat token id-close))
+   (id-close
+     (cat id-end id-pop))
+   (id-pop
+     (pop id))))
+
+(defatn definition definition0
+  :nodes
+  ((definition0
+     (push id definition1)
+     (jump definition1))
+   (definition1
+     (cat nonterminal definition2))
+   (definition2
+     (cat defsymbol definition3))
+   (definition3
+     (push rhs definition-finally))
+   (definition-finally
+     (push procedures definition4)
+     (jump definition4))
+   (definition4
+     (pop definition))))
+
+;;; RHS
+
+(defatn rhs rhs1
+  :nodes
+  ((rhs1
+    (push qexpr rhs2)
+    (push alternative rhs3))
+   (rhs2
+    (push qexpr rhs2)
+    (jump rhs3))
+   (rhs3
+    (push procedures rhs4)
+    (jump rhs4))
+   (rhs4
+    (pop rhs))))
+
+;;; QEXPR
+
+(defatn qexpr qexpr1
+  :nodes
+  ((qexpr1 
+    (push symbol qexpr2)
+    (push group qexpr2)
+    (push tokenset qexpr2)
+    (push table-cell qexpr2))
+   (qexpr2
+    (cat occurrence qexpr3)
+    (jump qexpr3))
+   (qexpr3
+    (pop qexpr))))
+
+;;; GROUP
+
+(defatn group group1
+  :nodes
+  ((group1
+    (cat leftpar group2))
+   (group2
+    (push qexpr group3)
+    (push alternative group4))
+   (group3
+    (push qexpr group3)
+    (jump group4))
+   #|(group4
+    (cat rightpar group5))|#
+   (group4
+    (push procedures group4a)
+    (jump group4a))
+   (group4a
+    (cat rightpar group5))
+   (group5
+    (pop group))))
+
+;;; ALTERNATIVE
+
+
+(defatn alternative alternative1
+  :nodes
+  ((alternative1
+    (push qexpr alternative2))
+   (alternative2
+    (cat oneof alternative3))
+   (alternative3
+    (push qexpr alternative4)
+    (push alternative alternative4))
+   (alternative4
+    (pop alternative))))
+
+
+#|
+Testaufrufe:
+
+(bnf-to-atn
+"{1} Names ::=  ( Name (S+ Name)*  {initially test asdf(); finally do print (item)})
+ {3} MiscName ::= '.' | '-' | '_' | ':' 
+ {2} NameChar  ::=  Letter | Digit | MiscName
+ Name ::= (Letter | '_' | ':') (NameChar)*
+ Letter ::= [a-z] | [A-Z]
+ Digit ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+ S ::= [#x20#x9#xD#xA]")
+(bnf-to-atn
+"{1} Names ::=  Name (S+ Name)* 
+ {3} MiscName ::= '.' | '-' | '_' | ':' 
+ {2} NameChar  ::=  Letter | Digit | MiscName
+ Name ::= (Letter | '_' | ':') (NameChar)*
+ Letter ::= [a-z] | [A-Z]
+ Digit ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+ S ::= [#x20#x9#xD#xA]")
+(bnf-reader "{1}Names ::=  Name (S+ Name)*  
+ MiscName ::= '.' | '-' | '_' | ':' 
+ NameChar  ::=  Letter | Digit | MiscName
+ Name ::= (Letter | '_' | ':') (NameChar)*
+ Letter ::= [a-z] | [A-Z]
+ Digit ::= '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+ S ::= [#x20#x9#xD#xA]")
+
+(bnf-to-atn
+"{1} Names ::=  Name (S+ Names)?
+ {2} NameChar  ::=  Letter | Digit
+ Name ::= (Letter | '_' | ':') NameChar
+ Letter ::= 'a'
+ Digit ::= '0'
+ S ::= ' '")
+
+(bnf-to-atn
+"{1} Names ::=  Name (S Names)?
+ {2} NameChar  ::=  Letter | Digit
+ Name ::= NameChar NameChar
+ Letter ::= 'a'
+ Digit ::= '0'
+ S ::= ' '")
+
+|#
