@@ -948,6 +948,12 @@ and then reports the error, that there is no package named "".
   (:nicknames "xsi")
   (:export "type"))
 
+(defparameter +xlink-namespace-name+ "http://www.w3.org/1999/xlink")
+
+(defnamespace +xlink-namespace-name+
+  (:intern "href")
+  (:nicknames "xlink"))
+
 
 (defun |{-reader|
        (stream char
