@@ -1282,7 +1282,6 @@
                             :document *document*))
 
 (defConstructor |Names| (names name)
-  (declare (ignore register space))
   (cons name names))
 
 (defIdentityConstructor |NCName|)
@@ -1458,7 +1457,6 @@
       (xml-error "attribute tokenized type is not known: ~s." structure)))
 
 (defConstructor |VersionInfo| (version-number)
-  (declare (ignore eq version-keyword))
   version-number)
 
 (defLiteralConstructor |VersionNumCharData|)
