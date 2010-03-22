@@ -538,7 +538,6 @@
     (defun eol-normalize-input (byte &aux next-byte)
       (declare (optimize (speed 3) (safety 0))
                (type fixnum byte)
-               (type fixnum code line column)
                ;; won't inline
                ;(inline xml-initial-eolchar? xml-successor-eolchar?)
                (inline =))
@@ -560,7 +559,6 @@
     (defun eol-normalize-input  (byte &aux next-byte)
       (declare (optimize (speed 3) (safety 0))
                (type fixnum byte)
-               (type fixnum code lin column)
                (inline =))
        (cond ((xml-initial-eolchar? byte)
               (when (= byte #x0d)
@@ -675,16 +673,15 @@
 
 (defun make-token-string ()
   (when *token-end*
-    (cond #|((eq *atn-term?* '|IgnoreCData|)
-           (setf *token-length* 0
-                 *token-end* nil
-                 *token-fill* *token-start*)
-           "IgnoreCData")|#
+    (cond #+(or ) ((eq *atn-term?* '|IgnoreCData|)
+                   (setf *token-length* 0
+                         *token-end* nil
+                         *token-fill* *token-start*)
+                   "IgnoreCData")
           (t
            (let ((result (get-buffer-string *token-length*))
                  (buffer *token-start*))
-             (declare (type cons token)
-                      (type fixnum *token-length*)
+             (declare (type fixnum *token-length*)
                       (type simple-string result)
                       (optimize (speed 3) (safety 0)))
              (dotimes (i *token-length*)
@@ -754,8 +751,7 @@
   (unless (eq *name-fill* *name-start*)
     (let ((result (get-buffer-string *name-length*))
           (buffer *name-start*))
-      (declare (type cons token)
-               (type fixnum *name-length*)
+      (declare (type fixnum *name-length*)
                (type simple-string result)
                (optimize (speed 3) (safety 0)))
       (dotimes (i *name-length*)
