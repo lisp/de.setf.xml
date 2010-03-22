@@ -423,8 +423,9 @@
                            (abstract-def-node
                             (when (uname-equal name (name binding))
                               binding))
-                           (warn "illegitimate value among definitions: ~s."
-                                 binding)))
+                           (t
+                            (warn "illegitimate value among definitions: ~s."
+                                  binding))))
                      context)
                (apply #'find-uname-binding name nil args)))
   (:method ((predicate function) (context cons) &rest args)
@@ -441,8 +442,8 @@
                            (abstract-def-node
                             (when (funcall predicate (name binding))
                               binding))
-                           (warn "illegitimate value among definitions: ~s."
-                                 binding)))
+                           (t (warn "illegitimate value among definitions: ~s."
+                                    binding))))
                      context)
                (apply #'find-uname-binding predicate nil args)))
   (:method ((name t) (context def-elem-type) &rest args)
