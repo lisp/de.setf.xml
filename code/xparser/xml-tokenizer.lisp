@@ -276,7 +276,7 @@ the replacement may be a symbol, for a markup token, or a content or dtd declara
          (macro nil)
          (*ignore-whitespace* *ignore-whitespace*))
     (declare (optimize (speed 3) (safety 0))
-             (type fixnum position macro-table-size)
+             (type fixnum macro-table-size)
              (type simple-vector macros)
              (ftype (function (t) t) parse-external-subset parse-external-general-entity))
     (when bnfp::*atn-trace*
