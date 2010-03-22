@@ -102,7 +102,7 @@
        (&aux (char-code 0))
   (declare (optimize (speed 3) (safety 1))
            (ftype (function () fixnum)  get-input)
-           (type fixnum count char-code))
+           (type fixnum char-code))
   (setf char-code (get-input))
   (loop (when (= char-code #.(char-code #\;))
           ;; don't (advance-input) since this byte may be replaced
@@ -126,7 +126,7 @@
        (&aux (char-code 0) (is-hex nil))
   (declare (optimize (speed 3) (safety 1))
            (ftype (function () fixnum)  get-input)
-           (type fixnum count char-code))
+           (type fixnum char-code))
   (setf char-code (get-input))
   (loop (when (= char-code #.(char-code #\;))
           ;; don't (advance-input), leave it to the caller to do
@@ -173,7 +173,7 @@
        (&aux (char-code 0))
   (declare (optimize (speed 3) (safety 1))
            (ftype (function () fixnum)  get-input)
-           (type fixnum count char-code))
+           (type fixnum char-code))
   (loop (setf char-code (get-next-input-no-eof))
         (when (not (xml-namechar? char-code))
           ;; but the breaking byte back and return the name
