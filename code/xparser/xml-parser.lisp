@@ -438,8 +438,7 @@
 |#
 
 (defun input-reference (position &aux token)
-  (declare (ignore input)
-           (type fixnum position *input-index*)
+  (declare (type fixnum position *input-index*)
            (type simple-vector *input-token-cache*)
            (optimize (speed 3) (safety 0)))
   (cond ((= position *input-index*) *input-last*)
