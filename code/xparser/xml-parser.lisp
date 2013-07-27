@@ -481,7 +481,7 @@ after a system restart they "disappeared". !!
                            :compile nil         ; rely on build system definition
                            :load nil          
                            :execute nil
-                           :package *token-package*
+                           :source-package *token-package*
                            :source-pathname "xml:code;xparser;grammar;xml-grammar.lisp"
                            :input-function 'input-reference
                            :input-eof-function 'input-eof?

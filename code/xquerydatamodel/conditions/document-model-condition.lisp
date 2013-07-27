@@ -83,10 +83,10 @@
                   ((name :initarg :name :reader condition-name :initform nil)
                    (document :initarg :document :reader condition-document :initform *document*)))
 
-(defmethod simple-condition-format-arguments ((condition undefined-namespace-assignment))
-  (list (condition-name condition) (condition-document condition)))
-(defMethod simple-condition-format-control  ((condition undefined-namespace-assignment))
-  "no namespace assignment possible for name: '~/xqdm:format-name/': ~s.")
+(defmethod report-condition
+  ((condition undefined-namespace-assignment) stream)
+  (format stream "no namespace assignment possible for name: '~/xqdm:format-name/': ~s."
+	  (condition-name condition) (condition-document condition)))
 
 (defmethod check-constraint :around ((constraint validity-condition) (instance t))
   (when (validate? *document*) (call-next-method)))
@@ -346,7 +346,9 @@
 (def-nsc "Namespace Undetermined" (namespace-condition xml-warning)
   ((name :initarg :name :reader condition-name :initform nil))
   (:default-initargs :format-control "no namespace assignment possible for name: '~/xqdm:format-name/'.")
-  (:format-arguments (lambda (condition) (list (condition-name condition)))))
+  (:report-condition
+   (lambda (condition stream)
+     (format stream (simple-condition-format-control condition) (condition-name condition)))))
 
 
 (def-vc "No Duplicate Tokens" ()
@@ -356,7 +358,7 @@
    (lambda (condition stream)
      (with-accessors ((name condition-name) (context condition-context)) condition
        (format stream
-               "The names in a single declaration must all be distinct."
+               "The names in a single declaration must all be distinct: ~s: ~s."
                context name )))))
 
 (def-vc "No Duplicate Types" ()
@@ -489,7 +491,7 @@
                type name))))
   (:check (lambda (condition (instance parameter-entity-definition)
                              &aux old-def (name (name instance)))
-            (declare (ftype (function (t t) t) find-def-parameter-entity))
+            (declare (ftype (function (t t &key (:if-does-not-exist t)) t) find-def-parameter-entity))
             (cond ((and (setf old-def
                               (find-def-parameter-entity name (document instance)
                                                          :if-does-not-exist nil))
@@ -501,7 +503,7 @@
                   (t t))))
   (:check (lambda (condition (instance general-entity-definition)
                              &aux old-def (name (name instance)))
-            (declare (ftype (function (t t) t) find-def-general-entity))
+            (declare (ftype (function (t t &key (:if-does-not-exist t)) t) find-def-general-entity))
             (cond ((and (setf old-def (find-def-general-entity name (document instance)
                                                                :if-does-not-exist nil))
                         (eq (extent old-def) :static)

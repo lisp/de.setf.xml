@@ -31,7 +31,7 @@
 
 
 
-(defPackage :xml-utils
+(defpackage :xml-utils
   (:nicknames :xutils :de.setf.xml.base.implementation
               :de.setf.xml.conditions)
   (:use :common-lisp
@@ -115,6 +115,7 @@
    :MAKE-DATA-URL
    :MAKE-URI
    :MERGE-URIS
+   :namespace
    :|NOTE-newline-200101314|
    :object
    :PARSER-MACRO
@@ -139,6 +140,8 @@
    :URL
    :URL-DATA
    :URN
+   :urn-namespace
+   :urn-string
    :VECTOR-INPUT-STREAM
    :WITH-DATA-STREAM
    :WITH-FILE-STREAM
@@ -181,7 +184,7 @@
    ))
 
 
-(defPackage :XML-QUERY-DATA-MODEL
+(defpackage :XML-QUERY-DATA-MODEL
   (:nicknames :XQDM
               :DE.SETF.XML.NAMES.IMPLEMENTATION
               :DE.SETF.XML.NODE.IMPLEMENTATION
@@ -603,9 +606,12 @@
    :successor
    :successor-element
 
+   :urn
+   :urn-namespace
+   :urn-string
    ))
 
-(defPackage :XML-PARSER
+(defpackage :XML-PARSER
   (:nicknames :XMLP
               :de.setf.xml
               :de.setf.xml.interface
@@ -644,7 +650,10 @@
    :|Document-Constructor|
    :document-parser
    :|Element-Constructor|
+   :encode-attribute-value
    :encode-char
+   :encode-character-data
+   :encode-comment
    :encode-escaped-format
    :encode-format
    :encode-node
@@ -677,7 +686,7 @@
    )
   )
 
-(defPackage :XML-PATH
+(defpackage :XML-PATH
   (:nicknames :XP)
   (:use :BNFP #+CCL :CCL :COMMON-LISP :XQDM :XUTILS)
   ;; the term 'step' is central to the standard so it is shadowed rather
@@ -704,14 +713,14 @@
    )
   )
 
-(defPackage :XML-QUERY
+(defpackage :XML-QUERY
   (:nicknames :XQ)
   (:use :BNFP #+CCL :CCL :COMMON-LISP :XQDM :XUTILS)
   #+CCL (:shadowing-import-from :XQDM :TARGET)
   )
 
 
-(defPackage "xml" (:use)
+(defpackage "xml" (:use)
   (:nicknames "http://www.w3.org/XML/1998/namespace")
   (:export " " "!=" "!=" "!==" "\"" "#FIXED" "#IMPLIED" "#PCDATA" "#REQUIRED"
            "$" "%" "&" "&#" "&#x" "'" "(" "()" ")" ")*" "*" "*:" "+" ","
@@ -730,7 +739,9 @@
            "mixed" "mod" "namespace" "no" "node" "not" "or"
            "parent" "preceding" "preceding-sibling" "processing-instruction"
            "root" "self" "standalone" "text" "union" "version" "xml" "yes"
-           "{" "|" "}" "¯"))
+           "{" "|" "}"
+	   ;;; pre 20120414 this included the mac-encoded strik-thru-zero
+	   ))
 ;;
 ;;
 ;; packages for implementing xml data modeling.
@@ -740,7 +751,7 @@
 ;; forms from the names for functions and types, which conserve case.
 
 ;; package for xml query types
-(defPackage :XML-SCHEMA-DATATYPES (:use) (:nicknames :XSD)
+(defpackage :XML-SCHEMA-DATATYPES (:use) (:nicknames :XSD)
   (:export typep :typep-specialized
            "IS-anyComplexType" "IS-anySimpleType" "IS-anyTreeType" "IS-anyType"  "IS-anyURI"
            "IS-attribute" "IS-base64Binary" "IS-boolean" "IS-byte" "IS-comment" "IS-complex"
@@ -759,7 +770,7 @@
            :validate-string :validate-attribute :validate-name))
 
 ;; package for xml path "algebra" operators
-(defPackage :XML-PATH-ALGEBRA (:use) (:nicknames :XPA)
+(defpackage :XML-PATH-ALGEBRA (:use) (:nicknames :XPA)
   (:import-from "xml" "document")
   (:intern :APPLY-DESCENDANTS-PATH :APPLY-CHILD-PATH :APPLY-PATH
            :APPLY-PREDICATE-PATH :APPLY-STEP
@@ -802,7 +813,7 @@
    ))
 
 ;; package for xml query algebra operators
-(defPackage :XML-QUERY-ALGEBRA (:use) (:nicknames :XQA)
+(defpackage :XML-QUERY-ALGEBRA (:use) (:nicknames :XQA)
   (:import-from :XPA
                 "and"
                 "boolean"
@@ -877,7 +888,7 @@
             "empty"
             "=="))
 
-(defPackage "$" (:use))
+(defpackage "$" (:use))
 
 (defpackage :xml-query-language (:use) (:nicknames :XQL)
   (:import-from :xpa

@@ -195,7 +195,7 @@
 
 #+(or cmu scl)
 (defun stream-column (stream)
-  (ext:stream-line-column))
+  (sb-gray:stream-line-column))
 
 #+LispWorks
 (defun stream-column (stream)
@@ -444,24 +444,43 @@
                    :path path :object object :extension extension)))
 
 #-CL-HTTP
-(defMethod uri-namestring ((uri file-url))
+(defmethod uri-namestring ((uri file-url))
   ;; no host spec used
   (format nil "file://~@[~a~]/~{~a/~}~a~@[.~a~]"
           (host-string uri) (path uri) (object uri) (extension uri)))
 
 
-(defClass urn (uri)
-  ((literal :initform nil :initarg :literal :accessor literal)))
+(defclass urn (uri)
+  ((namespace
+    :initform (error "Namespace required.") :initarg :namespace
+    :accessor urn-namespace)
+   (string
+    :initform nil :initarg :string
+    :reader urn-string)
+   (namestring
+    :initform nil))
+  (:documentation
+    "The generic urn comprises a namespace and a string. Specialization provide additional internal
+ structure, but all must compile that to an equivalent non-zero length string for encoding.
+ See [rcf-2288](http://tools.ietf.org/html/rfc2288),
+ [rfc](http://tools.ietf.org/html/rfc1737), [rfc2141](http://tools.ietf.org/html/rfc2141), and 
+ [draft-ietf-urn-biblio-01](http://tools.ietf.org/html/draft-ietf-urn-biblio-01)"))
 
-(defMethod print-object ((instance urn) (stream t))
+(defmethod print-object ((instance urn) (stream t))
   (print-unreadable-object (instance stream :type t)
-    (format stream "urn:~a" (literal instance) )))
+    (write-string (uri-namestring instance) stream)))
 
 (defun make-urn (literal)
-  (make-instance 'urn :literal literal))
+  (let ((pos (position #\: literal)))
+    (if pos
+      (make-instance 'urn :namespace (subseq literal 0 pos)
+                     :string (subseq literal 0 (1+ pos)))
+      (make-instance 'urn :namespace literal :stirng ""))))
 
-(defMethod uri-namestring ((uri urn))
-  (format nil "urn:~a" (literal uri) ))
+(defmethod uri-namestring ((urn urn))
+  (or (slot-value urn 'namestring)
+      (setf (slot-value urn 'namestring)
+            (format nil "urn:~a:~a" (urn-namespace urn) (urn-string urn)))))
 
 
 (defClass data-url (uri)
@@ -717,9 +736,8 @@
                           #+LispWorks (comm:open-tcp-stream (host-string ,url-sym) (or (port ,url-sym) 80) :element-type '(unsigned-byte 8))
                           #+MCL (make-instance 'ccl::binary-tcp-stream :host (host-string ,url-sym) :port (or (port ,url-sym) 80) :element-type 'unsigned-byte)
 	                  #+(or CMU scl) (sys:make-fd-stream (ext:connect-to-inet-socket (host-string ,url-sym) (or (port ,url-sym) 80)) :buffering :full :element-type '(unsigned-byte 8))
-	                  #+sbcl (sb-sys:make-fd-stream (ext:connect-to-inet-socket (host-string ,url-sym) (or (port ,url-sym) 80)) :buffering :full :element-type '(unsigned-byte 8))
-                          #+clozure-common-lisp
-                          (make-ip-socket :remove-host (host-string ,url-sym) :remote-port (or (port ,url-sym) 80))
+	                  #+sbcl (usocket:socket-connect (host-string ,url-sym) (or (port ,url-sym) 80) :element-type '(unsigned-byte 8))
+                          #+clozure-common-lisp (make-ip-socket :remove-host (host-string ,url-sym) :remote-port (or (port ,url-sym) 80))
 	                  )
                     ;; (setf ,stream (ccl::open-tcp-stream (host ,url-sym) (port ,url-sym) :element-type 'unsigned-byte))
                     ;; 1.0 requests, no chunking

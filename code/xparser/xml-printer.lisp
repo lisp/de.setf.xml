@@ -66,14 +66,15 @@
   <DELTA DATE='20041024' AUTHOR='janderson'>added excl:stream-terpri</DELTA>
   <DELTA DATE='20041114' AUTHOR='janderson'>added encode-node (function)</DELTA>
   <DELTA DATE='20050703' AUTHOR='janderson'>added quote escape to attribute values. (?!)</DELTA>
-  <DELTA DATE=´20051025' AUTHOR=`janderson'>added allegro character operators to writer streams</DELTA>
+  <DELTA DATE='20051025' AUTHOR=`janderson'>added allegro character operators to writer streams</DELTA>
   </CHRONOLOGY>
  </DOCUMENTATION>
 |#
 
-(in-package "XML-PARSER")
+(in-package :xml-parser)
 
-
+;;; for debugging - iff no namespaces to be generated...
+;;; (setq *writer-function #'(lambda (arg c) (declare (ignore arg)) (write-char c *trace-output*)))
 ;;
 ;;
 ;; interface functions
@@ -97,6 +98,25 @@
 
 (defparameter *encode-xml-declaration* t)
 (defparameter *encode-document-type* t)
+(defparameter *attribute-value-delimiter* #\')
+
+(defparameter *attribute-value-quote-entities*
+  '((#\< . "&lt;")
+    (#\" . "&#34;")
+    (#\& . "&amp;"))
+  "The character->entity map to apply for attribute values when delimited by quotes.")
+
+(defparameter *attribute-value-apostrophe-entities*
+  '((#\< . "&lt;")
+    (#\' . "&#39;")
+    (#\& . "&amp;"))
+  "The character->entity map to apply for attribute values when delimited by apostrophes.")
+
+(defparameter *character-data-entities*
+  '((#\< . "&lt;")
+    (#\& . "&amp;"))
+  "The character->entity map to apply for character data.")
+
 
 (defun call-with-xml-writer (function *xml-output*
                                       &key (encoding *output-encoding*)
@@ -185,7 +205,7 @@
 (defclass escaped-writer-stream (writer-stream)
   ())
 
-(defMethod stream-element-type ((stream writer-stream))
+(defmethod stream-element-type ((stream writer-stream))
   'character)
 
 (defun writer-write-string (string)
@@ -204,7 +224,7 @@
 #+allegro
 (progn
   
-  (defMethod excl:stream-line-column ((stream writer-stream)) nil)
+  (defmethod excl:stream-line-column ((stream writer-stream)) nil)
   
   (defmethod excl:stream-terpri ((stream writer-stream))
     (funcall *writer-function *writer-arg #\return)
@@ -227,7 +247,7 @@
 
 #+clozure
 (progn
-  (defMethod ccl:stream-line-column ((stream writer-stream)) nil)
+  (defmethod ccl:stream-line-column ((stream writer-stream)) nil)
   
   (defmethod ccl:stream-terpri ((stream writer-stream))
     (funcall *writer-function *writer-arg #\return)
@@ -250,7 +270,7 @@
 
 #+digitool
 (progn
-  (defMethod ccl:stream-tyo ((stream writer-stream) char)
+  (defmethod ccl:stream-tyo ((stream writer-stream) char)
     (funcall *writer-function *writer-arg char))
   
   (defmethod ccl:stream-tyo ((stream escaped-writer-stream) char)
@@ -283,13 +303,15 @@
 ;;;
 ;;;
 
-(defGeneric write-node (datum stream &rest args)
+(defgeneric write-node (datum stream &rest args)
   (:documentation
    "encode the node as xml to the provided stream.")
+
   (:method ((node t) (destination pathname) &rest args)
            (with-open-file (stream destination :direction :output :element-type 'unsigned-byte
                                    :if-exists :supersede :if-does-not-exist :create)
              (apply #'write-node node stream args)))
+
   (:method ((node t) (*output-destination* t) &rest args)
            (apply #'call-with-xml-writer 
                   #'(lambda () (encode-node node))
@@ -306,48 +328,67 @@
 ;; primitives
 
 (defun encode-char (char)
-  "encode the provided character to the current output destination."
+  "Encode the provided character to the current output destination _without_ escapes."
   (funcall *writer-function *writer-arg char))
 
+
 (defun encode-string (string)
-  "encode the provided string to the output destination.
-   used when it is known that no escapes are necessary."
+  "encode the provided string to the output destination _without_ escapes."
   (dotimes (i (length string))
     (funcall *writer-function *writer-arg (char string i))))
 
+
 (defun encode-newline ()
-  "emit a newline to the output destination."
+  "The standard EOL to be reported is a #x0a. Thus emit just that as newline to output destinations."
   (encode-char #.(code-char #x0a)))
 
-(defGeneric encode-node (node)
+
+(defgeneric encode-node (node)
   (:documentation
    "encode the provided node to the current output destination.
-    perform a tree walk for linked nodes.
     escape character data in content and attribute values as appropriate.
-    introduce namespace bindings as required.")) 
+    introduce namespace bindings as required.
+    given a tree of nodes, treat it as an s-expression document model."))
 
-(defMethod encode-node
-           ((string string) &aux char)
+
+(defun encode-escaped-string (string delimiter-map)
+  (assert (typep string 'string))
   (dotimes (x (length string))
-    (setf char (char string x))
-    (case char
-      (#\< (encode-string "&lt;"))
-      (#\> (encode-string "&gt;"))
-      (#\' (encode-string "&apos;"))
-      (#\&
-       ; here an attempt to both escape and not
-       (if (position #\; string :start x)
-         (funcall *writer-function *writer-arg char)
-         (encode-string "&amp;")))
-      (t (funcall *writer-function *writer-arg char)))))
+    (let* ((char (char string x))
+           (entity (rest (assoc char delimiter-map))))
+      (declare (type character char))
+      (if entity (encode-string entity) (funcall *writer-function *writer-arg char)))))
 
-(defMethod encode-node
+
+(defun encode-character-data (string)
+  "Encode the given string with character data escapes."
+  (encode-escaped-string string *character-data-entities*))
+
+
+(defun encode-attribute-value (value)
+  "Encode the given string with the escapes as per the current attribute delimiter"
+  (etypecase value
+    (cons (dolist (value value) (encode-attribute-value value)))
+    (string (encode-escaped-string value (ecase *attribute-value-delimiter*
+                                            (#\' *attribute-value-apostrophe-entities*)
+                                            (#\" *attribute-value-quote-entities*))))))
+    
+
+(defmethod encode-node ((string string))
+  (encode-escaped-string string *character-data-entities*))
+
+
+(defmethod encode-node
            ((node list))
-  (mapc #'encode-node node))
+  "Iff the form looks like an element, encode it as one. Otherwise encode each constituent individually."
+  (if (or (consp (first node)) (xqdm::uname-p (first node)))
+    ;; encode an element
+    (encode-sexp-node node)
+    (mapc 'encode-node node)))
 
 (defmethod encode-node
            ((node number))
-  (encode-node (write-to-string node)))
+  (encode-string (write-to-string node)))
 
 (defmethod encode-node
     ((node function))
@@ -357,9 +398,9 @@
 ;;
 ;; node methods
 
-(defMethod encode-node
+(defmethod encode-node
            ((node symbol)
-            &aux (name (local-part node))
+            &aux (local-part (local-part node))
             (namespace (namespace node))
             prefix)
   (if (keywordp node)
@@ -368,30 +409,32 @@
            (encode-string *xmlns-prefix-namestring*)
            (unless (eq node *default-namespace-attribute-name*)
              (encode-char #\:)
-             (encode-node name)))
+             (encode-string local-part)))
           (namespace
            (setf prefix (local-part (namespace-prefix namespace (get node :prefix))))
            (unless (string= prefix "")
-             (encode-node (local-part prefix))
+             (encode-string (local-part prefix))
              (encode-char #\:))
-           (encode-node name))
+           (encode-string local-part))
           (t ;; allow uninterned names
-           (encode-node name)))))
+           (encode-string local-part)))))
 
-(defMethod encode-node
+
+(defmethod encode-node
            ((node null))
   )
 
-(defMethod encode-node
+
+(defmethod encode-node
            ((node abstract-name)
-            &aux (name (local-part node))
+            &aux (local-part (local-part node))
             (namespace (namespace node))
             prefix)
   (cond ((string= (namespace-name namespace) *xmlns-prefix-namestring*)
          (encode-string *xmlns-prefix-namestring*)
          (unless (eq node *default-namespace-attribute-name*)
            (encode-char #\:)
-           (encode-node name)))
+           (encode-string local-part)))
         (namespace
          (setf prefix (local-part (namespace-prefix namespace
                                                     (with-slots (prefix) node
@@ -399,9 +442,10 @@
          (unless (string= prefix "")
            (encode-node (local-part prefix))
            (encode-char #\:))
-         (encode-node name))
+         (encode-string local-part))
         (t ;; allow uninterned names
-         (encode-node name))))
+         (encode-string local-part))))
+
 
 (defun encode-xml-declaration (&key version encoding standalone)
   (encode-string "<?xml")
@@ -421,7 +465,7 @@
 (defun encode-document-type (name &key public system)
   "simple document type encoding"
   (encode-string "<!DOCTYPE ")
-  (encode-node (local-part name))
+  (encode-string (local-part name))
   (if system
     (if public
       (encode-format " PUBLIC \"~a\" \"~a\"" public system)
@@ -431,7 +475,7 @@
   (encode-string ">"))
     
 
-(defMethod encode-node
+(defmethod encode-node
            ((node doc-node-interface)
             &aux
             (*prefix-count* *prefix-count*)
@@ -510,11 +554,11 @@
            (encode-char #\:)
            (encode-string prefix))))
       (encode-char #\=)
-      (encode-char #\')
-      (encode-node (namespace-name namespace))
-      (encode-char #\'))))
+      (encode-char *attribute-value-delimiter*)
+      (encode-attribute-value (namespace-name namespace))
+      (encode-char *attribute-value-delimiter*))))
 
-(defMethod encode-node
+(defmethod encode-node
            ((node elem-node-interface))
   (let ((*namespace-bindings* *namespace-bindings*)
         (*default-namespace* *default-namespace*)
@@ -552,15 +596,53 @@
             (t
              (encode-string " />"))))))
 
-(defMethod encode-node
+(defun encode-sexp-node (element)
+  (let* ((tag (first element))
+         (name (if (consp tag) (first tag) tag))
+         (annotations (when (consp tag) (rest tag)))
+         (children (rest element))
+         (*generated-ns-bindings* nil)
+         (*namespace-bindings* *namespace-bindings*))
+    (loop for (name value) in annotations
+          when (eq (namespace name) *xmlns-namespace*)
+          do (push (make-instance 'ns-node :name name :value value) *namespace-bindings*))
+    (encode-char #\<)
+    (encode-node name)
+    (loop for (name value) in annotations
+          do (progn (encode-char #\space)
+                    (encode-node name)
+                    (encode-char #\=)
+                    (encode-char *attribute-value-delimiter*)
+                    (encode-attribute-value value)
+                    (encode-char *attribute-value-delimiter*)))
+      (when *generated-ns-bindings*
+        (encode-generated-ns-bindings *generated-ns-bindings*))
+      (cond (children
+             (encode-char #\>)
+             (dolist (node children)
+               (when *print-pretty*
+                 (encode-newline)
+                 (dotimes (x *node-level*) (encode-char #\space)))
+               (encode-node node))
+             (encode-string "</")
+             (encode-node name)
+             (encode-char #\>))
+            (t
+             (encode-string " />")))))
+
+
+(defmethod encode-node
            ((node elem-property-node-interface))
   (with-slots (name children) node
     (encode-node name)
     (encode-char #\=)
-    (encode-char #\')
+    (encode-char *attribute-value-delimiter*)
     (dolist (node children)
-      (encode-node node))
-    (encode-char #\')))
+      ;; allow for uname constituents, but for strngs to be escaped as attribute values
+      (typecase node
+        (string (encode-attribute-value node))
+        (t (encode-node node))))
+    (encode-char *attribute-value-delimiter*)))
 
 (defmethod encode-node
            ((node pi-node))
@@ -571,18 +653,24 @@
     (encode-node node))
   (encode-string "?>"))
 
-(defMethod encode-node
+(defmethod encode-node
            ((node comment-node))
   (encode-string "<!-- ")
   (dolist (node (children node))
     (encode-node node))
   (encode-string " -->"))
 
+(defun encode-comment (control &rest args)
+  (declare (dynamic-extent args))
+  (encode-string "<!-- ")
+  (apply #'encode-format control args)
+  (encode-string " -->"))
+
 ;;
 ;;
 ;; declarations
 
-(defMethod encode-node ((node def-elem-type)
+(defmethod encode-node ((node def-elem-type)
                         &aux
                         (*namespace-bindings* *namespace-bindings*)
                         (*generated-ns-bindings* nil)
@@ -597,7 +685,8 @@
     (encode-string " <!ELEMENT ")
     (encode-node name)
     (encode-char #\space)
-    (encode-node children)
+    (dolist (child children)
+      (encode-node child))
     (encode-string " >")
     ;; write the attribute declarations
     (when properties
@@ -624,7 +713,7 @@
             (string (encode-string "xmlns:") (encode-string prefix))
             (t (encode-node (first binding))))
           (encode-string " CDATA '")
-          (encode-string (namespace-name namespace))
+          (encode-escaped-string (namespace-name namespace) *attribute-value-apostrophe-entities*)
           (encode-string "'")))
       (encode-string " >"))
     ;; then do type definitions referenced by virtue of their presence in the
@@ -642,21 +731,21 @@
               (format nil " <!-- definition not found: ~a: ~a."
                       (name node) c-name)))))))
 
-(defMethod encode-node ((node |content-model|))
+(defmethod encode-node ((node |content-model|))
   (encode-node (first (bnfp::bnf-rhs node))))
 
-(defMethod encode-node ((node |\|-content|)
+(defmethod encode-node ((node |\|-content|)
                         &aux (expressions (bnfp::bnf-expressions node)))
   (encode-char #\()
   (loop (encode-node (pop expressions))
         (if expressions (encode-string " | ") (return)))
   (encode-char #\)))
 
-(defMethod encode-node ((node |?-content|))
+(defmethod encode-node ((node |?-content|))
   (encode-node (bnfp::bnf-expression node))
   (encode-char #\?))
 
-(defMethod encode-node ((node |*-content|)
+(defmethod encode-node ((node |*-content|)
                         &aux (expression (bnfp::bnf-expression node))
                         name)
   (setf name
@@ -667,32 +756,32 @@
         (t (encode-node expression)
            (encode-char #\*))))
 
-(defMethod encode-node ((node |+-content|))
+(defmethod encode-node ((node |+-content|))
   (encode-node (bnfp::bnf-expression node))
   (encode-char #\+))
 
-(defMethod encode-node ((node |content|))
+(defmethod encode-node ((node |content|))
   (encode-node (bnfp::bnf-expression node)))
 
-(defMethod encode-node ((node |,-content|)
+(defmethod encode-node ((node |,-content|)
                         &aux (expressions (bnfp::bnf-expressions node)))
   (encode-char #\()
   (loop (encode-node (pop expressions))
         (if expressions (encode-string ", ") (return)))
   (encode-char #\)))
 
-(defMethod encode-node ((node |content-name|)
+(defmethod encode-node ((node |content-name|)
                         &aux (name (bnfp::bnf-name node)))
   (cond ((eq name *mixed-name*) (encode-string "(#PCDATA)"))
         (t (encode-node (bnfp::bnf-name node)))))
 
-(defMethod encode-node ((node |type-name|))
+(defmethod encode-node ((node |type-name|))
   (encode-node (bnfp::bnf-name node)))
 
 
 ;; this isn't complete, but it's a start
 
-(defMethod encode-node ((node def-elem-property-type)
+(defmethod encode-node ((node def-elem-property-type)
                         &aux (prototype (prototype node))
                         (default (children prototype))
                         (stipulation (stipulation node)))
@@ -730,12 +819,12 @@
         ((nil :fixed)
          (when (eq stipulation :fixed) (encode-string "#FIXED"))
          (encode-char #\space)
-         (encode-char #\')
-         (when default (encode-node default))
-         (encode-char #\'))))))
+         (encode-char *attribute-value-delimiter*)
+         (when default (encode-attribute-value default))
+         (encode-char *attribute-value-delimiter*))))))
   
   
-(defMethod encode-node ((node def-notation))
+(defmethod encode-node ((node def-notation))
   (with-slots (name system-id public-id) node
     (encode-string " <!NOTATION " )
     (encode-node name)
@@ -751,7 +840,7 @@
            (encode-string system-id)))
     (encode-string "' >")))
 
-(defMethod encode-node ((node ref-entity))
+(defmethod encode-node ((node ref-entity))
   (with-slots (value children) node
     (flet ((encode-char-or-byte (datum)
              (funcall *writer-function *writer-arg
@@ -776,7 +865,8 @@
              (encode-node (name node))
              (encode-char #\;))))))
 
-(defMethod encode-node ((node def-internal-entity))
+
+(defmethod encode-node ((node def-internal-entity))
   (encode-string " <!ENTITY ")
   (when (is-def-parameter-entity node)
     (encode-string "% "))
@@ -791,7 +881,7 @@
            (map nil #'encode-char value))))
   (encode-string "' >"))
 
-(defMethod encode-node ((node def-external-entity))
+(defmethod encode-node ((node def-external-entity))
   (encode-string " <!ENTITY ")
   (when (is-def-parameter-entity node)
     (encode-string "% "))
@@ -809,4 +899,15 @@
   (encode-string " >"))
 
 
-:EOF
+(let* ((*print-pretty* nil)
+       (result (with-output-to-string (stream)
+				      (with-xml-writer (stream)
+						       (encode-node '(({xhtml}head ({xmlns}xhtml "http://www.w3.org/1999/xhtml"))
+								      (({}meta ({}http-equiv  "Content-Type")
+									       ({}content  "text/xml;charset=iso-8859-1")))
+								      ({xhtml}title "The Title"))))))
+       (test "<xhtml:head xmlns:xhtml='http://www.w3.org/1999/xhtml'><meta http-equiv='Content-Type' content='text/xml;charset=iso-8859-1' /><xhtml:title>The Title</xhtml:title></xhtml:head>"))
+  (unless (equal result test)
+    (cerror "continue" "xmlwriter failed:~% ~s !=~% ~s." result test)))
+
+:de.setf.xml

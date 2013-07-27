@@ -135,10 +135,6 @@
                   (error "illegal exception definition clause: ~s." report))
                 `((defMethod report-condition ((,name ,c-name) ,stream ,@parms)
                     ,@body))))
-          ,@(when format-arguments
-              (destructuring-bind ((name &rest parms) &rest body) format-arguments
-                `((defMethod simple-condition-format-arguments ((,name ,c-name) ,@parms)
-                    ,@body))))
           ,@(when initialize
               (destructuring-bind ((name &rest parms) &rest body) initialize
                 `((defMethod initialize-instance ((,name ,c-name) ,@parms)

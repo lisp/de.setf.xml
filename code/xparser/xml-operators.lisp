@@ -704,7 +704,8 @@
       result)))
 
 (defun make-token-list ()
-  (declare (type cons *token-end* *token-fill* *token-start*)
+  (declare (type list *token-end*)
+	   (type cons *token-fill* *token-start*)
            (optimize (speed 3) (safety 0)))
   (when *token-end*
     (let ((result *token-start*))

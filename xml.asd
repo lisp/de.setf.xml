@@ -25,13 +25,16 @@
   ;; :class asdf:nicknamed-system
   ;; :nicknames (:setf.xml)
   ;; leave out by default :weakly-depends-on (:org.cl-http)
-  :depends-on (:de.setf.utility
+  :depends-on (:net.common-lisp.usocket
+               :de.setf.utility
                ; :de.setf.utility.bsd ;; if one wants to open dom graphs automatically in a browser
                :de.setf.utility.mime
+	       :de.setf.atn-parser
                )
   :components
-  ((:module :bnfp
-    :pathname "XML:code;atn-parser;"
+  (#+(or)
+   (:module :bnfp
+    :pathname #P"XML:code;atn-parser;"
     :components ((:module :clifs
                   :components ((:file "package")
                                (:file "inference-system-classes" :depends-on ("package"))
@@ -53,12 +56,14 @@
                  ;; not been reintegrated with the changes to compile to lisp.
                  #+bnfp-java "xml:code;atn-parser;atn-java-compiler"))
    (:module :base
-    :depends-on (:bnfp)
+    :depends-on () #+(or) (:bnfp)
     :serial t
     :components ((:file "implementation-dependencies")
-                 (:file "package" :depends-on ("implementation-dependencies"))
+                 #+cl-http (:file "package+http" :depends-on ("implementation-dependencies"))
+                 #-ch-http (:file "package" :depends-on ("implementation-dependencies"))
                  (:file "parameters" :depends-on ("implementation-dependencies"))
-                 (:file "utils" :depends-on ("package"))
+                 #+cl-http (:file "utils+http" :depends-on ("package"))
+                 #-cl-http (:file "utils" :depends-on ("package"))
                  (:file "parsetable" :depends-on ("package"))
                  (:file "vector-stream" :depends-on ("package"))
                  (:file "www-utils-ersatz" :depends-on ("package"))
@@ -67,7 +72,7 @@
 
    (:module :xqdm
     :depends-on (:base)
-    :pathname "XML:code;xquerydatamodel;"
+    :pathname #p"XML:code;xquerydatamodel;"
     :serial t
     :components ((:file "xqdm-namespaces")
                  (:file "xqdm-parameters" :depends-on ("xqdm-namespaces"))
@@ -174,7 +179,8 @@
 
 #+sbcl
 (progn
-  (require :gray-streams)
+  (unless (find-package :sb-gray)       ; now included
+    (require :gray-streams))
   (setq *inline-expansion-limit* 2)
   )
 

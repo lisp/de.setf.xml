@@ -147,7 +147,7 @@
 
 #+(and :SXHash-Tokenization (not :Genera))
 (defun hash-string (string &optional (start 0) end (hash-mask #b11011111))
-  (declare (fixnum start end))
+  (declare (fixnum start))
   (ecase hash-mask
     (#b11011111
      (with-stack-substring (str string :start start :end end)
@@ -304,7 +304,7 @@ as well as a threshold when the tokenizer table should be rehashed."
 			       #-Genera (the fixnum (etypecase filled-size (fixnum filled-size) (number (ceiling filled-size))))
 			       5) 4))		; allow hash array to become 80% full.
 	 (modulus (tokenizer-size-prime-ceiling min-size)))
-    (declare (fixnum new-size modulus))
+    (declare (fixnum modulus))
     (unless modulus
       (error "Attempt to create a tokenizer table larger than the maximum implementation size, ~D." *tokenizer-maximum-size*))
     (values modulus (floor (* modulus 4) 5)))) 

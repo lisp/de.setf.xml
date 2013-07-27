@@ -205,6 +205,18 @@
    :parse-state-active-p
    :print-parse-state
    :make-parse-state
+
+   :|wfst-initialize|
+   :|wfst-adjust|
+   :*ATN-REDUCE*
+   :%ATN-TRACE-FORM
+   :%ATN-BLOCK
+   :|wfst-entry|
+   :%ATN-NODE-BLOCK
+   :%ATN-TRACE
+   :ATN-PARSE-SUBSTRUCTURE*
+   :|wfst-push-entry|
+   :%ATN-EDGE-BLOCK
    ))
 
 

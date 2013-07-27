@@ -376,7 +376,13 @@
                  ;; bind the category predicates from the lexicon and
                  ;; the individual node functions. these require cross references.
                  ,@(mapcar #'(lambda (form) (cons 'defun form)) lexicon-flets)
-                 ,@(mapcar #'(lambda (form) (cons 'defun form)) net-flets)
+                 ,@(mapcar #'(lambda (form)
+                               (let* ((name (first form))
+                                      (index-name (intern (concatenate 'string (string name) "-INDEX")
+                                                          (symbol-package name))))
+                                 `(progn (defvar ,index-name)
+                                         ,(cons 'defun form))))
+                           net-flets)
                  ,@(mapcar #'(lambda (net) `(setf (get ',(atn-name net) :production)
                                                   ,(atn-documentation net)))
                            (system-nets node))

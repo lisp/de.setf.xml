@@ -1,0 +1,708 @@
+ <http://www.daml.org/2001/10/html/zipcode-ont#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/2001/10/html/zipcode-ont#> .
+ <http://www.daml.org/2001/10/html/zipcode-ont#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/2001/10/html/zipcode-ont> .
+ <http://www.daml.org/2001/10/html/zipcode-ont#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Zipcode Ontology" .
+ <http://xmlns.com/wot/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://xmlns.com/wot/0.1/> .
+ <http://xmlns.com/wot/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://xmlns.com/wot/0.1/index.rdf> .
+ <http://xmlns.com/wot/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "WOT 0.1" .
+ <http://xmlns.com/wordnet/1.6/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://xmlns.com/wordnet/1.6/> .
+ <http://xmlns.com/wordnet/1.6/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://xmlns.com/wordnet/1.6/Agent-3> .
+ <http://xmlns.com/wordnet/1.6/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Wordnet Agent-3" .
+ <http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine#> .
+ <http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/TR/owl-guide/wine.rdf> .
+ <http://www.w3.org/TR/2003/CR-owl-guide-20030818/wine#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Wine Ontology" .
+ <http://sw.deri.org/2005/04/wikipedia/wikiont.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sw.deri.org/2005/04/wikipedia/wikiont.owl#> .
+ <http://sw.deri.org/2005/04/wikipedia/wikiont.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sw.deri.org/2005/04/wikipedia/wikiont.owl> .
+ <http://sw.deri.org/2005/04/wikipedia/wikiont.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "WikiOnt" .
+ <http://www.kanzaki.com/ns/whois#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.kanzaki.com/ns/whois#> .
+ <http://www.kanzaki.com/ns/whois#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.kanzaki.com/ns/whois.rdf> .
+ <http://www.kanzaki.com/ns/whois#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Who's Who Description Vocabulary" .
+ <http://www.isi.edu/webscripter/person.o.daml#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.isi.edu/webscripter/person.o.daml#> .
+ <http://www.isi.edu/webscripter/person.o.daml#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.isi.edu/webscripter/person.o.daml> .
+ <http://www.isi.edu/webscripter/person.o.daml#> <http://www.schemaweb.info/schemas/meta/rdf/name> "WebScripter Person" .
+ <http://www.w3.org/2004/02/wsa/ServiceModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/02/wsa/ServiceModel.owl#> .
+ <http://www.w3.org/2004/02/wsa/ServiceModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/02/wsa/ServiceModel.owl> .
+ <http://www.w3.org/2004/02/wsa/ServiceModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Web Services Architecture Service Model" .
+ <http://www.w3.org/2004/02/wsa/ResourceModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/02/wsa/ResourceModel.owl#> .
+ <http://www.w3.org/2004/02/wsa/ResourceModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/02/wsa/ResourceModel.owl#> .
+ <http://www.w3.org/2004/02/wsa/ResourceModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Web Services Architecture Resource Model" .
+ <http://www.w3.org/2004/02/wsa/PolicyModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/02/wsa/PolicyModel.owl#> .
+ <http://www.w3.org/2004/02/wsa/PolicyModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/02/wsa/PolicyModel.owl> .
+ <http://www.w3.org/2004/02/wsa/PolicyModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Web Services Architecture Policy Model" .
+ <http://www.w3.org/2004/02/wsa/MessageModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/02/wsa/MessageModel.owl#> .
+ <http://www.w3.org/2004/02/wsa/MessageModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/02/wsa/MessageModel.owl> .
+ <http://www.w3.org/2004/02/wsa/MessageModel.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Web Services Architecture Message Model" .
+ <http://www.w3.org/2004/02/wsa/Extensions.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/02/wsa/Extensions.owl#> .
+ <http://www.w3.org/2004/02/wsa/Extensions.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/02/wsa/Extensions.owl> .
+ <http://www.w3.org/2004/02/wsa/Extensions.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Web Services Architecture Extensions" .
+ <http://sw.nokia.com/WebArch-1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sw.nokia.com/WebArch-1/> .
+ <http://sw.nokia.com/WebArch-1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sw.nokia.com/schemas/general/WebArch-1.0.rdf> .
+ <http://sw.nokia.com/WebArch-1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Web Architecture Vocabulary 1.0" .
+ <http://reliant.teknowledge.com/DAML/WMD.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://reliant.teknowledge.com/DAML/WMD.owl#> .
+ <http://reliant.teknowledge.com/DAML/WMD.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://reliant.teknowledge.com/DAML/WMD.owl> .
+ <http://reliant.teknowledge.com/DAML/WMD.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Weapons of Mass Destruction" .
+ <http://www.eyrie.org/~zednenem/2002/wail/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.eyrie.org/~zednenem/2002/wail/> .
+ <http://www.eyrie.org/~zednenem/2002/wail/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.eyrie.org/~zednenem/2002/wail/wail.rdf> .
+ <http://www.eyrie.org/~zednenem/2002/wail/> <http://www.schemaweb.info/schemas/meta/rdf/name> "WAIL" .
+ <http://augmented.man.ac.uk/ontologies/wafa.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://augmented.man.ac.uk/ontologies/wafa.owl#> .
+ <http://augmented.man.ac.uk/ontologies/wafa.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://augmented.man.ac.uk/ontologies/wafa.owl> .
+ <http://augmented.man.ac.uk/ontologies/wafa.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "WAfA Ontology" .
+ <http://purl.org/ibis/w6#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/ibis/w6#> .
+ <http://purl.org/ibis/w6#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ideagraph.net/xmlns/ibis/w6/w6.owl> .
+ <http://purl.org/ibis/w6#> <http://www.schemaweb.info/schemas/meta/rdf/name> "W6 Vocabulary" .
+ <urn://govshare.info/rdf/vote/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <urn://govshare.info/rdf/vote/> .
+ <urn://govshare.info/rdf/vote/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.govtrack.us/share/vote.rdf> .
+ <urn://govshare.info/rdf/vote/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Vote" .
+ <http://sw.nokia.com/VOC-1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sw.nokia.com/VOC-1/> .
+ <http://sw.nokia.com/VOC-1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sw.nokia.com/schemas/general/VOC-1.0.rdf> .
+ <http://sw.nokia.com/VOC-1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Vocabulary for Vocabulary Definitions 1.0" .
+ <http://purl.org/net/vocab/2004/07/visit#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/vocab/2004/07/visit#> .
+ <http://purl.org/net/vocab/2004/07/visit#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/vocab/2004/07/visit.rdf> .
+ <http://purl.org/net/vocab/2004/07/visit#> <http://www.schemaweb.info/schemas/meta/rdf/name> "visit" .
+ <http://www.mindswap.org/2003/vegetarian.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.mindswap.org/2003/vegetarian.owl#> .
+ <http://www.mindswap.org/2003/vegetarian.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.mindswap.org/2003/vegetarian.owl> .
+ <http://www.mindswap.org/2003/vegetarian.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Vegetarian Ontology" .
+ <http://www.gnowsis.org/ont/vcard#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.gnowsis.org/ont/vcard#> .
+ <http://www.gnowsis.org/ont/vcard#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.gnowsis.org/ont/vcard.rdfs> .
+ <http://www.gnowsis.org/ont/vcard#> <http://www.schemaweb.info/schemas/meta/rdf/name> "vCard Gnowsis Edition" .
+ <http://www.w3.org/2001/vcard-rdf/3.0#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2001/vcard-rdf/3.0#> .
+ <http://www.w3.org/2001/vcard-rdf/3.0#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2001/vcard-rdf/3.0> .
+ <http://www.w3.org/2001/vcard-rdf/3.0#> <http://www.schemaweb.info/schemas/meta/rdf/name> "vCard" .
+ <http://purl.org/vocab/vann/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/vocab/vann/> .
+ <http://purl.org/vocab/vann/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/vocab/vann/vann-vocab-20050401.rdf> .
+ <http://purl.org/vocab/vann/> <http://www.schemaweb.info/schemas/meta/rdf/name> "VANN" .
+ <http://purl.org/net/vocab/2004/04/usnoaad#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/vocab/2004/04/usnoaad#> .
+ <http://purl.org/net/vocab/2004/04/usnoaad#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/vocab/2004/04/usnoaad.rdf> .
+ <http://purl.org/net/vocab/2004/04/usnoaad#> <http://www.schemaweb.info/schemas/meta/rdf/name> "USNOAAD Vocabulary" .
+ <http://kota.s12.xrea.com/vocab/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://kota.s12.xrea.com/vocab/> .
+ <http://kota.s12.xrea.com/vocab/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://kota.s12.xrea.com/vocab/uranai/uranai.rdf> .
+ <http://kota.s12.xrea.com/vocab/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Uranai" .
+ <http://www.ksl.stanford.edu/projects/DAML/UNSPSC.daml#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.ksl.stanford.edu/projects/DAML/UNSPSC.daml#> .
+ <http://www.ksl.stanford.edu/projects/DAML/UNSPSC.daml#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.ksl.stanford.edu/projects/DAML/UNSPSC.daml> .
+ <http://www.ksl.stanford.edu/projects/DAML/UNSPSC.daml#> <http://www.schemaweb.info/schemas/meta/rdf/name> "UNSPSC" .
+ <http://trust.mindswap.org/ont/trust.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://trust.mindswap.org/ont/trust.owl#> .
+ <http://trust.mindswap.org/ont/trust.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://trust.mindswap.org/ont/trust.owl> .
+ <http://trust.mindswap.org/ont/trust.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Trust Ontology" .
+ <http://www.mindswap.org/~golbeck/web/trust.daml#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.mindswap.org/~golbeck/web/trust.daml#> .
+ <http://www.mindswap.org/~golbeck/web/trust.daml#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.mindswap.org/~golbeck/web/trust.daml> .
+ <http://www.mindswap.org/~golbeck/web/trust.daml#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Trust Networks on the Semantic Web" .
+ <http://www.perceive.net/schemas/20020725/trust#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.perceive.net/schemas/20020725/trust#> .
+ <http://www.perceive.net/schemas/20020725/trust#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://eric.perceive.net/schemas/20021119/trust/trust.rdf> .
+ <http://www.perceive.net/schemas/20020725/trust#> <http://www.schemaweb.info/schemas/meta/rdf/name> "trust" .
+ <http://keg.cs.tsinghua.edu.cn/ontology/travel#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://keg.cs.tsinghua.edu.cn/ontology/travel#> .
+ <http://keg.cs.tsinghua.edu.cn/ontology/travel#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://learn.tsinghua.edu.cn/homepage/2003214945/travelontology.owl> .
+ <http://keg.cs.tsinghua.edu.cn/ontology/travel#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Travel Ontology" .
+ <http://psi.ontopia.net/rdf/#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://psi.ontopia.net/rdf/#> .
+ <http://psi.ontopia.net/rdf/#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://psi.ontopia.net/rdf/schema.rdf> .
+ <http://psi.ontopia.net/rdf/#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Topic Maps" .
+ <http://www.eyrie.org/~zednenem/2002/web-threads/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.eyrie.org/~zednenem/2002/web-threads/> .
+ <http://www.eyrie.org/~zednenem/2002/web-threads/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.eyrie.org/~zednenem/2002/web-threads/tdl.rdf> .
+ <http://www.eyrie.org/~zednenem/2002/web-threads/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Thread Description Language" .
+ <http://www.fao.org/agris/agmes/schemas/1.1/ags#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.fao.org/agris/agmes/schemas/1.1/ags#> .
+ <http://www.fao.org/agris/agmes/schemas/1.1/ags#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/agmes/1.1/> .
+ <http://www.fao.org/agris/agmes/schemas/1.1/ags#> <http://www.schemaweb.info/schemas/meta/rdf/name> "The Agricultural Metadata Element Set v.1.1" .
+ <http://reliant.teknowledge.com/DAML/terroristAttackTypes.daml#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://reliant.teknowledge.com/DAML/terroristAttackTypes.daml#> .
+ <http://reliant.teknowledge.com/DAML/terroristAttackTypes.daml#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://reliant.teknowledge.com/DAML/terroristAttackTypes.daml> .
+ <http://reliant.teknowledge.com/DAML/terroristAttackTypes.daml#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Terrorist Attack Types" .
+ <http://www.w3.org/2003/11/swrl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2003/11/swrl#> .
+ <http://www.w3.org/2003/11/swrl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/Submission/2004/SUBM-SWRL-20040521/swrl.owl> .
+ <http://www.w3.org/2003/11/swrl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWRL" .
+ <http://lsdis.cs.uga.edu/projects/semdis/opus#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://lsdis.cs.uga.edu/projects/semdis/opus#> .
+ <http://lsdis.cs.uga.edu/projects/semdis/opus#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://lsdis.cs.uga.edu/projects/semdis/swetodblp/january2007/opus_january2007.rdf> .
+ <http://lsdis.cs.uga.edu/projects/semdis/opus#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SwetoDblp" .
+ <http://sweet.jpl.nasa.gov/ontology/units.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/ontology/units.owl#> .
+ <http://sweet.jpl.nasa.gov/ontology/units.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/ontology/units.owl> .
+ <http://sweet.jpl.nasa.gov/ontology/units.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Unit" .
+ <http://sweet.jpl.nasa.gov/sweet/time.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/sweet/time.owl#> .
+ <http://sweet.jpl.nasa.gov/sweet/time.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/sweet/time.owl> .
+ <http://sweet.jpl.nasa.gov/sweet/time.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Time" .
+ <http://sweet.jpl.nasa.gov/ontology/substance.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/ontology/substance.owl#> .
+ <http://sweet.jpl.nasa.gov/ontology/substance.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/ontology/substance.owl> .
+ <http://sweet.jpl.nasa.gov/ontology/substance.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Substance" .
+ <http://sweet.jpl.nasa.gov/ontology/space.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/ontology/space.owl#> .
+ <http://sweet.jpl.nasa.gov/ontology/space.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/ontology/space.owl> .
+ <http://sweet.jpl.nasa.gov/ontology/space.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Space" .
+ <http://sweet.jpl.nasa.gov/ontology/property.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/ontology/property.owl#> .
+ <http://sweet.jpl.nasa.gov/ontology/property.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/ontology/property.owl> .
+ <http://sweet.jpl.nasa.gov/ontology/property.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Property" .
+ <http://sweet.jpl.nasa.gov/sweet/phenomena.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/sweet/phenomena.owl#> .
+ <http://sweet.jpl.nasa.gov/sweet/phenomena.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/sweet/phenomena.owl> .
+ <http://sweet.jpl.nasa.gov/sweet/phenomena.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Phenomena" .
+ <http://sweet.jpl.nasa.gov/sweet/numerics.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/sweet/numerics.owl#> .
+ <http://sweet.jpl.nasa.gov/sweet/numerics.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/sweet/numerics.owl> .
+ <http://sweet.jpl.nasa.gov/sweet/numerics.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Numerics" .
+ <http://sweet.jpl.nasa.gov/ontology/human_activities.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/ontology/human_activities.owl#> .
+ <http://sweet.jpl.nasa.gov/ontology/human_activities.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/ontology/human_activities.owl> .
+ <http://sweet.jpl.nasa.gov/ontology/human_activities.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Human Activities" .
+ <http://sweet.jpl.nasa.gov/sweet/earthrealm.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/sweet/earthrealm.owl#> .
+ <http://sweet.jpl.nasa.gov/sweet/earthrealm.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/sweet/earthrealm.owl> .
+ <http://sweet.jpl.nasa.gov/sweet/earthrealm.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Earth Realm" .
+ <http://sweet.jpl.nasa.gov/ontology/data.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/ontology/data.owl#> .
+ <http://sweet.jpl.nasa.gov/ontology/data.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/ontology/data.owl> .
+ <http://sweet.jpl.nasa.gov/ontology/data.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Data" .
+ <http://sweet.jpl.nasa.gov/ontology/biosphere.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sweet.jpl.nasa.gov/ontology/biosphere.owl#> .
+ <http://sweet.jpl.nasa.gov/ontology/biosphere.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sweet.jpl.nasa.gov/ontology/biosphere.owl> .
+ <http://sweet.jpl.nasa.gov/ontology/biosphere.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWEET Biosphere" .
+ <http://www.swed.org.uk/2004/02/swed#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.swed.org.uk/2004/02/swed#> .
+ <http://www.swed.org.uk/2004/02/swed#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.swed.org.uk/swed/data/swed/organisation_v1.2.owl> .
+ <http://www.swed.org.uk/2004/02/swed#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWED Ontology" .
+ <http://www.w3.org/2000/10/swap/util/sniffSchema#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2000/10/swap/util/sniffSchema#> .
+ <http://www.w3.org/2000/10/swap/util/sniffSchema#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2000/10/swap/util/sniffSchema> .
+ <http://www.w3.org/2000/10/swap/util/sniffSchema#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWAP Sniff Schema" .
+ <http://www.w3.org/2000/10/swap/pim/contact#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2000/10/swap/pim/contact#> .
+ <http://www.w3.org/2000/10/swap/pim/contact#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2000/10/swap/pim/contact> .
+ <http://www.w3.org/2000/10/swap/pim/contact#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SWAP Personal Information Markup" .
+ <http://reliant.teknowledge.com/DAML/SUMO.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://reliant.teknowledge.com/DAML/SUMO.owl#> .
+ <http://reliant.teknowledge.com/DAML/SUMO.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://reliant.teknowledge.com/DAML/SUMO.owl> .
+ <http://reliant.teknowledge.com/DAML/SUMO.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Suggested Upper Merged Ontology (SUMO)" .
+ <http://www.topquadrant.com/owl/2005/05/standards-schema#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.topquadrant.com/owl/2005/05/standards-schema#> .
+ <http://www.topquadrant.com/owl/2005/05/standards-schema#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.topquadrant.com/owl/2005/05/standards-schema.owl> .
+ <http://www.topquadrant.com/owl/2005/05/standards-schema#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Standards Schema" .
+ <http://purl.org/net/inkel/rdf/schemas/lang/1.1#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/inkel/rdf/schemas/lang/1.1#> .
+ <http://purl.org/net/inkel/rdf/schemas/lang/1.1#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/inkel/rdf/schemas/lang/1.1> .
+ <http://purl.org/net/inkel/rdf/schemas/lang/1.1#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Speaks, Reads and Writes" .
+ <http://www.spase-group.org/spase_1_2_0_subset.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.spase-group.org/spase_1_2_0_subset.owl#> .
+ <http://www.spase-group.org/spase_1_2_0_subset.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://astrophysics.arc.nasa.gov/AISRPCodeLibraryServer/Uploads/Public/000025/source/spase_1-2-0_subset.owl> .
+ <http://www.spase-group.org/spase_1_2_0_subset.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SPASE Ontology" .
+ <http://frot.org/space/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://frot.org/space/0.1/> .
+ <http://frot.org/space/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://frot.org/space/0.1/index.rdf> .
+ <http://frot.org/space/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "spacenamespace" .
+ <http://www.daml.org/tools/tools-ont#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/tools/tools-ont#> .
+ <http://www.daml.org/tools/tools-ont#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/tools/tools-ont> .
+ <http://www.daml.org/tools/tools-ont#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Software Tools Ontology" .
+ <http://keg.cs.tsinghua.edu.cn/ontology/software#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://keg.cs.tsinghua.edu.cn/ontology/software#> .
+ <http://keg.cs.tsinghua.edu.cn/ontology/software#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://keg.cs.tsinghua.edu.cn/persons/tj/ontology/software.owl> .
+ <http://keg.cs.tsinghua.edu.cn/ontology/software#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Software Project" .
+ <http://www.w3.org/2004/02/skos/mapping#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/02/skos/mapping#> .
+ <http://www.w3.org/2004/02/skos/mapping#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/02/skos/mapping.rdf> .
+ <http://www.w3.org/2004/02/skos/mapping#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SKOS Mapping" .
+ <http://www.w3.org/2004/02/skos/extensions#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/02/skos/extensions#> .
+ <http://www.w3.org/2004/02/skos/extensions#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/02/skos/extensions.rdf> .
+ <http://www.w3.org/2004/02/skos/extensions#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SKOS Extensions" .
+ <http://www.w3.org/2004/02/skos/core#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/02/skos/core#> .
+ <http://www.w3.org/2004/02/skos/core#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/02/skos/core.rdf> .
+ <http://www.w3.org/2004/02/skos/core#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SKOS Core" .
+ <http://rdfs.org/sioc/ns#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://rdfs.org/sioc/ns#> .
+ <http://rdfs.org/sioc/ns#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://rdfs.org/sioc/ns> .
+ <http://rdfs.org/sioc/ns#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SIOC" .
+ <http://www.w3.org/2003/06/sw-vocab-status/ns#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+ <http://www.w3.org/2003/06/sw-vocab-status/ns#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2003/06/sw-vocab-status/ns> .
+ <http://www.w3.org/2003/06/sw-vocab-status/ns#> <http://www.schemaweb.info/schemas/meta/rdf/name> "SemWeb Vocab Status Ontology" .
+ <http://www.semanticweb.org/ontologies/swrc-onto-2001-12-11.daml#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.semanticweb.org/ontologies/swrc-onto-2001-12-11.daml#> .
+ <http://www.semanticweb.org/ontologies/swrc-onto-2001-12-11.daml#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.semanticweb.org/ontologies/swrc-onto-2001-12-11.daml> .
+ <http://www.semanticweb.org/ontologies/swrc-onto-2001-12-11.daml#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Semantic Web Research Community Ontology" .
+ <http://sw.nokia.com/SWArch-1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sw.nokia.com/SWArch-1/> .
+ <http://sw.nokia.com/SWArch-1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sw.nokia.com/schemas/general/SWArch-1.0.rdf> .
+ <http://sw.nokia.com/SWArch-1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Semantic Web Architecture Vocabulary 1.0" .
+ <http://archive.astro.umd.edu/ont/Science.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://archive.astro.umd.edu/ont/Science.owl#> .
+ <http://archive.astro.umd.edu/ont/Science.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://archive.astro.umd.edu/ont/Science.owl> .
+ <http://archive.astro.umd.edu/ont/Science.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Science" .
+ <http://www.schemaweb.info/schemas/meta/rdf/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.schemaweb.info/schemas/meta/rdf/> .
+ <http://www.schemaweb.info/schemas/meta/rdf/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.schemaweb.info/schemas/meta/rdf/> .
+ <http://www.schemaweb.info/schemas/meta/rdf/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Schema Directory Schema" .
+ <http://purl.oclc.org/net/rss_2.0/enc#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.oclc.org/net/rss_2.0/enc#> .
+ <http://purl.oclc.org/net/rss_2.0/enc#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.oclc.org/net/rss_2.0/enc> .
+ <http://purl.oclc.org/net/rss_2.0/enc#> <http://www.schemaweb.info/schemas/meta/rdf/name> "RSS 2.0 Enclosures" .
+ <http://purl.org/rss/1.0/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/rss/1.0/> .
+ <http://purl.org/rss/1.0/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://web.resource.org/rss/1.0/schema.rdf> .
+ <http://purl.org/rss/1.0/> <http://www.schemaweb.info/schemas/meta/rdf/name> "RSS 1.0" .
+ <http://rorweb.com/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://rorweb.com/0.1/> .
+ <http://rorweb.com/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://rorweb.com/0.1/index.rdf> .
+ <http://rorweb.com/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "ROR (Resources of a Resource)" .
+ <http://nutria.cs.tu-berlin.de/roodolf/rdfs#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://nutria.cs.tu-berlin.de/roodolf/rdfs#> .
+ <http://nutria.cs.tu-berlin.de/roodolf/rdfs#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://nutria.cs.tu-berlin.de/roodolf/rdfs> .
+ <http://nutria.cs.tu-berlin.de/roodolf/rdfs#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Roodolf Export Schema" .
+ <http://purl.org/vocab/riro/sdl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/vocab/riro/sdl#> .
+ <http://purl.org/vocab/riro/sdl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://vocab.org/riro/sdl.owl> .
+ <http://purl.org/vocab/riro/sdl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "RIRO Service Descriptions" .
+ <http://amk.ca/xml/review/1.0#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://amk.ca/xml/review/1.0#> .
+ <http://amk.ca/xml/review/1.0#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://amk.ca/xml/review/1.0.rdf> .
+ <http://amk.ca/xml/review/1.0#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Reviews on the Web" .
+ <http://purl.org/stuff/rev#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/stuff/rev#> .
+ <http://purl.org/stuff/rev#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://dannyayers.com/xmlns/rev/review.rdfs> .
+ <http://purl.org/stuff/rev#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Review Vocabulary" .
+ <http://kaste.lv/~captsolo/semweb/resume/cv.rdfs#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://kaste.lv/~captsolo/semweb/resume/cv.rdfs#> .
+ <http://kaste.lv/~captsolo/semweb/resume/cv.rdfs#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://captsolo.net/semweb/resume/cv.rdfs> .
+ <http://kaste.lv/~captsolo/semweb/resume/cv.rdfs#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Resume" .
+ <http://purl.org/vocab/relationship/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/vocab/relationship/> .
+ <http://purl.org/vocab/relationship/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://vocab.org/relationship/rel-vocab-20050810.rdf> .
+ <http://purl.org/vocab/relationship/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Relationship" .
+ <http://www.dbs.cs.uni-duesseldorf.de/RDF/relational.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.dbs.cs.uni-duesseldorf.de/RDF/relational.owl#> .
+ <http://www.dbs.cs.uni-duesseldorf.de/RDF/relational.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.dbs.cs.uni-duesseldorf.de/RDF/relational.owl> .
+ <http://www.dbs.cs.uni-duesseldorf.de/RDF/relational.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Relational.OWL" .
+ <http://purl.org/net/schemas/book/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/schemas/book/> .
+ <http://purl.org/net/schemas/book/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/schemas/book/> .
+ <http://purl.org/net/schemas/book/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Reading List Schema" .
+ <http://sw.nokia.com/RDFQ-1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://sw.nokia.com/RDFQ-1/> .
+ <http://sw.nokia.com/RDFQ-1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://sw.nokia.com/rdfq/schemas/RDFQ-1.0.rdf> .
+ <http://sw.nokia.com/RDFQ-1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "RDFQ Vocabulary" .
+ <http://fabl.net/vocabularies/geometry2d/1.1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://fabl.net/vocabularies/geometry2d/1.1/> .
+ <http://fabl.net/vocabularies/geometry2d/1.1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://fabl.net/lib/geometry2d/1.1/index.rdf> .
+ <http://fabl.net/vocabularies/geometry2d/1.1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "RDFGeom2d" .
+ <http://fabl.net/vocabularies/geometry/1.1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://fabl.net/vocabularies/geometry/1.1/> .
+ <http://fabl.net/vocabularies/geometry/1.1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://fabl.net/lib/geometry/1.1/index.rdf> .
+ <http://fabl.net/vocabularies/geometry/1.1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "RDFGeom" .
+ <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+ <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/1999/02/22-rdf-syntax-ns> .
+ <http://www.w3.org/1999/02/22-rdf-syntax-ns#> <http://www.schemaweb.info/schemas/meta/rdf/name> "RDF Vocabulary" .
+ <http://purl.org/vocab/riro/ddl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/vocab/riro/ddl#> .
+ <http://purl.org/vocab/riro/ddl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://vocab.org/riro/ddl.owl> .
+ <http://purl.org/vocab/riro/ddl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "RDF Service Discovery Descriptions" .
+ <http://www.w3.org/2000/01/rdf-schema#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2000/01/rdf-schema#> .
+ <http://www.w3.org/2000/01/rdf-schema#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/TR/rdf-schema/rdfs-namespace.xml> .
+ <http://www.w3.org/2000/01/rdf-schema#> <http://www.schemaweb.info/schemas/meta/rdf/name> "RDF Schema Vocabulary" .
+ <http://purl.org/vocab/riro/gpt#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/vocab/riro/gpt#> .
+ <http://purl.org/vocab/riro/gpt#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://vocab.org/riro/gpt.owl> .
+ <http://purl.org/vocab/riro/gpt#> <http://www.schemaweb.info/schemas/meta/rdf/name> "RDF Graph Patterns and Templates" .
+ <http://www.w3.org/2004/12/q/contentlabel#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/12/q/contentlabel#> .
+ <http://www.w3.org/2004/12/q/contentlabel#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/12/q/contentlabel> .
+ <http://www.w3.org/2004/12/q/contentlabel#> <http://www.schemaweb.info/schemas/meta/rdf/name> "RDF Content Labels" .
+ <http://www.w3.org/2002/12/cal/ical#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2002/12/cal/ical#> .
+ <http://www.w3.org/2002/12/cal/ical#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2002/12/cal/ical> .
+ <http://www.w3.org/2002/12/cal/ical#> <http://www.schemaweb.info/schemas/meta/rdf/name> "RDF Calendar" .
+ <http://jena.hpl.hp.com/2003/03/result-set#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://jena.hpl.hp.com/2003/03/result-set#> .
+ <http://jena.hpl.hp.com/2003/03/result-set#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://jena.hpl.hp.com/2003/03/result-set> .
+ <http://jena.hpl.hp.com/2003/03/result-set#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Query Result Set Vocabulary" .
+ <http://purl.org/net/schemas/quaffing/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/schemas/quaffing/> .
+ <http://purl.org/net/schemas/quaffing/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/schemas/quaffing/> .
+ <http://purl.org/net/schemas/quaffing/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Quaffing" .
+ <http://www.purl.org/net/ontology/order.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.purl.org/net/ontology/order.owl#> .
+ <http://www.purl.org/net/ontology/order.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.purl.org/net/ontology/order.owl> .
+ <http://www.purl.org/net/ontology/order.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PurchaseOrder Ontology" .
+ <http://www.mondeca.com/system/publishing#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.mondeca.com/system/publishing#> .
+ <http://www.mondeca.com/system/publishing#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.mondeca.com/system/publishing.rdf> .
+ <http://www.mondeca.com/system/publishing#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Publishing Ontology" .
+ <http://www.csd.abdn.ac.uk/research/AgentCities/ontologies/pubs#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.csd.abdn.ac.uk/research/AgentCities/ontologies/pubs#> .
+ <http://www.csd.abdn.ac.uk/research/AgentCities/ontologies/pubs#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.csd.abdn.ac.uk/research/AgentCities/ontologies/pubs> .
+ <http://www.csd.abdn.ac.uk/research/AgentCities/ontologies/pubs#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Pub Ontology" .
+ <http://purl.org/vocab/psychometric-profile/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/vocab/psychometric-profile/> .
+ <http://purl.org/vocab/psychometric-profile/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/vocab/psychometric-profile/psych-vocab-20040427.rdf> .
+ <http://purl.org/vocab/psychometric-profile/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Psychometric Profile Vocabulary" .
+ <http://www.web-semantics.org/ns/pm#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.web-semantics.org/ns/pm#> .
+ <http://www.web-semantics.org/ns/pm#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://labs.semanticweb.org/textxml/vocabulary/6> .
+ <http://www.web-semantics.org/ns/pm#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Project Management" .
+ <http://purl.org/stuff/project#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/stuff/project#> .
+ <http://purl.org/stuff/project#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ideagraph.net/xmlns/project/project.rdfs> .
+ <http://purl.org/stuff/project#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PRJ Project Vocabulary" .
+ <http://www.w3.org/2004/08/Presentations.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/08/Presentations.owl#> .
+ <http://www.w3.org/2004/08/Presentations.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/08/Presentations.owl> .
+ <http://www.w3.org/2004/08/Presentations.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Presentations" .
+ <urn://govshare.info/rdf/politico/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <urn://govshare.info/rdf/politico/> .
+ <urn://govshare.info/rdf/politico/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.govtrack.us/share/politico.rdf> .
+ <urn://govshare.info/rdf/politico/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Politico" .
+ <http://www.w3.org/2002/01/p3prdfv1#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2002/01/p3prdfv1#> .
+ <http://www.w3.org/2002/01/p3prdfv1#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2002/01/p3prdfv1#> .
+ <http://www.w3.org/2002/01/p3prdfv1#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Platform for Privacy Preferences" .
+ <http://purl.org/net/vocab/2003/11/photo#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/vocab/2003/11/photo#> .
+ <http://purl.org/net/vocab/2003/11/photo#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/vocab/2003/11/photo.rdf> .
+ <http://purl.org/net/vocab/2003/11/photo#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Photography Vocabulary" .
+ <http://www.w3.org/2000/PhotoRDF/technical-1-0#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2000/PhotoRDF/technical-1-0#> .
+ <http://www.w3.org/2000/PhotoRDF/technical-1-0#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2000/PhotoRDF/technical-1-0> .
+ <http://www.w3.org/2000/PhotoRDF/technical-1-0#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Photo RDF (Technical)" .
+ <http://purl.org/stuff/pets/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/stuff/pets/> .
+ <http://purl.org/stuff/pets/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ideagraph.net/xmlns/pets/hedwig.xml> .
+ <http://purl.org/stuff/pets/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Pet Profile Ontology" .
+ <http://pervasive.semanticweb.org/ont/2004/01/time#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://pervasive.semanticweb.org/ont/2004/01/time#> .
+ <http://pervasive.semanticweb.org/ont/2004/01/time#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://pervasive.semanticweb.org/ont/2004/01/time> .
+ <http://pervasive.semanticweb.org/ont/2004/01/time#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PERVASIVE-SO Time" .
+ <http://pervasive.semanticweb.org/ont/2004/01/space#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://pervasive.semanticweb.org/ont/2004/01/space#> .
+ <http://pervasive.semanticweb.org/ont/2004/01/space#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://pervasive.semanticweb.org/ont/2004/01/space> .
+ <http://pervasive.semanticweb.org/ont/2004/01/space#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PERVASIVE-SO Space" .
+ <http://pervasive.semanticweb.org/ont/2004/01/rcc#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://pervasive.semanticweb.org/ont/2004/01/rcc#> .
+ <http://pervasive.semanticweb.org/ont/2004/01/rcc#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://pervasive.semanticweb.org/ont/2004/01/rcc> .
+ <http://pervasive.semanticweb.org/ont/2004/01/rcc#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PERVASIVE-SO Region Connection Calculus" .
+ <http://pervasive.semanticweb.org/ont/2004/01/preference#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://pervasive.semanticweb.org/ont/2004/01/preference#> .
+ <http://pervasive.semanticweb.org/ont/2004/01/preference#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://pervasive.semanticweb.org/ont/2004/01/preference> .
+ <http://pervasive.semanticweb.org/ont/2004/01/preference#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PERVASIVE-SO Preference" .
+ <http://pervasive.semanticweb.org/ont/2004/01/person#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://pervasive.semanticweb.org/ont/2004/01/person#> .
+ <http://pervasive.semanticweb.org/ont/2004/01/person#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://pervasive.semanticweb.org/ont/2004/01/person> .
+ <http://pervasive.semanticweb.org/ont/2004/01/person#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PERVASIVE-SO Person Ontology" .
+ <http://pervasive.semanticweb.org/ont/2004/01/schedule#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://pervasive.semanticweb.org/ont/2004/01/schedule#> .
+ <http://pervasive.semanticweb.org/ont/2004/01/schedule#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://pervasive.semanticweb.org/ont/2004/01/schedule> .
+ <http://pervasive.semanticweb.org/ont/2004/01/schedule#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PERVASIVE-SO Meeting Schedule" .
+ <http://pervasive.semanticweb.org/ont/2004/01/meeting#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://pervasive.semanticweb.org/ont/2004/01/meeting#> .
+ <http://pervasive.semanticweb.org/ont/2004/01/meeting#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://pervasive.semanticweb.org/ont/2004/01/meeting> .
+ <http://pervasive.semanticweb.org/ont/2004/01/meeting#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PERVASIVE-SO Meeting" .
+ <http://pervasive.semanticweb.org/ont/2004/01/lightcontrol#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://pervasive.semanticweb.org/ont/2004/01/lightcontrol#> .
+ <http://pervasive.semanticweb.org/ont/2004/01/lightcontrol#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://pervasive.semanticweb.org/ont/2004/01/lightcontrol> .
+ <http://pervasive.semanticweb.org/ont/2004/01/lightcontrol#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PERVASIVE-SO Light Control" .
+ <http://pervasive.semanticweb.org/ont/2004/01/document#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://pervasive.semanticweb.org/ont/2004/01/document#> .
+ <http://pervasive.semanticweb.org/ont/2004/01/document#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://pervasive.semanticweb.org/ont/2004/01/document> .
+ <http://pervasive.semanticweb.org/ont/2004/01/document#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PERVASIVE-SO Document" .
+ <http://pervasive.semanticweb.org/ont/2004/01/agent#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://pervasive.semanticweb.org/ont/2004/01/agent#> .
+ <http://pervasive.semanticweb.org/ont/2004/01/agent#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://pervasive.semanticweb.org/ont/2004/01/agent> .
+ <http://pervasive.semanticweb.org/ont/2004/01/agent#> <http://www.schemaweb.info/schemas/meta/rdf/name> "PERVASIVE-SO Agent" .
+ <http://www.isi.edu/~pan/damltime/time-entry.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.isi.edu/~pan/damltime/time-entry.owl#> .
+ <http://www.isi.edu/~pan/damltime/time-entry.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.isi.edu/~pan/damltime/time-entry.owl> .
+ <http://www.isi.edu/~pan/damltime/time-entry.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "OWL-Time" .
+ <http://www.daml.org/services/owl-s/1.1/Service.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/services/owl-s/1.1/Service.owl#> .
+ <http://www.daml.org/services/owl-s/1.1/Service.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/services/owl-s/1.1/Service.owl> .
+ <http://www.daml.org/services/owl-s/1.1/Service.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "OWL-S Service" .
+ <http://www.daml.org/services/owl-s/1.1/Profile.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/services/owl-s/1.1/Profile.owl#> .
+ <http://www.daml.org/services/owl-s/1.1/Profile.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/services/owl-s/1.1/Profile.owl> .
+ <http://www.daml.org/services/owl-s/1.1/Profile.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "OWL-S Profile" .
+ <http://www.daml.org/services/owl-s/1.1/Process.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/services/owl-s/1.1/Process.owl#> .
+ <http://www.daml.org/services/owl-s/1.1/Process.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/services/owl-s/1.1/Process.owl> .
+ <http://www.daml.org/services/owl-s/1.1/Process.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "OWL-S Process" .
+ <http://www.daml.org/services/owl-s/1.1/Grounding.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/services/owl-s/1.1/Grounding.owl#> .
+ <http://www.daml.org/services/owl-s/1.1/Grounding.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/services/owl-s/1.1/Grounding.owl> .
+ <http://www.daml.org/services/owl-s/1.1/Grounding.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "OWL-S Grounding" .
+ <http://www.w3.org/2002/07/owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2002/07/owl#> .
+ <http://www.w3.org/2002/07/owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2002/07/owl.rdf> .
+ <http://www.w3.org/2002/07/owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "OWL" .
+ <http://xobjects.seu.edu.cn/resource/drm/orel/orel0_5.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://xobjects.seu.edu.cn/resource/drm/orel/orel0_5.owl#> .
+ <http://xobjects.seu.edu.cn/resource/drm/orel/orel0_5.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://xobjects.seu.edu.cn/resource/drm/orel/orel0_5.owl> .
+ <http://xobjects.seu.edu.cn/resource/drm/orel/orel0_5.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "OREL" .
+ <http://purl.org/net/xamde/ns/os#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/xamde/ns/os#> .
+ <http://purl.org/net/xamde/ns/os#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/xamde/ns/os/opensource.rdfs> .
+ <http://purl.org/net/xamde/ns/os#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Open Source Software Vocabulary" .
+ <http://www.dfki.de/~cullrich/instrucionalobjects.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.dfki.de/~cullrich/instrucionalobjects.owl#> .
+ <http://www.dfki.de/~cullrich/instrucionalobjects.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.activemath.org/~cullrich/oio/InstructionalObjects.owl> .
+ <http://www.dfki.de/~cullrich/instrucionalobjects.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Ontology of Instructional Objects" .
+ <http://rdf.insee.fr/geo/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://rdf.insee.fr/geo/> .
+ <http://rdf.insee.fr/geo/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://rdf.insee.fr/geo/ontologie-geo-2006.rdf> .
+ <http://rdf.insee.fr/geo/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Ontologie Géographique INSEE" .
+ <http://www.daml.org/2001/10/html/nyse-ont#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/2001/10/html/nyse-ont#> .
+ <http://www.daml.org/2001/10/html/nyse-ont#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/2001/10/html/nyse-ont> .
+ <http://www.daml.org/2001/10/html/nyse-ont#> <http://www.schemaweb.info/schemas/meta/rdf/name> "NYSE Ontology" .
+ <http://nulllogicone.net/schema.rdfs#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://nulllogicone.net/schema.rdfs#> .
+ <http://nulllogicone.net/schema.rdfs#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://nulllogicone.net/schema.rdfs> .
+ <http://nulllogicone.net/schema.rdfs#> <http://www.schemaweb.info/schemas/meta/rdf/name> "nulllogicone" .
+ <http://semanticbible.org/ns/2005/NTNames#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://semanticbible.org/ns/2005/NTNames#> .
+ <http://semanticbible.org/ns/2005/NTNames#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.semanticbible.org/2005/09/NTNames.owl> .
+ <http://semanticbible.org/ns/2005/NTNames#> <http://www.schemaweb.info/schemas/meta/rdf/name> "New Testament Names" .
+ <http://purl.org/net/topo/ns/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/topo/ns/> .
+ <http://purl.org/net/topo/ns/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/topo/ns/> .
+ <http://purl.org/net/topo/ns/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Network Topology Description" .
+ <http://musicbrainz.org/mm/mm-2.1#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://musicbrainz.org/mm/mm-2.1#> .
+ <http://musicbrainz.org/mm/mm-2.1#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.ldodds.com/projects/musicbrainz/schema/index.rdf> .
+ <http://musicbrainz.org/mm/mm-2.1#> <http://www.schemaweb.info/schemas/meta/rdf/name> "MusicBrainz Metadata Vocabulary" .
+ <http://purl.org/net/ns/musicalbaton#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/ns/musicalbaton#> .
+ <http://purl.org/net/ns/musicalbaton#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/ns/musicalbaton.rdf> .
+ <http://purl.org/net/ns/musicalbaton#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Musical Baton Vocabulary" .
+ <http://www.kanzaki.com/ns/music#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.kanzaki.com/ns/music#> .
+ <http://www.kanzaki.com/ns/music#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.kanzaki.com/ns/music.rdf> .
+ <http://www.kanzaki.com/ns/music#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Music Vocabulary" .
+ <http://purl.org/NET/c4dm/music.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/NET/c4dm/music.owl#> .
+ <http://purl.org/NET/c4dm/music.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/NET/c4dm/music.owl> .
+ <http://purl.org/NET/c4dm/music.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Music Production Ontology" .
+ <http://139.91.183.30:9090/RDF/VRP/Examples/moviedatabase.rdf#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://139.91.183.30:9090/RDF/VRP/Examples/moviedatabase.rdf#> .
+ <http://139.91.183.30:9090/RDF/VRP/Examples/moviedatabase.rdf#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://139.91.183.30:9090/RDF/VRP/Examples/moviedatabase.rdf> .
+ <http://139.91.183.30:9090/RDF/VRP/Examples/moviedatabase.rdf#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Movie Schema" .
+ <http://reliant.teknowledge.com/DAML/Mid-level-ontology.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://reliant.teknowledge.com/DAML/Mid-level-ontology.owl#> .
+ <http://reliant.teknowledge.com/DAML/Mid-level-ontology.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://reliant.teknowledge.com/DAML/Mid-level-ontology.owl> .
+ <http://reliant.teknowledge.com/DAML/Mid-level-ontology.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Mid-Level Ontology (MILO)" .
+ <http://schema.menow.org/#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://schema.menow.org/#> .
+ <http://schema.menow.org/#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://crschmidt.net/foaf/menow/menow.rdf> .
+ <http://schema.menow.org/#> <http://www.schemaweb.info/schemas/meta/rdf/name> "MeNow" .
+ <http://www.mygrid.org.uk/ontology#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.mygrid.org.uk/ontology#> .
+ <http://www.mygrid.org.uk/ontology#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.cs.man.ac.uk/~wroec/mygrid/ontology/mygrid.owl> .
+ <http://www.mygrid.org.uk/ontology#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Life Sciences Ontology" .
+ <http://purl.org/net/vocab/2004/03/label#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/vocab/2004/03/label#> .
+ <http://purl.org/net/vocab/2004/03/label#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/vocab/2004/03/label.rdf> .
+ <http://purl.org/net/vocab/2004/03/label#> <http://www.schemaweb.info/schemas/meta/rdf/name> "label" .
+ <http://kmi.open.ac.uk/semanticweb/ontologies/owl/kmi-basic-portal-ontology.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://kmi.open.ac.uk/semanticweb/ontologies/owl/kmi-basic-portal-ontology.owl#> .
+ <http://kmi.open.ac.uk/semanticweb/ontologies/owl/kmi-basic-portal-ontology.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://kmi.open.ac.uk/semanticweb/ontologies/owl/kmi-basic-portal-ontology.owl> .
+ <http://kmi.open.ac.uk/semanticweb/ontologies/owl/kmi-basic-portal-ontology.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "KMi Basic" .
+ <http://www.gnowsis.org/ont/kissology#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.gnowsis.org/ont/kissology#> .
+ <http://www.gnowsis.org/ont/kissology#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.gnowsis.org/ont/kissology> .
+ <http://www.gnowsis.org/ont/kissology#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Kissology" .
+ <http://www.daml.org/2001/06/itinerary/itinerary-ont#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/2001/06/itinerary/itinerary-ont#> .
+ <http://www.daml.org/2001/06/itinerary/itinerary-ont#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/2001/06/itinerary/itinerary-ont.daml> .
+ <http://www.daml.org/2001/06/itinerary/itinerary-ont#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Itinerary Ontology" .
+ <http://www.daml.org/2001/09/countries/iso-3166-ont#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/2001/09/countries/iso-3166-ont#> .
+ <http://www.daml.org/2001/09/countries/iso-3166-ont#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/2001/09/countries/iso-3166-ont> .
+ <http://www.daml.org/2001/09/countries/iso-3166-ont#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ISO 3166 Country Codes Ontology" .
+ <http://www.imsglobal.org/rdf/imsmd_technicalv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.imsglobal.org/rdf/imsmd_technicalv1p2#> .
+ <http://www.imsglobal.org/rdf/imsmd_technicalv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.imsglobal.org/rdf/imsmd_technicalv1p2> .
+ <http://www.imsglobal.org/rdf/imsmd_technicalv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMS Meta-data - Technical" .
+ <http://www.imsglobal.org/rdf/imsmd_rootv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.imsglobal.org/rdf/imsmd_rootv1p2#> .
+ <http://www.imsglobal.org/rdf/imsmd_rootv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.imsglobal.org/rdf/imsmd_rootv1p2> .
+ <http://www.imsglobal.org/rdf/imsmd_rootv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMS Meta-data - Root" .
+ <http://www.imsglobal.org/rdf/imsmd_rightsv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.imsglobal.org/rdf/imsmd_rightsv1p2#> .
+ <http://www.imsglobal.org/rdf/imsmd_rightsv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.imsglobal.org/rdf/imsmd_rightsv1p2> .
+ <http://www.imsglobal.org/rdf/imsmd_rightsv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMS Meta-data - Rights" .
+ <http://www.imsglobal.org/rdf/imsmd_relationv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.imsglobal.org/rdf/imsmd_relationv1p2#> .
+ <http://www.imsglobal.org/rdf/imsmd_relationv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.imsglobal.org/rdf/imsmd_relationv1p2> .
+ <http://www.imsglobal.org/rdf/imsmd_relationv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMS Meta-data - Relation" .
+ <http://www.imsglobal.org/rdf/imsmd_metametadatav1p2#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.imsglobal.org/rdf/imsmd_metametadatav1p2#> .
+ <http://www.imsglobal.org/rdf/imsmd_metametadatav1p2#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.imsglobal.org/rdf/imsmd_metametadatav1p2> .
+ <http://www.imsglobal.org/rdf/imsmd_metametadatav1p2#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMS Meta-data - Meta-meta-data" .
+ <http://www.imsglobal.org/rdf/imsmd_lifecyclev1p2#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.imsglobal.org/rdf/imsmd_lifecyclev1p2#> .
+ <http://www.imsglobal.org/rdf/imsmd_lifecyclev1p2#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.imsglobal.org/rdf/imsmd_lifecyclev1p2> .
+ <http://www.imsglobal.org/rdf/imsmd_lifecyclev1p2#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMS Meta-data - Lifecycle" .
+ <http://www.imsglobal.org/rdf/imsmd_generalv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.imsglobal.org/rdf/imsmd_generalv1p2#> .
+ <http://www.imsglobal.org/rdf/imsmd_generalv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.imsglobal.org/rdf/imsmd_generalv1p2> .
+ <http://www.imsglobal.org/rdf/imsmd_generalv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMS Meta-data - General" .
+ <http://www.imsglobal.org/rdf/imsmd_educationalv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.imsglobal.org/rdf/imsmd_educationalv1p2#> .
+ <http://www.imsglobal.org/rdf/imsmd_educationalv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.imsglobal.org/rdf/imsmd_educationalv1p2> .
+ <http://www.imsglobal.org/rdf/imsmd_educationalv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMS Meta-data - Educational" .
+ <http://www.imsglobal.org/rdf/imsmd_classificationv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.imsglobal.org/rdf/imsmd_classificationv1p2#> .
+ <http://www.imsglobal.org/rdf/imsmd_classificationv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.imsglobal.org/rdf/imsmd_classificationv1p2> .
+ <http://www.imsglobal.org/rdf/imsmd_classificationv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMS Meta-data - Classification" .
+ <http://www.imsglobal.org/rdf/imsmd_annotationv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.imsglobal.org/rdf/imsmd_annotationv1p2#> .
+ <http://www.imsglobal.org/rdf/imsmd_annotationv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.imsglobal.org/rdf/imsmd_annotationv1p2> .
+ <http://www.imsglobal.org/rdf/imsmd_annotationv1p2#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMS Meta-data - Annotation" .
+ <http://www.csd.abdn.ac.uk/~ggrimnes/dev/imdb/IMDB#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.csd.abdn.ac.uk/~ggrimnes/dev/imdb/IMDB#> .
+ <http://www.csd.abdn.ac.uk/~ggrimnes/dev/imdb/IMDB#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.csd.abdn.ac.uk/~ggrimnes/dev/imdb/IMDB.rdfs> .
+ <http://www.csd.abdn.ac.uk/~ggrimnes/dev/imdb/IMDB#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IMDB Mapping Movie Ontology" .
+ <http://www.mindswap.org/~glapizco/technical.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.mindswap.org/~glapizco/technical.owl#> .
+ <http://www.mindswap.org/~glapizco/technical.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.mindswap.org/~glapizco/technical.owl> .
+ <http://www.mindswap.org/~glapizco/technical.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Images Ontology" .
+ <http://www.w3.org/2004/02/image-regions#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/02/image-regions#> .
+ <http://www.w3.org/2004/02/image-regions#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.bnowack.de/w3photo/specs/ontology8> .
+ <http://www.w3.org/2004/02/image-regions#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Image Region Vocabulary" .
+ <http://purl.org/ibis#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/ibis#> .
+ <http://purl.org/ibis#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://dannyayers.com/2003/12/ibis.rdfs> .
+ <http://purl.org/ibis#> <http://www.schemaweb.info/schemas/meta/rdf/name> "IBIS" .
+ <http://www.w3.org/2001/11/IsaViz/graphstylesheets#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2001/11/IsaViz/graphstylesheets#> .
+ <http://www.w3.org/2001/11/IsaViz/graphstylesheets#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2001/11/IsaViz/graphstylesheets.rdf> .
+ <http://www.w3.org/2001/11/IsaViz/graphstylesheets#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Graph Style Sheets (GSS)" .
+ <http://www.mindswap.org/2003/owl/geo/geoRelations20040307.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.mindswap.org/2003/owl/geo/geoRelations20040307.owl#> .
+ <http://www.mindswap.org/2003/owl/geo/geoRelations20040307.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.mindswap.org/2003/owl/geo/geoRelations.owl> .
+ <http://www.mindswap.org/2003/owl/geo/geoRelations20040307.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "geoRelations" .
+ <http://www.geonames.org/ontology#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.geonames.org/ontology#> .
+ <http://www.geonames.org/ontology#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.geonames.org/ontology/ontology.rdf> .
+ <http://www.geonames.org/ontology#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Geonames Ontology" .
+ <http://loki.cae.drexel.edu/~wbs/ontology/2003/10/iso-metadata#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://loki.cae.drexel.edu/~wbs/ontology/2003/10/iso-metadata#> .
+ <http://loki.cae.drexel.edu/~wbs/ontology/2003/10/iso-metadata#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://loki.cae.drexel.edu/~wbs/ontology/2003/10/iso-metadata.owl> .
+ <http://loki.cae.drexel.edu/~wbs/ontology/2003/10/iso-metadata#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Geographic Information Metadata" .
+ <http://www.mindswap.org/2003/owl/geo/geoFeatures20040307.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.mindswap.org/2003/owl/geo/geoFeatures20040307.owl#> .
+ <http://www.mindswap.org/2003/owl/geo/geoFeatures20040307.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.mindswap.org/2003/owl/geo/geoFeatures.owl> .
+ <http://www.mindswap.org/2003/owl/geo/geoFeatures20040307.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "geoFeatures" .
+ <http://www.mindswap.org/2003/owl/geo/geoCoordinateSystems20040307.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.mindswap.org/2003/owl/geo/geoCoordinateSystems20040307.owl#> .
+ <http://www.mindswap.org/2003/owl/geo/geoCoordinateSystems20040307.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.mindswap.org/2003/owl/geo/geoCoordinateSystems.owl> .
+ <http://www.mindswap.org/2003/owl/geo/geoCoordinateSystems20040307.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "geoCoordinateSystems" .
+ <http://www.w3.org/2003/01/geo/wgs84_pos#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+ <http://www.w3.org/2003/01/geo/wgs84_pos#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2003/01/geo/wgs84_pos.rdf> .
+ <http://www.w3.org/2003/01/geo/wgs84_pos#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Geo" .
+ <http://emeld.org/gold#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://emeld.org/gold#> .
+ <http://emeld.org/gold#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://emeld.org/gold> .
+ <http://emeld.org/gold#> <http://www.schemaweb.info/schemas/meta/rdf/name> "General Ontology for Linguistic Description (GOLD)" .
+ <http://purl.oclc.org/gem/gemtype/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.oclc.org/gem/gemtype/> .
+ <http://purl.oclc.org/gem/gemtype/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.oclc.org/gem/gemtype/> .
+ <http://purl.oclc.org/gem/gemtype/> <http://www.schemaweb.info/schemas/meta/rdf/name> "GEMT1 Type Vocabulary" .
+ <http://purl.org/gem/NISO-Z3919/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/gem/NISO-Z3919/> .
+ <http://purl.org/gem/NISO-Z3919/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/gem/NISO-Z3919/> .
+ <http://purl.org/gem/NISO-Z3919/> <http://www.schemaweb.info/schemas/meta/rdf/name> "GEM Monolingual Thesauri Vocabulary" .
+ <http://purl.org/gem/elements/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/gem/elements/> .
+ <http://purl.org/gem/elements/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/gem/elements/> .
+ <http://purl.org/gem/elements/> <http://www.schemaweb.info/schemas/meta/rdf/name> "GEM Element Set v2.0" .
+ <http://purl.org/gem/qualifiers/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/gem/qualifiers/> .
+ <http://purl.org/gem/qualifiers/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/gem/qualifiers/> .
+ <http://purl.org/gem/qualifiers/> <http://www.schemaweb.info/schemas/meta/rdf/name> "GEM Element Set Qualifier Vocabulary v2.0" .
+ <http://purl.org/gem/A2AStandard/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/gem/A2AStandard/> .
+ <http://purl.org/gem/A2AStandard/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/gem/A2AStandard/> .
+ <http://purl.org/gem/A2AStandard/> <http://www.schemaweb.info/schemas/meta/rdf/name> "GEM A2A Standard" .
+ <http://my.opera.com/community/xmlns/2006/gallery#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://my.opera.com/community/xmlns/2006/gallery#> .
+ <http://my.opera.com/community/xmlns/2006/gallery#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://my.opera.com/community/xmlns/2006/gallery.rdf> .
+ <http://my.opera.com/community/xmlns/2006/gallery#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Gallery Schema" .
+ <http://www.wasab.dk/morten/2004/10/gadget#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.wasab.dk/morten/2004/10/gadget#> .
+ <http://www.wasab.dk/morten/2004/10/gadget#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.wasab.dk/morten/2004/10/gadget.rdf> .
+ <http://www.wasab.dk/morten/2004/10/gadget#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Gadget" .
+ <http://www.w3.org/2004/09/fresnel#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2004/09/fresnel#> .
+ <http://www.w3.org/2004/09/fresnel#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2004/09/fresnel#> .
+ <http://www.w3.org/2004/09/fresnel#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Fresnel" .
+ <http://purl.org/vocab/frbr/core#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/vocab/frbr/core#> .
+ <http://purl.org/vocab/frbr/core#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/vocab/frbr/frbr-core-20050729.rdf> .
+ <http://purl.org/vocab/frbr/core#> <http://www.schemaweb.info/schemas/meta/rdf/name> "FRBR" .
+ <http://www.w3.org/TR/2003/CR-owl-guide-20030818/food#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/TR/2003/CR-owl-guide-20030818/food#> .
+ <http://www.w3.org/TR/2003/CR-owl-guide-20030818/food#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/TR/owl-guide/food.rdf> .
+ <http://www.w3.org/TR/2003/CR-owl-guide-20030818/food#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Food Ontology" .
+ <http://xmlns.com/foaf/corp#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://xmlns.com/foaf/corp#> .
+ <http://xmlns.com/foaf/corp#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://xmlns.com/foaf/corp/> .
+ <http://xmlns.com/foaf/corp#> <http://www.schemaweb.info/schemas/meta/rdf/name> "FOAFCorp" .
+ <http://b4mad.net/ns/foafx/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://b4mad.net/ns/foafx/> .
+ <http://b4mad.net/ns/foafx/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://b4mad.net/ns/foafx/index.rdf> .
+ <http://b4mad.net/ns/foafx/> <http://www.schemaweb.info/schemas/meta/rdf/name> "FOAF Extensions" .
+ <http://xmlns.com/foaf/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://xmlns.com/foaf/0.1/> .
+ <http://xmlns.com/foaf/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://xmlns.com/foaf/0.1/index.rdf> .
+ <http://xmlns.com/foaf/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "FOAF" .
+ <http://www.daml.org/2001/09/countries/fips-10-4-ont#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/2001/09/countries/fips-10-4-ont#> .
+ <http://www.daml.org/2001/09/countries/fips-10-4-ont#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/2001/09/countries/fips-10-4-ont> .
+ <http://www.daml.org/2001/09/countries/fips-10-4-ont#> <http://www.schemaweb.info/schemas/meta/rdf/name> "FIPS Country Codes Ontology" .
+ <http://www.w3.org/2003/12/exif/ns#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2003/12/exif/ns#> .
+ <http://www.w3.org/2003/12/exif/ns#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2003/12/exif/ns> .
+ <http://www.w3.org/2003/12/exif/ns#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Exif Data Description Vocabulary" .
+ <http://purl.org/net/ns/ex#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/ns/ex#> .
+ <http://purl.org/net/ns/ex#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/ns/ex> .
+ <http://purl.org/net/ns/ex#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Example Vocabulary" .
+ <http://www.eswc2006.org/technologies/ontology#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.eswc2006.org/technologies/ontology#> .
+ <http://www.eswc2006.org/technologies/ontology#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.eswc2006.org/technologies/ontology> .
+ <http://www.eswc2006.org/technologies/ontology#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ESWC2006 Conference Ontology" .
+ <http://dublincore.org/2000/03/13/eor#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://dublincore.org/2000/03/13/eor#> .
+ <http://dublincore.org/2000/03/13/eor#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://dublincore.org/2000/03/13/eor> .
+ <http://dublincore.org/2000/03/13/eor#> <http://www.schemaweb.info/schemas/meta/rdf/name> "EOR Vocabulary v1.0" .
+ <http://xmlns.filsa.org/emir/0.2/#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://xmlns.filsa.org/emir/0.2/#> .
+ <http://xmlns.filsa.org/emir/0.2/#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://xmlns.filsa.org/emir/0.2/emir.rdf> .
+ <http://xmlns.filsa.org/emir/0.2/#> <http://www.schemaweb.info/schemas/meta/rdf/name> "EMiR" .
+ <http://ebiquity.umbc.edu/ontology/research.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/research.owl#> .
+ <http://ebiquity.umbc.edu/ontology/research.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/research.owl> .
+ <http://ebiquity.umbc.edu/ontology/research.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity Research Area Ontology" .
+ <http://ebiquity.umbc.edu/ontology/publication.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/publication.owl#> .
+ <http://ebiquity.umbc.edu/ontology/publication.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/publication.owl> .
+ <http://ebiquity.umbc.edu/ontology/publication.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity Publication Ontology" .
+ <http://ebiquity.umbc.edu/ontology/project.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/project.owl#> .
+ <http://ebiquity.umbc.edu/ontology/project.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/project.owl> .
+ <http://ebiquity.umbc.edu/ontology/project.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity Project Ontology" .
+ <http://ebiquity.umbc.edu/ontology/photo.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/photo.owl#> .
+ <http://ebiquity.umbc.edu/ontology/photo.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/photo.owl> .
+ <http://ebiquity.umbc.edu/ontology/photo.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity Photo Ontology" .
+ <http://ebiquity.umbc.edu/ontology/person.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/person.owl#> .
+ <http://ebiquity.umbc.edu/ontology/person.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/person.owl> .
+ <http://ebiquity.umbc.edu/ontology/person.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity Person Ontology" .
+ <http://ebiquity.umbc.edu/ontology/news.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/news.owl#> .
+ <http://ebiquity.umbc.edu/ontology/news.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/news.owl> .
+ <http://ebiquity.umbc.edu/ontology/news.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity News Ontology" .
+ <http://ebiquity.umbc.edu/ontology/event.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/event.owl#> .
+ <http://ebiquity.umbc.edu/ontology/event.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/event.owl> .
+ <http://ebiquity.umbc.edu/ontology/event.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity Event Ontology" .
+ <http://ebiquity.umbc.edu/ontology/contact.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/contact.owl#> .
+ <http://ebiquity.umbc.edu/ontology/contact.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/contact.owl> .
+ <http://ebiquity.umbc.edu/ontology/contact.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity Contact Information Ontology" .
+ <http://ebiquity.umbc.edu/ontology/conference.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/conference.owl#> .
+ <http://ebiquity.umbc.edu/ontology/conference.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/conference.owl> .
+ <http://ebiquity.umbc.edu/ontology/conference.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity Conference Ontology" .
+ <http://ebiquity.umbc.edu/ontology/association.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/association.owl#> .
+ <http://ebiquity.umbc.edu/ontology/association.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/association.owl> .
+ <http://ebiquity.umbc.edu/ontology/association.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity Association Ontology" .
+ <http://ebiquity.umbc.edu/ontology/assertion.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ebiquity.umbc.edu/ontology/assertion.owl#> .
+ <http://ebiquity.umbc.edu/ontology/assertion.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ebiquity.umbc.edu/ontology/assertion.owl> .
+ <http://ebiquity.umbc.edu/ontology/assertion.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "eBiquity Assertion Ontology" .
+ <http://purl.org/dc/dcmitype/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/dc/dcmitype/> .
+ <http://purl.org/dc/dcmitype/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/dc/dcmitype/> .
+ <http://purl.org/dc/dcmitype/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Dublin Core Type Vocabulary" .
+ <http://purl.org/dc/elements/1.1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/dc/elements/1.1/> .
+ <http://purl.org/dc/elements/1.1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/dc/elements/1.1/> .
+ <http://purl.org/dc/elements/1.1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Dublin Core Element Set v1.1" .
+ <http://purl.org/dc/terms/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/dc/terms/> .
+ <http://purl.org/dc/terms/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/dc/terms/> .
+ <http://purl.org/dc/terms/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Dublin Core Element Refinements and Encoding Schemes" .
+ <http://www.junkwork.net/xml/DocumentList#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.junkwork.net/xml/DocumentList#> .
+ <http://www.junkwork.net/xml/DocumentList#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.junkwork.net/xml/DocumentList.rdf> .
+ <http://www.junkwork.net/xml/DocumentList#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Document List" .
+ <http://usefulinc.com/ns/doap#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://usefulinc.com/ns/doap#> .
+ <http://usefulinc.com/ns/doap#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://usefulinc.com/ns/doap> .
+ <http://usefulinc.com/ns/doap#> <http://www.schemaweb.info/schemas/meta/rdf/name> "DOAP" .
+ <http://ns.balbinus.net/doaml#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ns.balbinus.net/doaml#> .
+ <http://ns.balbinus.net/doaml#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ns.balbinus.net/doaml> .
+ <http://ns.balbinus.net/doaml#> <http://www.schemaweb.info/schemas/meta/rdf/name> "DOAML" .
+ <http://ramonantonio.net/doac/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://ramonantonio.net/doac/0.1/> .
+ <http://ramonantonio.net/doac/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://ramonantonio.net/doac/0.1/doac.rdfs> .
+ <http://ramonantonio.net/doac/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "DOAC" .
+ <http://www.natlib.govt.nz/dr/terms#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.natlib.govt.nz/dr/terms#> .
+ <http://www.natlib.govt.nz/dr/terms#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.natlib.govt.nz/dr/drterms.rdf> .
+ <http://www.natlib.govt.nz/dr/terms#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Digital Resource Terms" .
+ <http://www.natlib.govt.nz/dr/role#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.natlib.govt.nz/dr/role#> .
+ <http://www.natlib.govt.nz/dr/role#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.natlib.govt.nz/dr/drrole.rdf> .
+ <http://www.natlib.govt.nz/dr/role#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Digital Resource Role" .
+ <http://kanzaki.com/ns/dpd#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://kanzaki.com/ns/dpd#> .
+ <http://kanzaki.com/ns/dpd#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://kanzaki.com/ns/dpd> .
+ <http://kanzaki.com/ns/dpd#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Digital Picture Description" .
+ <http://www.daml.org/2001/03/daml+oil#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/2001/03/daml+oil#> .
+ <http://www.daml.org/2001/03/daml+oil#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/2001/03/daml+oil> .
+ <http://www.daml.org/2001/03/daml+oil#> <http://www.schemaweb.info/schemas/meta/rdf/name> "DAML+OIL" .
+ <http://purl.org/net/d4#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/d4#> .
+ <http://purl.org/net/d4#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/d4> .
+ <http://purl.org/net/d4#> <http://www.schemaweb.info/schemas/meta/rdf/name> "d4: The Fourth Dimension Ontology" .
+ <http://web.resource.org/cc/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://web.resource.org/cc/> .
+ <http://web.resource.org/cc/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://creativecommons.org/technology/metadata/schema.rdf> .
+ <http://web.resource.org/cc/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Creative Commons" .
+ <http://rhizomik.net/ontologies/2006/01/copyrightonto.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://rhizomik.net/ontologies/2006/01/copyrightonto.owl#> .
+ <http://rhizomik.net/ontologies/2006/01/copyrightonto.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://rhizomik.net/ontologies/2006/01/copyrightonto.owl> .
+ <http://rhizomik.net/ontologies/2006/01/copyrightonto.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Copyright Ontology" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Time#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Time#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Time#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Time> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Time#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Time" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/SoftwareProfile#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/SoftwareProfile#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/SoftwareProfile#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/SoftwareProfile#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/SoftwareProfile#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Software Profile" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Rule#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Rule#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Rule#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Rule> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Rule#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Rule" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Process#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Process#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Process#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Process> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Process#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Process" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/NetworkProfile#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/NetworkProfile#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/NetworkProfile#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/NetworkProfile> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/NetworkProfile#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Network Profile" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Location#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Location#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Location#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Location> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Location#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Location" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/HardwareProfile#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/HardwareProfile#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/HardwareProfile#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/HardwareProfile> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/HardwareProfile#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Hardware Profile" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Fuzzy#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Fuzzy#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Fuzzy#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Fuzzy> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Fuzzy#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Fuzzy" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Device#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Device#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Device#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Device> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Device#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Device" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Confoaf#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Confoaf#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Confoaf#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Confoaf> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Confoaf#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto ConFOAF" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/CLNP#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/CLNP#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/CLNP#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/CLNP> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/CLNP#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto CLNP" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Activity#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Activity#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Activity#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Activity> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Activity#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Activity" .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Action#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Action#> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Action#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.site.uottawa.ca/~mkhedr/Ontologies/Action> .
+ <http://www.site.uottawa.ca/~mkhedr/Ontologies/Action#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ConOnto Action" .
+ <http://www.mindswap.org/~golbeck/web/www04photo.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.mindswap.org/~golbeck/web/www04photo.owl#> .
+ <http://www.mindswap.org/~golbeck/web/www04photo.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.mindswap.org/~golbeck/web/www04photo.owl> .
+ <http://www.mindswap.org/~golbeck/web/www04photo.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Conference Ontology" .
+ <http://www.professional-learning.eu/ontologies/competence.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.professional-learning.eu/ontologies/competence.owl#> .
+ <http://www.professional-learning.eu/ontologies/competence.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.professional-learning.eu/ontologies/competence.owl> .
+ <http://www.professional-learning.eu/ontologies/competence.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Competency-Oriented Human Resource Development Ontology" .
+ <http://www.charette.com/crs/0.1#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.charette.com/crs/0.1#> .
+ <http://www.charette.com/crs/0.1#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.charette.com/crs/0.1/index.rdf> .
+ <http://www.charette.com/crs/0.1#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Charette Relationship Set" .
+ <http://www.eurocris.org/cerif/domainontology/cerif.daml#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.eurocris.org/cerif/domainontology/cerif.daml#> .
+ <http://www.eurocris.org/cerif/domainontology/cerif.daml#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.cs.man.ac.uk/~lopatena/cerif.daml> .
+ <http://www.eurocris.org/cerif/domainontology/cerif.daml#> <http://www.schemaweb.info/schemas/meta/rdf/name> "CERIF (Common European Research Information Format)" .
+ <http://www.w3.org/2002/11/08-ccpp-schema#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2002/11/08-ccpp-schema#> .
+ <http://www.w3.org/2002/11/08-ccpp-schema#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2002/11/08-ccpp-schema> .
+ <http://www.w3.org/2002/11/08-ccpp-schema#> <http://www.schemaweb.info/schemas/meta/rdf/name> "CC/PP" .
+ <http://purl.org/net/bloggercode/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/bloggercode/> .
+ <http://purl.org/net/bloggercode/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/bloggercode/> .
+ <http://purl.org/net/bloggercode/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Blogger Code" .
+ <http://neuroscientific.net/bio-zen.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://neuroscientific.net/bio-zen.owl#> .
+ <http://neuroscientific.net/bio-zen.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://neuroscientific.net/bio-zen.owl> .
+ <http://neuroscientific.net/bio-zen.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Bio-Zen Ontology" .
+ <http://biomoby.org/RESOURCES/MOBY-S/Services#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://biomoby.org/RESOURCES/MOBY-S/Services#> .
+ <http://biomoby.org/RESOURCES/MOBY-S/Services#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://biomoby.org/RESOURCES/MOBY-S/Services> .
+ <http://biomoby.org/RESOURCES/MOBY-S/Services#> <http://www.schemaweb.info/schemas/meta/rdf/name> "BioMOBY Services" .
+ <http://biomoby.org/RESOURCES/OWL-S/Objects.owl#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://biomoby.org/RESOURCES/OWL-S/Objects.owl#> .
+ <http://biomoby.org/RESOURCES/OWL-S/Objects.owl#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://bioinfo.icapture.ubc.ca/subversion/Cartik/Object-OWLDL2.owl> .
+ <http://biomoby.org/RESOURCES/OWL-S/Objects.owl#> <http://www.schemaweb.info/schemas/meta/rdf/name> "BioMOBY Objects Ontology" .
+ <http://biomoby.org/RESOURCES/MOBY-S/Namespaces#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://biomoby.org/RESOURCES/MOBY-S/Namespaces#> .
+ <http://biomoby.org/RESOURCES/MOBY-S/Namespaces#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://biomoby.org/RESOURCES/MOBY-S/Namespaces> .
+ <http://biomoby.org/RESOURCES/MOBY-S/Namespaces#> <http://www.schemaweb.info/schemas/meta/rdf/name> "BioMOBY Namespaces" .
+ <http://purl.org/vocab/bio/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/vocab/bio/0.1/> .
+ <http://purl.org/vocab/bio/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/vocab/bio/0.1/bio-vocab-20040305.rdf> .
+ <http://purl.org/vocab/bio/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "BIO" .
+ <http://purl.org/net/nknouf/ns/bibtex#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://purl.org/net/nknouf/ns/bibtex#> .
+ <http://purl.org/net/nknouf/ns/bibtex#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://purl.org/net/nknouf/ns/bibtex> .
+ <http://purl.org/net/nknouf/ns/bibtex#> <http://www.schemaweb.info/schemas/meta/rdf/name> "bibTeX in OWL" .
+ <http://www.purl.org/net/ontology/beer#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.purl.org/net/ontology/beer#> .
+ <http://www.purl.org/net/ontology/beer#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.purl.org/net/ontology/beer.owl> .
+ <http://www.purl.org/net/ontology/beer#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Beer Ontology" .
+ <http://assenzio.homeip.net/rdf/band/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://assenzio.homeip.net/rdf/band/0.1/> .
+ <http://assenzio.homeip.net/rdf/band/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.cli.di.unipi.it/~malara/band.rdf> .
+ <http://assenzio.homeip.net/rdf/band/0.1/> <http://www.schemaweb.info/schemas/meta/rdf/name> "Band Description Vocabulary" .
+ <http://www.w3.org/2000/10/annotation-ns#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2000/10/annotation-ns#> .
+ <http://www.w3.org/2000/10/annotation-ns#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2000/10/annotation-ns> .
+ <http://www.w3.org/2000/10/annotation-ns#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Annotea" .
+ <http://www.aktors.org/ontology/support#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.aktors.org/ontology/support#> .
+ <http://www.aktors.org/ontology/support#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.aktors.org/ontology/support> .
+ <http://www.aktors.org/ontology/support#> <http://www.schemaweb.info/schemas/meta/rdf/name> "AKT Reference Ontology (Support Ontology)" .
+ <http://www.aktors.org/ontology/portal#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.aktors.org/ontology/portal#> .
+ <http://www.aktors.org/ontology/portal#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.aktors.org/ontology/portal> .
+ <http://www.aktors.org/ontology/portal#> <http://www.schemaweb.info/schemas/meta/rdf/name> "AKT Reference Ontology (Portal Ontology)" .
+ <http://www.daml.org/2001/10/html/airport-ont#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.daml.org/2001/10/html/airport-ont#> .
+ <http://www.daml.org/2001/10/html/airport-ont#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.daml.org/2001/10/html/airport-ont> .
+ <http://www.daml.org/2001/10/html/airport-ont#> <http://www.schemaweb.info/schemas/meta/rdf/name> "Airport Ontology" .
+ <http://www.w3.org/2001/02/acls/ns#> <http://www.schemaweb.info/schemas/meta/rdf/namespace> <http://www.w3.org/2001/02/acls/ns#> .
+ <http://www.w3.org/2001/02/acls/ns#> <http://www.schemaweb.info/schemas/meta/rdf/location> <http://www.w3.org/2001/02/acls/ns> .
+ <http://www.w3.org/2001/02/acls/ns#> <http://www.schemaweb.info/schemas/meta/rdf/name> "ACL Schema" .

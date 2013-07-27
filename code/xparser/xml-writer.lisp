@@ -111,9 +111,10 @@
                                 (encode-char #\space)
                                 (encode-node ',name)
                                 (encode-char #\=)
-                                (encode-char #\')
-                                (encode-node attribute-value)
-                                (encode-char #\')))))
+                                (encode-char *attribute-value-delimiter*)
+                                ;; need different escaping (encode-node attribute-value)
+                                (encode-attribute-value attribute-value)
+                                (encode-char *attribute-value-delimiter*)))))
                      attributes))
          ,@(if need-namespaces
             `((when *generated-ns-bindings*
@@ -126,8 +127,10 @@
                          (if (or (consp (first form)) (xqdm::uname-p (first form)))
                            (cons 'xml form)
                            form)
-                         (if (and (stringp form) (not (needs-quoting? form)))
-                           `(encode-string ,form)
+                         (if (stringp form)
+                           (if (needs-quoting? form)
+                             `(encode-character-data ,form)
+                             `(encode-string ,form))
                            `(encode-node ,form))))
                    content)
          (when *print-pretty*

@@ -576,12 +576,11 @@
     (integer )
     (character (setf datum (char-code datum))))
   (if (listp table)
-    (dotimes (i (length table))
-      (setf constraint (svref table i))
+    (dolist (setf constraint table)
       (when (typecase constraint
-              (integer (= datum constraint))
-              (cons (<= (first constraint) datum (rest constraint)))
-              (sequence (find  datum constraint)))
+		      (integer (= datum constraint))
+		      (cons (<= (first constraint) datum (rest constraint)))
+		      (sequence (find  datum constraint)))
         (return t)))
     (find datum table)))
 

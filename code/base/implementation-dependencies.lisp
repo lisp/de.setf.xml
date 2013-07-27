@@ -66,7 +66,7 @@
 
 #+sbcl
 (progn
-  (require :gray-streams)
+  (unless (find-package :sb-gray) (require :gray-streams))
   (setq *inline-expansion-limit* 2)
   )
 
