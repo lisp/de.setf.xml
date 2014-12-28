@@ -634,8 +634,6 @@
 	   ;;; pre 20120414 this included the mac-encoded strik-thru-zero
 	   )
 
-  ;; FIXME: Rather than exporting these from "xml", should
-  ;; shadowing-import these from within #:XML-PARSER
   (:export
    "ANY-Constructor" "AttCharData-Constructor" "CDEnd-Constructor"
    "CDStart-Constructor" "CDataCharData-Constructor"
@@ -792,10 +790,7 @@
 
 
  [PARTIAL RESOLUTION] Subsequent to this issue, more symbols were
- exported form "xml" -- such that should subsequently be not exported
- from "xml", but rather shadowing-imported from :XML-PARSER. 
-
- Following that change, the following issue occurs:
+ exported form "xm". Following that change, the following issue occurs:
 
  INCOMPLETE-PARSE signaled:
  incomplete parse.
