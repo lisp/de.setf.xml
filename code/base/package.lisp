@@ -676,13 +676,13 @@
    "NotationDecl" "PublicID" 
    ))
 
-#| ISSUES - Functions made reference to but not defined in XML parser model
+#| ISSUES - Functions made reference to but not defined in XML parser model [PARTIALLY SOLVED]
 
 ; compilation unit finished
 ;   Undefined functions:
 ;     |xml|::IS-ANY |xml|::IS-EMPTY |xml|::IS-FIXED |xml|::IS-IGNORE |xml|::IS-IMPLIED |xml|::IS-INCLUDE |xml|::IS-NDATA |xml|::IS-NOTATION |xml|::IS-PCDATA |xml|::IS-PUBLIC |xml|::IS-REQUIRED |xml|::IS-SYSTEM |xml|::|IS-encoding| |xml|::|IS-standalone| |xml|::|IS-version| XML-PARSER::READER
 
- ... Where are those functions to be defined?
+ Where are those functions to be defined?
 
  (apropos "IS-ANY")
  ^ note XML-PARSER::|IS-ANYToken| (fbound)
@@ -700,18 +700,23 @@
  information, etc, as to define 'alias functions'
 
  As for the missing XML-PARSER::READER function [SOLVED]
- could it be provided by ATN-PARSER::BNF-READER ? [NO]
-
+ 
  Referring to "xml:code;xparser;xml-readers.lisp", READER is
  declared with an FTYPE declaration in the lexical environment of some
- functions' lambda forms, but is not used within those lambda forms. [SOLVED]
+ functions' lambda forms, but is not used within those lambda
+ forms. Removing those function declarations, that feature of the
+ issue is closed.
+ [SOLVED - READER]
 
- This issue should need to be resolved for the functioning of CL-XML
- (as tested within SBCL 1.2.6). An observation:
+ This issue should need to be completely resolved for the functioning
+ of this system (as tested within SBCL 1.2.6). 
+
+
+ An observation:
 
  (xmlp:document-parser "<?xml version='1.0'?> <foo bar='quux'/>")
  
- ... results in ...
+ ... presently results in ...
 
  The function |xml|::|IS-version| is undefined.
     [Condition of type UNDEFINED-FUNCTION]
@@ -790,7 +795,7 @@
 
 
  [PARTIAL RESOLUTION] Subsequent to this issue, more symbols were
- exported form "xm". Following that change, the following issue occurs:
+ exported form "xml". Following that change, the following issue occurs:
 
  INCOMPLETE-PARSE signaled:
  incomplete parse.
