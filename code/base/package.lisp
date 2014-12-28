@@ -709,7 +709,7 @@
  functions' lambda forms, but is not used within those lambda forms. [SOLVED]
 
  This issue should need to be resolved for the functioning of CL-XML
- within SBCL. An observation:
+ (as tested within SBCL 1.2.6). An observation:
 
  (xmlp:document-parser "<?xml version='1.0'?> <foo bar='quux'/>")
  
