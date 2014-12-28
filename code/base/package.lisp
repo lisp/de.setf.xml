@@ -611,6 +611,87 @@
    :urn-string
    ))
 
+(defpackage "xml" (:use)
+  (:nicknames "http://www.w3.org/XML/1998/namespace")
+  (:export " " "!=" "!=" "!==" "\"" "#FIXED" "#IMPLIED" "#PCDATA" "#REQUIRED"
+           "$" "%" "&" "&#" "&#x" "'" "(" "()" ")" ")*" "*" "*:" "+" ","
+           "-" "-->" "->" "." ".." "/" "//" "/>" ":" ":=" "::" ":*" ";" "<" "<!" "<!--"
+           "<!ATTLIST" "<!DOCTYPE" "<!ELEMENT" "<!ENTITY" "<!NOTATION"
+           "<![" "<![CDATA[" "</" "<=" "<?" "<?xml" "=" "==" ">" ">=" "?" "?>"
+           "@" "AFTER" "ANY" "ASCENDING" "BEFORE" "CDATA" "DESCENDING" "EMPTY"
+           "ENTITIES" "ENTITY" "ID" "IDREF" "IDREFS" "IGNORE" "INCLUDE"
+           "NDATA" "NMTOKEN" "NMTOKENS" "NOT" "NOTATION" "PUBLIC" "SYSTEM"
+           "[" "]" "]]>" "^"
+           "ancestor" "ancestor-or-self" "and" "attribute"
+           "child" "comment"
+           "descendant" "descendant-or-self" "div" "document"
+           "encoding" "following" "following-sibling"
+           "id" "key" "lang"
+           "mixed" "mod" "namespace" "no" "node" "not" "or"
+           "parent" "preceding" "preceding-sibling" "processing-instruction"
+           "root" "self" "standalone" "text" "union" "version" "xml" "yes"
+           "{" "|" "}"
+	   ;;; pre 20120414 this included the mac-encoded strik-thru-zero
+	   )
+  (:export
+   "ANY-Constructor" "AttCharData-Constructor" "CDEnd-Constructor"
+   "CDStart-Constructor" "CDataCharData-Constructor"
+   "Cardinality-Constructor" "CharData-Constructor"
+   "CommentCharData-Constructor" "DefaultAttCharData-Constructor"
+   "Document-Parser" "EMPTY-Constructor" "EncNameCharData-Constructor"
+   "EntityData-Constructor" "FIXED-Constructor" "HexNumber-Constructor"
+   "IMPLIED-Constructor" "IS-ANY" "IS-AttCharData" "IS-CDataCharData"
+   "IS-CharData" "IS-CommentCharData" "IS-DefaultAttCharData" "IS-EMPTY"
+   "IS-EncNameCharData" "IS-EntityData" "IS-FIXED" "IS-HexNumber"
+   "IS-IGNORE" "IS-IMPLIED" "IS-INCLUDE" "IS-IgnoreCData" "IS-NCName"
+   "IS-NDATA" "IS-NOTATION" "IS-Number" "IS-PCDATA" "IS-PUBLIC"
+   "IS-ParsedExtSubset" "IS-ParsedReference" "IS-PiCharData"
+   "IS-PiTarget" "IS-PubidCharData" "IS-REQUIRED" "IS-S" "IS-SYSTEM"
+   "IS-SystemCharData" "IS-VersionNumCharData" "IS-encoding"
+   "IS-standalone" "IS-version" "IgnoreCData-Constructor"
+   "NCName-Constructor" "Nmtoken-Constructor" "Number-Constructor"
+   "ParsedExtSubset-Constructor" "ParsedReference-Constructor"
+   "PiCharData-Constructor" "PiTarget-Constructor"
+   "PubidCharData-Constructor" "QName-Constructor" "READER"
+   "REQUIRED-Constructor" "StringType-Constructor"
+   "SystemCharData-Constructor" "TokenizedType-Constructor"
+   "VersionNumCharData-Constructor" "YesOrNo-Constructor"  
+   ))
+
+#| ISSUES
+
+; compilation unit finished
+;   Undefined functions:
+;     |xml|:IS-ANY |xml|:IS-EMPTY |xml|:IS-FIXED |xml|:IS-IGNORE |xml|:IS-IMPLIED |xml|:IS-INCLUDE |xml|:IS-NDATA |xml|:IS-NOTATION |xml|:IS-PCDATA |xml|:IS-PUBLIC |xml|:IS-REQUIRED |xml|:IS-SYSTEM |xml|:|IS-encoding| |xml|:|IS-standalone| |xml|:|IS-version| |xml|:READER
+
+... Where are those to be defined?
+
+(apropos "IS-ANY")
+^ note XML-PARSER::|IS-ANYToken| (fbound)
+(apropos "IS-standalone")
+^ note XML-PARSER::|IS-standaloneToken| (fbound)
+
+|#
+
+#| ISSUES
+
+production not defined in system: XML-PARSER::|Document|: |xml|:|Document-Parser|.
+   [Condition of type SIMPLE-ERROR]
+
+Restarts:
+ 0: [RETRY] Retry SLIME REPL evaluation request.
+ 1: [*ABORT] Return to SLIME's top level.
+ 2: [ABORT] Abort thread (#<THREAD "repl-thread" RUNNING {1006B600B3}>)
+
+Backtrace:
+  0: (|xml|:|Document-Parser| #<XML-PARSER::XML-INPUT {100BA8F493}> :TRACE NIL :TRACE-NETS NIL :START-NAME XML-PARSER::|Document| :MODE :MULTIPLE :REDUCE T :REGISTER-WORDS NIL)
+  1: ((:METHOD XML-PARSER:DOCUMENT-PARSER (STREAM)) #<XML-UTILS:VECTOR-INPUT-STREAM #(3C 66 6F 6F 20 62 61 72 3D 27 71 75 75 78 27 2F 3E)>) [fast-method]
+  2: ((:METHOD XML-PARSER:DOCUMENT-PARSER (STRING)) "<foo bar='quux'/>") [fast-method]
+  3: (SB-INT:SIMPLE-EVAL-IN-LEXENV (XML-PARSER:DOCUMENT-PARSER "<foo bar='quux'/>") #<NULL-LEXENV>)
+  4: (EVAL (XML-PARSER:DOCUMENT-PARSER "<foo bar='quux'/>"))
+
+|#
+
 (defpackage :XML-PARSER
   (:nicknames :XMLP
               :de.setf.xml
@@ -619,7 +700,45 @@
               :de.setf.xml.process.implementation)
   (:use :BNFP
         ;; don't use ccl: leads to later problems loading other ccl utils #+CCL :ccl
-        :COMMON-LISP :XQDM :XUTILS)
+        :COMMON-LISP :XQDM :XUTILS
+        "xml")
+  (:shadowing-import-from  ;; cf. "xml" package
+   "xml" ;; ?? or #:xqdm ??
+   "IS-IMPLIED"
+   "IS-REQUIRED"
+   "IS-FIXED"
+   )
+  (:shadowing-import-from  ;; cf. "xml" package
+   #:cl
+   #:|*|
+   #:|+|
+   #:NOT
+   #:|<=|
+   #:|-|
+   #:|//|
+   #:|/|
+   #:|>|
+   #:IGNORE
+   #:|>=|
+   #:|=|
+   #:|<|)
+  (:shadowing-import-from  ;; cf. "xml" package
+   #:xqdm
+   #:|..|
+   #:NOTATION
+   #:ENTITIES)
+  (:shadowing-import-from   ;; cf. "xml" package
+   #:de.setf.clifs
+   #:SYSTEM)
+
+#|
+#+ISSUES - XML names not being exported ??
+
+; compilation unit finished
+;   Undefined functions:
+;     |xml|::|ANY-Constructor| |xml|::|AttCharData-Constructor| |xml|::|CDEnd-Constructor| |xml|::|CDStart-Constructor| |xml|::|CDataCharData-Constructor| |xml|::|Cardinality-Constructor| |xml|::|CharData-Constructor| |xml|::|CommentCharData-Constructor| |xml|::|DefaultAttCharData-Constructor| XML-PARSER::|Document-Parser| |xml|::|EMPTY-Constructor| |xml|::|EncNameCharData-Constructor| |xml|::|EntityData-Constructor| |xml|::|FIXED-Constructor| |xml|::|HexNumber-Constructor| |xml|::|IMPLIED-Constructor| |xml|::IS-ANY |xml|::|IS-AttCharData| |xml|::|IS-CDataCharData| |xml|::|IS-CharData| |xml|::|IS-CommentCharData| |xml|::|IS-DefaultAttCharData| |xml|::IS-EMPTY |xml|::|IS-EncNameCharData| |xml|::|IS-EntityData| |xml|::IS-FIXED |xml|::|IS-HexNumber| |xml|::IS-IGNORE |xml|::IS-IMPLIED |xml|::IS-INCLUDE |xml|::|IS-IgnoreCData| |xml|::|IS-NCName| |xml|::IS-NDATA |xml|::IS-NOTATION |xml|::|IS-Number| |xml|::IS-PCDATA |xml|::IS-PUBLIC |xml|::|IS-ParsedExtSubset| |xml|::|IS-ParsedReference| |xml|::|IS-PiCharData| |xml|::|IS-PiTarget| |xml|::|IS-PubidCharData| |xml|::IS-REQUIRED |xml|::IS-S |xml|::IS-SYSTEM |xml|::|IS-SystemCharData| |xml|::|IS-VersionNumCharData| |xml|::|IS-encoding| |xml|::|IS-standalone| |xml|::|IS-version| |xml|::|IgnoreCData-Constructor| |xml|::|NCName-Constructor| |xml|::|Nmtoken-Constructor| |xml|::|Number-Constructor| |xml|::|ParsedExtSubset-Constructor| |xml|::|ParsedReference-Constructor| |xml|::|PiCharData-Constructor| |xml|::|PiTarget-Constructor| |xml|::|PubidCharData-Constructor| |xml|::|QName-Constructor| XML-PARSER::READER |xml|::|REQUIRED-Constructor| |xml|::|StringType-Constructor| |xml|::|SystemCharData-Constructor| |xml|::|TokenizedType-Constructor| |xml|::|VersionNumCharData-Constructor| |xml|::|YesOrNo-Constructor|
+|#
+
   #+CCL (:shadowing-import-from :XQDM :TARGET)
   (:export
    :*CONSTRUCTION-CONTEXT*
@@ -720,28 +839,6 @@
   )
 
 
-(defpackage "xml" (:use)
-  (:nicknames "http://www.w3.org/XML/1998/namespace")
-  (:export " " "!=" "!=" "!==" "\"" "#FIXED" "#IMPLIED" "#PCDATA" "#REQUIRED"
-           "$" "%" "&" "&#" "&#x" "'" "(" "()" ")" ")*" "*" "*:" "+" ","
-           "-" "-->" "->" "." ".." "/" "//" "/>" ":" ":=" "::" ":*" ";" "<" "<!" "<!--"
-           "<!ATTLIST" "<!DOCTYPE" "<!ELEMENT" "<!ENTITY" "<!NOTATION"
-           "<![" "<![CDATA[" "</" "<=" "<?" "<?xml" "=" "==" ">" ">=" "?" "?>"
-           "@" "AFTER" "ANY" "ASCENDING" "BEFORE" "CDATA" "DESCENDING" "EMPTY"
-           "ENTITIES" "ENTITY" "ID" "IDREF" "IDREFS" "IGNORE" "INCLUDE"
-           "NDATA" "NMTOKEN" "NMTOKENS" "NOT" "NOTATION" "PUBLIC" "SYSTEM"
-           "[" "]" "]]>" "^"
-           "ancestor" "ancestor-or-self" "and" "attribute"
-           "child" "comment"
-           "descendant" "descendant-or-self" "div" "document"
-           "encoding" "following" "following-sibling"
-           "id" "key" "lang"
-           "mixed" "mod" "namespace" "no" "node" "not" "or"
-           "parent" "preceding" "preceding-sibling" "processing-instruction"
-           "root" "self" "standalone" "text" "union" "version" "xml" "yes"
-           "{" "|" "}"
-	   ;;; pre 20120414 this included the mac-encoded strik-thru-zero
-	   ))
 ;;
 ;;
 ;; packages for implementing xml data modeling.
