@@ -134,7 +134,7 @@
     (setf pattern name))
   `(defun ,(intern (concatenate 'string "IS-"
                                 (remove-if (complement #'alpha-char-p) name)
-                                "Token"))
+                                #+NIL "Token"))
           (value)
      ,(format nil "? = '~a'" name)
      (declare (type string value) (optimize (speed 3) (safety 0)))
@@ -150,6 +150,12 @@
   "no"  "NOTATION" "PUBLIC" "standalone" "SYSTEM"
   "version" "xml" "yes" 
   "#FIXED" "#IMPLIED" "#PCDATA" "#REQUIRED")
+
+(import '(IS-ANY IS-EMPTY IS-FIXED IS-IGNORE IS-IMPLIED IS-INCLUDE
+          IS-NDATA IS-NOTATION IS-PC DATA IS-PUBLIC IS-REQUIRED
+          IS-SYSTEM |IS-encoding| |IS-standalone| |IS-version|
+          IS-PCDATA)
+        (find-package "xml"))
 
 #| this is the original list of disjoint tokens. it is no onger pertinent
    as the grammar is represented with many tokens merged with markup literals.

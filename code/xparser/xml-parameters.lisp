@@ -248,8 +248,11 @@
    this is behaves like the general token buffer.")
 (defParameter *name-fill* nil
   "see *name-start*.")
+
+(declaim (type (integer 0 #.(1- array-dimension-limit)) *name-length*))
 (defParameter *name-length* 0
   "see *name-start*.")
+
 (defParameter *name-tokenizer* nil
   "binds the name tokenizer for a given parser invocation.")
 

@@ -77,7 +77,8 @@
                 :deftest
                 :deftests
                 :execute-tests
-                :trim-string-whitespace)
+                :trim-string-whitespace
+                :with-gensyms)
   (:EXPORT
    :deftest
    :deftests
@@ -167,6 +168,7 @@
    :report-condition
    :simple-continuable-condition
    :stream-eofp
+   :with-gensyms
    :xml-condition
    :xml-error
    :xml-warn
@@ -611,6 +613,179 @@
    :urn-string
    ))
 
+(defpackage "xml" (:use)
+  (:nicknames "http://www.w3.org/XML/1998/namespace")
+  (:export " " "!=" "!=" "!==" "\"" "#FIXED" "#IMPLIED" "#PCDATA" "#REQUIRED"
+           "$" "%" "&" "&#" "&#x" "'" "(" "()" ")" ")*" "*" "*:" "+" ","
+           "-" "-->" "->" "." ".." "/" "//" "/>" ":" ":=" "::" ":*" ";" "<" "<!" "<!--"
+           "<!ATTLIST" "<!DOCTYPE" "<!ELEMENT" "<!ENTITY" "<!NOTATION"
+           "<![" "<![CDATA[" "</" "<=" "<?" "<?xml" "=" "==" ">" ">=" "?" "?>"
+           "@" "AFTER" "ANY" "ASCENDING" "BEFORE" "CDATA" "DESCENDING" "EMPTY"
+           "ENTITIES" "ENTITY" "ID" "IDREF" "IDREFS" "IGNORE" "INCLUDE"
+           "NDATA" "NMTOKEN" "NMTOKENS" "NOT" "NOTATION" "PUBLIC" "SYSTEM"
+           "[" "]" "]]>" "^"
+           "ancestor" "ancestor-or-self" "and" "attribute"
+           "child" "comment"
+           "descendant" "descendant-or-self" "div" "document"
+           "encoding" "following" "following-sibling"
+           "id" "key" "lang"
+           "mixed" "mod" "namespace" "no" "node" "not" "or"
+           "parent" "preceding" "preceding-sibling" "processing-instruction"
+           "root" "self" "standalone" "text" "union" "version" "xml" "yes"
+           "{" "|" "}"
+	   ;;; pre 20120414 this included the mac-encoded strik-thru-zero
+	   )
+
+  (:export
+   "ANY-Constructor" "AttCharData-Constructor" "CDEnd-Constructor"
+   "CDStart-Constructor" "CDataCharData-Constructor"
+   "Cardinality-Constructor" "CharData-Constructor"
+   "CommentCharData-Constructor" "DefaultAttCharData-Constructor"
+   "Document-Parser" "EMPTY-Constructor" "EncNameCharData-Constructor"
+   "EntityData-Constructor" "FIXED-Constructor" "HexNumber-Constructor"
+   "IMPLIED-Constructor" "IS-AttCharData" "IS-CDataCharData"
+   "IS-CharData" "IS-CommentCharData" "IS-DefaultAttCharData" 
+   "IS-EncNameCharData" "IS-EntityData"  "IS-HexNumber"
+   "IS-IgnoreCData" "IS-NCName" "IS-Number" "IS-ParsedExtSubset"
+   "IS-ParsedReference" "IS-PiCharData" "IS-PiTarget"
+   "IS-PubidCharData" "IS-S"  "IS-SystemCharData"
+   "IS-VersionNumCharData" "IgnoreCData-Constructor"
+   "NCName-Constructor" "Nmtoken-Constructor" "Number-Constructor"
+   "ParsedExtSubset-Constructor" "ParsedReference-Constructor"
+   "PiCharData-Constructor" "PiTarget-Constructor"
+   "PubidCharData-Constructor" "QName-Constructor" #+NIL "READER"
+   "REQUIRED-Constructor" "StringType-Constructor"
+   "SystemCharData-Constructor" "TokenizedType-Constructor"
+   "VersionNumCharData-Constructor" "YesOrNo-Constructor"  
+   )
+  (:export 
+   ;; ATN-PARSER::ATN-NET-NAMES as defined within |xml|:|Document-Parser|
+   "Document" "Root" "Names" "Nmtokens" "EntityValue" "AttValue"
+   "AttChildSequence" "AttChild" "DefaultAttValue"
+   "DefaultAttChildSequence" "DefaultAttChild" "SystemLiteral"
+   "PubidLiteral" "Comment" "Pi" "CDSect" "Prolog" "DoctypeProlog"
+   "XMLDecl" "VersionInfo" "Eq" "MiscSequence" "Misc" "DoctypeDecl"  
+   "IntSubsetDecl" "DeclSep" "MarkupDecl" "ExtSubset" "ExtSubsetDecl"
+   "SDDecl" "Element" "STag" "AttributeSequence" "Attribute" "ETag"
+   "Content" "ElementDecl" "ContentSpec" "Children" "Cp" "ChoiceOrSeq"
+   "Choice" "Seq" "Mixed" "AttlistDecl" "AttDefSequence" "AttDef"
+   "AttType" "EnumeratedType" "NotationType" "NotationTypeSequence"
+   "Enumeration" "EnumerationSequence" "DefaultDecl" "ConditionalSect"
+   "IncludeSect" "IgnoreSect" "IgnoreSectContents" "Ignore"
+   "NamedConditionalSect" "CharRef" "Reference" "EntityRef"
+   "PEReference" "EntityDecl" "GEDecl" "PEDecl" "EntityDef" "PEDef"
+   "ExternalID" "NDataDecl" "TextDecl" "ExtParsedEnt" "EncodingDecl"
+   "NotationDecl" "PublicID" 
+   ))
+
+
+#| ISSUES - XMLP:DOCUMENT-PARSER (STRING &REST T) => |xml|:|Document-Parser|
+ [PARTLY RESOLVED]
+
+ (xmlp:document-parser "<foo fie='fum'/>")
+
+ ... resulted in :
+
+ production not defined in system: XML-PARSER::|Document|: |xml|:|Document-Parser|.
+    [Condition of type SIMPLE-ERROR]
+
+ Restarts:
+  0: [RETRY] Retry SLIME REPL evaluation request.
+  1: [*ABORT] Return to SLIME's top level.
+  2: [ABORT] Abort thread (#<THREAD "repl-thread" RUNNING {1006B600B3}>)
+
+ Backtrace:
+   0: (|xml|:|Document-Parser| #<XML-PARSER::XML-INPUT {100BA8F493}> :TRACE NIL :TRACE-NETS NIL :START-NAME XML-PARSER::|Document| :MODE :MULTIPLE :REDUCE T :REGISTER-WORDS NIL)
+   1: ((:METHOD XML-PARSER:DOCUMENT-PARSER (STREAM)) #<XML-UTILS:VECTOR-INPUT-STREAM #(3C 66 6F 6F 20 62 61 72 3D 27 71 75 75 78 27 2F 3E)>) [fast-method]
+   2: ((:METHOD XML-PARSER:DOCUMENT-PARSER (STRING)) "<foo fie='fum'/>") [fast-method]
+   3: (SB-INT:SIMPLE-EVAL-IN-LEXENV (XML-PARSER:DOCUMENT-PARSER "<foo fie='fum'/>") #<NULL-LEXENV>)
+   4: (EVAL (XML-PARSER:DOCUMENT-PARSER "<foo fie='fum'/>"))
+
+
+
+ Presumably, it was due to the following form, in the definition of |xml|:|Document-Parser|
+
+    (COMMON-LISP:UNLESS (COMMON-LISP:FIND ATN-PARSER::*ATN-START-NAME ATN-PARSER::ATN-NET-NAMES)
+      (COMMON-LISP:ERROR "production not defined in system: ~s: ~s." ATN-PARSER::*ATN-START-NAME '|Document-Parser|))
+
+ So, this issue required a momentary study of the ATN parser.
+
+ * How and where are the variables ATN-PARSER::*ATN-START-NAME
+   and ATN-PARSER::ATN-NET-NAMES bound, at the time when
+   |xml|:|Document-Parser| is called, in that form?
+     * See also: XML-PARSER:DOCUMENT-PARSER (STREAM)
+     * See also: |xml|:|Document-Parser|
+        * *ATN-START-NAME - from :START-NAME keyword, #'|Document-Parser|
+        * *ATN-NET-NAMES - is bound to a static value within the body
+          of the function |Document-Parser|
+
+ * See also: XML-PARSER::WITH-PARSE-ENVIRONMENT
+     * Note: This is where BNFP::*ATN-INPUT is bound to an instance of
+       class XML-PARSER::XML-INPUT
+
+ * See also: XML-UTILS:WITH-PARSETABLE
+
+
+ [PARTIAL RESOLUTION] Subsequent to this issue, more symbols were
+ exported form "xml". Following that change, the following issue occurs:
+
+ INCOMPLETE-PARSE signaled:
+ incomplete parse.
+ parser error with-state #<XML-PARSER::XML-PARSE-STATE :sources ((:SOURCE
+                                                                  #<XML-UTILS:VECTOR-INPUT-STREAM
+                                                                    #(3C
+                                                                      66)>
+                                                                  :POSITION
+                                                                  2
+                                                                  :COLUMN
+                                                                  3
+                                                                  :LINE
+                                                                  1)
+                                                                 (:SOURCE
+                                                                  #<XML-UTILS:VECTOR-INPUT-STREAM
+                                                                    #(3C
+                                                                      66
+                                                                      6F
+                                                                      6F
+                                                                      20
+                                                                      66
+                                                                      69
+                                                                      65
+                                                                      3D
+                                                                      27
+                                                                      66
+                                                                      75
+                                                                      6D
+                                                                      27
+                                                                      2F
+                                                                      3E)>
+                                                                  :POSITION
+                                                                  2
+                                                                  :COLUMN
+                                                                  1
+                                                                  :LINE
+                                                                  1)) :input #\f :token NIL :lexical-context |xml|:|Document| :source #<XML-PARSER::XML-INPUT
+
+                                                                                                                                        {100A450443}> :term |xml|:|Root| :non-terminal |xml|:|Prolog| :stack NIL >.
+    [Condition of type XML-QUERY-DATA-MODEL:INCOMPLETE-PARSE]
+
+ Restarts:
+  0: [RETRY] Retry SLIME interactive evaluation request.
+  1: [*ABORT] Return to SLIME's top level.
+  2: [ABORT] Abort thread (#<THREAD "worker" RUNNING {100A43E373}>)
+
+ Backtrace:
+   0: ((:METHOD XML-UTILS:XML-ERROR (ERROR)) #<XML-QUERY-DATA-MODEL:INCOMPLETE-PARSE {100A452D13}>) [fast-method]
+   1: ((:METHOD XML-UTILS:XML-ERROR (SYMBOL)) XML-QUERY-DATA-MODEL:INCOMPLETE-PARSE :RESULT NIL) [fast-method]
+   2: ((SB-PCL::FAST-METHOD XML-UTILS:XML-ERROR (SYMBOL)) #<unused argument> #<unused argument> XML-QUERY-DATA-MODEL:INCOMPLETE-PARSE :RESULT NIL) [more,optional]
+   3: ((:METHOD XML-PARSER:DOCUMENT-PARSER (STREAM)) #<XML-UTILS:VECTOR-INPUT-STREAM #(3C 66 6F 6F 20 66 69 65 3D 27 66 75 6D 27 2F 3E)>) [fast-method]
+   4: ((:METHOD XML-PARSER:DOCUMENT-PARSER (STRING)) "<foo fie='fum'/>") [fast-method]
+   5: (SB-INT:SIMPLE-EVAL-IN-LEXENV (XML-PARSER:DOCUMENT-PARSER "<foo fie='fum'/>") #<NULL-LEXENV>)
+   6: (EVAL (XML-PARSER:DOCUMENT-PARSER "<foo fie='fum'/>"))
+
+
+|#
+
 (defpackage :XML-PARSER
   (:nicknames :XMLP
               :de.setf.xml
@@ -619,7 +794,21 @@
               :de.setf.xml.process.implementation)
   (:use :BNFP
         ;; don't use ccl: leads to later problems loading other ccl utils #+CCL :ccl
-        :COMMON-LISP :XQDM :XUTILS)
+        :COMMON-LISP :XQDM :XUTILS
+        "xml")
+  (:shadowing-import-from
+   ;; shadow symbols in "xml" package
+   #:cl
+   #:|*| #:|+| #:NOT #:|<=| #:|-| #:|//| #:|/| #:|>| #:IGNORE #:|>=|
+   #:|=| #:|<|)
+  (:shadowing-import-from
+   ;; shadow symbols in "xml" package
+   #:xqdm
+   #:|..| #:NOTATION #:ENTITIES)
+  (:shadowing-import-from
+   ;; shadow symbols in "xml" package
+   #:de.setf.clifs
+   #:SYSTEM)
   #+CCL (:shadowing-import-from :XQDM :TARGET)
   (:export
    :*CONSTRUCTION-CONTEXT*
@@ -720,28 +909,6 @@
   )
 
 
-(defpackage "xml" (:use)
-  (:nicknames "http://www.w3.org/XML/1998/namespace")
-  (:export " " "!=" "!=" "!==" "\"" "#FIXED" "#IMPLIED" "#PCDATA" "#REQUIRED"
-           "$" "%" "&" "&#" "&#x" "'" "(" "()" ")" ")*" "*" "*:" "+" ","
-           "-" "-->" "->" "." ".." "/" "//" "/>" ":" ":=" "::" ":*" ";" "<" "<!" "<!--"
-           "<!ATTLIST" "<!DOCTYPE" "<!ELEMENT" "<!ENTITY" "<!NOTATION"
-           "<![" "<![CDATA[" "</" "<=" "<?" "<?xml" "=" "==" ">" ">=" "?" "?>"
-           "@" "AFTER" "ANY" "ASCENDING" "BEFORE" "CDATA" "DESCENDING" "EMPTY"
-           "ENTITIES" "ENTITY" "ID" "IDREF" "IDREFS" "IGNORE" "INCLUDE"
-           "NDATA" "NMTOKEN" "NMTOKENS" "NOT" "NOTATION" "PUBLIC" "SYSTEM"
-           "[" "]" "]]>" "^"
-           "ancestor" "ancestor-or-self" "and" "attribute"
-           "child" "comment"
-           "descendant" "descendant-or-self" "div" "document"
-           "encoding" "following" "following-sibling"
-           "id" "key" "lang"
-           "mixed" "mod" "namespace" "no" "node" "not" "or"
-           "parent" "preceding" "preceding-sibling" "processing-instruction"
-           "root" "self" "standalone" "text" "union" "version" "xml" "yes"
-           "{" "|" "}"
-	   ;;; pre 20120414 this included the mac-encoded strik-thru-zero
-	   ))
 ;;
 ;;
 ;; packages for implementing xml data modeling.
