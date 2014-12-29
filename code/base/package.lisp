@@ -970,7 +970,7 @@
      :undefine-tokenizer)))
 
 (unless (find :cl-http *features*)
-  (defpackage :http
+  (modpackage :http
     (:export :*standard-character-type*)))
 
 :EOF

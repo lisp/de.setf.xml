@@ -34,23 +34,28 @@
   |Document-Parser|)) 
 (COMMON-LISP:DEFUN |IS-QName| (ATN-PARSER::ITEM)
   (ATN-PARSER:%ATN-TRACE-FORM
-   (COMMON-LISP:AND ATN-PARSER::ITEM (COMMON-LISP:OR (XML-PARSER::|IS-QNameCharData| ATN-PARSER::ITEM)))))
+   (COMMON-LISP:AND ATN-PARSER::ITEM (COMMON-LISP:OR (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::|QNameCharData|)))))
 (COMMON-LISP:DEFUN |IS-Nmtoken| (ATN-PARSER::ITEM)
-  (ATN-PARSER:%ATN-TRACE-FORM (COMMON-LISP:AND ATN-PARSER::ITEM (COMMON-LISP:OR (XML-PARSER::|IS-NameCharData| ATN-PARSER::ITEM)))))
+  (ATN-PARSER:%ATN-TRACE-FORM
+   (COMMON-LISP:AND ATN-PARSER::ITEM (COMMON-LISP:OR (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::|NameCharData|)))))
 (COMMON-LISP:DEFUN |IS-YesOrNo| (ATN-PARSER::ITEM)
   (ATN-PARSER:%ATN-TRACE-FORM
    (COMMON-LISP:AND ATN-PARSER::ITEM
-                    (COMMON-LISP:OR (XML-PARSER::|IS-yesToken| ATN-PARSER::ITEM) (XML-PARSER::|IS-noToken| ATN-PARSER::ITEM)))))
+                    (COMMON-LISP:OR (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::|yes|)
+                                    (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::|no|)))))
 (COMMON-LISP:DEFUN |IS-StringType| (ATN-PARSER::ITEM)
-  (ATN-PARSER:%ATN-TRACE-FORM (COMMON-LISP:AND ATN-PARSER::ITEM (COMMON-LISP:OR (XML-PARSER::|IS-CDATAToken| ATN-PARSER::ITEM)))))
+  (ATN-PARSER:%ATN-TRACE-FORM
+   (COMMON-LISP:AND ATN-PARSER::ITEM (COMMON-LISP:OR (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::CDATA)))))
 (COMMON-LISP:DEFUN |IS-TokenizedType| (ATN-PARSER::ITEM)
   (ATN-PARSER:%ATN-TRACE-FORM
    (COMMON-LISP:AND ATN-PARSER::ITEM
-                    (COMMON-LISP:OR (XML-PARSER::|IS-IDToken| ATN-PARSER::ITEM) (XML-PARSER::|IS-IDREFToken| ATN-PARSER::ITEM)
-                                    (XML-PARSER::|IS-IDREFSToken| ATN-PARSER::ITEM) (XML-PARSER::|IS-ENTITYToken| ATN-PARSER::ITEM)
-                                    (XML-PARSER::|IS-ENTITIESToken| ATN-PARSER::ITEM)
-                                    (XML-PARSER::|IS-NMTOKENToken| ATN-PARSER::ITEM)
-                                    (XML-PARSER::|IS-NMTOKENSToken| ATN-PARSER::ITEM)))))
+                    (COMMON-LISP:OR (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::ID)
+                                    (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::IDREF)
+                                    (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::IDREFS)
+                                    (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::ENTITY)
+                                    (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-QUERY-DATA-MODEL:ENTITIES)
+                                    (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::NMTOKEN)
+                                    (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::NMTOKENS)))))
 (COMMON-LISP:DEFUN |IS-CDStart| (ATN-PARSER::ITEM)
   (ATN-PARSER:%ATN-TRACE-FORM
    (COMMON-LISP:AND ATN-PARSER::ITEM (COMMON-LISP:OR (COMMON-LISP:EQ ATN-PARSER::ITEM 'XML-PARSER::<![CDATA[)))))
@@ -439,8 +444,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Names/Names.2.6|
@@ -478,7 +482,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |NCName|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-NCName|
+                                                                                                   ((|IS-NCName|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|NCName|)
@@ -611,8 +615,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Nmtokens/Nmtokens.2.6|
@@ -784,7 +787,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |EntityData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-EntityData|
+                                                                                                   ((|IS-EntityData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|EntityData|)
@@ -852,7 +855,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |EntityData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-EntityData|
+                                                                                                   ((|IS-EntityData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|EntityData|)
@@ -1397,7 +1400,7 @@
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      |AttCharData|)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-AttCharData|
+                                                                                                     ((|IS-AttCharData|
                                                                                                        ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           '|AttCharData|)
@@ -1447,7 +1450,7 @@
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      |ParsedReference|)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-ParsedReference|
+                                                                                                     ((|IS-ParsedReference|
                                                                                                        ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           '|ParsedReference|)
@@ -1939,7 +1942,7 @@
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      |DefaultAttCharData|)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-DefaultAttCharData|
+                                                                                                     ((|IS-DefaultAttCharData|
                                                                                                        ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           '|DefaultAttCharData|)
@@ -1989,7 +1992,7 @@
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      |ParsedReference|)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-ParsedReference|
+                                                                                                     ((|IS-ParsedReference|
                                                                                                        ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           '|ParsedReference|)
@@ -2147,7 +2150,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |SystemCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-SystemCharData|
+                                                                                                   ((|IS-SystemCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|SystemCharData|)
@@ -2215,7 +2218,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |SystemCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-SystemCharData|
+                                                                                                   ((|IS-SystemCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|SystemCharData|)
@@ -2375,7 +2378,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |PubidCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-PubidCharData|
+                                                                                                   ((|IS-PubidCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|PubidCharData|)
@@ -2443,7 +2446,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |PubidCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-PubidCharData|
+                                                                                                   ((|IS-PubidCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|PubidCharData|)
@@ -2595,7 +2598,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |CommentCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-CommentCharData|
+                                                                                                   ((|IS-CommentCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|CommentCharData|)
@@ -2760,7 +2763,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |PiTarget|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-PiTarget|
+                                                                                                   ((|IS-PiTarget|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|PiTarget|)
@@ -2821,8 +2824,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Pi/Pi/Pi.2.6.8|
@@ -2838,7 +2840,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |PiCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-PiCharData|
+                                                                                                   ((|IS-PiCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|PiCharData|)
@@ -2980,7 +2982,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |CDataCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-CDataCharData|
+                                                                                                   ((|IS-CDataCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|CDataCharData|)
@@ -3483,8 +3485,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|XMLDecl.9|
@@ -3596,8 +3597,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|XMLDecl.9|
@@ -3719,8 +3719,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|VersionInfo.7|
@@ -3742,8 +3741,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|VersionInfo.7|
@@ -3796,7 +3794,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |VersionNumCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-VersionNumCharData|
+                                                                                                   ((|IS-VersionNumCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|VersionNumCharData|)
@@ -3845,7 +3843,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |version|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-versionToken|
+                                                                                                   ((|IS-version|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|version|)
@@ -3919,7 +3917,7 @@
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |VersionNumCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-VersionNumCharData|
+                                                                                                   ((|IS-VersionNumCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|VersionNumCharData|)
@@ -4032,8 +4030,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Eq.6|
@@ -4050,8 +4047,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Eq.7|
@@ -4085,8 +4081,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Eq.7|
@@ -4107,8 +4102,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Eq.6|
@@ -4349,8 +4343,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Misc.4|
@@ -4416,8 +4409,7 @@ NIL"
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      S)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::IS-S
-                                                                                                       ATN-PARSER::|item|)
+                                                                                                     ((IS-S ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           'S)
                                                                                                       (|Misc.4|
@@ -4473,8 +4465,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|DoctypeDecl.10|
@@ -4491,8 +4482,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|DoctypeDecl.13|
@@ -4536,8 +4526,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|DoctypeDecl.19|
@@ -4611,8 +4600,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|DoctypeDecl.10|
@@ -4671,8 +4659,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|DoctypeDecl.13|
@@ -4719,7 +4706,7 @@ NIL"
                                                                       (ATN-PARSER:%ATN-EDGE-BLOCK
                                                                        (DE.SETF.UTILITY.IMPLEMENTATION::TEST S)
                                                                        (COMMON-LISP:COND
-                                                                        ((XML-PARSER::IS-S ATN-PARSER::|item|)
+                                                                        ((IS-S ATN-PARSER::|item|)
                                                                          (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM* 'S)
                                                                          (|DoctypeDecl/DoctypeDecl/DoctypeDecl.2.7.12|
                                                                           (COMMON-LISP:1+ ATN-PARSER::INDEX)))
@@ -4811,7 +4798,7 @@ NIL"
                                                                       (ATN-PARSER:%ATN-EDGE-BLOCK
                                                                        (DE.SETF.UTILITY.IMPLEMENTATION::TEST S)
                                                                        (COMMON-LISP:COND
-                                                                        ((XML-PARSER::IS-S ATN-PARSER::|item|)
+                                                                        ((IS-S ATN-PARSER::|item|)
                                                                          (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM* 'S)
                                                                          (|DoctypeDecl.19| (COMMON-LISP:1+ ATN-PARSER::INDEX)))
                                                                         (COMMON-LISP:T (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM?* 'S)
@@ -5086,8 +5073,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|DeclSep.4|
@@ -5112,8 +5098,7 @@ NIL"
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      S)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::IS-S
-                                                                                                       ATN-PARSER::|item|)
+                                                                                                     ((IS-S ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           'S)
                                                                                                       (|DeclSep.4|
@@ -5149,7 +5134,7 @@ NIL"
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      |ParsedExtSubset|)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-ParsedExtSubset|
+                                                                                                     ((|IS-ParsedExtSubset|
                                                                                                        ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           '|ParsedExtSubset|)
@@ -5849,8 +5834,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|SDDecl.7|
@@ -5956,7 +5940,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |standalone|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-standaloneToken|
+                                                                                                   ((|IS-standalone|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|standalone|)
@@ -6060,8 +6044,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|SDDecl.7|
@@ -6406,8 +6389,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|STag.7|
@@ -6484,8 +6466,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|STag.7|
@@ -6746,8 +6727,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Attribute.7|
@@ -6844,8 +6824,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Attribute.7|
@@ -6944,8 +6923,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ETag.7|
@@ -6992,8 +6970,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ETag.7|
@@ -7173,7 +7150,7 @@ NIL"
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      |CharData|)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-CharData|
+                                                                                                     ((|IS-CharData|
                                                                                                        ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           '|CharData|)
@@ -7306,7 +7283,7 @@ NIL"
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      |ParsedReference|)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-ParsedReference|
+                                                                                                     ((|IS-ParsedReference|
                                                                                                        ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           '|ParsedReference|)
@@ -7374,8 +7351,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ElementDecl.10|
@@ -7392,8 +7368,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ElementDecl.11|
@@ -7410,8 +7385,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ElementDecl.12|
@@ -7480,8 +7454,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ElementDecl.10|
@@ -7528,8 +7501,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ElementDecl.11|
@@ -7570,8 +7542,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ElementDecl.12|
@@ -7740,8 +7711,7 @@ NIL"
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      EMPTY)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-EMPTYToken|
-                                                                                                       ATN-PARSER::|item|)
+                                                                                                     ((IS-EMPTY ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           'EMPTY)
                                                                                                       (COMMON-LISP:SETF EMPTY
@@ -7769,8 +7739,7 @@ NIL"
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      ANY)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-ANYToken|
-                                                                                                       ATN-PARSER::|item|)
+                                                                                                     ((IS-ANY ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           'ANY)
                                                                                                       (COMMON-LISP:SETF ANY
@@ -8208,8 +8177,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ChoiceOrSeq.10|
@@ -8283,8 +8251,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ChoiceOrSeq.9|
@@ -8301,8 +8268,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ChoiceOrSeq.9|
@@ -8390,8 +8356,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ChoiceOrSeq.10|
@@ -8489,8 +8454,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Choice.10|
@@ -8507,8 +8471,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Choice.15|
@@ -8525,8 +8488,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Choice.16|
@@ -8598,8 +8560,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Choice.9|
@@ -8616,8 +8577,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Choice.15|
@@ -8652,8 +8612,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Choice.16|
@@ -8694,8 +8653,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Choice.9|
@@ -8730,8 +8688,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Choice.10|
@@ -8826,8 +8783,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Seq.10|
@@ -8844,8 +8800,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Seq.15|
@@ -8862,8 +8817,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Seq.16|
@@ -8934,8 +8888,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Seq.9|
@@ -8957,8 +8910,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Seq.15|
@@ -8993,8 +8945,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Seq.16|
@@ -9035,8 +8986,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Seq.9|
@@ -9071,8 +9021,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Seq.10|
@@ -9163,8 +9112,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.11|
@@ -9193,8 +9141,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.17|
@@ -9211,8 +9158,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.18|
@@ -9229,8 +9175,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.19|
@@ -9293,8 +9238,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.25|
@@ -9311,8 +9255,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.26|
@@ -9334,8 +9277,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.17|
@@ -9370,8 +9312,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.18|
@@ -9454,8 +9395,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.25|
@@ -9472,8 +9412,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    PCDATA)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-PCDATAToken|
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-PCDATA ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'PCDATA)
                                                                                                     (|Mixed/Mixed.2.23|
@@ -9489,8 +9428,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.26|
@@ -9543,8 +9481,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.11|
@@ -9561,8 +9498,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    PCDATA)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-PCDATAToken|
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-PCDATA ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'PCDATA)
                                                                                                     (|Mixed/Mixed.2.7|
@@ -9590,8 +9526,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Mixed.19|
@@ -9682,8 +9617,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|AttlistDecl.10|
@@ -9753,8 +9687,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|AttlistDecl.9|
@@ -9771,8 +9704,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|AttlistDecl.9|
@@ -9844,8 +9776,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|AttlistDecl.10|
@@ -10083,8 +10014,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|AttDef.10|
@@ -10101,8 +10031,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|AttDef.11|
@@ -10175,8 +10104,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|AttDef.9|
@@ -10223,8 +10151,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|AttDef.10|
@@ -10265,8 +10192,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|AttDef.11|
@@ -10312,8 +10238,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|AttDef.9|
@@ -10696,8 +10621,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationType.10|
@@ -10714,8 +10638,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationType.11|
@@ -10732,8 +10655,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationType.12|
@@ -10804,8 +10726,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationType.10|
@@ -10841,8 +10762,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationType.11|
@@ -10884,8 +10804,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationType.12|
@@ -10921,7 +10840,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    NOTATION)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-NOTATIONToken|
+                                                                                                   ((IS-NOTATION
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'NOTATION)
@@ -10980,8 +10899,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationTypeSequence.10|
@@ -11052,8 +10970,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationTypeSequence.9|
@@ -11088,7 +11005,7 @@ NIL"
                                                                       (ATN-PARSER:%ATN-EDGE-BLOCK
                                                                        (DE.SETF.UTILITY.IMPLEMENTATION::TEST S)
                                                                        (COMMON-LISP:COND
-                                                                        ((XML-PARSER::IS-S ATN-PARSER::|item|)
+                                                                        ((IS-S ATN-PARSER::|item|)
                                                                          (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM* 'S)
                                                                          (|NotationTypeSequence.9|
                                                                           (COMMON-LISP:1+ ATN-PARSER::INDEX)))
@@ -11117,7 +11034,7 @@ NIL"
                                                                       (ATN-PARSER:%ATN-EDGE-BLOCK
                                                                        (DE.SETF.UTILITY.IMPLEMENTATION::TEST S)
                                                                        (COMMON-LISP:COND
-                                                                        ((XML-PARSER::IS-S ATN-PARSER::|item|)
+                                                                        ((IS-S ATN-PARSER::|item|)
                                                                          (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM* 'S)
                                                                          (|NotationTypeSequence.10|
                                                                           (COMMON-LISP:1+ ATN-PARSER::INDEX)))
@@ -11151,7 +11068,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |NCName|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-NCName|
+                                                                                                   ((|IS-NCName|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|NCName|)
@@ -11273,8 +11190,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Enumeration.7|
@@ -11316,8 +11232,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|Enumeration.7|
@@ -11415,8 +11330,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|EnumerationSequence.10|
@@ -11487,8 +11401,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|EnumerationSequence.6|
@@ -11550,7 +11463,7 @@ NIL"
                                                                       (ATN-PARSER:%ATN-EDGE-BLOCK
                                                                        (DE.SETF.UTILITY.IMPLEMENTATION::TEST S)
                                                                        (COMMON-LISP:COND
-                                                                        ((XML-PARSER::IS-S ATN-PARSER::|item|)
+                                                                        ((IS-S ATN-PARSER::|item|)
                                                                          (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM* 'S)
                                                                          (|EnumerationSequence.10|
                                                                           (COMMON-LISP:1+ ATN-PARSER::INDEX)))
@@ -11604,8 +11517,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|EnumerationSequence.6|
@@ -11763,7 +11675,7 @@ NIL"
                                                                       (ATN-PARSER:%ATN-EDGE-BLOCK
                                                                        (DE.SETF.UTILITY.IMPLEMENTATION::TEST FIXED)
                                                                        (COMMON-LISP:COND
-                                                                        ((XML-PARSER::|IS-FIXEDToken| ATN-PARSER::|item|)
+                                                                        ((IS-FIXED ATN-PARSER::|item|)
                                                                          (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM* 'FIXED)
                                                                          (COMMON-LISP:SETF FIXED
                                                                                              (COMMON-LISP:IF (COMMON-LISP:EQ
@@ -11790,7 +11702,7 @@ NIL"
                                                                       (ATN-PARSER:%ATN-EDGE-BLOCK
                                                                        (DE.SETF.UTILITY.IMPLEMENTATION::TEST S)
                                                                        (COMMON-LISP:COND
-                                                                        ((XML-PARSER::IS-S ATN-PARSER::|item|)
+                                                                        ((IS-S ATN-PARSER::|item|)
                                                                          (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM* 'S)
                                                                          (|DefaultDecl/DefaultDecl.2.5|
                                                                           (COMMON-LISP:1+ ATN-PARSER::INDEX)))
@@ -11810,7 +11722,7 @@ NIL"
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      REQUIRED)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-REQUIREDToken|
+                                                                                                     ((IS-REQUIRED
                                                                                                        ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           'REQUIRED)
@@ -11839,7 +11751,7 @@ NIL"
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      IMPLIED)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-IMPLIEDToken|
+                                                                                                     ((IS-IMPLIED
                                                                                                        ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           'IMPLIED)
@@ -12089,8 +12001,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|IncludeSect.10|
@@ -12107,8 +12018,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|IncludeSect.11|
@@ -12206,8 +12116,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|IncludeSect.10|
@@ -12224,8 +12133,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    INCLUDE)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-INCLUDEToken|
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-INCLUDE ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'INCLUDE)
                                                                                                     (|IncludeSect/IncludeSect.2.6|
@@ -12242,8 +12150,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|IncludeSect.11|
@@ -12382,8 +12289,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|IgnoreSect.10|
@@ -12400,8 +12306,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|IgnoreSect.11|
@@ -12471,8 +12376,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|IgnoreSect.10|
@@ -12489,8 +12393,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    IGNORE)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-IGNOREToken|
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-IGNORE ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'IGNORE)
                                                                                                     (|IgnoreSect/IgnoreSect.2.6|
@@ -12507,8 +12410,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|IgnoreSect.11|
@@ -12905,7 +12807,7 @@ NIL"
                                                                                                     (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                      |IgnoreCData|)
                                                                                                     (COMMON-LISP:COND
-                                                                                                     ((XML-PARSER::|IS-IgnoreCData|
+                                                                                                     ((|IS-IgnoreCData|
                                                                                                        ATN-PARSER::|item|)
                                                                                                       (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                           '|IgnoreCData|)
@@ -12980,8 +12882,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NamedConditionalSect.10|
@@ -12998,8 +12899,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NamedConditionalSect.11|
@@ -13104,7 +13004,7 @@ NIL"
                                                                       (ATN-PARSER:%ATN-EDGE-BLOCK
                                                                        (DE.SETF.UTILITY.IMPLEMENTATION::TEST S)
                                                                        (COMMON-LISP:COND
-                                                                        ((XML-PARSER::IS-S ATN-PARSER::|item|)
+                                                                        ((IS-S ATN-PARSER::|item|)
                                                                          (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM* 'S)
                                                                          (|NamedConditionalSect.10|
                                                                           (COMMON-LISP:1+ ATN-PARSER::INDEX)))
@@ -13143,7 +13043,7 @@ NIL"
                                                                       (ATN-PARSER:%ATN-EDGE-BLOCK
                                                                        (DE.SETF.UTILITY.IMPLEMENTATION::TEST S)
                                                                        (COMMON-LISP:COND
-                                                                        ((XML-PARSER::IS-S ATN-PARSER::|item|)
+                                                                        ((IS-S ATN-PARSER::|item|)
                                                                          (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM* 'S)
                                                                          (|NamedConditionalSect.11|
                                                                           (COMMON-LISP:1+ ATN-PARSER::INDEX)))
@@ -13343,7 +13243,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |Number|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-Number|
+                                                                                                   ((|IS-Number|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|Number|)
@@ -13410,7 +13310,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |HexNumber|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-HexNumber|
+                                                                                                   ((|IS-HexNumber|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|HexNumber|)
@@ -13704,7 +13604,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |NCName|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-NCName|
+                                                                                                   ((|IS-NCName|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|NCName|)
@@ -13867,7 +13767,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |NCName|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-NCName|
+                                                                                                   ((|IS-NCName|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|NCName|)
@@ -14024,8 +13924,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|EntityDecl.6|
@@ -14042,8 +13941,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|EntityDecl.6|
@@ -14220,8 +14118,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|GEDecl.8|
@@ -14238,8 +14135,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|GEDecl.9|
@@ -14261,8 +14157,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|GEDecl.8|
@@ -14303,8 +14198,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|GEDecl.9|
@@ -14339,7 +14233,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |NCName|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-NCName|
+                                                                                                   ((|IS-NCName|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|NCName|)
@@ -14406,8 +14300,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PEDecl.10|
@@ -14424,8 +14317,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PEDecl.11|
@@ -14442,8 +14334,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PEDecl.12|
@@ -14516,8 +14407,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PEDecl.10|
@@ -14534,7 +14424,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |NCName|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-NCName|
+                                                                                                   ((|IS-NCName|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|NCName|)
@@ -14566,8 +14456,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PEDecl.11|
@@ -14607,8 +14496,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PEDecl.12|
@@ -15016,8 +14904,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ExternalID.13|
@@ -15034,8 +14921,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ExternalID.14|
@@ -15105,8 +14991,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ExternalID.7|
@@ -15146,8 +15031,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ExternalID.14|
@@ -15187,8 +15071,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    SYSTEM)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-SYSTEMToken|
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-SYSTEM ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'SYSTEM)
                                                                                                     (|ExternalID/ExternalID.2.5|
@@ -15204,8 +15087,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ExternalID.7|
@@ -15245,8 +15127,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    PUBLIC)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-PUBLICToken|
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-PUBLIC ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'PUBLIC)
                                                                                                     (|ExternalID/ExternalID.2.9|
@@ -15262,8 +15143,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|ExternalID.13|
@@ -15386,8 +15266,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NDataDecl.7|
@@ -15404,8 +15283,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NDataDecl.8|
@@ -15427,8 +15305,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    NDATA)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-NDATAToken|
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-NDATA ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'NDATA)
                                                                                                     (|NDataDecl/NDataDecl.2.5|
@@ -15445,8 +15322,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NDataDecl.8|
@@ -15463,7 +15339,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |NCName|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-NCName|
+                                                                                                   ((|IS-NCName|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|NCName|)
@@ -15495,8 +15371,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NDataDecl.7|
@@ -15601,8 +15476,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|TextDecl.8|
@@ -15691,8 +15565,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|TextDecl.8|
@@ -15984,8 +15857,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|EncodingDecl.7|
@@ -16038,7 +15910,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |EncNameCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-EncNameCharData|
+                                                                                                   ((|IS-EncNameCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|EncNameCharData|)
@@ -16087,7 +15959,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |encoding|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-encodingToken|
+                                                                                                   ((|IS-encoding|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|encoding|)
@@ -16161,7 +16033,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |EncNameCharData|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-EncNameCharData|
+                                                                                                   ((|IS-EncNameCharData|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|EncNameCharData|)
@@ -16197,8 +16069,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|EncodingDecl.7|
@@ -16255,8 +16126,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationDecl.10|
@@ -16273,8 +16143,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationDecl.11|
@@ -16291,8 +16160,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationDecl.12|
@@ -16367,8 +16235,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationDecl.10|
@@ -16385,7 +16252,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    |NCName|)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-NCName|
+                                                                                                   ((|IS-NCName|
                                                                                                      ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         '|NCName|)
@@ -16417,8 +16284,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationDecl.11|
@@ -16459,8 +16325,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|NotationDecl.12|
@@ -16555,8 +16420,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PublicID.12|
@@ -16573,8 +16437,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PublicID.15|
@@ -16643,8 +16506,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PublicID.7|
@@ -16700,8 +16562,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PublicID.15|
@@ -16741,8 +16602,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    SYSTEM)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-SYSTEMToken|
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-SYSTEM ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'SYSTEM)
                                                                                                     (|PublicID/PublicID.2.5|
@@ -16758,8 +16618,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PublicID.7|
@@ -16799,8 +16658,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    PUBLIC)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::|IS-PUBLICToken|
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-PUBLIC ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'PUBLIC)
                                                                                                     (|PublicID/PublicID.2.9|
@@ -16816,8 +16674,7 @@ NIL"
                                                                                                   (DE.SETF.UTILITY.IMPLEMENTATION::TEST
                                                                                                    S)
                                                                                                   (COMMON-LISP:COND
-                                                                                                   ((XML-PARSER::IS-S
-                                                                                                     ATN-PARSER::|item|)
+                                                                                                   ((IS-S ATN-PARSER::|item|)
                                                                                                     (COMMON-LISP:SETF ATN-PARSER:*ATN-TERM*
                                                                                                                         'S)
                                                                                                     (|PublicID.12|
@@ -17031,7 +16888,7 @@ NIL"
                     ((:REDUCE ATN-PARSER:*ATN-REDUCE*) COMMON-LISP:T)
                     ((:REGISTER-WORDS ATN-PARSER:*ATN-REGISTER-WORDS) COMMON-LISP:NIL) COMMON-LISP:&ALLOW-OTHER-KEYS
                     COMMON-LISP:&AUX)
-  "// generated 2013.07.27T16:59:49 based on \"XML:BNF;XML-GRAMMAR.BNF\" from 2006.08.09T23:18:05.
+  "// generated 2014.12.29T01:06:50 based on \"XML:BNF;XML-GRAMMAR.BNF\" from 2006.08.09T21:18:05.
 /*
 <DOCUMENTATION>
  <DESCRIPTION>
