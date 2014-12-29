@@ -345,7 +345,6 @@ be possible
 ;; for use in declaration contexts, allow the operator after the <![ to be tokenized
 (defun |<-reader| (&aux (byte 0) name)
   (declare (type fixnum byte)
-           (ftype (function (t) integer) reader)
            (inline =)
            (optimize (speed 3) (safety 0)))
   (setf byte (get-next-input-no-eof))
@@ -371,7 +370,6 @@ be possible
 
 (defun |<-ignore-reader| (&aux (byte 0))
   (declare (type fixnum byte)
-           (ftype (function (t) integer) reader)
            (inline =)
            (optimize (speed 3) (safety 0)))
   (setf byte (get-next-input-no-eof))
@@ -394,7 +392,6 @@ be possible
 ;; permits no declarations
 (defun |<![CDATA[-reader| (&aux (byte 0) name)
   (declare (type fixnum byte)
-           (ftype (function (t) fixnum) reader)
            (inline =)
            (optimize (speed 3) (safety 0)))
   (setf byte (get-next-input-no-eof))
