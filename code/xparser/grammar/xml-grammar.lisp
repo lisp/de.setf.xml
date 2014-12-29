@@ -7033,7 +7033,7 @@ NIL"
                      (|Reference| COMMON-LISP:NIL))
    "{43} Content ::= (CharData | Element | Comment | Pi | CDSect | Reference | ParsedReference)
 (|CDSect| |xml|::|CharData| |Comment| |Element| |xml|::|ParsedReference| |Pi|
- |Reference|)"
+          |Reference|)"
    (COMMON-LISP:DECLARE (COMMON-LISP:SPECIAL |Content-INDEX|))
    (COMMON-LISP:DECLARE (COMMON-LISP:TYPE COMMON-LISP:FIXNUM ATN-PARSER::INDEX |Content-INDEX| ATN-PARSER:*ATN-LEVEL))
    (COMMON-LISP:DECLARE (COMMON-LISP:OPTIMIZE (COMMON-LISP:SPEED 1) (COMMON-LISP:SAFETY 3)))
@@ -16831,7 +16831,7 @@ NIL"
                     ((:REDUCE ATN-PARSER:*ATN-REDUCE*) COMMON-LISP:T)
                     ((:REGISTER-WORDS ATN-PARSER:*ATN-REGISTER-WORDS) COMMON-LISP:NIL) COMMON-LISP:&ALLOW-OTHER-KEYS
                     COMMON-LISP:&AUX)
-  "// generated 2014.12.28T10:25:21 based on \"XML:BNF;XML-GRAMMAR.BNF\" from 2014.12.26T22:28:34.
+  "// generated 2014.12.28T18:49:22 based on \"XML:BNF;XML-GRAMMAR.BNF\" from 2014.12.26T22:28:34.
 /*
 <DOCUMENTATION>
  <DESCRIPTION>
@@ -17116,15 +17116,16 @@ NIL"
                     (|PublicID-INDEX| -1)
                     (ATN-PARSER::ATN-NET-NAMES
                      '(|Document| |Root| |Names| |Nmtokens| |EntityValue| |AttValue| |AttChildSequence| |AttChild|
-                       |DefaultAttValue| |DefaultAttChildSequence| |DefaultAttChild| |SystemLiteral| |PubidLiteral| |Comment| |Pi|
-                       |CDSect| |Prolog| |DoctypeProlog| |XMLDecl| |VersionInfo| |Eq| |MiscSequence| |Misc| |DoctypeDecl|
-                       |IntSubsetDecl| |DeclSep| |MarkupDecl| |ExtSubset| |ExtSubsetDecl| |SDDecl| |Element| |STag|
-                       |AttributeSequence| |Attribute| |ETag| |Content| |ElementDecl| |ContentSpec| |Children| |Cp| |ChoiceOrSeq|
-                       |Choice| |Seq| |Mixed| |AttlistDecl| |AttDefSequence| |AttDef| |AttType| |EnumeratedType| |NotationType|
-                       |NotationTypeSequence| |Enumeration| |EnumerationSequence| |DefaultDecl| |ConditionalSect| |IncludeSect|
-                       |IgnoreSect| |IgnoreSectContents| |Ignore| |NamedConditionalSect| |CharRef| |Reference| |EntityRef|
-                       |PEReference| |EntityDecl| |GEDecl| |PEDecl| |EntityDef| |PEDef| |ExternalID| |NDataDecl| |TextDecl|
-                       |ExtParsedEnt| |EncodingDecl| |NotationDecl| |PublicID|)))
+                                  |DefaultAttValue| |DefaultAttChildSequence| |DefaultAttChild| |SystemLiteral| |PubidLiteral|
+                                  |Comment| |Pi| |CDSect| |Prolog| |DoctypeProlog| |XMLDecl| |VersionInfo| |Eq| |MiscSequence|
+                                  |Misc| |DoctypeDecl| |IntSubsetDecl| |DeclSep| |MarkupDecl| |ExtSubset| |ExtSubsetDecl| |SDDecl|
+                                  |Element| |STag| |AttributeSequence| |Attribute| |ETag| |Content| |ElementDecl| |ContentSpec|
+                                  |Children| |Cp| |ChoiceOrSeq| |Choice| |Seq| |Mixed| |AttlistDecl| |AttDefSequence| |AttDef|
+                                  |AttType| |EnumeratedType| |NotationType| |NotationTypeSequence| |Enumeration|
+                                  |EnumerationSequence| |DefaultDecl| |ConditionalSect| |IncludeSect| |IgnoreSect|
+                                  |IgnoreSectContents| |Ignore| |NamedConditionalSect| |CharRef| |Reference| |EntityRef|
+                                  |PEReference| |EntityDecl| |GEDecl| |PEDecl| |EntityDef| |PEDef| |ExternalID| |NDataDecl|
+                                  |TextDecl| |ExtParsedEnt| |EncodingDecl| |NotationDecl| |PublicID|)))
     (COMMON-LISP:DECLARE
      (COMMON-LISP:SPECIAL |Document-INDEX| |Root-INDEX| |Names-INDEX| |Nmtokens-INDEX| |EntityValue-INDEX| |AttValue-INDEX|
       |AttChildSequence-INDEX| |AttChild-INDEX| |DefaultAttValue-INDEX| |DefaultAttChildSequence-INDEX| |DefaultAttChild-INDEX|
