@@ -1,14 +1,17 @@
 ;;; -*- Mode: lisp; Syntax: ansi-common-lisp; Base: 10; Package: common-lisp-user; -*-
 ;;; 20100513T131613Z00
 ;;; from #<doc-node http://www.w3.org/1999/02/22-rdf-syntax-ns #x26B2EE16>
+;;; 20130210
+;;; add HTML as per http://www.w3.org/TR/rdf11-concepts/#section-Datatypes
 
 (in-package :common-lisp-user)
 
 (defpackage "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   (:use )
   (:nicknames "rdf")
-  (:export "Alt" "Bag" "first" "List" "object" "predicate" "Property" "rest"
-           "Seq" "Statement" "subject" "type" "value"))
+  (:export "Alt" "Bag" "first" "HTML" "langString" "List" "nil" "object"
+           "PlainLiteral" "predicate" "Property" "rest"
+           "Seq" "Statement" "subject" "type" "value" "XMLLiteral"))
 
 (in-package "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 
@@ -18,11 +21,11 @@
   :definitions
   ((de.setf.resource.schema:defclass |Alt|
      (|http://www.w3.org/2000/01/rdf-schema#|:|Container|)
-     nil)
+     ())
    
    (de.setf.resource.schema:defclass |Bag|
      (|http://www.w3.org/2000/01/rdf-schema#|:|Container|)
-     nil)
+     ())
    
    (de.setf.resource.schema:defclass |List|
      (|http://www.w3.org/2000/01/rdf-schema#|:|Resource|)
@@ -32,11 +35,11 @@
    
    (de.setf.resource.schema:defclass |Property|
      (|http://www.w3.org/2000/01/rdf-schema#|:|Resource|)
-     nil)
+     ())
    
    (de.setf.resource.schema:defclass |Seq|
      (|http://www.w3.org/2000/01/rdf-schema#|:|Container|)
-     nil)
+     ())
    
    (de.setf.resource.schema:defclass |Statement|
      (|http://www.w3.org/2000/01/rdf-schema#|:|Resource|)
