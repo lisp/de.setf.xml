@@ -77,7 +77,8 @@
                 :deftest
                 :deftests
                 :execute-tests
-                :trim-string-whitespace)
+                :trim-string-whitespace
+                :with-gensyms)
   (:EXPORT
    :deftest
    :deftests
@@ -167,6 +168,7 @@
    :report-condition
    :simple-continuable-condition
    :stream-eofp
+   :with-gensyms
    :xml-condition
    :xml-error
    :xml-warn
@@ -676,83 +678,13 @@
    "NotationDecl" "PublicID" 
    ))
 
-#| ISSUES - Functions made reference to but not defined in XML parser model [PARTIALLY SOLVED]
-
-; compilation unit finished
-;   Undefined functions:
-;     |xml|::IS-ANY |xml|::IS-EMPTY |xml|::IS-FIXED |xml|::IS-IGNORE |xml|::IS-IMPLIED |xml|::IS-INCLUDE |xml|::IS-NDATA |xml|::IS-NOTATION |xml|::IS-PCDATA |xml|::IS-PUBLIC |xml|::IS-REQUIRED |xml|::IS-SYSTEM |xml|::|IS-encoding| |xml|::|IS-standalone| |xml|::|IS-version| XML-PARSER::READER
-
- Where are those functions to be defined?
-
- (apropos "IS-ANY")
- ^ note XML-PARSER::|IS-ANYToken| (fbound)
- (apropos "IS-standalone")
- ^ note XML-PARSER::|IS-standaloneToken| (fbound)
-
- Continuing with the example of |xml|::IS-ANY, the function is used for
- instance within |xml|::|ContentSpec|
-
- So, but perhaps there's a workaround for those functions - to append
- the name "Token" to the missing function's name? That could be
- addressed with something of a function-aliasing procedure. The
- side effects might be unspecific, however, if interacting with an
- implementation's function binding information, source location
- information, etc, as to define 'alias functions'
-
- As for the missing XML-PARSER::READER function [SOLVED]
- 
- Referring to "xml:code;xparser;xml-readers.lisp", READER is
- declared with an FTYPE declaration in the lexical environment of some
- functions' lambda forms, but is not used within those lambda
- forms. Removing those function declarations, that feature of the
- issue is closed.
- [SOLVED - READER]
-
- This issue should need to be completely resolved for the functioning
- of this system (as tested within SBCL 1.2.6). 
-
-
- An observation:
-
- (xmlp:document-parser "<?xml version='1.0'?> <foo bar='quux'/>")
- 
- ... presently results in ...
-
- The function |xml|::|IS-version| is undefined.
-    [Condition of type UNDEFINED-FUNCTION]
-
- Restarts:
-  0: [RETRY] Retry SLIME REPL evaluation request.
-  1: [*ABORT] Return to SLIME's top level.
-  2: [ABORT] Abort thread (#<THREAD "repl-thread" RUNNING {1006D100B3}>)
-
- Backtrace:
-   0: ("undefined function")
-   1: ((LABELS |xml|::|VersionInfo.7| :IN |xml|:|VersionInfo|) 2)
-   2: (|xml|:|VersionInfo| 1)
-   3: (ATN-PARSER::ATN-PARSE-SUBSTRUCTURE |xml|:|VersionInfo| 1)
-   4: (|xml|:|XMLDecl| 0)
-   5: (ATN-PARSER::ATN-PARSE-SUBSTRUCTURE |xml|:|XMLDecl| 0)
-   6: (|xml|:|Prolog| 0)
-   7: (ATN-PARSER::ATN-PARSE-SUBSTRUCTURE |xml|:|Prolog| 0)
-   8: (|xml|:|Document| 0)
-   9: (ATN-PARSER::ATN-PARSE-SUBSTRUCTURE |xml|:|Document| 0)
-  10: (|xml|:|Document-Parser| #<XML-PARSER::XML-INPUT {100A6A7463}> :TRACE NIL :TRACE-NETS NIL :START-NAME |xml|:|Document| :MODE :MULTIPLE :REDUCE T :REGISTER-WORDS NIL)
-  11: ((:METHOD XML-PARSER:DOCUMENT-PARSER (STREAM)) #<XML-UTILS:VECTOR-INPUT-STREAM #(3C 3F 78 6D 6C 20 76 65 72 73 69 6F 6E 3D 27 31 2E 30 27 3F 3E 20 3C 66 6F 6F 20 62 61 72 3D 27 ...)>) [fast-method]
-  12: ((:METHOD XML-PARSER:DOCUMENT-PARSER (STRING)) "<?xml version='1.0'?> <foo bar='quux'/>") [fast-method]
-  13: (SB-INT:SIMPLE-EVAL-IN-LEXENV (XML-PARSER:DOCUMENT-PARSER "<?xml version='1.0'?> <foo bar='quux'/>") #<NULL-LEXENV>)
-  14: (EVAL (XML-PARSER:DOCUMENT-PARSER "<?xml version='1.0'?> <foo bar='quux'/>"))
-
- 
-|#
-
 
 #| ISSUES - XMLP:DOCUMENT-PARSER (STRING &REST T) => |xml|:|Document-Parser|
  [PARTLY RESOLVED]
 
  (xmlp:document-parser "<foo fie='fum'/>")
 
- ... results in :
+ ... resulted in :
 
  production not defined in system: XML-PARSER::|Document|: |xml|:|Document-Parser|.
     [Condition of type SIMPLE-ERROR]
@@ -771,12 +703,12 @@
 
 
 
- Presumably, this would be due to the following form, in the definition of |xml|:|Document-Parser|
+ Presumably, it was due to the following form, in the definition of |xml|:|Document-Parser|
 
     (COMMON-LISP:UNLESS (COMMON-LISP:FIND ATN-PARSER::*ATN-START-NAME ATN-PARSER::ATN-NET-NAMES)
       (COMMON-LISP:ERROR "production not defined in system: ~s: ~s." ATN-PARSER::*ATN-START-NAME '|Document-Parser|))
 
- So, this requires a study of the ATN parser.
+ So, this issue required a momentary study of the ATN parser.
 
  * How and where are the variables ATN-PARSER::*ATN-START-NAME
    and ATN-PARSER::ATN-NET-NAMES bound, at the time when
