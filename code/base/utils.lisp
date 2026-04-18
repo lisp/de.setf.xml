@@ -738,7 +738,7 @@
 	                  #+(or CMU scl) (sys:make-fd-stream (ext:connect-to-inet-socket (host-string ,url-sym) (or (port ,url-sym) 80)) :buffering :full :element-type '(unsigned-byte 8))
 	                  #+sbcl (usocket:socket-stream
 				  (usocket:socket-connect (host-string ,url-sym) (or (port ,url-sym) 80) :element-type '(unsigned-byte 8)))
-                          #+clozure-common-lisp (make-ip-socket :remove-host (host-string ,url-sym) :remote-port (or (port ,url-sym) 80))
+                          #+clozure-common-lisp (make-ip-socket :remote-host (host-string ,url-sym) :remote-port (or (port ,url-sym) 80))
 	                  )
                     ;; (setf ,stream (ccl::open-tcp-stream (host ,url-sym) (port ,url-sym) :element-type 'unsigned-byte))
                     ;; 1.0 requests, no chunking

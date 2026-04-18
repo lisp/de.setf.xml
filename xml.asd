@@ -25,7 +25,7 @@
   ;; :class asdf:nicknamed-system
   ;; :nicknames (:setf.xml)
   ;; leave out by default :weakly-depends-on (:org.cl-http)
-  :depends-on (:net.common-lisp.usocket
+  :depends-on (:usocket ; :net.common-lisp.usocket
                :de.setf.utility
                ; :de.setf.utility.bsd ;; if one wants to open dom graphs automatically in a browser
                :de.setf.utility.mime

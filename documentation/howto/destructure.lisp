@@ -38,7 +38,7 @@
             (push (pop body) preface)
             (return)))
     (setf preface (nreverse preface))
-    (flet ((aspects (binding)             ; returns the variable, default, and keyword/name components
+    (flet ((binding-aspects (binding)             ; returns the variable, default, and keyword/name components
              (if (consp binding)
                (if (consp (first binding))
                  (values (cadar binding) (cadr binding) (caar binding))
@@ -73,7 +73,7 @@
                     (when annotation-bindings
                       (if (and (consp annotation-bindings) (not (eq (first annotation-bindings) '&rest)))
                         (mapcar #'(lambda (binding)
-                                    (multiple-value-bind (variable default name) (aspects binding)
+                                    (multiple-value-bind (variable default name) (binding-aspects binding)
                                       (when (symbolp name) (setf name `(quote ,name)))
                                       `(,variable (annotation-attribute ,element-binding ,name
                                                                         ,@(when default (list default))))))
