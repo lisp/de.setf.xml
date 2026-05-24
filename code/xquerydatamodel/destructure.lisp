@@ -1,4 +1,4 @@
-
+;;;
 (in-package :xqdm)
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
@@ -62,7 +62,8 @@
                       (case (first content-bindings)
                         (&rest `((,(second content-bindings) (children ,element-binding))))
                         (&key (mapcar #'(lambda (binding)
-                                          (multiple-value-bind (variable default name) (aspects binding)
+                                          (multiple-value-bind (variable default name)
+                                                               (binding-aspects binding)
                                             (when (symbolp name) (setf name `(quote ,name)))
                                             `(,variable ,(if default `(or (child ,element-binding ',name) ,default)
                                                              `(child ,element-binding ',name)))))
